@@ -1,9 +1,18 @@
 # 变异体清单：三个"人写得出来的"真实缺陷，各自绑定应该抓住它的用例。
 #
 # 选择标准（不是随机翻转）：
-#   1. 形态真实 —— 注释校验、放宽边界、短路守卫，都是 PR 里出现过的写法
-#   2. 可归责 —— 注入后 git blame 能指向本次改动，用于验证分类器 S2 判据
-#   3. 可杀灭 —— 每条都必须在既有用例里有明确的"应该红"
+#   1. 形态真实 —— 注释校验、放宽边界、去掉守卫，都是 PR 里出现过的写法
+#   2. 可归责 —— 注入后 baseline..HEAD 的改动集能指向本次改动，用于验证分类器 S2 判据
+#   3. 可观测 —— 必须证明"改写后行为真的变了"。等价变异体不能算作断言缺口的证据
+#
+# 第 3 条是踩出来的（见 docs/mutation-equivalence.md）：
+#   最初的 M2（放宽 SalesOrderAllocation 超分配）与 M3（短路工单结单守卫）都被判"存活"，
+#   但读代码后发现它们**等价**——
+#     * order/models.py:3286 放宽后，order/models.py:3303 的 total_allocation 守卫仍然拦截；
+#     * build/models.py:1033 短路后，build/serializers.py:799 的
+#       'Build order has incomplete outputs' 仍然拦截。
+#   等价变异体存活只说明"变异没改变行为"，不说明"用例没断言"。把这两条当作断言缺口上报，
+#   就是把工具的无能粉饰成代码的问题。所以两个变异体都重挑，换成没有第二道守卫兜底的锚点。
 
 version: 1
 
@@ -18,22 +27,25 @@ mutations:
     expect_killed_by:
       - part.test_bom_item.BomItemTest.test_self_reference
 
-  - id: M2-over-allocation
-    file: src/backend/InvenTree/order/models.py
-    find: "if self.quantity > self.item.quantity:"
-    replace: "if self.quantity > self.item.quantity * 10:  # MUTANT: over-allocation tolerated"
+  - id: M2-trackable-fractional-quantity
+    file: src/backend/InvenTree/part/models.py
+    find: "if self.quantity != int(self.quantity):"
+    replace: "if False:  # MUTANT: fractional quantity on trackable parts tolerated"
     rationale: >
-      把"分配不得超库存"放宽十倍。线上表现是超卖：库存 10 却能分配 100，
-      且不会立刻报错，只在下游发运时暴露。单测层面的边界断言必须挡住它。
+      去掉"可追溯件的 BOM 用量必须是整数"这一条。
+      线上表现：可追溯件被按 21.7 个领用，序列号无法与用量对齐，
+      下游工单产出与库存账永远差一个小数。
+      该守卫在本仓没有第二道兜底（serializer 不做整数校验），因此可观测。
     expect_killed_by:
-      - order.test_api.SalesOrderAllocateTest.test_allocate
+      - part.test_bom_item.BomItemTest.test_integer_quantity
 
-  - id: M3-build-double-complete
-    file: src/backend/InvenTree/build/models.py
-    find: "if self.incomplete_count > 0:"
-    replace: "if False and self.incomplete_count > 0:  # MUTANT: incomplete-outputs guard disabled"
+  - id: M3-order-reference-pattern
+    file: src/backend/InvenTree/InvenTree/models.py
+    find: "if not InvenTree.format.validate_string(value, pattern):"
+    replace: "if False:  # MUTANT: reference pattern validation disabled"
     rationale: >
-      短路"未完成产出不得结单"的守卫。后果是工单可在产出未完成时结单，
-      库存被按 BOM 扣减而产出缺失——账实不符，且账面上一切正常。
+      关掉订单编号的模式校验。这是所有单据（SO/PO/BO…）共用的唯一守卫，
+      一旦失效，任意字符串都能成为编号，编号前缀契约（SO-/PO-/BO-）与排序全部作废，
+      且前端与报表的按前缀解析会静默错位——账面上一切正常。
     expect_killed_by:
-      - build.test_build.BuildTest.test_complete
+      - order.test_api.SalesOrderTest.test_so_create

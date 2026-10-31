@@ -25,7 +25,10 @@ import yaml
 sys.path.insert(0, str(Path(__file__).parent))
 from junit_lib import parse_junit_dir  # noqa: E402
 
-PY = os.environ.get("FLYWHEEL_PYTHON")
+# 被测进程必须用同一个解释器跑。这里不允许"没设置就 None"：
+# 之前 PY=None 会让 subprocess 在 list2cmdline 里抛 TypeError，
+# 而变异门禁会把上一次残留的 junit 目录当成本轮结果——静默失败，最坏的一种。
+PY = os.environ.get("FLYWHEEL_PYTHON") or sys.executable
 SECRET = os.environ.get("FLYWHEEL_SECRET_KEY", "devkey-devkey-devkey-devkey-devkey")
 
 

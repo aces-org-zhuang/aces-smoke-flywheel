@@ -18,6 +18,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import shutil
 import subprocess
 import sys
 import time
@@ -51,6 +53,7 @@ def main() -> int:
     invariants = yaml.safe_load((ROOT / args.suite).read_text(encoding="utf-8"))["invariants"]
     all_l1 = [t for inv in invariants for t in inv["tests"]]
 
+    baseline_commit = git(sut_root, "rev-parse", "HEAD")
     dirty = git(sut_root, "status", "--porcelain")
     if dirty:
         print("KS_GATE\tmutation-diff\tABORT\tworktree 不干净，变异结果不可信")
@@ -62,20 +65,54 @@ def main() -> int:
         path = sut_root / mut["file"]
         original = path.read_text(encoding="utf-8")
         occurrences = original.count(mut["find"])
-        if occurrences != 1:
+        nth = int(mut.get("nth", 1))
+        if occurrences < nth:
             results.append(
                 {
                     "id": mut["id"],
                     "status": "invalid",
-                    "detail": f"锚点出现 {occurrences} 次，必须恰好 1 次",
+                    "detail": f"锚点只出现 {occurrences} 次，要求至少 {nth} 次",
                 }
             )
             continue
 
-        path.write_text(original.replace(mut["find"], mut["replace"]), encoding="utf-8")
+        # 只替换第 nth 处，并记录被改的行号——证据要能指到具体一行
+        idx = -1
+        for _ in range(nth):
+            idx = original.index(mut["find"], idx + 1)
+        mutated = original[:idx] + mut["replace"] + original[idx + len(mut["find"]) :]
+        mutated_line = original[:idx].count("\n") + 1
+        path.write_text(mutated, encoding="utf-8")
+        # 缺陷必须成为一次"提交"，否则 git blame 永远看不到它，
+        # 分类器 S2（归属判定）也就无法证明自己有效。
+        subprocess.run(["git", "-C", str(sut_root), "add", "-A"], check=True)
+        subprocess.run(
+            [
+                "git",
+                "-C",
+                str(sut_root),
+                "-c",
+                "user.name=flywheel-mutant",
+                "-c",
+                "user.email=mutant@aces.local",
+                "commit",
+                "-q",
+                "-m",
+                f"MUTANT {mut['id']}: {mut['rationale'].strip().splitlines()[0][:60]}",
+            ],
+            check=True,
+        )
+        mutant_sha = git(sut_root, "rev-parse", "HEAD")
         run_id = f"mutation-{mut['id']}"
         selected = list(dict.fromkeys(mut["expect_killed_by"] + all_l1))
         started = time.time()
+        run_dir = ROOT / "5.evidence/runs" / run_id
+        # 先清空本轮目录：否则 runner 崩掉时会把上一轮残留的 JUnit 当成本轮结果，
+        # 门禁就会给出"killed"这种最危险的假绿。
+        if run_dir.exists():
+            shutil.rmtree(run_dir)
+        child_env = dict(os.environ)
+        child_env["FLYWHEEL_PYTHON"] = sys.executable
         try:
             subprocess.run(
                 [
@@ -87,34 +124,103 @@ def main() -> int:
                     ",".join(selected),
                 ],
                 cwd=str(ROOT),
+                env=child_env,
                 capture_output=True,
                 text=True,
                 encoding="utf-8",
                 errors="replace",
             )
-        finally:
-            path.write_text(original, encoding="utf-8")
-            subprocess.run(["git", "-C", str(sut_root), "checkout", "--", mut["file"]], check=False)
+            duration = round(time.time() - started, 2)
+            run_meta_path = run_dir / "run.json"
+            if not run_meta_path.exists():
+                results.append(
+                    {
+                        "id": mut["id"],
+                        "status": "invalid",
+                        "detail": "runner 未产出 run.json（进程未能启动或被环境打断），本轮结论不可用",
+                        "duration_s": duration,
+                    }
+                )
+                continue
+            run_meta = json.loads(run_meta_path.read_text(encoding="utf-8"))
+            if run_meta.get("collected", 0) == 0:
+                results.append(
+                    {
+                        "id": mut["id"],
+                        "status": "invalid",
+                        "detail": f"runner 收集到 0 个用例（exit={run_meta.get('exit_code')}），本轮结论不可用",
+                        "duration_s": duration,
+                    }
+                )
+                continue
 
-        duration = round(time.time() - started, 2)
-        run_dir = ROOT / "5.evidence/runs" / run_id
-        cases = parse_junit_dir(run_dir / "junit")
-        failed_names = {
-            f"{c['classname']}.{c['name']}" for c in cases if c["status"] in {"failed", "error"}
-        }
-        targets = mut["expect_killed_by"]
-        killed_by = [
-            t
-            for t in targets
-            if any(f == t or f.endswith(t.split(".", 1)[-1]) for f in failed_names)
-        ]
-        collateral = [
-            f for f in failed_names if not any(f.endswith(t.split(".", 1)[-1]) for t in targets)
-        ]
+            cases = parse_junit_dir(run_dir / "junit")
+            failed_names = {
+                f"{c['classname']}.{c['name']}"
+                for c in cases
+                if c["status"] in {"failed", "error"}
+            }
+            targets = mut["expect_killed_by"]
+            killed_by = [
+                t
+                for t in targets
+                if any(f == t or f.endswith(t.split(".", 1)[-1]) for f in failed_names)
+            ]
+            collateral = [
+                f
+                for f in failed_names
+                if not any(f.endswith(t.split(".", 1)[-1]) for t in targets)
+            ]
+
+            # 分类必须发生在缺陷提交仍是 HEAD 的时候：
+            # S2 的两条判据都依赖 baseline..HEAD 的改动集，一旦先 reset，
+            # 改动集为空，注入的缺陷就会被判成 unknown —— 门禁看起来跑了，其实没归因。
+            verdict_file = ROOT / "5.evidence/verdicts" / f"classification-{mut['id']}.json"
+            classify_env = dict(os.environ)
+            classify_env.pop("PYTHONHOME", None)
+            subprocess.run(
+                [
+                    sys.executable,
+                    str(ROOT / "4.gates/classify-failure/classify.py"),
+                    "--run-dir",
+                    str(run_dir),
+                    "--out",
+                    str(verdict_file),
+                    "--debt-ledger",
+                    str(ROOT / "5.evidence/verdicts/baseline-debt.json"),
+                    "--baseline-run",
+                    str(ROOT / "5.evidence/runs/baseline"),
+                ],
+                cwd=str(ROOT),
+                env=classify_env,
+                capture_output=True,
+                text=True,
+            )
+            head_during_classify = git(sut_root, "rev-parse", "HEAD")
+            classification = {}
+            if verdict_file.exists():
+                blob = json.loads(verdict_file.read_text(encoding="utf-8"))
+                classification = {
+                    "by_verdict": blob.get("by_verdict"),
+                    "unknown_ratio": blob.get("unknown_ratio"),
+                    "new_failure_unknown_ratio": blob.get("new_failure_unknown_ratio"),
+                    "diff_files": blob.get("diff_files"),
+                }
+        finally:
+            subprocess.run(
+                ["git", "-C", str(sut_root), "reset", "--hard", baseline_commit],
+                check=False,
+                capture_output=True,
+            )
 
         results.append(
             {
                 "id": mut["id"],
+                "mutant_commit": mutant_sha[:12],
+                "mutated_line": mutated_line,
+                "anchor_occurrences": occurrences,
+                "classification": classification,
+                "classified_at_head": head_during_classify[:12],
                 "file": mut["file"],
                 "rationale": mut["rationale"],
                 "mutant": mut["replace"].strip()[:120],

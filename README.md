@@ -3,6 +3,8 @@
 把"冒烟飞轮"从方案落成可执行资产的仓。**这不是一套测试框架，是一套判决机制**：
 用例不是资产，可追溯的契约才是；证据不是日志，能复算的判定才是。
 
+报告页：`docs/report.html`（由 `tools/build_report.py` 从 `5.evidence/` 渲染，页面数字全部可复算）。
+
 ## 这次实践测的是谁
 
 | 项 | 值 |
@@ -24,12 +26,13 @@
                  / dependency_graph.json / schema_version.json（与 commit 绑定）
 1.spec/          人写的规格：invariants.yaml（9 条不变量）、boundaries/*.boundary.yaml
 2.tests/         可执行用例：L3 黄金路径（真实 HTTP），L1 直接复用上游成品用例
-3.env/           运行底座：target.yaml（被测对象声明）、virtual/（声明式替身）、states/
+3.env/           运行底座：target.yaml（被测对象 + 环境偏差声明）、virtual/、states/
 4.gates/         门禁即代码：lint-boundary / classify-failure / mutation-diff / can-i-deploy
 5.evidence/      证据仓：runs/（每次运行的 junit+stdout）、verdicts/、ledger/
+docs/            方法对照（method.md）、域对照、变异等价性说明、报告页
 ```
 
-## 一次完整转动的六步
+## 一次完整转动的七步
 
 ```bash
 # 0) 生成 SSOT（必须与 commit 绑定）
@@ -39,25 +42,65 @@ python tools/emit_ssot.py --repo <SUT> --out 0.ssot
 python 4.gates/lint-boundary/lint.py
 
 # 2) L1：跑 9 条不变量指向的上游用例
-python tools/run_l1.py --run-id l1-<ts>
+python tools/run_l1.py --run-id l1-run-01
 
-# 3) 失败定责（确定性分类器，LLM 不参与）
-python 4.gates/classify-failure/classify.py --run-dir 5.evidence/runs/l1-<ts>
+# 3) 基线全量 + 建账（存量债务台账，每条带 owner 与到期日）
+python 4.gates/classify-failure/classify.py \
+       --run-dir 5.evidence/runs/baseline \
+       --out 5.evidence/verdicts/classification-baseline.json \
+       --write-ledger 5.evidence/verdicts/baseline-debt.json
 
-# 4) 变异：注入真实缺陷，看用例能不能抓
+# 4) 候选定责（增量口径：只看新增失败）
+python 4.gates/classify-failure/classify.py \
+       --run-dir 5.evidence/runs/l1-run-01 \
+       --out 5.evidence/verdicts/classification.json \
+       --debt-ledger 5.evidence/verdicts/baseline-debt.json
+
+# 5) 变异：注入真实缺陷，看用例能不能抓
 python 4.gates/mutation-diff/run_mutation.py
 
-# 5) 部署闸门：只看证据
-python 4.gates/can-i-deploy/can_i_deploy.py
+# 6) 部署闸门：只看证据，候选集必须显式指定
+python 4.gates/can-i-deploy/can_i_deploy.py --candidate l1-run-01
 ```
+
+## 分类器的五条判据（顺序不可逆）
+
+| 规则 | 判据 | 证据 |
+|---|---|---|
+| S0 | 失败文本命中 `3.env/target.yaml` 里**已声明且探针验证过**的环境偏差 | 偏差声明 + 命中串 |
+| S1 | 同 commit 重跑两次均过 → flaky | `rerun.json` |
+| S2a | 失败栈里的生产文件出现在 `baseline..HEAD` 改动集 | `git diff --name-only` |
+| S2b | 用例基线 passed、候选 failed，且候选有改动集 | 两份 JUnit |
+| S3 | API 层失败且命中合同矩阵已知漂移路由 | `contract_matrix.json` |
+| S4 | 其余 → unknown，进隔离区（owner + 到期日） | 无 |
+
+两条纪律：
+
+- **S0 的例外表只能来自 `target.yaml`**，代码里不出现任何具体包名/主机名。
+  否则"看着像环境问题"就有了后门。
+- **S2b 是为 `assertRaises` 类失败准备的**：这类失败的调用栈只到测试文件，
+  生产代码根本不在栈里，只靠栈归属会对最常见的一类缺陷永久失效。
+
+两个比例语义不同，混用会得出相反结论：
+
+- `unknown_ratio`：全量失败里的未知比例，只用于披露存量债务质量；
+- `new_failure_unknown_ratio`：增量失败里的未知比例，才是 `can-i-deploy` 的判据。
 
 ## 三条纪律（写进代码，不靠自觉）
 
 1. **SSOT 与 commit 绑定**：`0.ssot/schema_version.json` 里的 commit 与 SUT 当前 HEAD 不一致时，
    gate 拒绝出结论——防止"用旧模型测新代码"。
-2. **AI 只提案，不定责**：失败先由 `classify-failure` 四条判据定责；
+2. **AI 只提案，不定责**：失败先由 `classify-failure` 判据定责；
    只有"用例陈旧"才允许生成修复提案，且必须过 G1 断言不弱化 / G2 不删用例 / G3 杀死变异体。
 3. **证据只追加**：`5.evidence/` 不覆写。任何结论都必须能从原始 junit + 源码 commit 复算出来。
+
+## 门禁自身的三个坑（已修，写在代码注释里）
+
+- `run_l1.py` 的 `FLYWHEEL_PYTHON` 未设置时为 `None`，subprocess 抛错被吞，
+  变异门禁会读到上一轮残留 JUnit 给出**假绿** → 兜底 `sys.executable`，跑前清空 run 目录，
+  `run.json` 缺失或收集为 0 一律判 `invalid`。
+- 分类必须在缺陷提交仍是 HEAD 时进行，否则 `baseline..HEAD` 为空，注入的缺陷会被判 `unknown`。
+- `can-i-deploy` 不能取"最新一个 run.json"当候选——变异门禁每轮都落 run.json，会判错对象。
 
 ## 环境声明（不隐藏，不美化）
 
@@ -65,4 +108,7 @@ python 4.gates/can-i-deploy/can_i_deploy.py
 - `weasyprint` 被声明式虚拟化（缺 GTK3/libgobject）。原因：上游 `report/models.py`
   在 import 期 `sys.exit(1)`，不替换则整套服务起不来。替身**只满足导入期依赖**，
   任何真实 PDF 渲染调用都会抛错——不会静默通过。受影响的 `report.*` 用例已从 L1 选择中排除。
-- 上述两项都写进 `3.env/target.yaml` 的 `virtualization` 与 `database_note`，并进入报告首页。
+- Windows 路径分隔符、未编译翻译（仓内 0 个 `.mo`）、未安装 sample plugins、
+  出网受限、文件锁等偏差，全部登记在 `3.env/target.yaml#runtime.environment_deviations`，
+  每条都带可复算探针。
+- 解释器需显式清掉 `PYTHONHOME`/`PYTHONPATH`（本机 `PYTHONHOME` 指向 3.11，会与 3.13 冲突）。

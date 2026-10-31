@@ -61,6 +61,12 @@ runtime:
       scope: 仅满足导入期依赖；HTML(...)/write_pdf() 一律抛 RuntimeError
       fail_loudly: true
       path: 3.env/virtual/weasyprint
+      # 失败文本里可能只出现"渲染报表失败"而不出现 weasyprint，故显式声明可命中的串
+      match_message:
+        - "weasyprint"
+        - "Error rendering report"
+        - "Error rendering label"
+        - "Error generating report"
       excluded_tests:
         - report.test_tags
         - report.tests
@@ -70,3 +76,60 @@ runtime:
     使用 sqlite3 而非上游 CI 的 postgresql。原因是本机 Docker daemon 未运行、无独立 PG 实例。
     该替换只影响并发与 JSON 字段实现细节，不影响本次冒烟的业务语义；
     差异已记入 evidence/runs 的 environment 字段。
+
+  # 环境偏差声明（Environment Deviations）
+  #
+  # 这里的每一条都必须能用一条可复算的探针验证，且只能用来解释"失败信息自己指认了
+  # 缺失的前置条件"的失败。分类器 S0 规则完全由本段驱动——不允许在代码里硬编码例外。
+  #
+  # 判据纪律：
+  #   match_message  —— 失败文本本身出现该串，即视为该前置条件缺失（自证）
+  #   match_test_prefix —— 仅当整个模块就是该前置条件的符合性套件时使用（需写明理由）
+  # 两条都不命中的失败，一律留在 unknown 进隔离区，不许强行归因。
+  environment_deviations:
+    - id: windows-path-separator
+      change: 上游 CI 在 Linux 上运行，本机为 Windows
+      probe: >
+        用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))，
+        在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中
+      match_message:
+        - "not in ['config/"
+      affected: ["InvenTree.tests.TestSettings"]
+
+    - id: translations-not-compiled
+      change: 未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）
+      probe: find src/backend/InvenTree/locale -name "*.mo" | wc -l  →  0
+      match_message:
+        - "Elemento ricevuto"
+      affected: ["common.test_notifications.NotificationLocaleTest"]
+
+    - id: sample-plugins-not-installed
+      change: 未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）
+      probe: >
+        registry.reload_plugins() 后 registry.plugins 为 11 个内置插件：
+        bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter，
+        其中 0 个来自 plugin.samples
+      match_message:
+        - "plugin.samples"
+      match_test_prefix:
+        - "plugin.samples."
+      prefix_reason: >
+        这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在
+        可检验的对象；前缀匹配等价于"该套件的前置依赖缺失"。
+      affected: ["plugin.samples.*"]
+
+    - id: network-egress-restricted
+      change: 本机对公网的部分出站受限，用例中的真实远端请求不可达
+      probe: 失败文本携带 HTTPSConnectionPool / Connection error 与具体主机名
+      match_message:
+        - "HTTPSConnectionPool"
+        - "Connection error:"
+      affected: ["InvenTree.tests.TestHelpers.test_download_image"]
+
+    - id: windows-file-lock
+      change: Windows 对被打开文件加写锁，Linux 不锁
+      probe: 失败文本携带 WinError 32（另一个程序正在使用此文件）
+      match_message:
+        - "WinError 32"
+      affected: ["common.test_audit.AttachmentAuditTest"]
+
