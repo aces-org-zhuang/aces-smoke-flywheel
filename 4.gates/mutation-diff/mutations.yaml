@@ -1,0 +1,39 @@
+# 变异体清单：三个"人写得出来的"真实缺陷，各自绑定应该抓住它的用例。
+#
+# 选择标准（不是随机翻转）：
+#   1. 形态真实 —— 注释校验、放宽边界、短路守卫，都是 PR 里出现过的写法
+#   2. 可归责 —— 注入后 git blame 能指向本次改动，用于验证分类器 S2 判据
+#   3. 可杀灭 —— 每条都必须在既有用例里有明确的"应该红"
+
+version: 1
+
+mutations:
+  - id: M1-bom-self-reference
+    file: src/backend/InvenTree/part/models.py
+    find: "self.sub_part.check_add_to_bom(self.part, raise_error=True)"
+    replace: "pass  # MUTANT: circular BOM check disabled"
+    rationale: >
+      为了让某个报错的用例先过去，直接把循环 BOM 校验注释掉。
+      这是"绕过校验换绿灯"的典型形态，也是自引用脏数据进入 BOM 的唯一入口。
+    expect_killed_by:
+      - part.test_bom_item.BomItemTest.test_self_reference
+
+  - id: M2-over-allocation
+    file: src/backend/InvenTree/order/models.py
+    find: "if self.quantity > self.item.quantity:"
+    replace: "if self.quantity > self.item.quantity * 10:  # MUTANT: over-allocation tolerated"
+    rationale: >
+      把"分配不得超库存"放宽十倍。线上表现是超卖：库存 10 却能分配 100，
+      且不会立刻报错，只在下游发运时暴露。单测层面的边界断言必须挡住它。
+    expect_killed_by:
+      - order.test_api.SalesOrderAllocateTest.test_allocate
+
+  - id: M3-build-double-complete
+    file: src/backend/InvenTree/build/models.py
+    find: "if self.incomplete_count > 0:"
+    replace: "if False and self.incomplete_count > 0:  # MUTANT: incomplete-outputs guard disabled"
+    rationale: >
+      短路"未完成产出不得结单"的守卫。后果是工单可在产出未完成时结单，
+      库存被按 BOM 扣减而产出缺失——账实不符，且账面上一切正常。
+    expect_killed_by:
+      - build.test_build.BuildTest.test_complete

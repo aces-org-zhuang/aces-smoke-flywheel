@@ -1,0 +1,15 @@
+id: smoke.core.api.contract
+layer: L1
+us: US-API-01
+owner: team-platform
+sut: svc-inventree-backend
+sut_mode: in-process
+real: [sqlite, filesystem-media]
+virtual:
+  - name: weasyprint
+    from_contract: 3.env/virtual/weasyprint
+    state: import-only
+assert:
+  scope: response
+forbid: [sleep, waitForTimeout, css-position, time.sleep]
+timeout_s: 120

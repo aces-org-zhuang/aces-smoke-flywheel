@@ -1,0 +1,72 @@
+# 被测对象声明（Target Descriptor）
+# 唯一作用：把"测谁、哪个提交、怎么起"从用例里剥离出来。
+# 任何一次运行都必须与 schema_version 中的 commit 一致，否则 4.gates 拒跑。
+
+target:
+  name: InvenTree
+  repo: https://github.com/inventree/InvenTree
+  commit: d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1
+  commit_date: 2026-10-30
+  observed_at: 2026-10-31
+  license: MIT
+  domain: 电子元件 / BOM / 库存 / 生产工单（PCB 装配链）
+  domain_note: >
+    这是 PCB 制造侧（BOM/物料/工单）的全栈系统，不是原理图编辑器。
+    报告首页必须如实标注，不得冒充 EDA 前端。
+
+  separation:
+    backend_path: src/backend/InvenTree
+    frontend_path: src/frontend
+    contract: Django REST Framework + drf-spectacular OpenAPI
+    evidence: >
+      前端为独立 TypeScript 工程（package.json: @inventreedb/ui, vite 构建），
+      通过 lib/enums/ApiEndpoints.tsx 声明式引用后端路由；
+      后端不含前端模板渲染业务页面（templates 仅用于 PDF/报表输出）。
+
+  stack:
+    backend: Django 5.2.17 + DRF 3.18.3 (Python 3.13.12)
+    frontend: React + TypeScript + Vite
+    db_default: sqlite3 (支持 postgresql/mysql)
+
+  measured:
+    method: clone --depth 1 + 逐文件计数（排除 .git/node_modules/docs/assets）
+    total_source_lines: 275140
+    python_lines: 176773
+    typescript_lines: 97175
+    source_files: 1304
+    upstream_test_files: 92
+    upstream_test_functions: 1886
+
+runtime:
+  python: C:/Users/Administrator/.workbuddy/binaries/python/envs/inventree/Scripts/python.exe
+  workdir: D:/wbeval/repos/inventree/src/backend/InvenTree
+  sut_root: D:/wbeval/repos/inventree
+  env:
+    INVENTREE_DB_ENGINE: sqlite3
+    INVENTREE_DB_NAME: D:/wbeval/it_dev.sqlite3
+    INVENTREE_STATIC_ROOT: D:/wbeval/it_static
+    INVENTREE_MEDIA_ROOT: D:/wbeval/it_media
+    INVENTREE_BACKUP_DIR: D:/wbeval/it_backup
+    INVENTREE_SITE_URL: http://localhost:8000
+  secret:
+    INVENTREE_SECRET_KEY: 本地一次性测试密钥，不进入仓（见 .gitignore / 运行注入）
+
+  # 依赖塌缩声明：被替身化的"别人的东西"，必须写清边界与失效方式
+  virtualization:
+    - package: weasyprint
+      kind: native-library
+      reason: >
+        本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期
+        捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。
+      scope: 仅满足导入期依赖；HTML(...)/write_pdf() 一律抛 RuntimeError
+      fail_loudly: true
+      path: 3.env/virtual/weasyprint
+      excluded_tests:
+        - report.test_tags
+        - report.tests
+      excluded_reason: PDF 渲染依赖被虚拟化，相关断言在本环境不成立
+
+  database_note: >
+    使用 sqlite3 而非上游 CI 的 postgresql。原因是本机 Docker daemon 未运行、无独立 PG 实例。
+    该替换只影响并发与 JSON 字段实现细节，不影响本次冒烟的业务语义；
+    差异已记入 evidence/runs 的 environment 字段。

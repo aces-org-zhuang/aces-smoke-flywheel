@@ -1,0 +1,15 @@
+id: smoke.biz.build.complete
+layer: L1
+us: US-BUILD-01
+owner: team-build
+sut: svc-inventree-backend
+sut_mode: in-process
+real: [sqlite, filesystem-media]
+virtual:
+  - name: weasyprint
+    from_contract: 3.env/virtual/weasyprint
+    state: import-only
+assert:
+  scope: response + db_delta
+forbid: [sleep, waitForTimeout, css-position, time.sleep]
+timeout_s: 180

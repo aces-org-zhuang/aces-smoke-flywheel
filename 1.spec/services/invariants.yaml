@@ -1,0 +1,107 @@
+# 服务级不变量（L1 的唯一规格来源，人写；AI 只能提案，不得直接改）
+#
+# 每条不变量 = 一组"可失败的断言"，而不是一串操作步骤。
+# tests[] 直接指向被测仓里已存在的用例（成品评测用例），不新写玩具用例：
+#   一旦上游改动导致 ID 失效，lint-boundary 会直接拒绝（用例指向不存在 = 静默失效）。
+
+version: 1
+target_ref: 3.env/target.yaml
+provider: inventree/InvenTree @ d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1
+
+invariants:
+  - id: smoke.biz.part.catalog
+    layer: L1
+    us: US-PART-01
+    owner: team-part
+    statement: 零件可创建、可归类，类别层级与属性在读写后保持自洽（不产生孤儿类别）。
+    tests:
+      - part.test_part.PartTest.test_attributes
+      - part.test_part.PartTest.test_category
+    assert_scope: response + db_delta
+    timeout_s: 120
+
+  - id: smoke.biz.bom.validity
+    layer: L1
+    us: US-BOM-01
+    owner: team-bom
+    statement: BOM 行只能引用真实子件；自引用必须被拒；用量必须为整数；BOM 校验结果与行变更一致。
+    tests:
+      - part.test_bom_item.BomItemTest.test_self_reference
+      - part.test_bom_item.BomItemTest.test_integer_quantity
+      - part.test_bom_item.BomItemTest.test_bom_validated
+    assert_scope: response + db_delta
+    timeout_s: 120
+
+  - id: smoke.biz.stock.receive
+    layer: L1
+    us: US-STOCK-01
+    owner: team-stock
+    statement: 库存条目创建后，零件库存量与库位存量同步更新；供应商件与内部件走同一不变量。
+    tests:
+      - stock.test_api.StockItemTest.test_stock_item_create
+      - stock.test_api.StockItemTest.test_stock_item_create_with_supplier_part
+    assert_scope: response + db_delta
+    timeout_s: 120
+
+  - id: smoke.biz.sales.allocate
+    layer: L1
+    us: US-ORDER-01
+    owner: team-order
+    statement: 销售订单行分配库存时，不得超过可用量；分配后可用量与已分配量守恒。
+    tests:
+      - order.test_api.SalesOrderAllocateTest.test_allocate
+      - build.test_build.AutoAllocationTests.test_allocate_consumed
+    assert_scope: response + db_delta
+    timeout_s: 180
+
+  - id: smoke.biz.sales.create
+    layer: L1
+    us: US-ORDER-02
+    owner: team-order
+    statement: 销售订单创建后状态与客户引用一致；重复引用不得产生歧义。
+    tests:
+      - order.test_api.SalesOrderTest.test_so_create
+    assert_scope: response + db_delta
+    timeout_s: 120
+
+  - id: smoke.biz.purchase.complete
+    layer: L1
+    us: US-ORDER-03
+    owner: team-order
+    statement: 采购订单完成即入库；完成后的订单进入锁定态，重复完成必须被拒。
+    tests:
+      - order.test_api.PurchaseOrderTest.test_po_complete
+    assert_scope: response + db_delta
+    timeout_s: 120
+
+  - id: smoke.biz.build.complete
+    layer: L1
+    us: US-BUILD-01
+    owner: team-build
+    statement: 生产工单完成时，按 BOM 消耗已分配库存并产出成品；重复完成必须被拒。
+    tests:
+      - build.test_build.BuildTest.test_complete
+    assert_scope: response + db_delta
+    timeout_s: 180
+
+  - id: smoke.gov.role.isolation
+    layer: L1
+    us: US-AUTH-01
+    owner: team-platform
+    statement: 角色隔离生效：无权限角色访问受限端点必须 403，不得静默降级为可读。
+    tests:
+      - users.test_api.UserAPITests.test_user_roles
+      - users.test_api.UserAPITests.test_user_api
+    assert_scope: response
+    timeout_s: 120
+
+  - id: smoke.core.api.contract
+    layer: L1
+    us: US-API-01
+    owner: team-platform
+    statement: 核心 API 存活且返回结构化数据；错误路径返回受控错误而不是 500。
+    tests:
+      - InvenTree.test_api.HTMLAPITests.test_part_api
+      - InvenTree.test_api.HTMLAPITests.test_stock_api
+    assert_scope: response
+    timeout_s: 120

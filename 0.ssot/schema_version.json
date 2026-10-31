@@ -1,0 +1,12 @@
+{
+  "commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "commit_date": "2026-10-30T14:43:12+11:00",
+  "generated_at": "2026-10-31T09:47:49.390046+00:00",
+  "openapi_sha256": "46c2752002ae403adf45999822986098819e5dc2824a02ada8321a4972a41eec",
+  "counts": {
+    "endpoints": 617,
+    "consumers": 216,
+    "backend_apps": 15,
+    "dependency_edges": 129
+  }
+}
