@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_bom_item.BomItemTest-20261031181251" tests="3" file="part/test_bom_item.py" time="0.463" timestamp="2026-10-31T18:12:51" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_self_reference" time="0.020" timestamp="2026-10-31T18:12:51" file="part\test_bom_item.py" line="66">
+		<!--Test that we get an appropriate error when we create a BomItem which points to itself.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_integer_quantity" time="0.076" timestamp="2026-10-31T18:12:51" file="part\test_bom_item.py" line="73">
+		<!--Test integer validation for BomItem.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_bom_validated" time="0.368" timestamp="2026-10-31T18:12:51" file="part\test_bom_item.py" line="591">
+		<!--Test for caching of 'bom_validated' property.-->
+	</testcase>
+</testsuite>

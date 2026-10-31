@@ -73,11 +73,16 @@ def main() -> int:
     env = dict(os.environ)
     env.pop("PYTHONHOME", None)
     env["PYTHONPATH"] = ";".join(
-        [str(Path("3.env/virtual").resolve()), str(Path("tools").resolve())]
+        [
+            str(Path("3.env/virtual").resolve()),
+            str(Path("tools").resolve()),
+            str(Path("3.env").resolve()),
+        ]
     )
     env.update({k: str(v) for k, v in rt["env"].items()})
     env["INVENTREE_SECRET_KEY"] = SECRET
-    env["TEST_RUNNER"] = "django_junit_runner.FlywheelXMLRunner"
+    # 运行器与输出目录必须走 settings 覆盖层：环境变量 TEST_RUNNER 会被上游 settings 覆盖掉
+    env["DJANGO_SETTINGS_MODULE"] = "flywheel_junit_settings"
     env["FLYWHEEL_JUNIT_DIR"] = str(junit_dir.resolve())
 
     started = time.time()

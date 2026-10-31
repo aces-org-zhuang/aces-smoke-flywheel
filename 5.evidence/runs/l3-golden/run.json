@@ -1,0 +1,338 @@
+{
+  "journey": "golden_path.pcb_assembly",
+  "base_url": "http://127.0.0.1:8000",
+  "actor": "flywheel-actor",
+  "steps": [
+    {
+      "method": "GET",
+      "path": "/api/user/me/",
+      "status": 200,
+      "elapsed_s": 0.057,
+      "payload": null,
+      "response_head": "{\"pk\":1,\"username\":\"flywheel-actor\",\"first_name\":\"\",\"last_name\":\"\",\"email\":\"flywheel@example.invalid\",\"groups\":[],\"is_staff\":true,\"is_superuser\":true,\"is_active\":true,\"profile\":null,\"tips\":[{\"pk\":1,\"tip_id\":\"org.inventree.i.tip.ftug\",\"shown\":false,\"finished\":false,\"updated\":\"2026-10-31 10:04\"}]}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/stock/location/?limit=50",
+      "status": 200,
+      "elapsed_s": 0.042,
+      "payload": null,
+      "response_head": "{\"count\":1,\"next\":null,\"previous\":null,\"results\":[{\"pk\":1,\"barcode_hash\":\"\",\"name\":\"GP-LOC-180448\",\"level\":0,\"description\":\"golden path\",\"parent\":null,\"pathstring\":\"GP-LOC-180448\",\"items\":13,\"sublocations\":0,\"owner\":null,\"icon\":\"\",\"custom_icon\":null,\"structural\":false,\"external\":false,\"location_type\":null,\"location_type_detail\":null}]}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/part/category/",
+      "status": 201,
+      "elapsed_s": 0.091,
+      "payload": {
+        "name": "GP-CAT-180713",
+        "description": "golden path"
+      },
+      "response_head": "{\"pk\":11,\"name\":\"GP-CAT-180713\",\"description\":\"golden path\",\"default_location\":null,\"default_keywords\":null,\"level\":0,\"parent\":null,\"part_count\":null,\"subcategories\":null,\"pathstring\":\"GP-CAT-180713\",\"path\":[{\"pk\":11,\"name\":\"GP-CAT-180713\"}],\"starred\":false,\"structural\":false,\"icon\":\"\",\"parent_default_location\":null,\"parameters\":[]}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/part/",
+      "status": 201,
+      "elapsed_s": 0.12,
+      "payload": {
+        "name": "GP-ASSY-180713",
+        "category": 11,
+        "description": "golden path assembly",
+        "assembly": true,
+        "purchaseable": false,
+        "trackable": false,
+        "active": true
+      },
+      "response_head": "{\"active\":true,\"assembly\":true,\"barcode_hash\":\"\",\"category\":11,\"category_detail\":{\"pk\":11,\"name\":\"GP-CAT-180713\",\"description\":\"golden path\",\"default_location\":null,\"default_keywords\":null,\"level\":0,\"parent\":null,\"part_count\":null,\"subcategories\":null,\"pathstring\":\"GP-CAT-180713\",\"starred\":false,\"structural\":false,\"icon\":\"\",\"parent_default_location\":null},\"category_path\":[{\"pk\":11,\"name\":\"GP-CAT-180713\"}],\"category_name\":\"GP-CAT-180713\",\"component\":true,\"creation_date\":\"2026-10-31\",\"creation_user\":1,\"default_expiry\":0,\"default_location\":null,\"default_location_detail\":null,\"description\":\"golden"
+    },
+    {
+      "method": "POST",
+      "path": "/api/part/",
+      "status": 201,
+      "elapsed_s": 0.116,
+      "payload": {
+        "name": "GP-COMP-180713",
+        "category": 11,
+        "description": "golden path component",
+        "assembly": false,
+        "purchaseable": true,
+        "trackable": false,
+        "active": true
+      },
+      "response_head": "{\"active\":true,\"assembly\":false,\"barcode_hash\":\"\",\"category\":11,\"category_detail\":{\"pk\":11,\"name\":\"GP-CAT-180713\",\"description\":\"golden path\",\"default_location\":null,\"default_keywords\":null,\"level\":0,\"parent\":null,\"part_count\":null,\"subcategories\":null,\"pathstring\":\"GP-CAT-180713\",\"starred\":false,\"structural\":false,\"icon\":\"\",\"parent_default_location\":null},\"category_path\":[{\"pk\":11,\"name\":\"GP-CAT-180713\"}],\"category_name\":\"GP-CAT-180713\",\"component\":true,\"creation_date\":\"2026-10-31\",\"creation_user\":1,\"default_expiry\":0,\"default_location\":null,\"default_location_detail\":null,\"description\":\"golde"
+    },
+    {
+      "method": "POST",
+      "path": "/api/company/",
+      "status": 201,
+      "elapsed_s": 0.103,
+      "payload": {
+        "name": "GP-SUP-180713",
+        "is_supplier": true,
+        "is_customer": false
+      },
+      "response_head": "{\"pk\":11,\"name\":\"GP-SUP-180713\",\"description\":\"\",\"website\":\"\",\"phone\":\"\",\"email\":\"\",\"currency\":\"USD\",\"contact\":\"\",\"link\":\"\",\"image\":null,\"active\":true,\"is_customer\":false,\"is_manufacturer\":false,\"is_supplier\":true,\"is_internal\":false,\"primary_address\":null,\"tax_id\":\"\",\"parameters\":[],\"tags\":[]}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/company/part/",
+      "status": 201,
+      "elapsed_s": 0.117,
+      "payload": {
+        "part": 22,
+        "supplier": 11,
+        "SKU": "GP-SKU-180713"
+      },
+      "response_head": "{\"available\":0.0,\"availability_updated\":null,\"description\":null,\"in_stock\":null,\"on_order\":0.0,\"link\":null,\"active\":true,\"primary\":true,\"manufacturer_detail\":null,\"manufacturer_part\":null,\"manufacturer_part_detail\":null,\"MPN\":null,\"note\":null,\"pk\":11,\"barcode_hash\":\"\",\"packaging\":null,\"pack_quantity\":\"1\",\"pack_quantity_native\":1.0,\"part\":22,\"pretty_name\":\"GP-SUP-180713 | GP-SKU-180713\",\"SKU\":\"GP-SKU-180713\",\"supplier\":11,\"supplier_detail\":{\"pk\":11,\"active\":true,\"name\":\"GP-SUP-180713\",\"description\":\"\",\"image\":null,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"currency\":\"USD\",\"tax_id\":\"\"}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/order/po/",
+      "status": 201,
+      "elapsed_s": 0.108,
+      "payload": {
+        "supplier": 11,
+        "reference": "PO-0713",
+        "description": "golden path"
+      },
+      "response_head": "{\"pk\":10,\"created_by\":{\"pk\":1,\"username\":\"flywheel-actor\",\"first_name\":\"\",\"last_name\":\"\",\"email\":\"flywheel@example.invalid\"},\"creation_date\":\"2026-10-31\",\"issue_date\":null,\"start_date\":null,\"target_date\":null,\"description\":\"golden path\",\"line_items\":null,\"completed_lines\":null,\"link\":\"\",\"project_code\":null,\"reference\":\"PO-0713\",\"responsible\":null,\"contact\":null,\"address\":null,\"status\":10,\"status_text\":\"Pending\",\"status_custom_key\":null,\"barcode_hash\":\"\",\"overdue\":null,\"address_detail\":null,\"contact_detail\":null,\"project_code_detail\":null,\"project_code_label\":null,\"responsible_detail\":null,\"par"
+    },
+    {
+      "method": "POST",
+      "path": "/api/order/po-line/",
+      "status": 201,
+      "elapsed_s": 0.156,
+      "payload": {
+        "order": 10,
+        "part": 11,
+        "quantity": 100
+      },
+      "response_head": "{\"pk\":10,\"line\":\"\",\"link\":\"\",\"notes\":\"\",\"order\":10,\"project_code\":null,\"quantity\":100.0,\"reference\":\"\",\"target_date\":null,\"order_detail\":{\"pk\":10,\"created_by\":{\"pk\":1,\"username\":\"flywheel-actor\",\"first_name\":\"\",\"last_name\":\"\",\"email\":\"flywheel@example.invalid\"},\"creation_date\":\"2026-10-31\",\"issue_date\":null,\"start_date\":null,\"target_date\":null,\"description\":\"golden path\",\"line_items\":null,\"completed_lines\":null,\"link\":\"\",\"project_code\":null,\"reference\":\"PO-0713\",\"responsible\":null,\"contact\":null,\"address\":null,\"status\":10,\"status_text\":\"Pending\",\"status_custom_key\":null,\"barcode_hash\":\"\",\"over"
+    },
+    {
+      "method": "POST",
+      "path": "/api/order/po/10/issue/",
+      "status": 201,
+      "elapsed_s": 0.148,
+      "payload": {},
+      "response_head": "{\"pk\":10,\"created_by\":{\"pk\":1,\"username\":\"flywheel-actor\",\"first_name\":\"\",\"last_name\":\"\",\"email\":\"flywheel@example.invalid\"},\"creation_date\":\"2026-10-31\",\"issue_date\":\"2026-10-31\",\"start_date\":null,\"target_date\":null,\"description\":\"golden path\",\"line_items\":1,\"completed_lines\":0,\"link\":\"\",\"project_code\":null,\"reference\":\"PO-0713\",\"responsible\":null,\"contact\":null,\"address\":null,\"status\":20,\"status_text\":\"Placed\",\"status_custom_key\":null,\"barcode_hash\":\"\",\"overdue\":false,\"address_detail\":null,\"contact_detail\":null,\"project_code_detail\":null,\"project_code_label\":null,\"responsible_detail\":null,\"p"
+    },
+    {
+      "method": "POST",
+      "path": "/api/order/po/10/receive/",
+      "status": 201,
+      "elapsed_s": 0.192,
+      "payload": {
+        "items": [
+          {
+            "line_item": 10,
+            "quantity": 100
+          }
+        ],
+        "location": 1
+      },
+      "response_head": "[{\"pk\":17,\"part\":22,\"quantity\":100.0,\"serial\":\"\",\"batch\":\"\",\"location\":1,\"belongs_to\":null,\"build\":null,\"consumed_by\":null,\"customer\":null,\"delete_on_deplete\":true,\"expiry_date\":null,\"in_stock\":true,\"is_building\":false,\"link\":\"\",\"owner\":null,\"packaging\":null,\"parent\":null,\"purchase_order\":10,\"purchase_order_reference\":\"PO-0713\",\"sales_order\":null,\"sales_order_reference\":null,\"status\":10,\"status_text\":\"OK\",\"status_custom_key\":10,\"supplier_part\":11,\"SKU\":\"GP-SKU-180713\",\"MPN\":null,\"barcode_hash\":\"\",\"creation_date\":\"2026-10-31 10:07\",\"stocktake_date\":null,\"updated\":\"2026-10-31 10:07\",\"purchase_pr"
+    },
+    {
+      "method": "GET",
+      "path": "/api/part/22/",
+      "status": 200,
+      "elapsed_s": 0.395,
+      "payload": null,
+      "response_head": "{\"active\":true,\"assembly\":false,\"barcode_hash\":\"\",\"category\":11,\"category_name\":\"GP-CAT-180713\",\"component\":true,\"creation_date\":\"2026-10-31\",\"creation_user\":1,\"default_expiry\":0,\"default_location\":null,\"description\":\"golden path component\",\"full_name\":\"GP-COMP-180713\",\"image\":null,\"IPN\":\"\",\"is_template\":false,\"keywords\":null,\"link\":null,\"locked\":false,\"minimum_stock\":0.0,\"maximum_stock\":0.0,\"name\":\"GP-COMP-180713\",\"pk\":22,\"purchaseable\":true,\"revision\":\"\",\"revision_of\":null,\"revision_count\":0,\"salable\":false,\"starred\":false,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"testable\":false,"
+    },
+    {
+      "method": "GET",
+      "path": "/api/order/po/10/",
+      "status": 200,
+      "elapsed_s": 0.04,
+      "payload": null,
+      "response_head": "{\"pk\":10,\"created_by\":{\"pk\":1,\"username\":\"flywheel-actor\",\"first_name\":\"\",\"last_name\":\"\",\"email\":\"flywheel@example.invalid\"},\"creation_date\":\"2026-10-31\",\"issue_date\":\"2026-10-31\",\"start_date\":null,\"target_date\":null,\"description\":\"golden path\",\"line_items\":1,\"completed_lines\":1,\"link\":\"\",\"project_code\":null,\"reference\":\"PO-0713\",\"responsible\":null,\"contact\":null,\"address\":null,\"status\":30,\"status_text\":\"Complete\",\"status_custom_key\":null,\"barcode_hash\":\"\",\"overdue\":false,\"address_detail\":null,\"contact_detail\":null,\"project_code_detail\":null,\"project_code_label\":null,\"responsible_detail\":null,"
+    },
+    {
+      "method": "POST",
+      "path": "/api/bom/",
+      "status": 201,
+      "elapsed_s": 0.249,
+      "payload": {
+        "part": 21,
+        "sub_part": 22,
+        "quantity": 2
+      },
+      "response_head": "{\"part\":21,\"sub_part\":22,\"reference\":\"\",\"raw_amount\":\"2\",\"quantity\":2.0,\"piece_count\":1,\"allow_variants\":false,\"inherited\":false,\"optional\":false,\"consumable\":false,\"setup_quantity\":0.0,\"attrition\":0.0,\"rounding_multiple\":null,\"note\":\"\",\"pk\":10,\"pricing_min\":null,\"substitutes\":[],\"validated\":false,\"available_stock\":null,\"available_substitute_stock\":null,\"available_variant_stock\":null,\"external_stock\":null,\"on_order\":null,\"building\":null,\"can_build\":null,\"part_detail\":{\"pk\":21,\"IPN\":\"\",\"barcode_hash\":\"\",\"category_default_location\":null,\"default_location\":null,\"default_expiry\":0,\"name\":\"GP-ASSY-"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/",
+      "status": 201,
+      "elapsed_s": 0.115,
+      "payload": {
+        "part": 21,
+        "reference": "BO-0713",
+        "quantity": 5,
+        "title": "golden path build"
+      },
+      "response_head": "{\"pk\":10,\"title\":\"golden path build\",\"barcode_hash\":\"\",\"batch\":null,\"creation_date\":\"2026-10-31\",\"completed\":0,\"completion_date\":null,\"destination\":null,\"external\":false,\"parent\":null,\"part\":21,\"part_name\":\"GP-ASSY-180713\",\"part_detail\":{\"pk\":21,\"IPN\":\"\",\"barcode_hash\":\"\",\"category_default_location\":null,\"default_location\":null,\"default_expiry\":0,\"name\":\"GP-ASSY-180713\",\"revision\":\"\",\"full_name\":\"GP-ASSY-180713\",\"description\":\"golden path assembly\",\"image\":null,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"active\":true,\"locked\":false,\"assembly\":true,\"component\":true,\"minimum_stock\":\"0.0"
+    },
+    {
+      "method": "GET",
+      "path": "/api/build/line/?build=10",
+      "status": 200,
+      "elapsed_s": 0.111,
+      "payload": null,
+      "response_head": "[{\"pk\":10,\"build\":10,\"bom_item\":10,\"quantity\":10.0,\"consumed\":0.0,\"part\":22,\"build_reference\":\"BO-0713\",\"reference\":\"\",\"consumable\":false,\"optional\":false,\"testable\":false,\"trackable\":false,\"inherited\":false,\"allow_variants\":false,\"allocated\":0.0,\"in_production\":0.0,\"scheduled_to_build\":0.0,\"on_order\":0.0,\"available_stock\":100.0,\"available_substitute_stock\":0.0,\"available_variant_stock\":0.0,\"external_stock\":0.0}]"
+    },
+    {
+      "method": "GET",
+      "path": "/api/stock/?part=22&limit=10",
+      "status": 200,
+      "elapsed_s": 0.059,
+      "payload": null,
+      "response_head": "{\"count\":1,\"next\":null,\"previous\":null,\"results\":[{\"pk\":17,\"part\":22,\"quantity\":100.0,\"serial\":\"\",\"batch\":\"\",\"location\":1,\"belongs_to\":null,\"build\":null,\"consumed_by\":null,\"customer\":null,\"delete_on_deplete\":true,\"expiry_date\":null,\"in_stock\":true,\"is_building\":false,\"link\":\"\",\"owner\":null,\"packaging\":null,\"parent\":null,\"purchase_order\":10,\"purchase_order_reference\":\"PO-0713\",\"sales_order\":null,\"sales_order_reference\":null,\"status\":10,\"status_text\":\"OK\",\"status_custom_key\":10,\"supplier_part\":11,\"SKU\":\"GP-SKU-180713\",\"MPN\":null,\"barcode_hash\":\"\",\"creation_date\":\"2026-10-31 10:07\",\"stocktake_dat"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/10/issue/",
+      "status": 201,
+      "elapsed_s": 0.068,
+      "payload": {},
+      "response_head": "{}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/10/allocate/",
+      "status": 201,
+      "elapsed_s": 0.098,
+      "payload": {
+        "items": [
+          {
+            "build_line": 10,
+            "stock_item": 17,
+            "quantity": 10
+          }
+        ]
+      },
+      "response_head": "{\"items\":[{\"build_line\":10,\"stock_item\":17,\"quantity\":\"10.00000\",\"output\":null}]}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/stock/?build=10&limit=10",
+      "status": 200,
+      "elapsed_s": 0.065,
+      "payload": null,
+      "response_head": "{\"count\":0,\"next\":null,\"previous\":null,\"results\":[]}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/10/create-output/",
+      "status": 201,
+      "elapsed_s": 0.092,
+      "payload": {
+        "quantity": 5,
+        "location": 1
+      },
+      "response_head": "[{\"pk\":18,\"part\":21,\"quantity\":5.0,\"serial\":null,\"batch\":\"\",\"location\":1,\"belongs_to\":null,\"build\":10,\"consumed_by\":null,\"customer\":null,\"delete_on_deplete\":true,\"expiry_date\":null,\"in_stock\":false,\"is_building\":true,\"link\":\"\",\"owner\":null,\"packaging\":null,\"parent\":null,\"purchase_order\":null,\"purchase_order_reference\":null,\"sales_order\":null,\"sales_order_reference\":null,\"status\":10,\"status_text\":\"OK\",\"status_custom_key\":10,\"supplier_part\":null,\"SKU\":null,\"MPN\":null,\"barcode_hash\":\"\",\"creation_date\":\"2026-10-31 10:07\",\"stocktake_date\":null,\"updated\":\"2026-10-31 10:07\",\"purchase_price\":null,\"pur"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/10/complete/",
+      "status": 200,
+      "elapsed_s": 0.146,
+      "payload": {
+        "outputs": [
+          {
+            "output": 18,
+            "quantity": 5
+          }
+        ],
+        "location": 1,
+        "accept_incomplete_allocation": true
+      },
+      "response_head": "{\"task_id\":\"\",\"exists\":false,\"pending\":false,\"complete\":true,\"success\":true,\"http_status\":200}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build/10/finish/",
+      "status": 201,
+      "elapsed_s": 0.142,
+      "payload": {
+        "accept_unallocated": true
+      },
+      "response_head": "{\"accept_overallocated\":\"reject\",\"accept_unallocated\":true,\"accept_incomplete\":false}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/build/10/",
+      "status": 200,
+      "elapsed_s": 0.08,
+      "payload": null,
+      "response_head": "{\"pk\":10,\"title\":\"golden path build\",\"barcode_hash\":\"\",\"batch\":null,\"creation_date\":\"2026-10-31\",\"completed\":5,\"completion_date\":\"2026-10-31\",\"destination\":null,\"external\":false,\"parent\":null,\"part\":21,\"part_name\":\"GP-ASSY-180713\",\"part_detail\":{\"pk\":21,\"IPN\":\"\",\"barcode_hash\":\"\",\"category_default_location\":null,\"default_location\":null,\"default_expiry\":0,\"name\":\"GP-ASSY-180713\",\"revision\":\"\",\"full_name\":\"GP-ASSY-180713\",\"description\":\"golden path assembly\",\"image\":null,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"active\":true,\"locked\":false,\"assembly\":true,\"component\":true,\"minimum_sto"
+    },
+    {
+      "method": "GET",
+      "path": "/api/part/22/",
+      "status": 200,
+      "elapsed_s": 0.084,
+      "payload": null,
+      "response_head": "{\"active\":true,\"assembly\":false,\"barcode_hash\":\"\",\"category\":11,\"category_name\":\"GP-CAT-180713\",\"component\":true,\"creation_date\":\"2026-10-31\",\"creation_user\":1,\"default_expiry\":0,\"default_location\":null,\"description\":\"golden path component\",\"full_name\":\"GP-COMP-180713\",\"image\":null,\"IPN\":\"\",\"is_template\":false,\"keywords\":null,\"link\":null,\"locked\":false,\"minimum_stock\":0.0,\"maximum_stock\":0.0,\"name\":\"GP-COMP-180713\",\"pk\":22,\"purchaseable\":true,\"revision\":\"\",\"revision_of\":null,\"revision_count\":0,\"salable\":false,\"starred\":false,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"testable\":false,"
+    },
+    {
+      "method": "GET",
+      "path": "/api/part/21/",
+      "status": 200,
+      "elapsed_s": 0.076,
+      "payload": null,
+      "response_head": "{\"active\":true,\"assembly\":true,\"barcode_hash\":\"\",\"category\":11,\"category_name\":\"GP-CAT-180713\",\"component\":true,\"creation_date\":\"2026-10-31\",\"creation_user\":1,\"default_expiry\":0,\"default_location\":null,\"description\":\"golden path assembly\",\"full_name\":\"GP-ASSY-180713\",\"image\":null,\"IPN\":\"\",\"is_template\":false,\"keywords\":null,\"link\":null,\"locked\":false,\"minimum_stock\":0.0,\"maximum_stock\":0.0,\"name\":\"GP-ASSY-180713\",\"pk\":21,\"purchaseable\":false,\"revision\":\"\",\"revision_of\":null,\"revision_count\":0,\"salable\":false,\"starred\":false,\"thumbnail\":\"/static/img/blank_image.thumbnail.png\",\"testable\":false,\""
+    }
+  ],
+  "checks": [
+    {
+      "check": "收货生成库存条目",
+      "actual": 1,
+      "expected": 1,
+      "ok": true
+    },
+    {
+      "check": "元件到货数量",
+      "actual": 100.0,
+      "expected": 100.0,
+      "ok": true
+    },
+    {
+      "check": "采购订单状态=完成",
+      "actual": 30,
+      "expected": 30,
+      "ok": true
+    },
+    {
+      "check": "工单状态=完成",
+      "actual": 40,
+      "expected": 40,
+      "ok": true
+    },
+    {
+      "check": "元件库存扣减",
+      "actual": 90.0,
+      "expected": 90.0,
+      "ok": true
+    },
+    {
+      "check": "产出库存增加",
+      "actual": 5.0,
+      "expected": 5.0,
+      "ok": true
+    }
+  ],
+  "ids": {
+    "category": 11,
+    "assembly_part": 21,
+    "component_part": 22,
+    "supplier": 11,
+    "supplier_part": 11,
+    "purchase_order": 10,
+    "build_order": 10
+  },
+  "result": "PASS",
+  "generated_at": "2026-10-31T10:07:13.613975+00:00"
+}

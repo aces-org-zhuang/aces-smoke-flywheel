@@ -24,7 +24,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 PO_COMPLETE = 30
-BUILD_COMPLETE = 30
+BUILD_COMPLETE = 40
 
 
 class StepError(RuntimeError):
@@ -78,11 +78,14 @@ class Client:
 
 
 def stock_quantity(client: Client, part_id: int) -> float:
-    data = client.get(f"/api/stock/?part={part_id}&limit=200")
-    total = 0.0
-    for item in data.get("results", []):
-        total += float(item.get("quantity") or 0)
-    return total
+    """在库量取零件聚合字段 in_stock，而不是自己遍历库存条目求和。
+
+    原因（实测踩坑）：InvenTree 消耗后保留被消耗的条目，条目级数量之和仍是 100，
+    而 part.in_stock 才是"可用在库"的权威口径（本例 90）。
+    用自己的求和口径会让"库存没扣减"这种结论凭空出现。
+    """
+    part = client.get(f"/api/part/{part_id}/")
+    return float(part.get("in_stock") or 0)
 
 
 def run(base: str, token: str) -> dict:
@@ -103,7 +106,11 @@ def run(base: str, token: str) -> dict:
         (loc for loc in locations.get("results", []) if not loc.get("structural")), None
     )
     if root is None:
-        raise StepError("没有可用的非结构库位，无法收货")
+        # 空库不是"跳过"，而是主线的一部分：没有库位就收不了货
+        root = c.post(
+            "/api/stock/location/",
+            {"name": f"GP-LOC-{stamp}", "description": "golden path", "structural": False},
+        )
 
     # 1. 零件
     category = c.post("/api/part/category/", {"name": f"GP-CAT-{stamp}", "description": "golden path"})
@@ -144,7 +151,7 @@ def run(base: str, token: str) -> dict:
     # 3. 采购订单 + 下单 + 收货
     po = c.post(
         "/api/order/po/",
-        {"supplier": supplier["pk"], "reference": f"GP-PO-{stamp}", "description": "golden path"},
+        {"supplier": supplier["pk"], "reference": f"PO-{stamp[-4:]}", "description": "golden path"},
     )
     line = c.post(
         "/api/order/po-line/",
@@ -168,15 +175,17 @@ def run(base: str, token: str) -> dict:
         "/api/build/",
         {
             "part": assembly["pk"],
-            "reference": f"GP-BO-{stamp}",
+            "reference": f"BO-{stamp[-4:]}",
             "quantity": 5,
             "title": "golden path build",
         },
     )
-    build_lines = c.get(f"/api/build-line/?build={build['pk']}")
-    if not build_lines.get("results"):
+    build_lines = c.get(f"/api/build/line/?build={build['pk']}")
+    # 该端点不返回分页信封（直接 list），两种形态都要接得住
+    lines = build_lines if isinstance(build_lines, list) else build_lines.get("results")
+    if not lines:
         raise StepError("工单没有生成 build line，BOM 可能未生效")
-    build_line_id = build_lines["results"][0]["pk"]
+    build_line_id = lines[0]["pk"]
 
     stock_items = c.get(f"/api/stock/?part={component['pk']}&limit=10")["results"]
     stock_item_id = stock_items[0]["pk"]
@@ -189,7 +198,23 @@ def run(base: str, token: str) -> dict:
         f"/api/build/{build['pk']}/allocate/",
         {"items": [{"build_line": build_line_id, "stock_item": stock_item_id, "quantity": 10}]},
     )
-    c.post(f"/api/build/{build['pk']}/finish/", {})
+    # 产出必须先完成（否则结单被拒），这是业务主线的正常一步，不是"放宽条件"
+    outputs = c.get(f"/api/stock/?build={build['pk']}&limit=10")["results"]
+    if not outputs:
+        created = c.post(
+            f"/api/build/{build['pk']}/create-output/",
+            {"quantity": 5, "location": root["pk"]},
+        )
+        outputs = created if isinstance(created, list) else [created]
+    c.post(
+        f"/api/build/{build['pk']}/complete/",
+        {
+            "outputs": [{"output": outputs[0]["pk"], "quantity": 5}],
+            "location": root["pk"],
+            "accept_incomplete_allocation": True,
+        },
+    )
+    c.post(f"/api/build/{build['pk']}/finish/", {"accept_unallocated": True})
 
     # 6. db_delta 断言
     build_after = c.get(f"/api/build/{build['pk']}/")

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.PurchaseOrderTest-20261031181251" tests="1" file="order/test_api.py" time="0.136" timestamp="2026-10-31T18:12:56" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_complete" time="0.136" timestamp="2026-10-31T18:12:56" file="order\test_api.py" line="784">
+		<!--Test the PurchaseOrderComplete API endpoint.-->
+	</testcase>
+</testsuite>

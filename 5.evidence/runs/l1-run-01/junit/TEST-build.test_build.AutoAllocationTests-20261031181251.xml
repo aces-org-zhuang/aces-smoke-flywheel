@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.AutoAllocationTests-20261031181251" tests="1" file="build/test_build.py" time="0.154" timestamp="2026-10-31T18:12:55" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.AutoAllocationTests" name="test_allocate_consumed" time="0.154" timestamp="2026-10-31T18:12:55" file="build\test_build.py" line="1186">
+		<!--Test for auto-allocation against a build which has been fully consumed.
+
+Steps:
+    1. Fully allocate the build (using the auto-allocate function)
+    2. Consume allocated stock
+    3. Ensure that all allocations are removed
+    4. Re-run the auto-allocate function
+    5. Check that no new allocations have been made
+-->
+	</testcase>
+</testsuite>

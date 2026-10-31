@@ -24,7 +24,16 @@ if created:
     user.save()
 
 token = ApiToken.objects.filter(user=user, name="flywheel-l3").first()
+if token is not None:
+    # v2 token 的明文 secret 只在创建瞬间存在（库里只有 identifier + hmac），
+    # 所以要拿明文必须重建一次。
+    token.delete()
+    token = None
 if token is None:
     token = ApiToken.objects.create(user=user, name="flywheel-l3")
 
-print(f"KS_ACTOR\t{USERNAME}\tcreated={created}\ttoken={token.key}")
+raw = getattr(token, "_raw_secret", None)
+if not raw:
+    raise SystemExit("无法取得 token 明文：上游 v2 token 未暴露 _raw_secret")
+
+print(f"KS_ACTOR\t{USERNAME}\tcreated={created}\ttoken={raw}")

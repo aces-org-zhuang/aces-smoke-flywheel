@@ -1,0 +1,65 @@
+{
+  "run_id": "l1-run-01",
+  "layer": "L1",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "sut_dirty": false,
+  "sut_dirty_files": [],
+  "generated_at": "2026-10-31T10:13:00.960846+00:00",
+  "duration_s": 126.52,
+  "exit_code": 0,
+  "selected": 16,
+  "collected": 16,
+  "passed": 16,
+  "failed": 0,
+  "skipped": 0,
+  "missing_test_ids": [],
+  "per_invariant": {
+    "smoke.biz.part.catalog": {
+      "total": 2,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.bom.validity": {
+      "total": 3,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.stock.receive": {
+      "total": 2,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.sales.allocate": {
+      "total": 2,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.sales.create": {
+      "total": 1,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.purchase.complete": {
+      "total": 1,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.biz.build.complete": {
+      "total": 1,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.gov.role.isolation": {
+      "total": 2,
+      "failed": 0,
+      "missing": 0
+    },
+    "smoke.core.api.contract": {
+      "total": 2,
+      "failed": 0,
+      "missing": 0
+    }
+  },
+  "failures": [],
+  "command": "C:/Users/Administrator/.workbuddy/binaries/python/envs/inventree/Scripts/python.exe manage.py test part.test_part.PartTest.test_attributes part.test_part.PartTest.test_category part.test_bom_item.BomItemTest.test_self_reference part.test_bom_item.BomItemTest.test_integer_quantity part.test_bom_item.BomItemTest.test_bom_validated stock.test_api.StockItemTest.test_stock_item_create stock.test_api.StockItemTest.test_stock_item_create_with_supplier_part order.test_api.SalesOrderAllocateTest.test_allocate build.test_build.AutoAllocationTests.test_allocate_consumed order.test_api.SalesOrderTest.test_so_create order.test_api.PurchaseOrderTest.test_po_complete build.test_build.BuildTest.test_complete users.test_api.UserAPITests.test_user_roles users.test_api.UserAPITests.test_user_api InvenTree.test_api.HTMLAPITests.test_part_api InvenTree.test_api.HTMLAPITests.test_stock_api --exclude-tag migration_test --verbosity 1"
+}
