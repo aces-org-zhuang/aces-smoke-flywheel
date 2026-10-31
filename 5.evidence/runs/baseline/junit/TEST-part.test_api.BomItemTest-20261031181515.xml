@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.BomItemTest-20261031181515" tests="20" file="part/test_api.py" time="9.854" timestamp="2026-10-31T18:19:31" failures="0" errors="2" skipped="0">
+	<testcase classname="part.test_api.BomItemTest" name="test_add_bom_item" time="1.021" timestamp="2026-10-31T18:19:22" file="part\test_api.py" line="3146">
+		<!--Test that we can create a new BomItem via the API.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_item_uses" time="0.558" timestamp="2026-10-31T18:19:24" file="part\test_api.py" line="3333">
+		<!--Tests for the 'uses' field.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_list" time="0.422" timestamp="2026-10-31T18:19:24" file="part\test_api.py" line="2943">
+		<!--Tests for the BomItem list endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_list_ordering" time="0.380" timestamp="2026-10-31T18:19:25" file="part\test_api.py" line="3009">
+		<!--Test that the BOM list results can be ordered.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_list_search" time="0.475" timestamp="2026-10-31T18:19:25" file="part\test_api.py" line="2984">
+		<!--Test that we can search the BOM list API endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_variant_stock" time="0.851" timestamp="2026-10-31T18:19:26" file="part\test_api.py" line="3372">
+		<!--Test for 'available_variant_stock' annotation.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_can_build" time="0.116" timestamp="2026-10-31T18:19:26" file="part\test_api.py" line="3442">
+		<!--Test that the 'can_build' annotation works as expected.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_get_bom_detail" time="0.438" timestamp="2026-10-31T18:19:26" file="part\test_api.py" line="3044">
+		<!--Get the detail view for a single BomItem object.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_output_options" time="0.769" timestamp="2026-10-31T18:19:27" file="part\test_api.py" line="3127">
+		<!--Test that various output options work as expected.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_can_build" time="0.218" timestamp="2026-10-31T18:19:28" file="part\test_api.py" line="3485">
+		<!--Test that the 'can_build' annotation accounts for piece_count.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_get" time="0.088" timestamp="2026-10-31T18:19:28" file="part\test_api.py" line="3592">
+		<!--Test that piece_count is returned in GET response for BomItem.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_invalid_values" time="0.146" timestamp="2026-10-31T18:19:29" file="part\test_api.py" line="3640">
+		<!--Test that invalid piece_count values are rejected via API.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_patch" time="0.253" timestamp="2026-10-31T18:19:29" file="part\test_api.py" line="3625">
+		<!--Test updating piece_count via PATCH.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_post" time="0.083" timestamp="2026-10-31T18:19:29" file="part\test_api.py" line="3605">
+		<!--Test creating a BomItem with piece_count via POST.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_post_default" time="0.075" timestamp="2026-10-31T18:19:29" file="part\test_api.py" line="3616">
+		<!--Test that piece_count defaults to 1 when not specified in POST.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_pricing" time="0.159" timestamp="2026-10-31T18:19:29" file="part\test_api.py" line="3518">
+		<!--Test that BOM pricing totals account for piece_count.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_substitutes" time="0.935" timestamp="2026-10-31T18:19:30" file="part\test_api.py" line="3259">
+		<!--Tests for BomItem substitutes.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_variants" time="0.875" timestamp="2026-10-31T18:19:31" file="part\test_api.py" line="3202">
+		<!--Tests for BomItem use with variants.-->
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_bom_export" time="1.061" timestamp="2026-10-31T18:19:23" file="part\test_api.py" line="3402">
+		<!--Test for exporting BOM data.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 3419, in test_bom_export
+    with self.export_data(url, expected_code=200) as data_file:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+	<testcase classname="part.test_api.BomItemTest" name="test_piece_count_bom_export" time="0.931" timestamp="2026-10-31T18:19:28" file="part\test_api.py" line="3549">
+		<!--Test that the BOM exporter total quantity accounts for piece_count.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 3573, in test_piece_count_bom_export
+    with self.export_data(
+         ~~~~~~~~~~~~~~~~^
+        reverse('api-bom-list'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        {'part': assembly.pk, 'export_levels': 0},
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        export_plugin='bom-exporter',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as data_file:
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

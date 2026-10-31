@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockItemDisassembleTest-20261031181515" tests="13" file="stock/test_api.py" time="1.529" timestamp="2026-10-31T18:21:19" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_consumable_and_virtual_excluded" time="0.115" timestamp="2026-10-31T18:21:17" file="stock\test_api.py" line="2562">
+		<!--Consumable BOM lines, and lines pointing to a virtual part, cannot be disassembled.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_disassemble" time="0.117" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2593">
+		<!--Test a valid disassembly operation, using a subset of the BOM lines.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_explicit_pricing" time="0.099" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2716">
+		<!--Test that automatic cost allocation is skipped if explicit pricing is provided.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_full_disassembly" time="0.091" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2664">
+		<!--Test that a fully disassembled item is retained at zero quantity.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_full_coverage" time="0.126" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2803">
+		<!--No new stock item is created for a line fully covered by installed items.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_leftover" time="0.126" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2838">
+		<!--Installed items which do not match a BOM line are still uninstalled.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_partial" time="0.149" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2750">
+		<!--Installed items are uninstalled, and only the remainder is created afresh.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_require_full_disassembly" time="0.048" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2866">
+		<!--Partial disassembly is rejected while items are installed.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_status_and_location" time="0.151" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2878">
+		<!--Explicit per-line status and location values are applied to uninstalled items.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_installed_items_variants_and_substitutes" time="0.171" timestamp="2026-10-31T18:21:18" file="stock\test_api.py" line="2909">
+		<!--Installed variant and substitute parts are matched against BOM lines.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_serialized" time="0.104" timestamp="2026-10-31T18:21:19" file="stock\test_api.py" line="2953">
+		<!--Test disassembly of a serialized stock item.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_traceability_inheritance" time="0.137" timestamp="2026-10-31T18:21:19" file="stock\test_api.py" line="2677">
+		<!--Test that traceability data is passed down to the generated components.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDisassembleTest" name="test_validation" time="0.095" timestamp="2026-10-31T18:21:19" file="stock\test_api.py" line="2512">
+		<!--Test validation checks for the disassembly endpoint.-->
+	</testcase>
+</testsuite>

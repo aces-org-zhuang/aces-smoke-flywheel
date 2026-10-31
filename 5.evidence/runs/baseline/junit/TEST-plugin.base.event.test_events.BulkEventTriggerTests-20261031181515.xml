@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.event.test_events.BulkEventTriggerTests-20261031181515" tests="1" file="plugin/base/event/test_events.py" time="0.622" timestamp="2026-10-31T18:22:50" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.event.test_events.BulkEventTriggerTests" name="test_bulk_trigger_event" time="0.622" timestamp="2026-10-31T18:22:50" file="plugin\base\event\test_events.py" line="15">
+		<!--Test that bulk_trigger_event queues events in a single bulk database write.-->
+	</testcase>
+</testsuite>

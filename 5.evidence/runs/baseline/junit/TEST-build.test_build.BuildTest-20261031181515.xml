@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildTest-20261031181515" tests="28" file="build/test_build.py" time="3.654" timestamp="2026-10-31T18:16:00" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.BuildTest" name="test_build_item_clean" time="0.029" timestamp="2026-10-31T18:15:56" file="build\test_build.py" line="331">
+		<!--Ensure that dodgy BuildItem objects cannot be created.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_cancel" time="0.057" timestamp="2026-10-31T18:15:56" file="build\test_build.py" line="609">
+		<!--Test build cancellation: status is updated and allocations are removed by default.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_cancel_stale_instance_is_noop" time="0.055" timestamp="2026-10-31T18:15:56" file="build\test_build.py" line="634">
+		<!--A second cancellation attempt with a stale build instance must be a no-op.
+
+Regression test: _action_cancel() offloaded the cancellation task
+unconditionally, using no idempotency check at all, so two concurrent
+cancellation requests (each holding its own instance of the build) could
+both offload the cancellation task (duplicate events and notifications).
+The status is now re-read (under lock) from the database, and a build
+which is already cancelled is skipped.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_change_part" time="0.038" timestamp="2026-10-31T18:15:56" file="build\test_build.py" line="590">
+		<!--Try to change target part after creating a build.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_check_build_stock_piece_count" time="0.052" timestamp="2026-10-31T18:15:56" file="build\test_build.py" line="457">
+		<!--The 'stock required' notification must account for the BOM piece_count.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete" time="0.204" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="668">
+		<!--Test completion of a build output.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_allocation_stale_item_instance" time="0.056" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="863">
+		<!--complete_allocation() must not clamp/split using a stale stock_item.quantity.
+
+Regression test: the allocated quantity was clamped, and the choice between
+consuming the item directly versus splitting off a portion of it, was made
+using self.stock_item.quantity as cached in memory on the BuildItem. If a
+concurrent operation reduced the stock item's quantity after the BuildItem
+was loaded, the stale value could select the "split" branch when only the
+entire (now-reduced) item is actually available - causing splitStock() to
+reject the now-oversized split. The stock item's row is now locked and its
+quantity refreshed before the clamp/split decision is made.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_allocation_wrapper" time="0.040" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="788">
+		<!--BuildItem.complete_allocation() is a thin wrapper around Build.complete_allocations().
+
+Regression test: complete_allocation() was removed when complete_allocations() was
+introduced, but some call sites still complete a single BuildItem at a time.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_allocations_sums_consumed" time="0.043" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="770">
+		<!--Completing multiple allocations against one BuildLine sums the consumed count.
+
+(Concurrent completions are serialized by the Build row lock inside
+complete_allocations, so only the sequential arithmetic is tested here.)
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_output_invalid_quantity" time="0.011" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="972">
+		<!--Test that invalid quantities are rejected when completing a build output directly.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_output_stale_build_instance" time="0.140" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="731">
+		<!--The 'completed' count is incremented atomically at the database level.
+
+Simulates two concurrent processes completing different outputs of the
+same build, each holding its own (stale) copy of the Build instance.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_output_still_in_production" time="0.042" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="935">
+		<!--Test that a build output cannot be completed if allocated stock is still in production.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_with_required_tests" time="0.082" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="903">
+		<!--Test the prevention completion when a required test is missing feature.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_complete_zero_quantity_allocation" time="0.073" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="808">
+		<!--A zero-quantity allocation is skipped cleanly on completion.
+
+Regression test: completing a BuildItem with quantity=0 (permitted by
+the model validators) crashed, blocking build completion until the
+empty allocation was manually removed.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_duplicate_bom_line" time="0.014" timestamp="2026-10-31T18:15:57" file="build\test_build.py" line="364">
+		<!--Try to add a duplicate BOM item - it should be allowed.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_events" time="1.412" timestamp="2026-10-31T18:15:58" file="build\test_build.py" line="1029">
+		<!--Test that build events are triggered correctly.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_init" time="0.018" timestamp="2026-10-31T18:15:58" file="build\test_build.py" line="306">
+		<!--Perform some basic tests before we start the ball rolling.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_metadata" time="0.106" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="1080">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_new_build_notification" time="0.040" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="1004">
+		<!--Test that a notification is sent when a new build is created.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_next_ref" time="0.062" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="281">
+		<!--Test that the next reference is automatically generated.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_output_allocation_piece_count" time="0.028" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="442">
+		<!--Tracked output allocation must account for the BOM piece_count.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_overallocation_and_trim" time="0.559" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="481">
+		<!--Test overallocation of stock and trim function.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_overdue_notification" time="0.035" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="988">
+		<!--Test sending of notifications when a build order is overdue.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_partial_allocation" time="0.045" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="396">
+		<!--Test partial allocation of stock.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_partial_complete_with_allocated_items" time="0.010" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="959">
+		<!--Test that a build output with tracked allocations cannot be partially completed.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_ref_int" time="0.106" timestamp="2026-10-31T18:15:59" file="build\test_build.py" line="217">
+		<!--Test the "integer reference" field used for natural sorting.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_ref_validation" time="0.106" timestamp="2026-10-31T18:16:00" file="build\test_build.py" line="248">
+		<!--Test that the reference field validation works as expected.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTest" name="test_return_consumed" time="0.190" timestamp="2026-10-31T18:16:00" file="build\test_build.py" line="564">
+		<!--Test returning consumed stock items to stock.-->
+	</testcase>
+</testsuite>

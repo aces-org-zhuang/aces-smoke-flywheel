@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.PurchaseOrderReceiveTest-20261031181515" tests="20" file="order/test_api.py" time="7.334" timestamp="2026-10-31T18:18:11" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_batch_code" time="0.142" timestamp="2026-10-31T18:18:03" file="order\test_api.py" line="1921">
+		<!--Test that we can supply a 'batch code' when receiving items.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_bulk_receive_query_benchmark" time="1.650" timestamp="2026-10-31T18:18:05" file="order\test_api.py" line="2325">
+		<!--Benchmark: measure the number of DB queries required to receive 100 line items at once.-->
+		<system-out><![CDATA[Warning: 204 queries executed at /api/order/po/8/receive/
+Benchmark @ '/api/order/po/8/receive/': 204 queries (of 420) in 0.6071s (of 7.5s max)
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_duplicate_serial_numbers_across_items" time="0.196" timestamp="2026-10-31T18:18:05" file="order\test_api.py" line="2075">
+		<!--Duplicate serial numbers across line items in a single request are rejected.
+
+Regression test: each line's serials used to be validated against the
+database only, so two lines could claim the same serial number and create
+duplicate serialized stock items.
+-->
+		<system-out><![CDATA[Warning: 103 queries executed at /api/order/po/1/receive/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_empty" time="0.064" timestamp="2026-10-31T18:18:05" file="order\test_api.py" line="1711">
+		<!--Test without any POST data.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_field_max_length" time="0.065" timestamp="2026-10-31T18:18:05" file="order\test_api.py" line="1950">
+		<!--Test that overly long values are rejected with a validation error.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_invalid_barcodes" time="0.101" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1796">
+		<!--Tests for checking in items with invalid barcodes.
+
+- Cannot check in "duplicate" barcodes
+- Barcodes cannot match 'barcode_hash' field for existing StockItem
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_invalid_items" time="0.063" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1731">
+		<!--Test than errors are returned as expected for invalid data.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_invalid_status" time="0.064" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1747">
+		<!--Test with an invalid StockStatus value.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_mismatched_items" time="0.070" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1764">
+		<!--Test for supplier parts which *do* exist but do not match the order supplier.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_no_items" time="0.064" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1720">
+		<!--Test with an empty list of items.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_null_barcode" time="0.125" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="1780">
+		<!--Test than a "null" barcode field can be provided.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_packaging" time="0.228" timestamp="2026-10-31T18:18:06" file="order\test_api.py" line="2367">
+		<!--Test that we can supply a 'packaging' value when receiving items.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_receive_large_quantity" time="3.068" timestamp="2026-10-31T18:18:09" file="order\test_api.py" line="2112">
+		<!--Test receipt of a large number of items.-->
+		<system-out><![CDATA[Warning: 360 queries executed at /api/order/po/8/receive/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_receive_note_recorded_on_tracking_entry" time="0.119" timestamp="2026-10-31T18:18:09" file="order\test_api.py" line="2189">
+		<!--Test that a per-item 'note' is recorded on the tracking entry, not the StockItem.
+
+StockItem no longer has its own 'notes' field - the note supplied when
+receiving an item is expected to land on that item's
+RECEIVED_AGAINST_PURCHASE_ORDER tracking entry instead.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_receive_note_recorded_on_tracking_entry_serialized" time="0.145" timestamp="2026-10-31T18:18:09" file="order\test_api.py" line="2220">
+		<!--Test that a per-item 'note' reaches the tracking entry for serialized items too.
+
+Serialized items are created via a different code path to non-serialized
+ones (StockItem._create_serial_numbers(), rather than a bulk_create()), so
+this is tested separately.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_receive_serialized_status" time="0.242" timestamp="2026-10-31T18:18:10" file="order\test_api.py" line="2252">
+		<!--Test that the selected status (including custom status values) is applied to received serialized items.
+
+Regression test: the status was previously only applied to the (already created)
+serialized items in memory, and was never saved to the database.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_serial_numbers" time="0.198" timestamp="2026-10-31T18:18:10" file="order\test_api.py" line="2025">
+		<!--Test that we can supply a 'serial number' when receiving items.-->
+		<system-out><![CDATA[Warning: 108 queries executed at /api/order/po/1/receive/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_top_level_batch_code" time="0.126" timestamp="2026-10-31T18:18:10" file="order\test_api.py" line="1992">
+		<!--Test the top-level 'batch_code' field.
+
+- Applied to any line item which does not specify its own batch code
+- A line item's own 'batch_code' value takes precedence
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_valid" time="0.191" timestamp="2026-10-31T18:18:10" file="order\test_api.py" line="1836">
+		<!--Test receipt of valid data.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceiveTest" name="test_virtual" time="0.412" timestamp="2026-10-31T18:18:11" file="order\test_api.py" line="2417">
+		<!--Test receipt of "virtual" items (i.e. items which do not create a StockItem).-->
+	</testcase>
+</testsuite>

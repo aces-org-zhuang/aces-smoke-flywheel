@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.tests.BuildTreeTest-20261031181515" tests="2" file="build/tests.py" time="0.706" timestamp="2026-10-31T18:16:03" failures="0" errors="0" skipped="0">
+	<testcase classname="build.tests.BuildTreeTest" name="test_basic_tree" time="0.337" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="172">
+		<!--Test basic tree structure functionality.
+
+- In this test we test a simple non-branching tree structure.
+- Check that the tree structure is correctly created.
+- Verify parent-child relationships and tree properties.
+- Ensure that the number of children and descendants is as expected.
+- Validate that the tree properties (tree_id, level, lft, rght) are correct
+- Check that node deletion works correctly.
+-->
+	</testcase>
+	<testcase classname="build.tests.BuildTreeTest" name="test_complex_tree" time="0.369" timestamp="2026-10-31T18:16:03" file="build\tests.py" line="254">
+		<!--Test a more complex tree structure with multiple branches.
+
+- Ensure that grafting nodes works correctly.
+-->
+	</testcase>
+</testsuite>

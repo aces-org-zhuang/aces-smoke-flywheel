@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.SearchTests-20261031181515" tests="6" file="InvenTree/test_api.py" time="1.682" timestamp="2026-10-31T18:26:01" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_empty" time="0.072" timestamp="2026-10-31T18:25:59" file="InvenTree\test_api.py" line="503">
+		<!--Test empty request.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_permissions" time="0.524" timestamp="2026-10-31T18:26:00" file="InvenTree\test_api.py" line="703">
+		<!--Test that users with insufficient permissions are handled correctly.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_results" time="0.256" timestamp="2026-10-31T18:26:00" file="InvenTree\test_api.py" line="531">
+		<!--Test individual result types.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_search_filters" time="0.631" timestamp="2026-10-31T18:26:01" file="InvenTree\test_api.py" line="576">
+		<!--Test that the regex, whole word, and notes filters are handled correctly.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_search_notes_distinct" time="0.088" timestamp="2026-10-31T18:26:01" file="InvenTree\test_api.py" line="666">
+		<!--Test that search_notes does not return duplicate results for multi-note instances.
+
+notes_list__content traverses a reverse one-to-many relation (an instance can have
+multiple notes) - without deduplicating the queryset, an instance with 2+ matching
+notes is returned once per matching note instead of once overall.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.SearchTests" name="test_viewset_pagination" time="0.111" timestamp="2026-10-31T18:26:01" file="InvenTree\test_api.py" line="511">
+		<!--Test that a paginated 'next' link can be constructed for viewset-backed result types.
+
+Regression test: the search endpoint dispatches to viewset-based result types
+(e.g. PurchaseOrderViewSet) using a synthetic request object. If that request
+is missing WSGI environ data (e.g. SERVER_NAME), pagination raises a KeyError
+when building the 'next' link.
+-->
+	</testcase>
+</testsuite>

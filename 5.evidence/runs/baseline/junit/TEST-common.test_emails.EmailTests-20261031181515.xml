@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_emails.EmailTests-20261031181515" tests="7" file="common/test_emails.py" time="0.663" timestamp="2026-10-31T18:16:31" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_emails.EmailTests" name="test_backend_error_handling" time="0.022" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="121">
+		<!--Test that the custom email backend handles errors correctly.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_api" time="0.535" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="100">
+		<!--Test that the email api endpoints work.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_model_delete" time="0.024" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="135">
+		<!--Test that the email model does not allow deletion if disabled.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_send" time="0.008" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="41">
+		<!--Test the custom send_email command.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_send_anymail" time="0.043" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="74">
+		<!--Theat that normal django send_mail still works with anymal.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_send_custom" time="0.023" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="53">
+		<!--Theat that normal django send_mail still works.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailTests" name="test_email_send_dummy" time="0.007" timestamp="2026-10-31T18:16:31" file="common\test_emails.py" line="37">
+		<!--Test that normal django send_mail still works.-->
+	</testcase>
+</testsuite>

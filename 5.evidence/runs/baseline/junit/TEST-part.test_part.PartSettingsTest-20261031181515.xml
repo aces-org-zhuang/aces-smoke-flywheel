@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartSettingsTest-20261031181515" tests="4" file="part/test_part.py" time="0.315" timestamp="2026-10-31T18:20:42" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartSettingsTest" name="test_custom" time="0.121" timestamp="2026-10-31T18:20:42" file="part\test_part.py" line="769">
+		<!--Update some of the part values and re-test.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSettingsTest" name="test_defaults" time="0.008" timestamp="2026-10-31T18:20:42" file="part\test_part.py" line="749">
+		<!--Test that the default values for the part settings are correct.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSettingsTest" name="test_duplicate_ipn" time="0.166" timestamp="2026-10-31T18:20:42" file="part\test_part.py" line="795">
+		<!--Test the setting which controls duplicate IPN values.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSettingsTest" name="test_initial" time="0.020" timestamp="2026-10-31T18:20:42" file="part\test_part.py" line="758">
+		<!--Test the 'initial' default values (no default values have been set).-->
+	</testcase>
+</testsuite>

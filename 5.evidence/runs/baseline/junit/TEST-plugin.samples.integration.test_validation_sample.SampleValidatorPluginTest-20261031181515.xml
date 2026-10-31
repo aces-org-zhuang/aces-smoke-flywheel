@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest-20261031181515" tests="5" file="plugin/samples/integration/test_validation_sample.py" time="0.257" timestamp="2026-10-31T18:24:35" failures="5" errors="0" skipped="0">
+	<testcase classname="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest" name="test_api_batch" time="0.060" timestamp="2026-10-31T18:24:35" file="plugin\samples\integration\test_validation_sample.py" line="141">
+		<!--Test the batch code validation API.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_validation_sample.py", line 148, in test_api_batch
+    self.assertTrue(response.data['batch_code'].startswith('SAMPLE-BATCH'))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest" name="test_validate_generate_batch_code" time="0.039" timestamp="2026-10-31T18:24:35" file="plugin\samples\integration\test_validation_sample.py" line="131">
+		<!--Test the generate_batch_code function.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_validation_sample.py", line 135, in test_validate_generate_batch_code
+    self.assertIsNotNone(plg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest" name="test_validate_ipn" time="0.038" timestamp="2026-10-31T18:24:35" file="plugin\samples\integration\test_validation_sample.py" line="112">
+		<!--Test the validate_ipn function.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_validation_sample.py", line 116, in test_validate_ipn
+    self.assertIsNotNone(plg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest" name="test_validate_model_instance" time="0.080" timestamp="2026-10-31T18:24:35" file="plugin\samples\integration\test_validation_sample.py" line="44">
+		<!--Test the validate_model_instance function.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_validation_sample.py", line 76, in test_validate_model_instance
+    self.assertIsNotNone(plg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest" name="test_validate_part_name" time="0.040" timestamp="2026-10-31T18:24:35" file="plugin\samples\integration\test_validation_sample.py" line="97">
+		<!--Test the validate_part_name function.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_validation_sample.py", line 101, in test_validate_part_name
+    self.assertIsNotNone(plg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+</testsuite>

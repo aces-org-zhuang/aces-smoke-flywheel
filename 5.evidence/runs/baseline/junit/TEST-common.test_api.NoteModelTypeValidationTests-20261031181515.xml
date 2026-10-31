@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NoteModelTypeValidationTests-20261031181515" tests="4" file="common/test_api.py" time="0.085" timestamp="2026-10-31T18:16:11" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NoteModelTypeValidationTests" name="test_api_rejects_unsupported_content_type" time="0.057" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1654">
+		<!--The Note API rejects a model_type which does not support notes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteModelTypeValidationTests" name="test_model_accepts_supported_content_type" time="0.010" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1642">
+		<!--Note.full_clean() accepts a content type which does support notes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteModelTypeValidationTests" name="test_model_rejects_unsupported_content_type" time="0.009" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1606">
+		<!--Note.full_clean() rejects a content type which does not support notes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteModelTypeValidationTests" name="test_save_rejects_unsupported_content_type" time="0.010" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1622">
+		<!--Note.save() rejects a content type which does not support notes.
+
+Note.clean() explicitly invokes the shared validator, so this is caught
+even when full_clean()/clean_fields() is never called - e.g. direct
+Note.objects.create() calls from the admin, shell, or other app code.
+-->
+	</testcase>
+</testsuite>

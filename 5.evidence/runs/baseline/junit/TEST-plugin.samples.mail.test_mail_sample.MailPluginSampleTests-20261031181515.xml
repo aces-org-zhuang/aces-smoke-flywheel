@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.mail.test_mail_sample.MailPluginSampleTests-20261031181515" tests="3" file="plugin/samples/mail/test_mail_sample.py" time="0.008" timestamp="2026-10-31T18:24:35" failures="0" errors="2" skipped="0">
+	<testcase classname="plugin.samples.mail.test_mail_sample.MailPluginSampleTests" name="test_mixin" time="0.001" timestamp="2026-10-31T18:24:35" file="plugin\samples\mail\test_mail_sample.py" line="50">
+		<!--Test that MixinNotImplementedError is raised.-->
+	</testcase>
+	<testcase classname="plugin.samples.mail.test_mail_sample.MailPluginSampleTests" name="test_run_event_in" time="0.004" timestamp="2026-10-31T18:24:35" file="plugin\samples\mail\test_mail_sample.py" line="36">
+		<!--Check if the event on received is issued.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\mail\test_mail_sample.py", line 38, in test_run_event_in
+    self.activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\mail\test_mail_sample.py", line 18, in activate_plugin
+    config = registry.get_plugin('samplemail', active=None).plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.samples.mail.test_mail_sample.MailPluginSampleTests" name="test_run_event_out" time="0.004" timestamp="2026-10-31T18:24:35" file="plugin\samples\mail\test_mail_sample.py" line="22">
+		<!--Check if the event on send mails is issued.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\mail\test_mail_sample.py", line 24, in test_run_event_out
+    self.activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\mail\test_mail_sample.py", line 18, in activate_plugin
+    config = registry.get_plugin('samplemail', active=None).plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_staticfiles.StaticFilesLeaseEngagementTests-20261031181515" tests="4" file="plugin/test_staticfiles.py" time="0.113" timestamp="2026-10-31T18:25:52" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.test_staticfiles.StaticFilesLeaseEngagementTests" name="test_clear_plugin_static_files_skips_when_lease_held" time="0.036" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="253">
+		<!--clear_plugin_static_files() must not run while the lease is held elsewhere.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.StaticFilesLeaseEngagementTests" name="test_collect_plugins_static_files_skips_when_lease_held" time="0.023" timestamp="2026-10-31T18:25:52" file="plugin\test_staticfiles.py" line="240">
+		<!--collect_plugins_static_files() must not run while the lease is held elsewhere.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.StaticFilesLeaseEngagementTests" name="test_copy_plugin_static_files_runs_once_lease_is_free" time="0.032" timestamp="2026-10-31T18:25:52" file="plugin\test_staticfiles.py" line="269">
+		<!--Sanity check: with no competing lease, the copy proceeds normally.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.StaticFilesLeaseEngagementTests" name="test_copy_plugin_static_files_skips_when_lease_held" time="0.022" timestamp="2026-10-31T18:25:52" file="plugin\test_staticfiles.py" line="219">
+		<!--copy_plugin_static_files() must not run while the lease is held elsewhere.-->
+	</testcase>
+</testsuite>

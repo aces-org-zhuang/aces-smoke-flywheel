@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.label.test_label_mixin.LabelRenderingTests-20261031181515" tests="2" file="plugin/base/label/test_label_mixin.py" time="0.009" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.label.test_label_mixin.LabelRenderingTests" name="test_unexpected_errors" time="0.004" timestamp="2026-10-31T18:26:58" file="plugin\base\label\test_label_mixin.py" line="69">
+		<!--Log unexpected errors and return the existing generic messages.-->
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelRenderingTests" name="test_validation_errors" time="0.005" timestamp="2026-10-31T18:26:58" file="plugin\base\label\test_label_mixin.py" line="40">
+		<!--Log validation errors while preserving messages, codes, and parameters.-->
+	</testcase>
+</testsuite>

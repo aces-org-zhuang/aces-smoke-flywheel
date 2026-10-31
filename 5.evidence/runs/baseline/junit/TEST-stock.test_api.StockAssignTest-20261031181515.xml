@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockAssignTest-20261031181515" tests="2" file="stock/test_api.py" time="0.188" timestamp="2026-10-31T18:21:15" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockAssignTest" name="test_invalid" time="0.073" timestamp="2026-10-31T18:21:15" file="stock\test_api.py" line="4123">
+		<!--Test invalid assign.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockAssignTest" name="test_valid" time="0.115" timestamp="2026-10-31T18:21:15" file="stock\test_api.py" line="4162">
+		<!--Test valid assign.-->
+	</testcase>
+</testsuite>

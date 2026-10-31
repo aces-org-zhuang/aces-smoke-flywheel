@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.ReturnOrderLineItemTests-20261031181515" tests="9" file="order/test_api.py" time="1.338" timestamp="2026-10-31T18:18:23" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_bulk_delete" time="0.111" timestamp="2026-10-31T18:18:21" file="order\test_api.py" line="4662">
+		<!--Test that we can bulk delete multiple ReturnOrderLineItems via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_bulk_update" time="0.216" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4682">
+		<!--Test that we can bulk update the 'outcome' field for multiple ReturnOrderLineItems via the API.-->
+		<system-out><![CDATA[Warning: 110 queries executed at /api/order/ro-line/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_detail" time="0.051" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4629">
+		<!--Test detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_extra_line_bulk_delete" time="0.092" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4718">
+		<!--Test that we can bulk delete multiple ReturnOrderExtraLine items via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_list" time="0.101" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4613">
+		<!--Test list endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_options" time="0.358" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4597">
+		<!--Test the OPTIONS endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_output_options" time="0.285" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4641">
+		<!--Test output options for detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_status_codes_endpoint" time="0.019" timestamp="2026-10-31T18:18:22" file="order\test_api.py" line="4745">
+		<!--The 'ro-line/status/' endpoint must resolve to the status-codes view.
+
+ReturnOrderLineItem is not (yet) served by a ViewSet router - its detail
+route uses Django's '<int:pk>' path converter, which is not vulnerable to
+the router-based bug affecting PurchaseOrder (see PurchaseOrderTest for
+details). This is a coverage test guarding against a future regression.
+-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderLineItemTests" name="test_update" time="0.105" timestamp="2026-10-31T18:18:23" file="order\test_api.py" line="4648">
+		<!--Test updating ReturnOrderLineItem.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockTestResultTest-20261031181515" tests="9" file="stock/test_api.py" time="4.207" timestamp="2026-10-31T18:22:05" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_bulk_create" time="0.184" timestamp="2026-10-31T18:22:01" file="stock\test_api.py" line="3907">
+		<!--Test bulk creation of test results against the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_bulk_delete" time="3.287" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3975">
+		<!--Test that the BulkDelete endpoint works for this model.-->
+		<system-out><![CDATA[Benchmark @ '/api/stock/test/': 72 queries (of 100) in 0.0562s (of 0.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_list" time="0.245" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3778">
+		<!--Test list endpoint.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_output_options" time="0.076" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="4110">
+		<!--Test output options for single item retrieval.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_post" time="0.080" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3857">
+		<!--Test creation of a new test result.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_post_bitmap" time="0.052" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3944">
+		<!--2021-08-25.
+
+For some (unknown) reason, prior to fix https://github.com/inventree/InvenTree/pull/2018
+uploading a bitmap image would result in a failure.
+
+This test has been added to ensure that there is no regression.
+
+As a bonus this also tests the file-upload component
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_post_fail" time="0.048" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3842">
+		<!--Test failing posts.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_stock_item_and_include_installed_filters" time="0.149" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="3790">
+		<!--Test stock_item filter with and without include_installed option.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTestResultTest" name="test_value_choices" time="0.087" timestamp="2026-10-31T18:22:05" file="stock\test_api.py" line="4055">
+		<!--Test that the 'value' field is correctly validated.-->
+	</testcase>
+</testsuite>

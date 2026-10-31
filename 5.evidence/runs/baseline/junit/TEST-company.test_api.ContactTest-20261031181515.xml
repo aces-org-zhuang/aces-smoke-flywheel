@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_api.ContactTest-20261031181515" tests="4" file="company/test_api.py" time="0.264" timestamp="2026-10-31T18:17:41" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_api.ContactTest" name="test_create" time="0.062" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="318">
+		<!--Test that we can create a new Contact object via the API.-->
+	</testcase>
+	<testcase classname="company.test_api.ContactTest" name="test_delete" time="0.077" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="363">
+		<!--Tests that we can delete a Contact via the API.-->
+	</testcase>
+	<testcase classname="company.test_api.ContactTest" name="test_edit" time="0.066" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="338">
+		<!--Test that we can edit a Contact via the API.-->
+	</testcase>
+	<testcase classname="company.test_api.ContactTest" name="test_list" time="0.060" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="301">
+		<!--Test company list API endpoint.-->
+	</testcase>
+</testsuite>

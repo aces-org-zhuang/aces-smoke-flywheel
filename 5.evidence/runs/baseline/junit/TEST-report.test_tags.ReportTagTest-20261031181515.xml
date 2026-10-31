@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.test_tags.ReportTagTest-20261031181515" tests="35" file="report/test_tags.py" time="0.755" timestamp="2026-10-31T18:21:00" failures="1" errors="0" skipped="0">
+	<testcase classname="report.test_tags.ReportTagTest" name="test_asset" time="0.028" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="158">
+		<!--Tests for asset files.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_company_image" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="300">
+		<!--Unit tests for the 'company_image' tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_convert_currency" time="0.008" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="925">
+		<!--Test the convert_currency template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_create_currency" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="910">
+		<!--Test the create_currency template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_datetime_tags" time="0.014" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="533">
+		<!--Test for date formatting tags.
+
+- Source timezone is Australia/Sydney
+- Server timezone is America/New York
+-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_encode_svg_image" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="624">
+		<!--Test the encode_svg_image template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_file_access" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="200">
+		<!--Tests for media and static file access.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_filter_db_model" time="0.022" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="608">
+		<!--Test the filter_db_model template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_filter_queryset" time="0.008" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="596">
+		<!--Test the filter_queryset template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_format_date" time="0.018" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="997">
+		<!--Test the format_date template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_format_datetime" time="0.008" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1042">
+		<!--Test that format_datetime renders locale-aware output.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_get_set_var" time="0.008" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="93">
+		<!--Tests for the 'get_var' and 'set_var' template tags.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_getindex" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="67">
+		<!--Tests for the 'getindex' template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_getkey" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="80">
+		<!--Tests for the 'getkey' template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_icon" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="566">
+		<!--Test the icon template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_include_icon_fonts" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="582">
+		<!--Test the include_icon_fonts template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_internal_link" time="0.019" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="309">
+		<!--Unit tests for the 'internal_link' tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_list_tags" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="386">
+		<!--Simple tests for list manipulation tags.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_maths_tags" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="396">
+		<!--Simple tests for mathematical operator tags.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_maths_tags_invalid" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="453">
+		<!--Tests for mathematical operator tags with invalid inputs.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_maths_tags_with_decimal" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="422">
+		<!--Tests for mathematical operator tags with Decimal inputs.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_maths_tags_with_money" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="439">
+		<!--Tests for mathematical operator tags with Money inputs.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_maths_tags_with_strings" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="412">
+		<!--Tests for mathematical operator tags with string inputs.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_note" time="0.041" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="723">
+		<!--Test the note template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_note_instance" time="0.045" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="678">
+		<!--Test the note_instance template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_number_tags" time="0.009" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="467">
+		<!--Simple tests for number formatting tags.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_part_image" time="0.289" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="286">
+		<!--Unit tests for the 'part_image' tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_part_parameter" time="0.027" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="655">
+		<!--Test the part_parameter template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_render_currency" time="0.031" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="777">
+		<!--Test the render_currency template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_render_currency_locale_override" time="0.009" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="880">
+		<!--Explicit locale= kwarg takes priority over global setting and system locale.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_render_currency_system_locale" time="0.010" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="897">
+		<!--render_currency uses system LANGUAGE_CODE when no explicit locale= is passed.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_render_html_text" time="0.007" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="959">
+		<!--Test the render_html_text template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_string_tags" time="0.006" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="355">
+		<!--Simple tests for the string manipulation tags.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_uploaded_image" time="0.038" timestamp="2026-10-31T18:21:00" file="report\test_tags.py" line="217">
+		<!--Tests for retrieving uploaded images.-->
+	</testcase>
+	<testcase classname="report.test_tags.ReportTagTest" name="test_logo_image" time="0.019" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="340">
+		<!--Unit tests for the 'logo_image' tag.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\test_tags.py", line 353, in test_logo_image
+    self.assertTrue(logo.startswith('data:image/png;base64,'))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+</testsuite>

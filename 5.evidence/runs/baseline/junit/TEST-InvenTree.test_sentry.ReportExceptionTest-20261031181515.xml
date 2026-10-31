@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_sentry.ReportExceptionTest-20261031181515" tests="5" file="InvenTree/test_sentry.py" time="0.011" timestamp="2026-10-31T18:27:03" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_sentry.ReportExceptionTest" name="test_capture_failure_is_swallowed" time="0.006" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="86">
+		<!--report_exception must not raise if sentry_sdk itself fails.-->
+	</testcase>
+	<testcase classname="InvenTree.test_sentry.ReportExceptionTest" name="test_ignored_error_type_is_not_reported" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="75">
+		<!--Error types in the ignore list must not be reported.-->
+	</testcase>
+	<testcase classname="InvenTree.test_sentry.ReportExceptionTest" name="test_other_errors_are_reported" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="80">
+		<!--An error type not in the ignore list must be reported.-->
+	</testcase>
+	<testcase classname="InvenTree.test_sentry.ReportExceptionTest" name="test_skipped_if_dsn_not_configured" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="70">
+		<!--No exception should be reported if no DSN is configured.-->
+	</testcase>
+	<testcase classname="InvenTree.test_sentry.ReportExceptionTest" name="test_skipped_if_sentry_not_enabled" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="65">
+		<!--No exception should be reported if sentry is not enabled.-->
+	</testcase>
+</testsuite>

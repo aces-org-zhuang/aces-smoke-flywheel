@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_param.ParameterTest-20261031181515" tests="6" file="part/test_param.py" time="0.501" timestamp="2026-10-31T18:20:40" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_param.ParameterTest" name="test_bulk_create_params" time="0.055" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="397">
+		<!--Test that we can bulk create parameters via the API.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTest" name="test_create_param" time="0.048" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="382">
+		<!--Test that we can create a param via the API.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTest" name="test_list_params" time="0.059" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="335">
+		<!--Test for listing part parameters.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTest" name="test_order_parts_by_param" time="0.264" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="467">
+		<!--Test that we can order parts by a specified parameter.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTest" name="test_param_detail" time="0.069" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="441">
+		<!--Tests for the Parameter detail endpoint.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTest" name="test_param_template_validation" time="0.007" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="353">
+		<!--Test that part parameter template validation routines work correctly.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.AttachmentTest-20261031181515" tests="1" file="part/test_api.py" time="0.331" timestamp="2026-10-31T18:19:21" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.AttachmentTest" name="test_add_attachment" time="0.331" timestamp="2026-10-31T18:19:21" file="part\test_api.py" line="3658">
+		<!--Test that we can create a new Attachment instances via the API.-->
+	</testcase>
+</testsuite>

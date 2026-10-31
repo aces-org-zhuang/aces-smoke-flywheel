@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartListTests-20261031181515" tests="2" file="part/test_api.py" time="1.703" timestamp="2026-10-31T18:20:24" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartListTests" name="test_price_breaks" time="0.439" timestamp="2026-10-31T18:20:22" file="part\test_api.py" line="2351">
+		<!--Test that price_breaks parameter works correctly and efficiently.-->
+	</testcase>
+	<testcase classname="part.test_api.PartListTests" name="test_query_count" time="1.265" timestamp="2026-10-31T18:20:24" file="part\test_api.py" line="2309">
+		<!--Test that the query count is unchanged, independent of query results.-->
+	</testcase>
+</testsuite>

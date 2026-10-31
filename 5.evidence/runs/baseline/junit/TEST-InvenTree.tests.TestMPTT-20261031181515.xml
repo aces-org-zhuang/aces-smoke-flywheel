@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestMPTT-20261031181515" tests="3" file="InvenTree/tests.py" time="0.037" timestamp="2026-10-31T18:26:38" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestMPTT" name="test_child_as_parent" time="0.004" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="941">
+		<!--Test that we cannot set a child as parent.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestMPTT" name="test_move" time="0.029" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="951">
+		<!--Move an item to a different tree.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestMPTT" name="test_self_as_parent" time="0.004" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="933">
+		<!--Test that we cannot set self as parent.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.LabelTest-20261031181515" tests="8" file="report/tests.py" time="0.598" timestamp="2026-10-31T18:21:02" failures="1" errors="2" skipped="0">
+	<testcase classname="report.tests.LabelTest" name="test_filters" time="0.049" timestamp="2026-10-31T18:21:01" file="report\tests.py" line="795">
+		<!--Test that template filters are correctly validated.-->
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print_failure" time="0.081" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="604">
+		<!--Printing failures retain their details and propagate to the caller.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print_task_duplicate" time="0.058" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="686">
+		<!--Duplicate tasks skip completed or deleted outputs before plugin lookup.-->
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print_task_single_shot" time="0.063" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="572">
+		<!--API print jobs acknowledge failures without retrying the whole label batch.-->
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print_unavailable_plugin" time="0.044" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="659">
+		<!--An unavailable worker plugin records a failure instead of hanging.-->
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print_custom_template" time="0.118" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="730">
+		<!--Test printing against a custom template file.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 771, in test_print_custom_template
+    data = self.post(url, data=post_data).data
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/label/print/': status_code = 400 (expected 201)
+data: {'non_field_errors': [ErrorDetail(string='Error rendering label to PDF', code='invalid')]}
+content: b'{"non_field_errors":["Error rendering label to PDF"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_labels at 0x0000020769499800>' failed due to ['Error rendering label to PDF']
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_generated_file_filename" time="0.086" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="551">
+		<!--PDF filenames retain existing suffixes and default when empty.-->
+		<error type="ValidationError" message="['Error rendering label to PDF']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\mixins.py", line 53, in render_to_pdf
+    return label.render(instance, request=request, user=user)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 370, in render
+    pdf = HTML(string=html, url_fetcher=InvenTreeURLFetcher()).write_pdf(
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\virtual\weasyprint\__init__.py", line 14, in __init__
+    raise RuntimeError(
+        "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    )
+RuntimeError: weasyprint is virtualised in this environment: PDF rendering is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 557, in test_generated_file_filename
+    plugin.render_to_pdf(template, Part.objects.first(), None)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\mixins.py", line 59, in render_to_pdf
+    raise ValidationError(_('Error rendering label to PDF'))
+django.core.exceptions.ValidationError: ['Error rendering label to PDF']
+]]></error>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.LabelTest" name="test_print" time="0.098" timestamp="2026-10-31T18:21:02" file="report\tests.py" line="521">
+		<!--Test manual printing of label templates.-->
+		<error type="ValidationError" message="['Error rendering label to PDF']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\mixins.py", line 53, in render_to_pdf
+    return label.render(instance, request=request, user=user)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 370, in render
+    pdf = HTML(string=html, url_fetcher=InvenTreeURLFetcher()).write_pdf(
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\virtual\weasyprint\__init__.py", line 14, in __init__
+    raise RuntimeError(
+        "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    )
+RuntimeError: weasyprint is virtualised in this environment: PDF rendering is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 535, in test_print
+    output = template.print(items=parts, plugin=plugin)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 941, in print
+    raise e
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 933, in print
+    plugin.print_labels(
+    ~~~~~~~~~~~~~~~~~~~^
+        self, output, items, None, user=user, printing_options=options
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\mixins.py", line 168, in print_labels
+    pdf_data = self.render_to_pdf(label, item, request, user=user, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\mixins.py", line 59, in render_to_pdf
+    raise ValidationError(_('Error rendering label to PDF'))
+django.core.exceptions.ValidationError: ['Error rendering label to PDF']
+]]></error>
+	</testcase>
+</testsuite>

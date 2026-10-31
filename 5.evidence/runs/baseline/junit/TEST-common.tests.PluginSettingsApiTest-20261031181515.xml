@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.PluginSettingsApiTest-20261031181515" tests="5" file="common/tests.py" time="2.933" timestamp="2026-10-31T18:17:30" failures="2" errors="1" skipped="0">
+	<testcase classname="common.tests.PluginSettingsApiTest" name="test_api_list" time="0.785" timestamp="2026-10-31T18:17:28" file="common\tests.py" line="1045">
+		<!--Test list URL.-->
+	</testcase>
+	<testcase classname="common.tests.PluginSettingsApiTest" name="test_plugin_list" time="0.634" timestamp="2026-10-31T18:17:30" file="common\tests.py" line="1032">
+		<!--List installed plugins via API.-->
+	</testcase>
+	<testcase classname="common.tests.PluginSettingsApiTest" name="test_cast" time="0.576" timestamp="2026-10-31T18:17:29" file="common\tests.py" line="1120">
+		<!--Test type casting for plugin settings.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1129, in test_cast
+    response = self.patch(url, {'value': value}, expected_code=200)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 607, in patch
+    return self.query(url, self.client.patch, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/settings/NUMERICAL_SETTING/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'sample' not installed", code='not_found')}
+content: b'{"detail":"Plugin \'sample\' not installed"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="common.tests.PluginSettingsApiTest" name="test_valid_plugin_slug" time="0.571" timestamp="2026-10-31T18:17:30" file="common\tests.py" line="1051">
+		<!--Test that an valid plugin slug runs through.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1060, in test_valid_plugin_slug
+    response = self.get(url, expected_code=200)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 582, in get
+    return self.query(url, self.client.get, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/settings/API_KEY/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'sample' not installed", code='not_found')}
+content: b'{"detail":"Plugin \'sample\' not installed"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="common.tests.PluginSettingsApiTest" name="test_uninitialized_setting" time="0.367" timestamp="2026-10-31T18:17:30" file="common\tests.py" line="1090">
+		<!--Test that requesting an uninitialized setting creates the setting.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'pk'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1102, in test_uninitialized_setting
+    PluginSetting.objects.filter(plugin=plugin.pk, key=key).delete()
+                                        ^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'pk'
+]]></error>
+	</testcase>
+</testsuite>

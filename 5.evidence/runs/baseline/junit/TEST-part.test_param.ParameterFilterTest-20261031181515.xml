@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_param.ParameterFilterTest-20261031181515" tests="6" file="part/test_param.py" time="3.683" timestamp="2026-10-31T18:20:40" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_by_color" time="0.249" timestamp="2026-10-31T18:20:36" file="part\test_param.py" line="680">
+		<!--Test filtering by color parameter.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_by_ionized" time="0.178" timestamp="2026-10-31T18:20:36" file="part\test_param.py" line="667">
+		<!--Test filtering by ionized parameter.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_by_length" time="0.465" timestamp="2026-10-31T18:20:37" file="part\test_param.py" line="636">
+		<!--Test basic filtering by length parameter.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_by_width" time="0.387" timestamp="2026-10-31T18:20:37" file="part\test_param.py" line="652">
+		<!--Test basic filtering by width parameter.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_multiple" time="0.540" timestamp="2026-10-31T18:20:38" file="part\test_param.py" line="734">
+		<!--Test filtering by multiple parameters.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterFilterTest" name="test_filter_si_prefix" time="1.864" timestamp="2026-10-31T18:20:40" file="part\test_param.py" line="691">
+		<!--Test filtering by values which differ only in SI prefix.
+
+Unit conversion introduces floating point error (e.g. '100nF' != '0.1uF'),
+so numeric comparisons must be tolerant of this.
+-->
+	</testcase>
+</testsuite>

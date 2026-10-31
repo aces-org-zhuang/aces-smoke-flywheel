@@ -1,0 +1,117 @@
+{
+  "gate": "mutation-diff",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "generated_at": "2026-10-31T11:02:40.327697+00:00",
+  "scope": "manual PR-diff mutants (3), each bound to expected killer tests",
+  "mutants": [
+    {
+      "id": "M1-bom-self-reference",
+      "mutant_commit": "2d33b9a86be4",
+      "mutated_line": 3456,
+      "anchor_occurrences": 1,
+      "classification": {
+        "by_verdict": {
+          "product_defect": 1,
+          "flaky_candidate": 0,
+          "contract_violation": 0,
+          "environment_excluded": 0,
+          "case_stale": 0,
+          "unknown": 0
+        },
+        "unknown_ratio": 0.0,
+        "new_failure_unknown_ratio": 0.0,
+        "diff_files": [
+          "src/backend/InvenTree/part/models.py"
+        ]
+      },
+      "classified_at_head": "2d33b9a86be4",
+      "file": "src/backend/InvenTree/part/models.py",
+      "rationale": "为了让某个报错的用例先过去，直接把循环 BOM 校验注释掉。 这是\"绕过校验换绿灯\"的典型形态，也是自引用脏数据进入 BOM 的唯一入口。\n",
+      "mutant": "pass  # MUTANT: circular BOM check disabled",
+      "status": "killed",
+      "killed_by": [
+        "part.test_bom_item.BomItemTest.test_self_reference"
+      ],
+      "collateral_failures": [],
+      "targeted": [
+        "part.test_bom_item.BomItemTest.test_self_reference"
+      ],
+      "duration_s": 109.29,
+      "run_dir": "5.evidence\\runs\\mutation-M1-bom-self-reference"
+    },
+    {
+      "id": "M2-trackable-fractional-quantity",
+      "mutant_commit": "ff11c5b175c9",
+      "mutated_line": 3460,
+      "anchor_occurrences": 1,
+      "classification": {
+        "by_verdict": {
+          "product_defect": 1,
+          "flaky_candidate": 0,
+          "contract_violation": 0,
+          "environment_excluded": 0,
+          "case_stale": 0,
+          "unknown": 0
+        },
+        "unknown_ratio": 0.0,
+        "new_failure_unknown_ratio": 0.0,
+        "diff_files": [
+          "src/backend/InvenTree/part/models.py"
+        ]
+      },
+      "classified_at_head": "ff11c5b175c9",
+      "file": "src/backend/InvenTree/part/models.py",
+      "rationale": "去掉\"可追溯件的 BOM 用量必须是整数\"这一条。 线上表现：可追溯件被按 21.7 个领用，序列号无法与用量对齐， 下游工单产出与库存账永远差一个小数。 该守卫在本仓没有第二道兜底（serializer 不做整数校验），因此可观测。\n",
+      "mutant": "if False:  # MUTANT: fractional quantity on trackable parts tolerated",
+      "status": "killed",
+      "killed_by": [
+        "part.test_bom_item.BomItemTest.test_integer_quantity"
+      ],
+      "collateral_failures": [],
+      "targeted": [
+        "part.test_bom_item.BomItemTest.test_integer_quantity"
+      ],
+      "duration_s": 112.76,
+      "run_dir": "5.evidence\\runs\\mutation-M2-trackable-fractional-quantity"
+    },
+    {
+      "id": "M3-order-reference-pattern",
+      "mutant_commit": "082e91e842ed",
+      "mutated_line": 440,
+      "anchor_occurrences": 1,
+      "classification": {
+        "by_verdict": {
+          "product_defect": 1,
+          "flaky_candidate": 0,
+          "contract_violation": 0,
+          "environment_excluded": 0,
+          "case_stale": 0,
+          "unknown": 0
+        },
+        "unknown_ratio": 0.0,
+        "new_failure_unknown_ratio": 0.0,
+        "diff_files": [
+          "src/backend/InvenTree/InvenTree/models.py"
+        ]
+      },
+      "classified_at_head": "082e91e842ed",
+      "file": "src/backend/InvenTree/InvenTree/models.py",
+      "rationale": "关掉订单编号的模式校验。这是所有单据（SO/PO/BO…）共用的唯一守卫， 一旦失效，任意字符串都能成为编号，编号前缀契约（SO-/PO-/BO-）与排序全部作废， 且前端与报表的按前缀解析会静默错位——账面上一切正常。\n",
+      "mutant": "if False:  # MUTANT: reference pattern validation disabled",
+      "status": "killed",
+      "killed_by": [
+        "order.test_api.SalesOrderTest.test_so_create"
+      ],
+      "collateral_failures": [],
+      "targeted": [
+        "order.test_api.SalesOrderTest.test_so_create"
+      ],
+      "duration_s": 110.33,
+      "run_dir": "5.evidence\\runs\\mutation-M3-order-reference-pattern"
+    }
+  ],
+  "killed": 3,
+  "valid": 3,
+  "kill_rate": 1.0,
+  "worktree_restored": true
+}

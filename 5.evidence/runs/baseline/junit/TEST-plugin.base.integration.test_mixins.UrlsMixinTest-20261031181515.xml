@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.integration.test_mixins.UrlsMixinTest-20261031181515" tests="2" file="plugin/base/integration/test_mixins.py" time="0.002" timestamp="2026-10-31T18:22:51" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.integration.test_mixins.UrlsMixinTest" name="test_function" time="0.002" timestamp="2026-10-31T18:22:51" file="plugin\base\integration\test_mixins.py" line="108">
+		<!--Test that the mixin functions.-->
+	</testcase>
+	<testcase classname="plugin.base.integration.test_mixins.UrlsMixinTest" name="test_mixin_name" time="0.001" timestamp="2026-10-31T18:22:51" file="plugin\base\integration\test_mixins.py" line="29">
+		<!--Test that the mixin registers itself correctly.-->
+	</testcase>
+</testsuite>

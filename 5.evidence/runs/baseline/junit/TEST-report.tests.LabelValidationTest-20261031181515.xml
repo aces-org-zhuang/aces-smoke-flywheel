@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.LabelValidationTest-20261031181515" tests="3" file="report/tests.py" time="0.253" timestamp="2026-10-31T18:21:03" failures="2" errors="0" skipped="0">
+	<testcase classname="report.tests.LabelValidationTest" name="test_render_validation" time="0.060" timestamp="2026-10-31T18:21:03" file="report\tests.py" line="863">
+		<!--Both wrappers log and preserve failures from an actual template.-->
+	</testcase>
+	<testcase classname="report.tests.LabelValidationTest" name="test_partial_batch" time="0.102" timestamp="2026-10-31T18:21:03" file="report\tests.py" line="920">
+		<!--A later invalid label cannot undo an earlier print.-->
+		<failure type="AssertionError" message="Expected 'print_label' to have been called once. Called 0 times."><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 931, in test_partial_batch
+    print_label.assert_called_once()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\mock.py", line 958, in assert_called_once
+    raise AssertionError(msg)
+AssertionError: Expected 'print_label' to have been called once. Called 0 times.
+]]></failure>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.LabelValidationTest" name="test_worker_validation" time="0.092" timestamp="2026-10-31T18:21:03" file="report\tests.py" line="878">
+		<!--Real template failures stop rendering and persist their diagnostics.-->
+		<failure type="AssertionError" message="Lists differ: ['Error rendering label to PDF'] != ['Serial number is required for this label']&#10;&#10;First differing element 0:&#10;'Error rendering label to PDF'&#10;'Serial number is required for this label'&#10;&#10;- ['Error rendering label to PDF']&#10;+ ['Serial number is required for this label']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 910, in test_worker_validation
+    self.assertEqual(raised.exception.messages, [self.message])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Lists differ: ['Error rendering label to PDF'] != ['Serial number is required for this label']
+
+First differing element 0:
+'Error rendering label to PDF'
+'Serial number is required for this label'
+
+- ['Error rendering label to PDF']
++ ['Serial number is required for this label']
+]]></failure>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

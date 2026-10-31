@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="machine.tests.TestDriverMachineInterface-20261031181515" tests="1" file="machine/tests.py" time="0.446" timestamp="2026-10-31T18:17:54" failures="1" errors="0" skipped="0">
+	<testcase classname="machine.tests.TestDriverMachineInterface" name="test_machine_lifecycle" time="0.446" timestamp="2026-10-31T18:17:54" file="machine\tests.py" line="45">
+		<!--Test the machine lifecycle.-->
+		<failure type="AssertionError" message="0 != 1"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 57, in test_machine_lifecycle
+    self.assertEqual(len(registry.get_driver_types()), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+]]></failure>
+	</testcase>
+</testsuite>

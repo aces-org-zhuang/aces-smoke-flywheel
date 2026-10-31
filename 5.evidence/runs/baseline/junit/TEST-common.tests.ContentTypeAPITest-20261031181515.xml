@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.ContentTypeAPITest-20261031181515" tests="2" file="common/tests.py" time="0.269" timestamp="2026-10-31T18:17:09" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.ContentTypeAPITest" name="test_detail" time="0.245" timestamp="2026-10-31T18:17:09" file="common\tests.py" line="2338">
+		<!--Test API detail functionality.-->
+	</testcase>
+	<testcase classname="common.tests.ContentTypeAPITest" name="test_list" time="0.024" timestamp="2026-10-31T18:17:09" file="common\tests.py" line="2333">
+		<!--Test API list functionality.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="scim.tests.ScimAdminAPITests-20261031181515" tests="2" file="scim/tests.py" time="0.251" timestamp="2026-10-31T18:26:56" failures="0" errors="0" skipped="0">
+	<testcase classname="scim.tests.ScimAdminAPITests" name="test_generate_rotate_disable" time="0.141" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="79">
+		<!--A superuser can generate, rotate and disable the SCIM secret.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimAdminAPITests" name="test_non_superuser_denied" time="0.110" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="73">
+		<!--A non-superuser cannot view or manage the SCIM configuration.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildCancelAsyncOffloadTest-20261031181515" tests="1" file="build/test_build.py" time="0.084" timestamp="2026-10-31T18:15:51" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.BuildCancelAsyncOffloadTest" name="test_cancel_build_after_genuine_async_offload" time="0.084" timestamp="2026-10-31T18:15:51" file="build\test_build.py" line="2335">
+		<!--Cancelling a build via a truly-offloaded task must still clean up correctly.-->
+	</testcase>
+</testsuite>

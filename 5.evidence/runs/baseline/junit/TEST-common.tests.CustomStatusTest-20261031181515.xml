@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.CustomStatusTest-20261031181515" tests="9" file="common/tests.py" time="0.021" timestamp="2026-10-31T18:17:20" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation" time="0.004" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2493">
+		<!--Tests Valid run.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_key" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2437">
+		<!--Tests Model must have a key.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_key_unique" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2477">
+		<!--Tests Key must be different from the logical keys of the reference.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_logical_key_exsists" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2485">
+		<!--Tests Logical key must be in the logical keys of the reference status.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_logical_unique" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2461">
+		<!--Tests Logical key must be unique.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_logicalkey" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2445">
+		<!--Tests Logical key must be present.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_model" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2429">
+		<!--Test that model is present.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_reference" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2453">
+		<!--Tests Reference status must be present.-->
+	</testcase>
+	<testcase classname="common.tests.CustomStatusTest" name="test_validation_reference_exsists" time="0.002" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="2469">
+		<!--Tests Reference status set not found.-->
+	</testcase>
+</testsuite>

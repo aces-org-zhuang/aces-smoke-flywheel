@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_audit.ParameterAuditTest-20261031181515" tests="10" file="common/test_audit.py" time="0.640" timestamp="2026-10-31T18:16:29" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_bulk_create_api" time="0.044" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="440">
+		<!--Entries for a bulk API create are written together, with the request context.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_bulk_create_api_error" time="0.033" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="467">
+		<!--No entries are written if any item in a bulk API create is invalid.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_bulk_create_single_insert" time="0.078" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="486">
+		<!--audited_bulk_create() writes all audit entries with a single query.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_bulk_create_without_pk" time="0.018" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="371">
+		<!--Entries are recorded on backends which do not return PKs from bulk_create (e.g. MySQL).-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_category_parameters" time="0.027" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="326">
+		<!--Default category parameters (created in bulk) are recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_copy_parameters" time="0.028" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="303">
+		<!--Parameters copied in bulk (copy_parameters_from) are recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_copy_preserves_metadata" time="0.028" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="421">
+		<!--Copying parameters (via audited_bulk_create) retains their metadata.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_parameter_crud" time="0.113" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="254">
+		<!--Parameter create / update / delete via the API is recorded against the part.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_parent_permission" time="0.264" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="346">
+		<!--Parameter entries require permission to view the linked object.-->
+	</testcase>
+	<testcase classname="common.test_audit.ParameterAuditTest" name="test_requires_metadata_field" time="0.006" timestamp="2026-10-31T18:16:29" file="common\test_audit.py" line="525">
+		<!--audited_bulk_create() rejects models without a 'metadata' field.-->
+	</testcase>
+</testsuite>

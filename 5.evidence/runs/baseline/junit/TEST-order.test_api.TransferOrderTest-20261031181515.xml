@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.TransferOrderTest-20261031181515" tests="19" file="order/test_api.py" time="3.590" timestamp="2026-10-31T18:19:00" failures="0" errors="1" skipped="0">
+	<testcase classname="order.test_api.TransferOrderTest" name="test_output_options" time="0.142" timestamp="2026-10-31T18:18:57" file="order\test_api.py" line="5506">
+		<!--Test the output options for the TransferOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_overdue" time="0.180" timestamp="2026-10-31T18:18:57" file="order\test_api.py" line="4866">
+		<!--Test "overdue" status.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_attachments" time="0.026" timestamp="2026-10-31T18:18:57" file="order\test_api.py" line="4890">
+		<!--Test the list endpoint for the Transfer Order Attachments.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_calendar" time="0.400" timestamp="2026-10-31T18:18:58" file="order\test_api.py" line="5067">
+		<!--Test the calendar export endpoint.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_calendar_no_permission" time="0.289" timestamp="2026-10-31T18:18:58" file="order\test_api.py" line="5139">
+		<!--Test that an authenticated user without transfer_order view permission is denied.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_cancel" time="0.065" timestamp="2026-10-31T18:18:58" file="order\test_api.py" line="4996">
+		<!--Test API endpoint for cancelling a TransferOrder.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_cancel_stale_instance_is_noop" time="0.025" timestamp="2026-10-31T18:18:58" file="order\test_api.py" line="5015">
+		<!--A second cancellation attempt with a stale order instance must be a no-op.
+
+Regression test: _action_cancel() checked 'can_cancel' (derived from
+'status') on the caller's (potentially stale) instance, so two concurrent
+cancellation requests could both run the cancellation side effects
+(duplicate CANCELLED events). The status is now re-read (under lock)
+from the database before the check.
+-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_complete" time="0.187" timestamp="2026-10-31T18:18:58" file="order\test_api.py" line="5171">
+		<!--Tests for marking a TransferOrder as complete.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_complete_stale_instance" time="0.110" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="5444">
+		<!--A second completion attempt with a stale instance must be rejected.
+
+Regression test: _action_complete() only checked the *in-memory* status,
+so two concurrent completion requests (each holding its own instance of
+the order) could both observe status=ISSUED and each process every
+allocation - duplicating all stock movements and double-counting the
+'transferred' quantity. The status is now re-read (under lock) from the
+database before the allocations are processed.
+-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_consume" time="0.124" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="5236">
+		<!--Tests for marking a TransferOrder consume the stock it 'transfers'.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_consume_depleted_allocation" time="0.132" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="5351">
+		<!--Consume-type completion only records the quantity actually consumed.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_create" time="0.094" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="4973">
+		<!--Test that we can create a new TransferOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_depleted_allocation" time="0.166" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="5290">
+		<!--Completion handles allocations whose stock was reduced after allocation.
+
+Regression test: the 'transferred' quantity used to be incremented by the
+*allocated* quantity even when less (or no) stock was actually moved.
+-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_detail" time="0.048" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="4880">
+		<!--Test the TransferOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_hold" time="0.055" timestamp="2026-10-31T18:18:59" file="order\test_api.py" line="5048">
+		<!--Test API endpoint for holdling a TransferOrder.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_list" time="0.402" timestamp="2026-10-31T18:19:00" file="order\test_api.py" line="4844">
+		<!--Test the TransferOrder list API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_operations" time="0.313" timestamp="2026-10-31T18:19:00" file="order\test_api.py" line="4899">
+		<!--Test that we can create / edit and delete a TransferOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_transfer_order_partial_allocation_stale_item_instance" time="0.109" timestamp="2026-10-31T18:19:00" file="order\test_api.py" line="5390">
+		<!--A partial allocation must not fail completion if stock is reduced concurrently.
+
+Regression test: transfer_quantity (and the choice between the "move" and
+"split" branches) was computed from self.item.quantity as cached in memory
+on the allocation instance. If the stock item's quantity was reduced by a
+concurrent operation after the allocation was loaded, the stale value could
+select the "split" branch when only a "move" of the entire (now-reduced)
+item is actually possible - causing splitStock() to reject the now-oversized
+split, and the whole order completion to fail. The stock item's row is now
+locked and its quantity refreshed before the branch is chosen.
+-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderTest" name="test_export" time="0.721" timestamp="2026-10-31T18:18:57" file="order\test_api.py" line="5154">
+		<!--Test we can export the TransferOrder list.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 5163, in test_export
+    self.export_data(
+    ~~~~~~~~~~~~~~~~^
+        reverse('api-transfer-order-list'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        expected_fn=r'InvenTree_TransferOrder_.+',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

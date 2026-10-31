@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.event.test_event_sample.EventPluginSampleTests-20261031181515" tests="2" file="plugin/samples/event/test_event_sample.py" time="0.600" timestamp="2026-10-31T18:24:27" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.samples.event.test_event_sample.EventPluginSampleTests" name="test_mixin" time="0.001" timestamp="2026-10-31T18:24:27" file="plugin\samples\event\test_event_sample.py" line="29">
+		<!--Test that MixinNotImplementedError is raised.-->
+	</testcase>
+	<testcase classname="plugin.samples.event.test_event_sample.EventPluginSampleTests" name="test_run_event" time="0.599" timestamp="2026-10-31T18:24:27" file="plugin\samples\event\test_event_sample.py" line="15">
+		<!--Check if the event is issued.-->
+		<failure type="AssertionError" message="'Event `test.event` triggered in sample plugin' not found in '[\'DEBUG:inventree:{\\\'event\\\': &quot;Event triggered: \\\'test.event\\\'&quot;, \\\'timestamp\\\': \\\'2026-10-31T10:24:27.662409Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\', \'DEBUG:inventree:{\\\'event\\\': &quot;Registering triggered event: \\\'test.event\\\'&quot;, \\\'timestamp\\\': \\\'2026-10-31T10:24:27.664954Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\']'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\event\test_event_sample.py", line 27, in test_run_event
+    self.assertIn('Event `test.event` triggered in sample plugin', str(cm[1]))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Event `test.event` triggered in sample plugin' not found in '[\'DEBUG:inventree:{\\\'event\\\': "Event triggered: \\\'test.event\\\'", \\\'timestamp\\\': \\\'2026-10-31T10:24:27.662409Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\', \'DEBUG:inventree:{\\\'event\\\': "Registering triggered event: \\\'test.event\\\'", \\\'timestamp\\\': \\\'2026-10-31T10:24:27.664954Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\']'
+]]></failure>
+	</testcase>
+</testsuite>

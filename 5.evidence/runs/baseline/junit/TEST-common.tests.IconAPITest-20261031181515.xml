@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.IconAPITest-20261031181515" tests="1" file="common/tests.py" time="0.093" timestamp="2026-10-31T18:17:26" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.IconAPITest" name="test_list" time="0.093" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="2376">
+		<!--Test API list functionality.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_views.ViewTests-20261031181515" tests="3" file="InvenTree/test_views.py" time="0.096" timestamp="2026-10-31T18:26:36" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_views.ViewTests" name="test_api_doc" time="0.036" timestamp="2026-10-31T18:26:36" file="InvenTree\test_views.py" line="17">
+		<!--Test that the api-doc view works.-->
+	</testcase>
+	<testcase classname="InvenTree.test_views.ViewTests" name="test_index_redirect" time="0.030" timestamp="2026-10-31T18:26:36" file="InvenTree\test_views.py" line="27">
+		<!--Top-level URL should redirect to "index" page.-->
+	</testcase>
+	<testcase classname="InvenTree.test_views.ViewTests" name="test_url_login" time="0.030" timestamp="2026-10-31T18:26:36" file="InvenTree\test_views.py" line="44">
+		<!--Test logging in via arguments.-->
+	</testcase>
+</testsuite>

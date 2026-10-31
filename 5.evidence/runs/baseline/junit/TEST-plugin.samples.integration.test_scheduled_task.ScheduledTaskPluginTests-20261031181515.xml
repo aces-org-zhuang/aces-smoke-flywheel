@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_scheduled_task.ScheduledTaskPluginTests-20261031181515" tests="1" file="plugin/samples/integration/test_scheduled_task.py" time="0.003" timestamp="2026-10-31T18:24:33" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.samples.integration.test_scheduled_task.ScheduledTaskPluginTests" name="test_init" time="0.003" timestamp="2026-10-31T18:24:33" file="plugin\samples\integration\test_scheduled_task.py" line="181">
+		<!--Check that all MixinImplementationErrors raise.-->
+	</testcase>
+</testsuite>

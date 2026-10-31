@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NotePermissionAPITests-20261031181515" tests="15" file="common/test_api.py" time="0.949" timestamp="2026-10-31T18:16:12" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_create_note_no_role_is_denied" time="0.046" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2743">
+		<!--A user with no roles cannot create a note for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_create_note_view_only_role_is_denied" time="0.074" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2755">
+		<!--A user with only part.view cannot create a note for a Part.
+
+'view' does not imply 'change' in the InvenTree ruleset hierarchy.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_create_note_with_add_role_is_allowed" time="0.099" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2785">
+		<!--A user with part.add can create a note (add implies change in InvenTree).-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_create_note_with_change_role_is_allowed" time="0.078" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2771">
+		<!--A user with part.change can create a note for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_delete_note_no_role_returns_404" time="0.039" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2894">
+		<!--A user with no roles cannot even see the note, so gets a 404 on delete.
+
+This is the 'no visibility at all' case, and is expected to behave the
+same way as the existing GET/detail 404 case.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_delete_note_view_only_role_is_denied" time="0.070" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2905">
+		<!--A user with only 'view' permission must not be able to delete a note.
+
+Regression test for a permission gap: NoteDetail (RetrieveUpdateDestroyAPI)
+uses DRF's default destroy()/perform_destroy(), which calls
+instance.delete() directly - bypassing NoteSerializer.save() entirely.
+The 'change' permission check in NoteSerializer.save() therefore never
+runs for DELETE requests, so a 'view'-only user (visible via
+get_queryset(), but without 'change') is currently able to delete the
+note. This must be denied, exactly like create/update are.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_delete_note_with_change_role_is_allowed" time="0.077" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="2922">
+		<!--A user with part.change can delete a note for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_detail_note_no_role_returns_404" time="0.038" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2823">
+		<!--A user with no roles gets 404 when accessing a note detail for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_detail_note_with_view_role_returns_200" time="0.065" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2827">
+		<!--A user with part.view can access a specific note for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_list_notes_no_role_returns_empty" time="0.042" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2803">
+		<!--A user with no roles cannot see notes attached to a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_list_notes_unrelated_role_does_not_leak" time="0.065" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2833">
+		<!--A user with a role that has no Part access cannot see Part notes.
+
+purchase_order.view covers company/order tables; 'part_part' is NOT
+in that ruleset, so Part notes must remain invisible to this user.
+Note: build.view would be wrong here because 'part_part' IS listed in
+the build ruleset (builds need to read parts).
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_list_notes_with_view_role_returns_notes" time="0.066" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2812">
+		<!--A user with part.view can see notes attached to a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_update_note_no_role_returns_404" time="0.044" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2853">
+		<!--A user with no roles cannot even see the note, so gets a 404 on update.
+
+Matches the existing GET/detail 404 case - the note is entirely absent
+from get_queryset() without 'view' permission.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_update_note_view_only_role_is_denied" time="0.067" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2868">
+		<!--A user with only part.view cannot update a note for a Part.
+
+Mirrors the create-permission check: 'view' does not imply 'change'.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotePermissionAPITests" name="test_update_note_with_change_role_is_allowed" time="0.079" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2880">
+		<!--A user with part.change can update a note for a Part.-->
+	</testcase>
+</testsuite>

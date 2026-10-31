@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.UserSettingsApiTest-20261031181515" tests="8" file="common/tests.py" time="0.784" timestamp="2026-10-31T18:17:39" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_cast" time="0.104" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="997">
+		<!--Test numerical typecast for user settings.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_unauthenticated_user" time="0.021" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="848">
+		<!--Test access with unauthenticated user.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_setting_boolean" time="0.346" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="895">
+		<!--Test a boolean user setting value.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_setting_choice" time="0.093" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="942">
+		<!--Test a user setting with choices.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_setting_init" time="0.034" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="875">
+		<!--Test we can retrieve a setting which has not yet been initialized.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_setting_integer" time="0.127" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="966">
+		<!--Test a integer user setting value.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_setting_invalid" time="0.016" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="869">
+		<!--Test a user setting with an invalid key.-->
+	</testcase>
+	<testcase classname="common.tests.UserSettingsApiTest" name="test_user_settings_api_list" time="0.044" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="863">
+		<!--Test list URL for user settings.-->
+	</testcase>
+</testsuite>

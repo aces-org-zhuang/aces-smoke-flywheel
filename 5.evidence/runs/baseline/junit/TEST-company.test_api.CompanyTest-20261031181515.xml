@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_api.CompanyTest-20261031181515" tests="8" file="company/test_api.py" time="0.602" timestamp="2026-10-31T18:17:41" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_api.CompanyTest" name="test_company_active" time="0.090" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="216">
+		<!--Test that the 'active' value and filter works.-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_create" time="0.089" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="168">
+		<!--Test that we can create a company via the API!-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_detail" time="0.059" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="103">
+		<!--Tests for the Company detail endpoint.-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_duplicate_copies_notes" time="0.076" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="131">
+		<!--Test that notes are copied when duplicating a Company via the API.
+
+CompanySerializer declares its 'duplicate' options with copy_notes=True,
+so notes should be copied by default (i.e. without explicitly requesting it).
+-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_internal" time="0.120" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="74">
+		<!--Test the 'is_internal' field and filter.-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_list" time="0.068" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="54">
+		<!--Test the list API endpoint for the Company model.-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_parameters" time="0.069" timestamp="2026-10-31T18:17:40" file="company\test_api.py" line="242">
+		<!--Test for annotation of 'parameters' field in Company API.-->
+	</testcase>
+	<testcase classname="company.test_api.CompanyTest" name="test_company_search" time="0.031" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="124">
+		<!--Test search functionality in company list.-->
+	</testcase>
+</testsuite>

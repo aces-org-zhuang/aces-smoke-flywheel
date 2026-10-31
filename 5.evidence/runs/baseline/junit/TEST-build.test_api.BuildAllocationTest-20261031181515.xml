@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildAllocationTest-20261031181515" tests="11" file="build/test_api.py" time="1.471" timestamp="2026-10-31T18:15:17" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_auto_allocate" time="0.503" timestamp="2026-10-31T18:15:16" file="build\test_api.py" line="988">
+		<!--Test the allocation of tracked items against a Build.-->
+		<system-out><![CDATA[Warning: 130 queries executed at /api/build/6/create-output/
+]]></system-out>
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_auto_allocate_tracked" time="0.239" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="1061">
+		<!--Test manual auto-allocation of tracked items against a Build.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_build_data" time="0.042" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="739">
+		<!--Check that our assumptions about the particular BuildOrder are correct.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_empty" time="0.085" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="763">
+		<!--Test without any POST data.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_fractional_allocation" time="0.113" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="951">
+		<!--Test allocation of a fractional quantity of stock items.
+
+Ref: https://github.com/inventree/InvenTree/issues/6508
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_get" time="0.051" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="751">
+		<!--A GET request to the endpoint should return an error.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_invalid_bom_item" time="0.077" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="817">
+		<!--Test by passing an invalid BOM item.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_missing" time="0.092" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="778">
+		<!--Test with missing data.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_options" time="0.087" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="755">
+		<!--An OPTIONS request to the endpoint should return information about the endpoint.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_reallocate" time="0.110" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="886">
+		<!--Test reallocating an existing built item with the same stock item.
+
+This should increment the quantity of the existing BuildItem object
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAllocationTest" name="test_valid_data" time="0.071" timestamp="2026-10-31T18:15:17" file="build\test_api.py" line="847">
+		<!--Test with valid data.
+
+This should result in creation of a new BuildItem object
+-->
+	</testcase>
+</testsuite>

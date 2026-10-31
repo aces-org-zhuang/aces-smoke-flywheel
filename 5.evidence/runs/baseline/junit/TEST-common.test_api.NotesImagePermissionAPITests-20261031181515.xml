@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NotesImagePermissionAPITests-20261031181515" tests="5" file="common/test_api.py" time="0.286" timestamp="2026-10-31T18:16:13" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NotesImagePermissionAPITests" name="test_list_images_no_role_returns_empty" time="0.042" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3324">
+		<!--A user with no roles cannot see images attached to the note.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImagePermissionAPITests" name="test_list_images_with_view_role_returns_images" time="0.061" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3330">
+		<!--A user with part.view can see images attached to the note.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImagePermissionAPITests" name="test_upload_no_role_is_denied" time="0.050" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3337">
+		<!--A user with no roles cannot attach an image to the note.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImagePermissionAPITests" name="test_upload_view_only_role_is_denied" time="0.062" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3346">
+		<!--A user with only part.view cannot attach an image to the note.
+
+'view' does not imply 'change' in the InvenTree ruleset hierarchy.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImagePermissionAPITests" name="test_upload_with_change_role_is_allowed" time="0.071" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3359">
+		<!--A user with part.change can attach an image to the note.-->
+	</testcase>
+</testsuite>

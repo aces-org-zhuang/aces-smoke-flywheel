@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.ParameterPermissionAPITests-20261031181515" tests="7" file="common/test_api.py" time="0.432" timestamp="2026-10-31T18:16:21" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_bulk_delete_parameter_view_only_role_is_denied" time="0.063" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3254">
+		<!--A user with only 'view' permission must not be able to bulk-delete parameters.
+
+Regression test: ParameterList (BulkDeleteMixin) had no validate_delete()
+override, so the bulk-delete endpoint bypassed permission checks entirely.
+-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_bulk_delete_parameter_with_delete_role_is_allowed" time="0.087" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3270">
+		<!--A user with part.delete can bulk-delete parameters for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_delete_parameter_view_only_role_is_denied" time="0.060" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3231">
+		<!--A user with only 'view' permission must not be able to delete a parameter.
+
+Regression test: ParameterDetail (RetrieveUpdateDestroyAPI) used DRF's
+default destroy()/perform_destroy(), which calls instance.delete()
+directly - bypassing any permission check entirely. A 'view'-only user
+(visible via get_queryset(), but without 'delete') must not be able to
+delete the parameter.
+-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_delete_parameter_with_delete_role_is_allowed" time="0.081" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3246">
+		<!--A user with part.delete can delete a parameter for a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_detail_parameter_no_role_returns_404" time="0.037" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3227">
+		<!--A user with no roles gets 404 for a parameter attached to a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_list_parameters_no_role_returns_empty" time="0.041" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3207">
+		<!--A user with no roles cannot see parameters attached to a Part.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterPermissionAPITests" name="test_list_parameters_with_view_role_returns_parameters" time="0.065" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="3216">
+		<!--A user with part.view can see parameters attached to a Part.-->
+	</testcase>
+</testsuite>

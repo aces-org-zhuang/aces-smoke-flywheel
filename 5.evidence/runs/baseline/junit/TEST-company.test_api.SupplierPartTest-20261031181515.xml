@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_api.SupplierPartTest-20261031181515" tests="7" file="company/test_api.py" time="2.046" timestamp="2026-10-31T18:17:44" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_api.SupplierPartTest" name="test_active" time="0.177" timestamp="2026-10-31T18:17:42" file="company\test_api.py" line="826">
+		<!--Test that 'active' status filtering works correctly.-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_available" time="0.381" timestamp="2026-10-31T18:17:43" file="company\test_api.py" line="781">
+		<!--Tests for updating the 'available' field.-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_filterable_fields" time="0.499" timestamp="2026-10-31T18:17:43" file="company\test_api.py" line="896">
+		<!--Test inclusion/exclusion of optional API fields.-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_output_options" time="0.228" timestamp="2026-10-31T18:17:43" file="company\test_api.py" line="768">
+		<!--Test the output options for SupplierPart detail.-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_primary" time="0.351" timestamp="2026-10-31T18:17:44" file="company\test_api.py" line="870">
+		<!--Test for the 'primary' field in the SupplierPart model.-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_supplier_part_duplicate_copies_notes" time="0.112" timestamp="2026-10-31T18:17:44" file="company\test_api.py" line="726">
+		<!--Test that notes are copied when duplicating a SupplierPart via the API.
+
+SupplierPartSerializer declares its 'duplicate' options with
+copy_notes=True, so notes should be copied by default.
+-->
+	</testcase>
+	<testcase classname="company.test_api.SupplierPartTest" name="test_supplier_part_list" time="0.298" timestamp="2026-10-31T18:17:44" file="company\test_api.py" line="705">
+		<!--Test the SupplierPart API list functionality.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="generic.states.tests.ApiTests-20261031181515" tests="1" file="generic/states/tests.py" time="0.309" timestamp="2026-10-31T18:26:55" failures="0" errors="0" skipped="0">
+	<testcase classname="generic.states.tests.ApiTests" name="test_all_states" time="0.309" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="266">
+		<!--Test the API endpoint for listing all status models.-->
+	</testcase>
+</testsuite>

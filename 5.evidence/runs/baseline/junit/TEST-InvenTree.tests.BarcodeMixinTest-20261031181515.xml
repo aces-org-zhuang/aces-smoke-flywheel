@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.BarcodeMixinTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.013" timestamp="2026-10-31T18:26:36" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.BarcodeMixinTest" name="test_barcode_hash" time="0.007" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1701">
+		<!--Test that the barcode hashing function provides correct results.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.BarcodeMixinTest" name="test_barcode_model_type" time="0.006" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1692">
+		<!--Test that the barcode_model_type property works for each class.-->
+	</testcase>
+</testsuite>

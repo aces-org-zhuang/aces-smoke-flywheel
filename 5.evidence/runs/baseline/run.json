@@ -1,0 +1,912 @@
+{
+  "run_id": "baseline",
+  "layer": "L0-L3-all",
+  "source": "manage.py test（全量），由 tools/ingest_baseline.py 从 JUnit 回收元数据",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "sut_dirty": false,
+  "sut_dirty_files": [],
+  "generated_at": "2026-10-31T10:29:01.202168+00:00",
+  "collected": 2020,
+  "passed": 1829,
+  "failed": 179,
+  "skipped": 12,
+  "duration_s": 602.32,
+  "missing_test_ids": [],
+  "failures": [
+    {
+      "test": "build.test_api.BuildTest.test_download_build_orders",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "common.test_api.AttachmentAPITests.test_attachments",
+      "status": "failed",
+      "message": "'test_file_0_AGOphxV.txt' != 'test_file_0.txt'\n- test_file_0_AGOphxV.txt\n?            --------\n+ test_file_0.txt"
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "status": "error",
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'"
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "status": "error",
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'"
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_email_notifications_locale_translation",
+      "status": "failed",
+      "message": "'Elemento ricevuto' not found in '[InvenTree] Items Received'"
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_ui_notifications_locale_translation",
+      "status": "failed",
+      "message": "'Items Received' != 'Elemento ricevuto'\n- Items Received\n+ Elemento ricevuto"
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_connection_error",
+      "status": "failed",
+      "message": "no logs of level WARNING or higher triggered on inventree"
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_valid_url",
+      "status": "failed",
+      "message": "0 == 0"
+    },
+    {
+      "test": "common.tests.CommonTest.test_health_api",
+      "status": "failed",
+      "message": "200 != 503"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_cast",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_valid_plugin_slug",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_uninitialized_setting",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'pk'"
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_cast",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_user_setting_list",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_return_order",
+      "status": "failed",
+      "message": "ValidationError not raised"
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_broken_transition_plugin",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'set_setting'"
+    },
+    {
+      "test": "InvenTree.test_api.GeneralApiTests.test_info_view",
+      "status": "error",
+      "message": "object of type 'bool' has no len()"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_backup_command_e2e",
+      "status": "failed",
+      "message": "'Writing metadata file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip' not found in \"['INFO:dbbackup.command:Backing Up Database: file:memorydb_default?mode=memory&cache=shared', 'INFO:dbbackup.command:Writing file to D:\\\\\\\\wbeval\\\\\\\\repos\\\\\\\\inventree\\\\\\\\src\\\\\\\\backend\\\\\\\\InvenTree\\\\\\\\_testfolder\\\\\\\\backup.zip', 'INFO:dbbackup.command:Writing metadata file to D:"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='USD,EUR,GBP')",
+      "status": "failed",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=USD,EUR,GBP\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", line 13, in main\n    from django.core.management import execute_from_command_line\nModuleNotFoundError: No module named 'django'\n\nThe above exception was the direct cause of the following exception:\n\nT"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='JPY,CNY,KRW')",
+      "status": "failed",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=JPY,CNY,KRW\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", line 13, in main\n    from django.core.management import execute_from_command_line\nModuleNotFoundError: No module named 'django'\n\nThe above exception was the direct cause of the following exception:\n\nT"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_restore_validation",
+      "status": "failed",
+      "message": "no logs of level INFO or higher triggered on root"
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_delete_old_emails",
+      "status": "failed",
+      "message": "2 != 1"
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_offload_timeout",
+      "status": "failed",
+      "message": "True is not false"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.testStaticUrl",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image_custom_static",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_download_image",
+      "status": "error",
+      "message": "Connection error: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError(\"HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved ad"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_cfg_file",
+      "status": "failed",
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\config.yaml not in ['config/config.yaml', 'inventree/data/config.yaml']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_get_oidc_private_key",
+      "status": "failed",
+      "message": "False is not true : Path D:\\wbeval\\repos\\inventree\\config\\oidc.pem not in ['config/oidc.pem', 'inventree/data/oidc.pem']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_plugin_file",
+      "status": "failed",
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\plugins.txt not in ['config/plugins.txt', 'inventree/data/plugins.txt']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_secret_key",
+      "status": "failed",
+      "message": "False is not true : Path devkey-devkey-devkey-devkey-devkey not in ['config/secret_key.txt', 'inventree/data/secret_key.txt']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_initial_install",
+      "status": "failed",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_set_user_to_few",
+      "status": "failed",
+      "message": "1 != 2"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_detail_settings",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_driver_list",
+      "status": "failed",
+      "message": "0 != 1"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_list",
+      "status": "failed",
+      "message": "{'pk'[145 chars]ed': False, 'active': True, 'status': 101, 'st[188 chars]: []} != {'pk'[145 chars]ed': True, 'active': True, 'status': 101, 'sta[186 chars]: []}\n  {'active': True,\n   'driver': 'test-label-printer-api',\n-  'initialized': False,\n?                 ^^^^\n\n+  'initialized': True,\n?                 ^^^\n\n-  'is_driver_available': False,\n?                         ^^^^\n\n+  'is_driver_availa"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_restart",
+      "status": "failed",
+      "message": "'' != 'Restarting...'\n+ Restarting..."
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_settings_list",
+      "status": "failed",
+      "message": "1 != 2"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_status",
+      "status": "failed",
+      "message": "Error message matching pattern '\\'<class \\'.*\\.TestingLabelPrinterDriverNotImplemented\\'>\\' did not override the required attributes: one of print_label or print_labels' not found in machine registry errors:"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_type_list",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "machine.tests.TestDriverMachineInterface.test_machine_lifecycle",
+      "status": "failed",
+      "message": "0 != 1"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_call_function",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_location_invalid_pk",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_print_label",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_printing_options_serializer",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_registration",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_line_items",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.ReturnOrderTests.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderAllocationDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_xlsx",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_xlsx",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_bom_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_piece_count_bom_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.PartAPITest.test_part_download",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_existing_image",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_update_existing_image",
+      "status": "failed",
+      "message": "400 != 200"
+    },
+    {
+      "test": "part.test_api.PartOptionsAPITest.test_part_label_translation",
+      "status": "failed",
+      "message": "'IPN' != 'IPN (Interne Produktnummer)'"
+    },
+    {
+      "test": "plugin.base.integration.test_mixins.AppMixinTest.test_function",
+      "status": "failed",
+      "message": "'plugin.samples.integration' not found in ['django.contrib.admin', 'django.contrib.admindocs', 'build.apps.BuildConfig', 'common.apps.CommonConfig', 'plugin.apps.PluginAppConfig', 'company.apps.CompanyConfig', 'order.apps.OrderConfig', 'part.apps.PartConfig', 'report.apps.ReportConfig', 'scim.apps.ScimConfig', 'stock.apps.StockConfig', 'users.apps.UsersConfig', 'machine.apps.MachineConfig', 'data_"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_api",
+      "status": "failed",
+      "message": "1 != 2"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_installed",
+      "status": "failed",
+      "message": "3 != 4"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_endpoints",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_options",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_process",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_machine_driver_options_validate_before_print_task",
+      "status": "error",
+      "message": "None does not have the attribute 'get_printing_options_serializer'"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_installed",
+      "status": "failed",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_fail",
+      "status": "failed",
+      "message": "\"Must supply either 'item' or 'location' parameter\" not found in '{\\'detail\\': ErrorDetail(string=\"Plugin \\'samplelocate\\' is not installed, or does not support the location mixin\", code=\\'parse_error\\')}'"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_item",
+      "status": "failed",
+      "message": "400 != 200"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_location",
+      "status": "failed",
+      "message": "400 != 200"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_permissions",
+      "status": "failed",
+      "message": "400 != 403"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_dashboard_items",
+      "status": "failed",
+      "message": "0 != 4"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_navigation_items",
+      "status": "failed",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_primary_actions",
+      "status": "failed",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_routes",
+      "status": "failed",
+      "message": "2 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_template_editors",
+      "status": "failed",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_installed",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'is_active'"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_panels",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'set_setting'"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_csv_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_xlsx_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.StocktakeExporterTest.test_stocktake_exporter",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_well_known_urls",
+      "status": "failed",
+      "message": "'passkey-endpoints' not found in {}"
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_passkey_view",
+      "status": "error",
+      "message": "'plugin' is not a registered namespace"
+    },
+    {
+      "test": "plugin.samples.event.test_event_sample.EventPluginSampleTests.test_run_event",
+      "status": "failed",
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:27.662409Z\\\\\\', \\\\\\'logger\\\\\\': \\\\\\'inventree\\\\\\', \\\\\\'level\\\\\\': \\\\\\'debug\\\\\\'}\\', \\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Registering triggered event: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:27.664954Z\\\\\\',"
+    },
+    {
+      "test": "plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests.test_run_event",
+      "status": "failed",
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:29.132855Z\\\\\\', \\\\\\'logger\\\\\\': \\\\\\'inventree\\\\\\', \\\\\\'level\\\\\\': \\\\\\'debug\\\\\\'}\\', \\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Registering triggered event: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:29.135197Z\\\\\\',"
+    },
+    {
+      "test": "plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests.test_get_icons_api",
+      "status": "failed",
+      "message": "1 != 2"
+    },
+    {
+      "test": "plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest.test_build_auto_allocate",
+      "status": "failed",
+      "message": "Decimal('0') != 5"
+    },
+    {
+      "test": "plugin.samples.integration.test_api_caller.SampleApiCallerPluginTests.test_return",
+      "status": "failed",
+      "message": "'sample-api-caller' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B83BA10>, 'autocreatebuilds': <events.auto_create_builds.AutoCreateBuildsPlugin object at 0x0000020769D0B380>, 'autoiissueorders': <events.auto_issue_orders.AutoIssueOrdersPlugin object at 0x0000020769D0B770>, 'bom-exporter': <exporter.bom_exporter.BomExporterPlugin"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings_validator",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_view",
+      "status": "failed",
+      "message": "302 != 200"
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_function",
+      "status": "failed",
+      "message": "'schedule' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B169E50>, 'autocreatebuilds': <events.auto_create_builds.AutoCreateBuildsPlugin object at 0x000002076B168F50>, 'autoiissueorders': <events.auto_issue_orders.AutoIssueOrdersPlugin object at 0x000002076B168B90>, 'bom-exporter': <exporter.bom_exporter.BomExporterPlugin object a"
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_calling",
+      "status": "error",
+      "message": "Plugin 'schedule' not found"
+    },
+    {
+      "test": "plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests.test_function",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_api_batch",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_generate_batch_code",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_ipn",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_model_instance",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_part_name",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.locate.test_locate_sample.SampleLocatePluginTests.test_run_locator",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_in",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_out",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_import_part",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_list",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_search",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filter_by_mixin",
+      "status": "failed",
+      "message": "0 != 1"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filters",
+      "status": "failed",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_install",
+      "status": "failed",
+      "message": "'ERROR: Could not find a version that satisfies the requirement' not found in \"{'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}\""
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_metadata",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_settings",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_uninstall",
+      "status": "failed",
+      "message": "404 != 400"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_settings",
+      "status": "failed",
+      "message": "404 != 200"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_activate",
+      "status": "error",
+      "message": "PluginConfig matching query does not exist."
+    },
+    {
+      "test": "plugin.test_api.PluginFullAPITest.test_full_process",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_numeric_setting_patch_ignored",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_get",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_save_enforced",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_patch_ignored",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_read_only_flag",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_returns_override_value",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_no_overrides_settings_are_editable",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_can_be_changed",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_not_read_only",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_plugin.InstallerTests.test_plugin_install_errors",
+      "status": "failed",
+      "message": "'No package name or URL provided for installation' not found in \"['Plugin installation is disabled']\""
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_action_name",
+      "status": "failed",
+      "message": "False != True"
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_version",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_broken_samples",
+      "status": "failed",
+      "message": "0 != 3"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_builtin_mandatory_plugins",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_config_attributes",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_custom_loading",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_mandatory_plugins",
+      "status": "failed",
+      "message": "15 != 13"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_registry_reload",
+      "status": "failed",
+      "message": "'c060f5c0c8b7b63e67f1c5193969e245' == 'c060f5c0c8b7b63e67f1c5193969e245'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_with_mixin",
+      "status": "failed",
+      "message": "0 != 2"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_folder_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_update_reload",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'version'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_subfolder_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix",
+      "status": "failed",
+      "message": "'data[76 chars]AAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZY[186 chars]gg==' != 'data[76 chars]AAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCg[182 chars]gg=='\n- data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZYCkfcdhZgA+jTfExgGbK2nqQfJUlDZsBgA0BpEP+xIwIFXiDGo1FzhvFU8j1c99PV7nW21JlW0SQm31EFy1ItfiSktUCd6bkKa74TzY+RmeqA0ehTl"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_qrcode",
+      "status": "failed",
+      "message": "968 != 700"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix_svg_pdf",
+      "status": "error",
+      "message": "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    },
+    {
+      "test": "report.test_tags.ReportTagTest.test_logo_image",
+      "status": "failed",
+      "message": "False is not true"
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_disabled_template",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_model_permission",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelTest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelTest.test_generated_file_filename",
+      "status": "error",
+      "message": "['Error rendering label to PDF']"
+    },
+    {
+      "test": "report.tests.LabelTest.test_print",
+      "status": "error",
+      "message": "['Error rendering label to PDF']"
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_partial_batch",
+      "status": "failed",
+      "message": "Expected 'print_label' to have been called once. Called 0 times."
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_worker_validation",
+      "status": "failed",
+      "message": "Lists differ: ['Error rendering label to PDF'] != ['Serial number is required for this label']\n\nFirst differing element 0:\n'Error rendering label to PDF'\n'Serial number is required for this label'\n\n- ['Error rendering label to PDF']\n+ ['Serial number is required for this label']"
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_disabled_template",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_model_permission",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_build_order",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_create_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_detail_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_internal_company_context",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_list_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_build",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_returnorder",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_salesorder",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_metadata",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_build_order",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_custom_template",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_stock_location",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_report_template_permissions",
+      "status": "failed",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_fetch_urls_disabled_blocks_http",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_file_url_blocked_in_render",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_ssrf_url_blocked_in_render",
+      "status": "failed",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_build_order",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "scim.tests.ScimProtocolTests.test_suite",
+      "status": "failed",
+      "message": "SCIM conformance suite reported failures:\nERROR: query_all_schemas - Request was throttled. Expected available in 40 seconds.\nERROR: access_invalid_schema - /Schemas/ee3f5efa-d63c-4ddf-825a-0b8a69708673 invalid URL did return an Error object, but the status code is 429\nERROR: schemas_endpoint_methods - POST /Schemas returned 429 instead of 405\nERROR: schemas_endpoint_methods - PUT /Schemas returne"
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_large_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "stock.tests.TestResultTest.test_duplicate_item_tests",
+      "status": "failed",
+      "message": "ValidationError not raised"
+    }
+  ]
+}

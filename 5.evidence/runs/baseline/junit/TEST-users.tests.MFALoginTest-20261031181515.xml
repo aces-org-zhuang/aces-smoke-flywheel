@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.MFALoginTest-20261031181515" tests="1" file="users/tests.py" time="0.212" timestamp="2026-10-31T18:22:40" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.MFALoginTest" name="test_api" time="0.212" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="386">
+		<!--Test that the API is working.-->
+	</testcase>
+</testsuite>

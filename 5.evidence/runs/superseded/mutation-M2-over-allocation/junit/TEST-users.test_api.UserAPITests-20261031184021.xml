@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.UserAPITests-20261031184021" tests="2" file="users/test_api.py" time="0.424" timestamp="2026-10-31T18:40:28" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.UserAPITests" name="test_user_roles" time="0.104" timestamp="2026-10-31T18:40:27" file="users\test_api.py" line="303">
+		<!--Test the user 'roles' API endpoint.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_api" time="0.320" timestamp="2026-10-31T18:40:28" file="users\test_api.py" line="71">
+		<!--Tests for User API endpoints.-->
+	</testcase>
+</testsuite>

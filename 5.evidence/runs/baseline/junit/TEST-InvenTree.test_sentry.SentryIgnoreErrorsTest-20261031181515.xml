@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_sentry.SentryIgnoreErrorsTest-20261031181515" tests="1" file="InvenTree/test_sentry.py" time="0.000" timestamp="2026-10-31T18:27:03" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_sentry.SentryIgnoreErrorsTest" name="test_known_error_types_are_ignored" time="0.000" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="15">
+		<!--Http404 and DRF/Django validation errors must be in the ignore list.-->
+	</testcase>
+</testsuite>

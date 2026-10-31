@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartCreationTests-20261031181515" tests="8" file="part/test_api.py" time="1.623" timestamp="2026-10-31T18:20:16" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartCreationTests" name="test_category_parameters" time="0.170" timestamp="2026-10-31T18:20:15" file="part\test_api.py" line="1847">
+		<!--Test that category parameters are correctly applied.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_category_parameters_unique" time="0.185" timestamp="2026-10-31T18:20:15" file="part\test_api.py" line="1891">
+		<!--Test that category parameters with a uniqueness requirement are not applied.
+
+Applying the same default value to every part created in a category
+would immediately conflict with a 'unique' parameter template.
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_create_duplicate_no_ipn_revision" time="0.122" timestamp="2026-10-31T18:20:15" file="part\test_api.py" line="1636">
+		<!--Test that creating a duplicate part (same name, no IPN/revision) returns a 400.
+
+Regression test for a bug where the duplicate-name check was skipped
+whenever IPN and revision were both blank, letting the request fall
+through to an unhandled database IntegrityError (500) instead of a
+proper validation error (400).
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_default_values" time="0.226" timestamp="2026-10-31T18:20:15" file="part\test_api.py" line="1585">
+		<!--Tests for 'default' values.
+
+Ensure that unspecified fields revert to "default" values
+(as specified in the model field definition)
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_duplication" time="0.266" timestamp="2026-10-31T18:20:16" file="part\test_api.py" line="1796">
+		<!--Test part duplication options.-->
+		<system-out><![CDATA[Warning: 171 queries executed at /api/part/
+]]></system-out>
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_initial_stock" time="0.187" timestamp="2026-10-31T18:20:16" file="part\test_api.py" line="1666">
+		<!--Tests for initial stock quantity creation.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_initial_supplier_data" time="0.390" timestamp="2026-10-31T18:20:16" file="part\test_api.py" line="1707">
+		<!--Tests for initial creation of supplier / manufacturer data.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCreationTests" name="test_strange_chars" time="0.078" timestamp="2026-10-31T18:20:16" file="part\test_api.py" line="1782">
+		<!--Test that non-standard ASCII chars are accepted.-->
+	</testcase>
+</testsuite>

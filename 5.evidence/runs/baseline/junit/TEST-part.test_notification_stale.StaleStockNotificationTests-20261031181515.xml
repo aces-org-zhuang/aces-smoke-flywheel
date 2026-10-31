@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_notification_stale.StaleStockNotificationTests-20261031181515" tests="8" file="part/test_notification_stale.py" time="0.782" timestamp="2026-10-31T18:20:36" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_check_stale_stock_disabled_expiry" time="0.060" timestamp="2026-10-31T18:20:35" file="part\test_notification_stale.py" line="139">
+		<!--Test check_stale_stock when stock expiry is disabled.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_check_stale_stock_filtering" time="0.194" timestamp="2026-10-31T18:20:35" file="part\test_notification_stale.py" line="225">
+		<!--Test that check_stale_stock properly filters stock items.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_check_stale_stock_no_stale_items" time="0.173" timestamp="2026-10-31T18:20:35" file="part\test_notification_stale.py" line="169">
+		<!--Test check_stale_stock when no stale items exist.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_check_stale_stock_with_stale_items" time="0.176" timestamp="2026-10-31T18:20:35" file="part\test_notification_stale.py" line="188">
+		<!--Test check_stale_stock when stale items exist.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_check_stale_stock_zero_stale_days" time="0.057" timestamp="2026-10-31T18:20:35" file="part\test_notification_stale.py" line="154">
+		<!--Test check_stale_stock when STOCK_STALE_DAYS is 0.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_notify_stale_stock_multiple_items" time="0.053" timestamp="2026-10-31T18:20:36" file="part\test_notification_stale.py" line="121">
+		<!--Test notify_stale_stock with multiple stale items.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_notify_stale_stock_single_item" time="0.053" timestamp="2026-10-31T18:20:36" file="part\test_notification_stale.py" line="101">
+		<!--Test notify_stale_stock with a single stale item.-->
+	</testcase>
+	<testcase classname="part.test_notification_stale.StaleStockNotificationTests" name="test_notify_stale_stock_with_empty_list" time="0.017" timestamp="2026-10-31T18:20:36" file="part\test_notification_stale.py" line="93">
+		<!--Test notify_stale_stock with empty stale_items list.-->
+	</testcase>
+</testsuite>

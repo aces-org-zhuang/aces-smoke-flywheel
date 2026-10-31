@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_sample.SampleIntegrationPluginTests-20261031181515" tests="3" file="plugin/samples/integration/test_sample.py" time="2.955" timestamp="2026-10-31T18:24:33" failures="3" errors="0" skipped="0">
+	<testcase classname="plugin.samples.integration.test_sample.SampleIntegrationPluginTests" name="test_settings" time="0.012" timestamp="2026-10-31T18:24:30" file="plugin\samples\integration\test_sample.py" line="46">
+		<!--Check the SettingsMixin.check_settings function.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_sample.py", line 50, in test_settings
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_sample.SampleIntegrationPluginTests" name="test_settings_validator" time="0.014" timestamp="2026-10-31T18:24:30" file="plugin\samples\integration\test_sample.py" line="59">
+		<!--Test settings validator for plugins.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_sample.py", line 66, in test_settings_validator
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_sample.SampleIntegrationPluginTests" name="test_view" time="2.929" timestamp="2026-10-31T18:24:33" file="plugin\samples\integration\test_sample.py" line="13">
+		<!--Check the function of the custom  sample plugin.-->
+		<failure type="AssertionError" message="302 != 200"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_sample.py", line 42, in test_view
+    self.assertEqual(response.status_code, 200)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 302 != 200
+]]></failure>
+	</testcase>
+</testsuite>

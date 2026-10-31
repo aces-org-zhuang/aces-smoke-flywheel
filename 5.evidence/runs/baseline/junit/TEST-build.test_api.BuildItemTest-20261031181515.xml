@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildItemTest-20261031181515" tests="1" file="build/test_api.py" time="0.126" timestamp="2026-10-31T18:15:30" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildItemTest" name="test_update_overallocated" time="0.126" timestamp="2026-10-31T18:15:30" file="build\test_api.py" line="1158">
+		<!--Test update of overallocated stock items.-->
+	</testcase>
+</testsuite>

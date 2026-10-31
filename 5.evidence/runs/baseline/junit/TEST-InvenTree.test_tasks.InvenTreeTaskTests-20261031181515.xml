@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_tasks.InvenTreeTaskTests-20261031181515" tests="27" file="InvenTree/test_tasks.py" time="9.523" timestamp="2026-10-31T18:26:35" failures="2" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_bulk_offload" time="0.005" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="896">
+		<!--Test the bulk_offload_task function.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_bulk_offload_falls_back_to_sync" time="0.003" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="938">
+		<!--bulk_offload_task() falls back to running every entry synchronously when async isn't available.
+
+Regression test: every other bulk_offload_task() test passes force_async=True, so the
+'not force_async and (force_sync or not is_worker_running())' fallback branch - which
+calls offload_task(..., force_sync=True, ...) once per entry - was never exercised.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_bulk_offload_no_retry" time="0.003" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="924">
+		<!--bulk_offload_task() should mark every queued task with ack_failure=True when retry=False.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_bulk_offload_timeout" time="0.002" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="325">
+		<!--bulk_offload_task() should forward timeout=N to every queued task.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_duplicate_check_respects_retry_and_timeout" time="0.009" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="384">
+		<!--check_existing_task() must not treat different retry/timeout policies as duplicates.
+
+Regression test: previously, queuing the same (taskname, group, args, kwargs)
+with a different 'retry' or 'timeout' would be silently swallowed as a
+'duplicate' of whatever was already queued, discarding the newly requested
+policy entirely.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_duplicate_tasks" time="0.104" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="825">
+		<!--Test for task duplication.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_failed_task_notification" time="0.250" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="716">
+		<!--Test that a failed task will generate a notification.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_force_async_overrides_force_sync" time="0.001" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="175">
+		<!--force_async=True takes priority over force_sync=True - the task is queued, not run inline.
+
+Regression test: offload_task()'s dispatch condition is
+'force_async or (is_worker_running() and not force_sync)' - force_async short-circuits
+the check, so passing both flags together silently queues the task rather than running
+it synchronously as force_sync alone would.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_custom_group" time="0.002" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="309">
+		<!--A custom group= kwarg on a direct (non-batched) offload_task() call must be honored.
+
+Regression test: custom groups were previously only ever exercised through the
+batch_offload_tasks() path (see TaskBatchTests.test_tasks_grouped_by_name_and_group) -
+nothing confirmed the direct AsyncTask() dispatch path in offload_task() itself
+applies a custom group.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_no_retry" time="0.003" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="207">
+		<!--retry=False should mark the queued task with ack_failure=True.
+
+This is the bandaid for django-q2 having no per-task retry limit: 'ack_failure'
+is its native per-task option that drops a task the moment it fails, instead of
+leaving it to be redelivered indefinitely by the ORM broker.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_no_retry_and_timeout_together" time="0.002" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="292">
+		<!--retry=False and timeout=N together must both land on the same queued task.
+
+Regression test: retry and timeout are covered independently elsewhere, but nothing
+confirmed that a single offload_task() call applying both options actually sets both
+'ack_failure' and 'timeout' on the same queued task, rather than one overriding the other.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_sync_reraises_exception" time="0.010" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="194">
+		<!--offload_task(..., force_sync=True) must propagate an exception raised by the task.
+
+Regression test: the synchronous fallback logs the error and re-raises, rather than
+swallowing it - nothing previously asserted the exception actually reaches the caller.
+-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function InvenTreeTaskTests.test_offload_sync_reraises_exception.<locals>.broken_task at 0x0000020776F66B60>' failed due to offload_task sync fallback regression test
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_timeout_validation" time="0.025" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="339">
+		<!--A per-task timeout must be clamped to leave headroom before the broker's redelivery interval.
+
+The broker redelivers a task once its lock (governed by the cluster-wide
+Q_CLUSTER['retry'] setting) expires, regardless of any per-task 'timeout'
+override. If 'timeout' left less than 30s of headroom before that, the task
+could be redelivered and executed again before the original attempt had even
+timed out - so offload_task()/bulk_offload_task() must clamp it down (and warn)
+rather than queuing it as requested.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offloading" time="0.039" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="100">
+		<!--Test task offloading.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offloading_deep_path" time="0.017" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="136">
+		<!--Test that task paths with more than 3 components are resolved correctly.
+
+Previously the sync fallback split on '.' requiring exactly 3 parts,
+so a 4-part path raised ValueError and returned False with no warning.
+Now rsplit('.', 1) is used, so any depth works.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offloading_no_eval_bypass" time="0.014" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="157">
+		<!--Verify that names in tasks.py scope cannot be resolved via an eval bypass.
+
+The previous implementation fell back to eval(func) when getattr returned
+None, evaluating the function name in the local scope of offload_task rather
+than in the target module. This meant a Python builtin like 'eval', or any
+name imported into tasks.py, could be invoked via a crafted taskname. The
+replacement uses only getattr on the imported module and rejects anything
+not found there.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_retryable_task_failure_does_not_notify_early" time="0.007" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="556">
+		<!--Contrast case for test_single_shot_task_failure_notifies_immediately().
+
+A single failed attempt of a retry=True task must NOT raise the 'Task Failure'
+notification - it is still eligible for redelivery, so the notification should
+only fire once Q_CLUSTER['max_attempts'] is actually reached (covered by the
+existing after_failed_task() post_save logic, not exercised by this test).
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_single_shot_task_failure_notifies_immediately" time="0.016" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="530">
+		<!--retry=False task failures must raise the 'Task Failure' notification on their one attempt.
+
+Regression test: after_failed_task() only notifies once a task's attempt_count
+reaches Q_CLUSTER['max_attempts'] (5 by default). A retry=False task is dropped
+by the broker after a single failed attempt (see test_worker_does_not_retry_when_retry_false),
+so attempt_count never reaches that threshold and the notification would
+otherwise never fire. InvenTree.models.after_single_shot_task_failure() (hooked
+into django-q2's post_execute signal) must notify immediately instead.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_task_check_for_migrations" time="1.402" timestamp="2026-10-31T18:26:33" file="InvenTree\test_tasks.py" line="665">
+		<!--Test the task check_for_migrations.-->
+		<system-out><![CDATA[Migrations for 'InvenTree':
+  InvenTree\migrations\0002_auto_20261031_1826.py
+]]></system-out>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_task_check_for_updates" time="0.781" timestamp="2026-10-31T18:26:34" file="InvenTree\test_tasks.py" line="613">
+		<!--Test update notification creation and deduplication.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_task_delete_old_error_logs" time="0.206" timestamp="2026-10-31T18:26:34" file="InvenTree\test_tasks.py" line="595">
+		<!--Test the task delete_old_error_logs.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField Error.when received a naive datetime (2026-09-30 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField Error.when received a naive datetime (2026-10-01 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_task_delete_successful_tasks" time="0.008" timestamp="2026-10-31T18:26:34" file="InvenTree\test_tasks.py" line="584">
+		<!--Test the task delete_successful_tasks.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField Task.started received a naive datetime (2026-09-30 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField Task.stopped received a naive datetime (2026-10-01 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField Task.started received a naive datetime (2026-10-01 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_task_heartbeat" time="0.002" timestamp="2026-10-31T18:26:34" file="InvenTree\test_tasks.py" line="580">
+		<!--Test the task heartbeat.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_worker_does_not_retry_when_retry_false" time="1.517" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="459">
+		<!--Regression test: retry=False must stop a real worker from re-running a failing task.
+
+Rather than just inspecting the queued payload, this drives the task through
+django-q2's actual pusher/worker/monitor pipeline (the same functions a real
+qcluster worker uses) to prove the task is genuinely never re-executed.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_worker_retries_by_default" time="0.021" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="491">
+		<!--Contrast case for test_worker_does_not_retry_when_retry_false().
+
+With the default retry=True, a failing task is left queued and gets picked up
+and re-executed again once the broker's redelivery timeout has elapsed.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_delete_old_emails" time="0.016" timestamp="2026-10-31T18:26:26" file="InvenTree\test_tasks.py" line="767">
+		<!--Test the delete_old_emails task.-->
+		<failure type="AssertionError" message="2 != 1"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_tasks.py", line 780, in test_delete_old_emails
+    self.assertEqual(len(emails), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1
+]]></failure>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField EmailMessage.timestamp received a naive datetime (2026-09-30 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField EmailMessage.timestamp received a naive datetime (2026-10-01 18:13:13.733222) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.InvenTreeTaskTests" name="test_offload_timeout" time="5.058" timestamp="2026-10-31T18:26:31" file="InvenTree\test_tasks.py" line="229">
+		<!--timeout=N must actually be enforced by the worker, not just recorded on the queue.
+
+django-q2 supports 'timeout' as a native per-task option.
+This offloads a task that sleeps far longer than the timeout,
+and drives it through the real worker() pipeline,
+to prove it gets killed at the timeout rather than left to run.
+-->
+		<failure type="AssertionError" message="True is not false"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_tasks.py", line 280, in test_offload_timeout
+    self.assertFalse(
+    ~~~~~~~~~~~~~~~~^
+        any(TIMEOUT_TASK_FINISHED_LOG_MESSAGE in line for line in captured.output)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: True is not false
+]]></failure>
+	</testcase>
+</testsuite>

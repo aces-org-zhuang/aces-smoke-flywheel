@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.ReportTraversalSecurityTest-20261031181515" tests="1" file="report/tests.py" time="0.030" timestamp="2026-10-31T18:21:06" failures="0" errors="0" skipped="0">
+	<testcase classname="report.tests.ReportTraversalSecurityTest" name="test_traversal_to_api_tokens" time="0.030" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1758">
+		<!--Traversing build.issued_by.api_tokens must be denied.-->
+	</testcase>
+</testsuite>

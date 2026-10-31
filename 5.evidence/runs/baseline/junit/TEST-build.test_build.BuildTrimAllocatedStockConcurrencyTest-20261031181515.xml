@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildTrimAllocatedStockConcurrencyTest-20261031181515" tests="1" file="build/test_build.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="build.test_build.BuildTrimAllocatedStockConcurrencyTest" name="test_trim_allocated_stock_does_not_lose_concurrent_allocation" time="0.001" timestamp="2026-10-31T18:26:58" file="build\test_build.py" line="1922">
+		<!--trim_allocated_stock() must not lose a concurrent allocation update.
+
+Regression test: BuildItem rows were read via a plain (unlocked) queryset,
+reduced in Python, and written back with bulk_update(). A concurrent request
+that increased the same BuildItem's quantity (e.g. a new allocation, which
+locks the row via select_for_update while saving - see
+BuildAllocationSerializer) could commit in between the read and the write,
+and would be silently discarded by the stale trim calculation. The
+BuildItem rows are now locked (select_for_update) before being read, so
+the trim always operates on the latest committed quantity.
+-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

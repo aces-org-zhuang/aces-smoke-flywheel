@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartSubscriptionTests-20261031181515" tests="4" file="part/test_part.py" time="0.082" timestamp="2026-10-31T18:20:43" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartSubscriptionTests" name="test_category_subscription" time="0.020" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="901">
+		<!--Test subscription against a PartCategory.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSubscriptionTests" name="test_parent_category_subscription" time="0.013" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="926">
+		<!--Check that a parent category can be subscribed to.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSubscriptionTests" name="test_part_subcription" time="0.016" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="869">
+		<!--Test basic subscription against a part.-->
+	</testcase>
+	<testcase classname="part.test_part.PartSubscriptionTests" name="test_variant_subscription" time="0.032" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="886">
+		<!--Test subscription against a parent part.-->
+	</testcase>
+</testsuite>

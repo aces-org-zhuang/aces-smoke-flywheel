@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.HTMLAPITests-20261031190038" tests="2" file="InvenTree/test_api.py" time="0.145" timestamp="2026-10-31T19:00:46" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_api.HTMLAPITests" name="test_part_api" time="0.089" timestamp="2026-10-31T19:00:46" file="InvenTree\test_api.py" line="45">
+		<!--Test that part list is working.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.HTMLAPITests" name="test_stock_api" time="0.056" timestamp="2026-10-31T19:00:46" file="InvenTree\test_api.py" line="61">
+		<!--Test that stock list is working.-->
+	</testcase>
+</testsuite>

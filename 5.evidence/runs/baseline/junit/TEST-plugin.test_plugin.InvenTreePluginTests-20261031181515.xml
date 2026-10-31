@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_plugin.InvenTreePluginTests-20261031181515" tests="7" file="plugin/test_plugin.py" time="0.014" timestamp="2026-10-31T18:25:05" failures="2" errors="0" skipped="0">
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_basic_is_active" time="0.006" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="143">
+		<!--Check if a basic plugin is active.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_basic_plugin_init" time="0.000" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="133">
+		<!--Check if a basic plugin intis.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_basic_plugin_name" time="0.000" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="138">
+		<!--Check if the name of a basic plugin can be set.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_depreciation" time="0.002" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="194">
+		<!--Check if depreciations raise as expected.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_plugin_static_file_lookup" time="0.002" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="215">
+		<!--Test that the plugin static file lookup works as expected.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_action_name" time="0.002" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="147">
+		<!--Check the name definition possibilities.-->
+		<failure type="AssertionError" message="False != True"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 156, in test_action_name
+    self.assertEqual(SampleIntegrationPlugin().is_sample, True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False != True
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.InvenTreePluginTests" name="test_version" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="204">
+		<!--Test Version checks.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 211, in test_version
+    self.assertIsNotNone(plug)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+</testsuite>

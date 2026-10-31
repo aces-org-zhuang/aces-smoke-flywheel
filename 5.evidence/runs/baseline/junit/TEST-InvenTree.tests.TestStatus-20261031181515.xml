@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestStatus-20261031181515" tests="4" file="InvenTree/tests.py" time="0.002" timestamp="2026-10-31T18:26:42" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestStatus" name="test_GeneratingSchema" time="0.001" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1256">
+		<!--Test isGeneratingSchema check.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestStatus" name="test_Importing" time="0.000" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1252">
+		<!--Test isImportingData check.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestStatus" name="test_TestMode" time="0.000" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1248">
+		<!--Test isInTestMode check.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestStatus" name="test_check_system_health" time="0.000" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1244">
+		<!--Test that the system health check is false in testing -> background worker not running.-->
+	</testcase>
+</testsuite>

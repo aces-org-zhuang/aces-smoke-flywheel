@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAllocateTest-20261031181515" tests="10" file="order/test_api.py" time="3.217" timestamp="2026-10-31T18:18:32" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_allocate" time="0.247" timestamp="2026-10-31T18:18:29" file="order\test_api.py" line="3525">
+		<!--Test that the allocation endpoint acts as expected, when provided with valid data!-->
+		<system-out><![CDATA[Warning: 115 queries executed at /api/order/so/1/allocate/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_allocate_variant" time="0.183" timestamp="2026-10-31T18:18:29" file="order\test_api.py" line="3555">
+		<!--Test that the allocation endpoint acts as expected, when provided with variant.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_block_on_required_tests" time="0.209" timestamp="2026-10-31T18:18:29" file="order\test_api.py" line="3816">
+		<!--Test the SALESORDER_BLOCK_INCOMPLETE_ITEM_TESTS setting.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_invalid" time="0.220" timestamp="2026-10-31T18:18:29" file="order\test_api.py" line="3469">
+		<!--Test POST with invalid data.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_output_options" time="0.539" timestamp="2026-10-31T18:18:30" file="order\test_api.py" line="3802">
+		<!--Test the various output options for the SalesOrderAllocation detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_sales_order_shipment_list" time="0.870" timestamp="2026-10-31T18:18:31" file="order\test_api.py" line="3721">
+		<!--Test the SalesOrderShipment list API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_shipment_complete" time="0.219" timestamp="2026-10-31T18:18:31" file="order\test_api.py" line="3604">
+		<!--Test that we can complete a shipment via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_shipment_contact" time="0.273" timestamp="2026-10-31T18:18:31" file="order\test_api.py" line="3678">
+		<!--Test setting the 'contact' field for a shipment via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_shipment_delivery_date" time="0.228" timestamp="2026-10-31T18:18:31" file="order\test_api.py" line="3656">
+		<!--Test delivery date functions via API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_shipment_duplicate_copies_notes" time="0.227" timestamp="2026-10-31T18:18:32" file="order\test_api.py" line="3754">
+		<!--Test that notes are copied when duplicating a SalesOrderShipment via the API.
+
+SalesOrderShipmentSerializer declares its 'duplicate' options with
+copy_notes=True, so notes should be copied by default (i.e. without
+explicitly requesting it).
+-->
+	</testcase>
+</testsuite>

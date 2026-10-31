@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.S3ReportTemplateTest-20261031181515" tests="7" file="report/tests.py" time="0.015" timestamp="2026-10-31T18:21:06" failures="0" errors="0" skipped="0">
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_get_template_content_missing" time="0.001" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1655">
+		<!--Test get_template_content raises TemplateDoesNotExist when file not in storage.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_get_template_content_with_prefix" time="0.001" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1620">
+		<!--Test get_template_content resolves templates with bucket/location prefix.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_get_template_content_without_prefix" time="0.001" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1639">
+		<!--Test get_template_content when template file is stored without location prefix.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_render_as_string_fallback" time="0.004" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1668">
+		<!--Test render_as_string falls back to storage when TemplateDoesNotExist is caught.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_render_to_string_with_storage_loader" time="0.006" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1702">
+		<!--Test Django render_to_string resolves via InvenTreeStorageTemplateLoader.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_storage_template_loader_resolution" time="0.001" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1686">
+		<!--Test InvenTreeStorageTemplateLoader loads templates from default_storage.-->
+	</testcase>
+	<testcase classname="report.tests.S3ReportTemplateTest" name="test_template_name_remote_storage" time="0.001" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="1604">
+		<!--Test template_name property when file only exists in remote cloud storage.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartTest-20261031190038" tests="2" file="part/test_part.py" time="0.013" timestamp="2026-10-31T19:00:39" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartTest" name="test_attributes" time="0.001" timestamp="2026-10-31T19:00:39" file="part\test_part.py" line="256">
+		<!--Test Part attributes.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_category" time="0.011" timestamp="2026-10-31T19:00:39" file="part\test_part.py" line="261">
+		<!--Test PartCategory path.-->
+	</testcase>
+</testsuite>

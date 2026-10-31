@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.AutoAllocationTests-20261031181515" tests="4" file="build/test_build.py" time="0.368" timestamp="2026-10-31T18:15:50" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.AutoAllocationTests" name="test_allocate_consumed" time="0.155" timestamp="2026-10-31T18:15:49" file="build\test_build.py" line="1186">
+		<!--Test for auto-allocation against a build which has been fully consumed.
+
+Steps:
+    1. Fully allocate the build (using the auto-allocate function)
+    2. Consume allocated stock
+    3. Ensure that all allocations are removed
+    4. Re-run the auto-allocate function
+    5. Check that no new allocations have been made
+-->
+	</testcase>
+	<testcase classname="build.test_build.AutoAllocationTests" name="test_auto_allocate" time="0.085" timestamp="2026-10-31T18:15:50" file="build\test_build.py" line="1124">
+		<!--Run the 'auto-allocate' function. What do we expect to happen?
+
+There are two "untracked" parts:
+    - sub_part_1 (quantity 5 per BOM = 50 required total) / 103 in stock (2 items)
+    - sub_part_2 (quantity 3 per BOM = 30 required total) / 25 in stock (5 items)
+
+A "fully auto" allocation should allocate *all* of these stock items to the build
+-->
+	</testcase>
+	<testcase classname="build.test_build.AutoAllocationTests" name="test_consumable_via_part" time="0.072" timestamp="2026-10-31T18:15:50" file="build\test_build.py" line="1255">
+		<!--A BOM line should be treated as consumable if the underlying part is consumable.
+
+Even though 'bom_item_1' itself is not marked as consumable, marking
+'sub_part_1' as consumable should have the same effect as marking the
+BOM line itself as consumable.
+-->
+	</testcase>
+	<testcase classname="build.test_build.AutoAllocationTests" name="test_fully_auto" time="0.055" timestamp="2026-10-31T18:15:50" file="build\test_build.py" line="1175">
+		<!--We should be able to auto-allocate against a build in a single go.-->
+	</testcase>
+</testsuite>

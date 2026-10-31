@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.barcodes.test_barcode.BarcodeAPITest-20261031181515" tests="15" file="plugin/base/barcodes/test_barcode.py" time="0.937" timestamp="2026-10-31T18:22:44" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_array_barcode" time="0.044" timestamp="2026-10-31T18:22:43" file="plugin\base\barcodes\test_barcode.py" line="155">
+		<!--Test scan of barcode with string encoded array.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_association" time="0.140" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="194">
+		<!--Test that a barcode can be associated with a StockItem.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_barcode_generation" time="0.208" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="177">
+		<!--Test that a barcode can be generated for a StockItem.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_barcode_generation_invalid" time="0.029" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="189">
+		<!--Test barcode generation for invalid model/pk.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_barcode_scan" time="0.049" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="162">
+		<!--Test that a barcode is generated with a scan.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_empty" time="0.020" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="57">
+		<!--Test an empty barcode scan.
+
+Ensure that all required data is in the response.
+-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_find_location" time="0.032" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="128">
+		<!--Test that we can lookup a stock location based on ID.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_find_part" time="0.041" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="69">
+		<!--Test that we can lookup a part based on ID.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_find_stock_item" time="0.063" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="89">
+		<!--Test that we can lookup a stock item based on ID.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_integer_barcode" time="0.042" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="148">
+		<!--Test scan of an integer barcode.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_invalid" time="0.072" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="43">
+		<!--Test that invalid requests fail.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_invalid_item" time="0.044" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="120">
+		<!--Test response for invalid stock item.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_invalid_location" time="0.041" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="138">
+		<!--Test response for an invalid location.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_invalid_part" time="0.042" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="81">
+		<!--Test response for invalid part.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeAPITest" name="test_unassign_endpoint" time="0.069" timestamp="2026-10-31T18:22:44" file="plugin\base\barcodes\test_barcode.py" line="245">
+		<!--Test that the unassign endpoint works as expected.-->
+	</testcase>
+</testsuite>

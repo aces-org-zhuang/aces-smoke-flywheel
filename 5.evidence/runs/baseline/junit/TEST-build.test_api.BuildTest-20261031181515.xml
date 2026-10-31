@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildTest-20261031181515" tests="11" file="build/test_api.py" time="2.515" timestamp="2026-10-31T18:15:45" failures="0" errors="1" skipped="0">
+	<testcase classname="build.test_api.BuildTest" name="test_cancel" time="0.291" timestamp="2026-10-31T18:15:42" file="build\test_api.py" line="291">
+		<!--Test that we can cancel a BuildOrder via the API.
+
+- First test that all stock is returned to stock
+- Second test that stock is consumed by the build order
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_complete" time="0.505" timestamp="2026-10-31T18:15:43" file="build\test_api.py" line="231">
+		<!--Test build order completion.-->
+		<system-out><![CDATA[Warning: 370 queries executed at /api/build/1/complete/
+]]></system-out>
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_complete_build_output_structural_location" time="0.092" timestamp="2026-10-31T18:15:43" file="build\test_api.py" line="545">
+		<!--Test that a structural location is rejected by the BuildOutputComplete API.
+
+Ref: this validation must happen synchronously in the serializer,
+before the completion is offloaded to the background worker.
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_create" time="0.110" timestamp="2026-10-31T18:15:43" file="build\test_api.py" line="611">
+		<!--Test creation of new build orders via the API.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_create_delete_output" time="0.466" timestamp="2026-10-31T18:15:44" file="build\test_api.py" line="383">
+		<!--Test that we can create and delete build outputs via the API.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_create_output_batch_code_max_length" time="0.020" timestamp="2026-10-31T18:15:44" file="build\test_api.py" line="366">
+		<!--Test that an overly long batch code is rejected with a validation error.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_delete" time="0.090" timestamp="2026-10-31T18:15:44" file="build\test_api.py" line="343">
+		<!--Test that we can delete a BuildOrder via the API.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_duplicate_copies_notes" time="0.133" timestamp="2026-10-31T18:15:44" file="build\test_api.py" line="655">
+		<!--Test that notes are copied when duplicating a Build via the API.
+
+BuildSerializer declares its 'duplicate' options with copy_notes=True,
+so notes should be copied by default (i.e. without explicitly requesting it).
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_invalid" time="0.092" timestamp="2026-10-31T18:15:45" file="build\test_api.py" line="164">
+		<!--Test with invalid data.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_part_read_only_on_update" time="0.063" timestamp="2026-10-31T18:15:45" file="build\test_api.py" line="213">
+		<!--The 'part' field cannot be changed on an existing build order.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildTest" name="test_download_build_orders" time="0.654" timestamp="2026-10-31T18:15:44" file="build\test_api.py" line="578">
+		<!--Test that we can download a list of build orders via the API.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\build\test_api.py", line 594, in test_download_build_orders
+    with self.export_data(reverse('api-build-list')) as data_file:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

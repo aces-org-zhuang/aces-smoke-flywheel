@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.TestTemplateTest-20261031181515" tests="3" file="part/test_part.py" time="0.034" timestamp="2026-10-31T18:20:45" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.TestTemplateTest" name="test_key_generation" time="0.008" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="709">
+		<!--Test the key generation method.-->
+	</testcase>
+	<testcase classname="part.test_part.TestTemplateTest" name="test_template_count" time="0.017" timestamp="2026-10-31T18:20:45" file="part\test_part.py" line="648">
+		<!--Tests for the test template functions.-->
+	</testcase>
+	<testcase classname="part.test_part.TestTemplateTest" name="test_uniqueness" time="0.009" timestamp="2026-10-31T18:20:45" file="part\test_part.py" line="676">
+		<!--Test names must be unique for this part and also parts above.-->
+	</testcase>
+</testsuite>

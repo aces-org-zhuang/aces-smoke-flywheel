@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_api.PluginUnauthenticatedAccessTest-20261031181515" tests="4" file="plugin/test_api.py" time="3.475" timestamp="2026-10-31T18:25:05" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.test_api.PluginUnauthenticatedAccessTest" name="test_plugin_all_settings_unauthenticated" time="0.788" timestamp="2026-10-31T18:25:03" file="plugin\test_api.py" line="861">
+		<!--GET /api/plugins/<slug>/settings/ must return 401 for unauthenticated users.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginUnauthenticatedAccessTest" name="test_plugin_detail_unauthenticated" time="0.787" timestamp="2026-10-31T18:25:03" file="plugin\test_api.py" line="852">
+		<!--GET /api/plugins/<slug>/ must return 401 for unauthenticated users.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginUnauthenticatedAccessTest" name="test_plugin_setting_detail_unauthenticated" time="1.109" timestamp="2026-10-31T18:25:05" file="plugin\test_api.py" line="866">
+		<!--GET /api/plugins/<slug>/settings/<key>/ must return 401 for unauthenticated users.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginUnauthenticatedAccessTest" name="test_plugin_setting_list_unauthenticated" time="0.791" timestamp="2026-10-31T18:25:05" file="plugin\test_api.py" line="857">
+		<!--GET /api/plugins/settings/ must return 401 for unauthenticated users.-->
+	</testcase>
+</testsuite>

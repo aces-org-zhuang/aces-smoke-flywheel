@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildOutputScrapTest-20261031181515" tests="7" file="build/test_api.py" time="0.868" timestamp="2026-10-31T18:15:41" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_complete_still_in_production" time="0.098" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1766">
+		<!--Test that build output completion is blocked if an allocated item is still in production.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_complete_with_required_tests" time="0.141" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1738">
+		<!--Test that build output completion is blocked if required tests have not passed.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_invalid_scraps" time="0.075" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1580">
+		<!--Test that invalid scrap attempts are rejected.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_partial_complete" time="0.185" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1695">
+		<!--Test partial completion of a build output.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_partial_complete_with_allocated_items" time="0.077" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1799">
+		<!--Test that a build output with allocated items cannot be partially completed.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_partial_scrap" time="0.143" timestamp="2026-10-31T18:15:40" file="build\test_api.py" line="1662">
+		<!--Test partial scrapping of a build output.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOutputScrapTest" name="test_valid_scraps" time="0.150" timestamp="2026-10-31T18:15:41" file="build\test_api.py" line="1622">
+		<!--Test that valid scrap attempts succeed.-->
+	</testcase>
+</testsuite>

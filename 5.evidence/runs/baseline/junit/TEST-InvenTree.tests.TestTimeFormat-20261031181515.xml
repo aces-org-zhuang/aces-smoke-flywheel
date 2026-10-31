@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestTimeFormat-20261031181515" tests="3" file="InvenTree/tests.py" time="0.003" timestamp="2026-10-31T18:26:42" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestTimeFormat" name="test_to_local_time" time="0.001" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="859">
+		<!--Test that the local time conversion works as expected.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestTimeFormat" name="test_tz_london" time="0.001" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="854">
+		<!--Check London timezone.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestTimeFormat" name="test_tz_utc" time="0.001" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="849">
+		<!--Check UTC timezone.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode-20261031181515" tests="10" file="plugin/builtin/barcodes/test_inventree_barcode.py" time="9.476" timestamp="2026-10-31T18:23:07" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_assign_errors" time="1.074" timestamp="2026-10-31T18:22:58" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="21">
+		<!--Test error cases for assignment action.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_assign_to_location" time="0.849" timestamp="2026-10-31T18:22:59" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="209">
+		<!--Test that we can assign a unique barcode to a StockLocation instance.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_assign_to_part" time="0.923" timestamp="2026-10-31T18:23:00" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="158">
+		<!--Test that we can assign a unique barcode to a Part instance.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_assign_to_stock_item" time="0.951" timestamp="2026-10-31T18:23:01" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="103">
+		<!--Test that we can assign a unique barcode to a StockItem object.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_generation_inventree_json" time="0.731" timestamp="2026-10-31T18:23:02" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="357">
+		<!--Test JSON barcode generation.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_generation_inventree_short" time="1.115" timestamp="2026-10-31T18:23:03" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="367">
+		<!--Test short barcode generation.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_scan_inventree_json" time="0.941" timestamp="2026-10-31T18:23:04" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="271">
+		<!--Test scanning of first-party json barcodes.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_scan_inventree_short" time="1.124" timestamp="2026-10-31T18:23:05" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="313">
+		<!--Test scanning of first-party short barcodes.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_scan_third_party" time="1.020" timestamp="2026-10-31T18:23:06" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="248">
+		<!--Test scanning of third-party barcodes.-->
+	</testcase>
+	<testcase classname="plugin.builtin.barcodes.test_inventree_barcode.TestInvenTreeBarcode" name="test_unassign_errors" time="0.746" timestamp="2026-10-31T18:23:07" file="plugin\builtin\barcodes\test_inventree_barcode.py" line="75">
+		<!--Test various error conditions for the barcode unassign endpoint.-->
+	</testcase>
+</testsuite>

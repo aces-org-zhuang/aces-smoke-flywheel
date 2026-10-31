@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.DefaultTemplateFileTest-20261031181515" tests="2" file="report/tests.py" time="0.010" timestamp="2026-10-31T18:21:00" failures="0" errors="0" skipped="0">
+	<testcase classname="report.tests.DefaultTemplateFileTest" name="test_file_from_template_is_encoding_agnostic" time="0.008" timestamp="2026-10-31T18:21:00" file="report\tests.py" line="1520">
+		<!--file_from_template must preserve the exact bytes for any encoding.
+
+A text-mode read sizes the ContentFile by character count and needs the
+correct decoder, so non-English content is both mis-sized and at risk of
+corruption. Reading the raw bytes keeps the file identical to what is on
+disk, so the size always matches the Content-Length used for S3 uploads.
+The samples below cover non-ASCII text in a few encodings, including
+multi-byte content where a character count would not equal the byte
+length.
+-->
+	</testcase>
+	<testcase classname="report.tests.DefaultTemplateFileTest" name="test_file_size_matches_bytes" time="0.001" timestamp="2026-10-31T18:21:00" file="report\tests.py" line="1507">
+		<!--file_from_template must size the ContentFile by byte length.
+
+Reading the template in text mode makes the size a character count,
+which is smaller than the byte length for multi-byte content and breaks
+uploads to S3 backends that enforce Content-Length.
+-->
+	</testcase>
+</testsuite>

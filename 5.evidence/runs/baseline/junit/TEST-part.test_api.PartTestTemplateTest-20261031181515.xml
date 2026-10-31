@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartTestTemplateTest-20261031181515" tests="2" file="part/test_api.py" time="0.237" timestamp="2026-10-31T18:20:26" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartTestTemplateTest" name="test_choices" time="0.086" timestamp="2026-10-31T18:20:26" file="part\test_api.py" line="3766">
+		<!--Test the 'choices' field for the PartTestTemplate model.-->
+	</testcase>
+	<testcase classname="part.test_api.PartTestTemplateTest" name="test_test_templates" time="0.151" timestamp="2026-10-31T18:20:26" file="part\test_api.py" line="3721">
+		<!--Test the PartTestTemplate API.-->
+	</testcase>
+</testsuite>

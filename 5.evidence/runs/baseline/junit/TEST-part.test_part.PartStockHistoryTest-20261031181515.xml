@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartStockHistoryTest-20261031181515" tests="1" file="part/test_part.py" time="0.139" timestamp="2026-10-31T18:20:43" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartStockHistoryTest" name="test_stock_history" time="0.139" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="986">
+		<!--Test that stock history entries are generated correctly.-->
+	</testcase>
+</testsuite>

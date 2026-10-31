@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NotesImageAPITests-20261031181515" tests="4" file="common/test_api.py" time="0.304" timestamp="2026-10-31T18:16:13" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NotesImageAPITests" name="test_filter_by_model_type_and_model_id" time="0.074" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3155">
+		<!--The 'model_type'/'model_id' filters resolve via the linked note.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImageAPITests" name="test_filter_by_note" time="0.093" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3128">
+		<!--The 'note' filter returns only images linked to the specified note.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImageAPITests" name="test_upload_image" time="0.072" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3115">
+		<!--A valid image upload linked to a note succeeds and records the user.-->
+	</testcase>
+	<testcase classname="common.test_api.NotesImageAPITests" name="test_upload_requires_note" time="0.065" timestamp="2026-10-31T18:16:13" file="common\test_api.py" line="3102">
+		<!--Uploading an image without a linked 'note' is rejected.-->
+	</testcase>
+</testsuite>

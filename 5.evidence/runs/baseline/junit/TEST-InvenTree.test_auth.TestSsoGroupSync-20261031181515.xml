@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_auth.TestSsoGroupSync-20261031181515" tests="7" file="InvenTree/test_auth.py" time="2.843" timestamp="2026-10-31T18:27:02" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_default_group_without_sso_group" time="0.464" timestamp="2026-10-31T18:26:59" file="InvenTree\test_auth.py" line="94">
+		<!--If no SSO group is specified, the default group should be applied.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_group_added_to_user" time="0.248" timestamp="2026-10-31T18:27:00" file="InvenTree\test_auth.py" line="51">
+		<!--Check that a new SSO group is added to the user.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_group_already_exists" time="0.239" timestamp="2026-10-31T18:27:00" file="InvenTree\test_auth.py" line="59">
+		<!--Check that existing SSO group is not modified.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_override_default_group_with_sso_group" time="0.459" timestamp="2026-10-31T18:27:01" file="InvenTree\test_auth.py" line="83">
+		<!--The default group should be overridden if SSO groups are available.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_remove_groups_overrides_default_group" time="0.490" timestamp="2026-10-31T18:27:01" file="InvenTree\test_auth.py" line="106">
+		<!--If no SSO group is specified, the default group should not be added if SSO_REMOVE_GROUPS=True.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_remove_non_sso_group" time="0.483" timestamp="2026-10-31T18:27:02" file="InvenTree\test_auth.py" line="69">
+		<!--Check that any group not provided by IDP is removed.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSsoGroupSync" name="test_sso_group_created_if_not_exists" time="0.461" timestamp="2026-10-31T18:27:02" file="InvenTree\test_auth.py" line="120">
+		<!--If the mapped group does not exist, a new group with the same name should be created.-->
+	</testcase>
+</testsuite>

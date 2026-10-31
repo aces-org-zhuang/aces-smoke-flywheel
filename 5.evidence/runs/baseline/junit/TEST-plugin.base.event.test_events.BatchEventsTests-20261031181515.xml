@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.event.test_events.BatchEventsTests-20261031181515" tests="5" file="plugin/base/event/test_events.py" time="3.196" timestamp="2026-10-31T18:22:50" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.event.test_events.BatchEventsTests" name="test_events_discarded_on_rollback" time="0.764" timestamp="2026-10-31T18:22:47" file="plugin\base\event\test_events.py" line="97">
+		<!--Events queued in a batch are discarded, not fired, if the transaction rolls back.-->
+	</testcase>
+	<testcase classname="plugin.base.event.test_events.BatchEventsTests" name="test_events_grouped_by_name" time="0.610" timestamp="2026-10-31T18:22:48" file="plugin\base\event\test_events.py" line="77">
+		<!--Events with different names in the same batch are flushed as separate bulk writes.-->
+	</testcase>
+	<testcase classname="plugin.base.event.test_events.BatchEventsTests" name="test_events_outside_batch_fire_immediately" time="0.598" timestamp="2026-10-31T18:22:48" file="plugin\base\event\test_events.py" line="112">
+		<!--Events triggered outside any batch_events() context are unaffected - fired immediately.-->
+	</testcase>
+	<testcase classname="plugin.base.event.test_events.BatchEventsTests" name="test_events_queued_and_flushed_on_commit" time="0.620" timestamp="2026-10-31T18:22:49" file="plugin\base\event\test_events.py" line="56">
+		<!--Events triggered inside batch_events() are queued and flushed as one bulk write on commit.-->
+	</testcase>
+	<testcase classname="plugin.base.event.test_events.BatchEventsTests" name="test_nested_batch_events_share_one_flush" time="0.604" timestamp="2026-10-31T18:22:50" file="plugin\base\event\test_events.py" line="122">
+		<!--A nested batch_events() call reuses the outer batch, rather than flushing twice.-->
+	</testcase>
+</testsuite>

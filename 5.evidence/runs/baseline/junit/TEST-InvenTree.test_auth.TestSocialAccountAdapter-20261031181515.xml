@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_auth.TestSocialAccountAdapter-20261031181515" tests="6" file="InvenTree/test_auth.py" time="0.086" timestamp="2026-10-31T18:26:59" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_authentication_error_does_not_raise" time="0.033" timestamp="2026-10-31T18:26:58" file="InvenTree\test_auth.py" line="171">
+		<!--A provider-side authentication error should be logged, not raised further.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_get_connect_redirect_url" time="0.001" timestamp="2026-10-31T18:26:58" file="InvenTree\test_auth.py" line="165">
+		<!--Connecting an SSO account should redirect back to the frontend root.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_is_auto_signup_allowed" time="0.017" timestamp="2026-10-31T18:26:58" file="InvenTree\test_auth.py" line="147">
+		<!--Auto-signup must be blockable independently of whether SSO registration is open.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_is_open_for_signup" time="0.018" timestamp="2026-10-31T18:26:58" file="InvenTree\test_auth.py" line="156">
+		<!--SSO self-registration is gated by LOGIN_ENABLE_SSO_REG (and a configured mail backend).-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_pre_social_login_allowed_when_sso_enabled" time="0.009" timestamp="2026-10-31T18:26:59" file="InvenTree\test_auth.py" line="141">
+		<!--A normal SSO login attempt should pass through untouched when SSO is enabled.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestSocialAccountAdapter" name="test_pre_social_login_blocked_when_sso_disabled" time="0.009" timestamp="2026-10-31T18:26:59" file="InvenTree\test_auth.py" line="135">
+		<!--SSO logins (new or existing accounts) must be rejected outright when SSO is disabled.-->
+	</testcase>
+</testsuite>

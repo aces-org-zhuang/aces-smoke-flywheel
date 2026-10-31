@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_plugin.PluginTagTests-20261031181515" tests="6" file="plugin/test_plugin.py" time="0.021" timestamp="2026-10-31T18:25:05" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_mixin_available" time="0.018" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="67">
+		<!--Check that mixin_available works.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_tag_inactive_plugin_list" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="46">
+		<!--Test that all inactive plugins are listed.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_tag_mixin_enabled" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="57">
+		<!--Check that mixin enabled functions work.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_tag_plugin_list" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="42">
+		<!--Test that all plugins are listed.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_tag_plugin_settings" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="50">
+		<!--Check all plugins are listed.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.PluginTagTests" name="test_tag_safe_url" time="0.001" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="74">
+		<!--Test that the safe url tag works expected.-->
+	</testcase>
+</testsuite>

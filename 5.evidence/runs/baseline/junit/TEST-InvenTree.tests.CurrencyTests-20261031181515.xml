@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.CurrencyTests-20261031181515" tests="1" file="InvenTree/tests.py" time="0.058" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.CurrencyTests" name="test_rates" time="0.058" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="1199">
+		<!--Test exchange rate update.-->
+	</testcase>
+</testsuite>

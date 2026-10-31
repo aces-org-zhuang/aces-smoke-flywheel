@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.barcodes.test_barcode.SOAllocateTest-20261031181515" tests="5" file="plugin/base/barcodes/test_barcode.py" time="0.729" timestamp="2026-10-31T18:22:46" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.barcodes.test_barcode.SOAllocateTest" name="test_invalid_barcode" time="0.216" timestamp="2026-10-31T18:22:46" file="plugin\base\barcodes\test_barcode.py" line="488">
+		<!--Test when an invalid barcode is provided (does not match stock item).-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.SOAllocateTest" name="test_invalid_sales_order" time="0.022" timestamp="2026-10-31T18:22:46" file="plugin\base\barcodes\test_barcode.py" line="481">
+		<!--Test when an invalid sales order is provided.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.SOAllocateTest" name="test_no_data" time="0.020" timestamp="2026-10-31T18:22:46" file="plugin\base\barcodes\test_barcode.py" line="474">
+		<!--Test when no data is provided.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.SOAllocateTest" name="test_permission_denied" time="0.336" timestamp="2026-10-31T18:22:46" file="plugin\base\barcodes\test_barcode.py" line="444">
+		<!--A user without the 'sales_order.add' role cannot allocate stock via barcode scan.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.SOAllocateTest" name="test_submit" time="0.135" timestamp="2026-10-31T18:22:46" file="plugin\base\barcodes\test_barcode.py" line="520">
+		<!--Test data submission.-->
+	</testcase>
+</testsuite>

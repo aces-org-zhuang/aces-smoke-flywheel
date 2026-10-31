@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.SelectionListFilterAPITests-20261031181515" tests="10" file="common/test_api.py" time="0.224" timestamp="2026-10-31T18:16:22" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_default_ordering" time="0.021" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="2682">
+		<!--By default, results are ordered by name (ascending).-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_filter_active" time="0.031" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="2637">
+		<!--The 'active' filter restricts results to matching SelectionList objects.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_filter_active_and_locked" time="0.020" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="2657">
+		<!--Multiple filters can be combined.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_filter_locked" time="0.028" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="2647">
+		<!--The 'locked' filter restricts results to matching SelectionList objects.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_list_all" time="0.022" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="2631">
+		<!--With no filters applied, all SelectionList objects are returned.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_ordering_active" time="0.020" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2694">
+		<!--Results can be ordered by the 'active' field.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_ordering_name_descending" time="0.020" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2688">
+		<!--Results can be ordered by name in descending order.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_search_description" time="0.025" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2671">
+		<!--Searching matches against the 'description' field.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_search_name" time="0.020" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2665">
+		<!--Searching matches against the 'name' field.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListFilterAPITests" name="test_search_no_match" time="0.018" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2677">
+		<!--A search term which matches nothing returns an empty result set.-->
+	</testcase>
+</testsuite>

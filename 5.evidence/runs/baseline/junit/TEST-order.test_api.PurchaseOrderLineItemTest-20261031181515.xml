@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.PurchaseOrderLineItemTest-20261031181515" tests="7" file="order/test_api.py" time="1.919" timestamp="2026-10-31T18:18:03" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_output_options" time="0.189" timestamp="2026-10-31T18:18:01" file="order\test_api.py" line="1629">
+		<!--Test PurchaseOrderLineItem output option endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_extra_line_bulk_delete" time="0.094" timestamp="2026-10-31T18:18:01" file="order\test_api.py" line="1478">
+		<!--Test that we can bulk delete multiple PurchaseOrderExtraLine items via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_line_bulk_delete" time="0.146" timestamp="2026-10-31T18:18:01" file="order\test_api.py" line="1427">
+		<!--Test that we can bulk delete multiple PurchaseOrderLineItems via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_line_delete_received" time="0.310" timestamp="2026-10-31T18:18:02" file="order\test_api.py" line="1444">
+		<!--Line items against which stock has been received cannot be deleted.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_line_list" time="0.215" timestamp="2026-10-31T18:18:02" file="order\test_api.py" line="1410">
+		<!--Test the PurchaseOrderLine list API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_line_merge_default_setting" time="0.231" timestamp="2026-10-31T18:18:02" file="order\test_api.py" line="1593">
+		<!--Test that merge_items defaults to the global setting value.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderLineItemTest" name="test_po_line_merge_pricing" time="0.734" timestamp="2026-10-31T18:18:03" file="order\test_api.py" line="1505">
+		<!--Test that we can create a new PurchaseOrderLineItem via the API.-->
+	</testcase>
+</testsuite>

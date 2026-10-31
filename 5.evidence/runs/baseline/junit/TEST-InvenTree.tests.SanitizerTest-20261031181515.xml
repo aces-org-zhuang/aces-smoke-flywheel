@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.SanitizerTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.005" timestamp="2026-10-31T18:26:38" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.SanitizerTest" name="test_svg_sanitizer" time="0.003" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="1719">
+		<!--Test that SVGs are sanitized accordingly.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.SanitizerTest" name="test_svg_sanitizer_smil_bypass" time="0.002" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="1732">
+		<!--Test that SMIL animation elements cannot be used to smuggle a javascript: URL.
+
+A <set>/<animate>/<animateTransform> element can assign a `javascript:` value to
+another element's `href`/`xlink:href` at render time via its `to`/`from`/`values`
+attribute. These attributes are not treated as URLs by the sanitizer, so simply
+stripping `javascript:` from `href`-like attributes is not sufficient - the
+elements themselves must not be permitted.
+-->
+	</testcase>
+</testsuite>

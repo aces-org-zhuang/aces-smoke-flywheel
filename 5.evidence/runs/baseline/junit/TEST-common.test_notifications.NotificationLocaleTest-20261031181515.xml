@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_notifications.NotificationLocaleTest-20261031181515" tests="5" file="common/test_notifications.py" time="0.089" timestamp="2026-10-31T18:16:31" failures="2" errors="0" skipped="0">
+	<testcase classname="common.test_notifications.NotificationLocaleTest" name="test_email_notifications_no_recipients" time="0.009" timestamp="2026-10-31T18:16:31" file="common\test_notifications.py" line="190">
+		<!--Test that email notification returns False when no valid recipients exist.-->
+	</testcase>
+	<testcase classname="common.test_notifications.NotificationLocaleTest" name="test_email_notifications_single_locale_batching" time="0.017" timestamp="2026-10-31T18:16:31" file="common\test_notifications.py" line="129">
+		<!--Test that recipients sharing the same locale are batched into a single email.-->
+	</testcase>
+	<testcase classname="common.test_notifications.NotificationLocaleTest" name="test_get_user_language" time="0.013" timestamp="2026-10-31T18:16:31" file="common\test_notifications.py" line="56">
+		<!--Test resolving user language from profile, settings, and defaults.-->
+	</testcase>
+	<testcase classname="common.test_notifications.NotificationLocaleTest" name="test_email_notifications_locale_translation" time="0.038" timestamp="2026-10-31T18:16:31" file="common\test_notifications.py" line="76">
+		<!--Test that notification emails are translated according to recipient user locale.-->
+		<failure type="AssertionError" message="'Elemento ricevuto' not found in '[InvenTree] Items Received'"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\mock.py", line 1432, in patched
+    return func(*newargs, **newkeywargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\test_notifications.py", line 122, in test_email_notifications_locale_translation
+    self.assertIn('Elemento ricevuto', subject_it)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Elemento ricevuto' not found in '[InvenTree] Items Received'
+]]></failure>
+	</testcase>
+	<testcase classname="common.test_notifications.NotificationLocaleTest" name="test_ui_notifications_locale_translation" time="0.011" timestamp="2026-10-31T18:16:31" file="common\test_notifications.py" line="156">
+		<!--Test that UI notification messages are saved with user-specific translations.-->
+		<failure type="AssertionError" message="'Items Received' != 'Elemento ricevuto'&#10;- Items Received&#10;+ Elemento ricevuto&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\test_notifications.py", line 184, in test_ui_notifications_locale_translation
+    self.assertEqual(msg_it.name, 'Elemento ricevuto')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Items Received' != 'Elemento ricevuto'
+- Items Received
++ Elemento ricevuto
+
+]]></failure>
+	</testcase>
+</testsuite>

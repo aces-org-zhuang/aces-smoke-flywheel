@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_plugin.InstallerTests-20261031181515" tests="3" file="plugin/test_plugin.py" time="0.052" timestamp="2026-10-31T18:25:05" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.test_plugin.InstallerTests" name="test_update_plugins_file_no_duplicates" time="0.038" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="1276">
+		<!--Test that update_plugins_file() does not duplicate existing entries.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InstallerTests" name="test_update_plugins_file_regex_metacharacters" time="0.012" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="1311">
+		<!--Test that package names containing regex metacharacters are handled safely.
+
+Package/version specifiers may legitimately contain characters such
+as '.', '+', '[' and ']' (e.g. extras, local version identifiers).
+These must be treated literally, not as regex syntax.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.InstallerTests" name="test_plugin_install_errors" time="0.002" timestamp="2026-10-31T18:25:05" file="plugin\test_plugin.py" line="1243">
+		<!--Test error handling for plugin installation.-->
+		<failure type="AssertionError" message="'No package name or URL provided for installation' not found in &quot;['Plugin installation is disabled']&quot;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 1249, in test_plugin_install_errors
+    self.assertIn(
+    ~~~~~~~~~~~~~^
+        'No package name or URL provided for installation', str(e.exception)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'No package name or URL provided for installation' not found in "['Plugin installation is disabled']"
+]]></failure>
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_tasks.ScheduledTaskTests-20261031181515" tests="1" file="InvenTree/test_tasks.py" time="0.014" timestamp="2026-10-31T18:26:35" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_tasks.ScheduledTaskTests" name="test_add_task" time="0.014" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="38">
+		<!--Ensure that duplicate tasks cannot be added.-->
+	</testcase>
+</testsuite>

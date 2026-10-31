@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.action.test_action.APITests-20261031181515" tests="1" file="plugin/base/action/test_action.py" time="0.029" timestamp="2026-10-31T18:22:43" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.action.test_action.APITests" name="test_post_errors" time="0.029" timestamp="2026-10-31T18:22:43" file="plugin\base\action\test_action.py" line="82">
+		<!--Check the possible errors with post.-->
+	</testcase>
+</testsuite>

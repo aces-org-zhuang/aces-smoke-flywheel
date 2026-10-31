@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.TransferOrderLineItemTest-20261031181515" tests="5" file="order/test_api.py" time="2.195" timestamp="2026-10-31T18:18:56" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.TransferOrderLineItemTest" name="test_completed_order_locked" time="0.183" timestamp="2026-10-31T18:18:54" file="order\test_api.py" line="5611">
+		<!--Test that line items cannot be deleted from a completed TransferOrder.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderLineItemTest" name="test_output_options" time="0.209" timestamp="2026-10-31T18:18:54" file="order\test_api.py" line="5735">
+		<!--Test the various output options for the TransferOrderLineItem detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderLineItemTest" name="test_transfer_order_line_allocated_filters" time="1.094" timestamp="2026-10-31T18:18:55" file="order\test_api.py" line="5647">
+		<!--Test filtering by allocation status for a TransferOrderLineItem.-->
+		<system-out><![CDATA[Warning: 120 queries executed at /api/order/transfer-order/6/complete/
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderLineItemTest" name="test_transfer_order_line_bulk_delete" time="0.113" timestamp="2026-10-31T18:18:55" file="order\test_api.py" line="5590">
+		<!--Test that we can bulk delete multiple TransferOrderLineItems via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderLineItemTest" name="test_transfer_order_line_list" time="0.596" timestamp="2026-10-31T18:18:56" file="order\test_api.py" line="5550">
+		<!--Test list endpoint.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartAPITest-20261031181515" tests="24" file="part/test_api.py" time="20.391" timestamp="2026-10-31T18:19:58" failures="0" errors="1" skipped="0">
+	<testcase classname="part.test_api.PartAPITest" name="test_add_categories" time="0.177" timestamp="2026-10-31T18:19:37" file="part\test_api.py" line="876">
+		<!--Check that we can add categories.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_bulk_update" time="1.862" timestamp="2026-10-31T18:19:39" file="part\test_api.py" line="1512">
+		<!--Test that we can bulk-update a set of parts via the API.
+
+Test that:
+    - All parts are updated correctly
+    - Instance saved events are offloaded to the background worker
+-->
+		<system-out><![CDATA[Warning: 239 queries executed at /api/part/
+Benchmark @ '/api/part/': 239 queries (of 250) in 0.5107s (of 2.0s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_cat_detail" time="0.608" timestamp="2026-10-31T18:19:40" file="part\test_api.py" line="897">
+		<!--Test the PartCategoryDetail API endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_category_detail" time="0.165" timestamp="2026-10-31T18:19:40" file="part\test_api.py" line="1494">
+		<!--Test annotation of 'category_detail' against a Part instance.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_date_filters" time="0.279" timestamp="2026-10-31T18:19:40" file="part\test_api.py" line="1409">
+		<!--Test that the creation date filters work correctly.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_exclude_id" time="0.675" timestamp="2026-10-31T18:19:41" file="part\test_api.py" line="994">
+		<!--Test that we can exclude parts by ID using the exclude_id parameter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_exclude_related" time="0.324" timestamp="2026-10-31T18:19:41" file="part\test_api.py" line="960">
+		<!--Test that we can exclude parts related to a specific part ID.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_by_bom_valid" time="0.808" timestamp="2026-10-31T18:19:42" file="part\test_api.py" line="1036">
+		<!--Test the 'bom_valid' Part API filter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_by_convert" time="1.216" timestamp="2026-10-31T18:19:43" file="part\test_api.py" line="1159">
+		<!--Test that we can correctly filter the Part list by conversion options.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_by_in_bom" time="0.099" timestamp="2026-10-31T18:19:43" file="part\test_api.py" line="932">
+		<!--Test that we can filter part list by the 'in_bom_for' parameter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_by_related" time="0.185" timestamp="2026-10-31T18:19:44" file="part\test_api.py" line="940">
+		<!--Test that we can filter by the 'related' status.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_by_starred" time="0.351" timestamp="2026-10-31T18:19:44" file="part\test_api.py" line="1134">
+		<!--Test by 'starred' filter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_is_variant" time="0.186" timestamp="2026-10-31T18:19:44" file="part\test_api.py" line="1208">
+		<!--Test the is_variant filter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_filter_parts" time="0.183" timestamp="2026-10-31T18:19:44" file="part\test_api.py" line="915">
+		<!--Test part filtering using the API.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_get_categories" time="0.173" timestamp="2026-10-31T18:19:45" file="part\test_api.py" line="847">
+		<!--Test that we can retrieve list of part categories, with various filtering options.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_get_thumbs" time="0.020" timestamp="2026-10-31T18:19:45" file="part\test_api.py" line="1235">
+		<!--Return list of part thumbnails.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_include_children" time="0.091" timestamp="2026-10-31T18:19:45" file="part\test_api.py" line="1221">
+		<!--Test the special 'include_child_categories' flag.
+
+If provided, parts are provided for ANY child category (recursive)
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_output_options" time="0.905" timestamp="2026-10-31T18:19:46" file="part\test_api.py" line="1442">
+		<!--Test the output options for PartList list.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_paginate" time="0.258" timestamp="2026-10-31T18:19:46" file="part\test_api.py" line="1241">
+		<!--Test pagination of the Part list API.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_parameters_info" time="0.159" timestamp="2026-10-31T18:19:46" file="part\test_api.py" line="1481">
+		<!--Test annotation of 'parameters' detail against a Part instance.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_pricing_info" time="0.468" timestamp="2026-10-31T18:19:48" file="part\test_api.py" line="1456">
+		<!--Test annotation of 'pricing' detail against a Part instance.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_template_filters" time="8.837" timestamp="2026-10-31T18:19:56" file="part\test_api.py" line="1253">
+		<!--Unit tests for API filters related to template parts.
+
+Test:
+- variant_of : Return children of specified part
+- ancestor : Return descendants of specified part
+
+Uses the 'chair template' part (pk=10000)
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_variant_stock" time="1.178" timestamp="2026-10-31T18:19:58" file="part\test_api.py" line="1304">
+		<!--Unit tests for the 'variant_stock' annotation, which provides a stock count for *variant* parts.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPITest" name="test_part_download" time="1.182" timestamp="2026-10-31T18:19:47" file="part\test_api.py" line="1366">
+		<!--Test download of part data via the API.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 1389, in test_part_download
+    with self.export_data(url, export_format='csv') as data_file:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.AttachmentTest-20261031181515" tests="6" file="common/tests.py" time="0.696" timestamp="2026-10-31T18:17:08" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.AttachmentTest" name="test_filename_validation" time="0.117" timestamp="2026-10-31T18:17:07" file="common\tests.py" line="77">
+		<!--Test that the filename validation works as expected.
+
+The django file-upload mechanism should sanitize filenames correctly.
+-->
+	</testcase>
+	<testcase classname="common.tests.AttachmentTest" name="test_fully_qualified_url" time="0.020" timestamp="2026-10-31T18:17:07" file="common\tests.py" line="216">
+		<!--Test that the fully qualified URL is returned correctly.-->
+	</testcase>
+	<testcase classname="common.tests.AttachmentTest" name="test_generate_thumbnail_location" time="0.025" timestamp="2026-10-31T18:17:07" file="common\tests.py" line="231">
+		<!--Test that a generated thumbnail is stored alongside its attachment file.
+
+Regression test: thumbnails were previously saved to the top-level media
+root, rather than in the same directory as the attachment they belong to.
+-->
+	</testcase>
+	<testcase classname="common.tests.AttachmentTest" name="test_mixin" time="0.020" timestamp="2026-10-31T18:17:07" file="common\tests.py" line="125">
+		<!--Test that the mixin class works as expected.-->
+	</testcase>
+	<testcase classname="common.tests.AttachmentTest" name="test_str_representation" time="0.027" timestamp="2026-10-31T18:17:07" file="common\tests.py" line="279">
+		<!--Test the __str__ method of the Attachment model.
+
+- If a file is attached, the string representation should be the file basename.
+- If only a link is provided (no file), the string representation should be the link.
+- If neither is set, fall back to the default django representation.
+-->
+	</testcase>
+	<testcase classname="common.tests.AttachmentTest" name="test_upload_via_api" time="0.487" timestamp="2026-10-31T18:17:08" file="common\tests.py" line="142">
+		<!--Test that we can upload attachments via the API.-->
+	</testcase>
+</testsuite>

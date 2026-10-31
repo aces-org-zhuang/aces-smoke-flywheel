@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.ReportTest-20261031181515" tests="10" file="report/tests.py" time="1.252" timestamp="2026-10-31T18:21:06" failures="1" errors="2" skipped="0">
+	<testcase classname="report.tests.ReportTest" name="test_create_endpoint" time="0.097" timestamp="2026-10-31T18:21:04" file="report\tests.py" line="141">
+		<!--Test that creating a new report works for each report.-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_detail_endpoint" time="0.111" timestamp="2026-10-31T18:21:04" file="report\tests.py" line="185">
+		<!--Test that the DETAIL endpoint works for each report.-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_internal_company_context" time="0.071" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="70">
+		<!--Test that the default internal company is available in the base context.-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_list_endpoint" time="0.171" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="87">
+		<!--Test that the LIST endpoint works for each report.-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_metadata" time="0.073" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="246">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_print_stock_location" time="0.099" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="365">
+		<!--Test that the built-in Stock Location report renders each item's note.
+
+Regression test: this report renders each contained StockItem's note
+inline via the '{% note %}' tag - StockItem.notes is now a QuerySet
+(via InvenTreeNoteMixin), not text, so the old '{{ line.notes }}' would
+render a broken QuerySet repr instead of note content.
+
+Renders the template directly (rather than going through
+ReportTemplate.print(), as test_print_build_order does) because
+StockLocation.report_context() unconditionally generates a barcode,
+which depends on a barcode plugin being registered - unrelated to what
+this test is actually checking, and not reliably available in every
+test environment.
+-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_report_template_permissions" time="0.153" timestamp="2026-10-31T18:21:06" file="report\tests.py" line="264">
+		<!--Test that the user permissions are correctly applied.
+
+- For all /api/report/ endpoints, any authenticated user should have full read access
+- Write access is limited to staff users
+- Non authenticated users should have no access at all
+-->
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_print_custom_template" time="0.240" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="405">
+		<!--Create a new template, print it, and check the output.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 459, in test_print_custom_template
+    data = self.post(url, data=post_data).data
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/report/print/': status_code = 400 (expected 201)
+data: {'error': [ErrorDetail(string='Error generating report', code='invalid')], 'detail': [ErrorDetail(string="['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']", code='invalid')]}
+content: b'{"error":["Error generating report"],"detail":["[\'Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable\']"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_reports at 0x0000020769499620>' failed due to {'error': ['Error generating report'], 'detail': ["['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']"]}
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_print" time="0.133" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="320">
+		<!--Test that we can print a report manually.-->
+		<error type="ValidationError" message="{'error': ['Error generating report'], 'detail': [&quot;['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']&quot;]}"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 712, in print
+    report = self.render(instance, user=user, context=None)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 370, in render
+    pdf = HTML(string=html, url_fetcher=InvenTreeURLFetcher()).write_pdf(
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\virtual\weasyprint\__init__.py", line 14, in __init__
+    raise RuntimeError(
+        "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    )
+RuntimeError: weasyprint is virtualised in this environment: PDF rendering is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 728, in print
+    raise ValidationError(f'{msg}: {e!s}')
+django.core.exceptions.ValidationError: ['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 330, in test_print
+    output = template.print(items)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 753, in print
+    raise ValidationError({
+    ...<2 lines>...
+    })
+django.core.exceptions.ValidationError: {'error': ['Error generating report'], 'detail': ["['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']"]}
+]]></error>
+	</testcase>
+	<testcase classname="report.tests.ReportTest" name="test_print_build_order" time="0.105" timestamp="2026-10-31T18:21:05" file="report\tests.py" line="337">
+		<!--Test that the built-in Build Order report renders correctly.
+
+Regression test: this report renders a build's notes via the '{% note %}'
+tag - Build.notes is now a QuerySet (via InvenTreeNoteMixin), not text, so
+the old '{{ build.notes|markdownify }}' would error out during rendering.
+-->
+		<error type="ValidationError" message="{'error': ['Error generating report'], 'detail': [&quot;['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']&quot;]}"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 712, in print
+    report = self.render(instance, user=user, context=None)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 370, in render
+    pdf = HTML(string=html, url_fetcher=InvenTreeURLFetcher()).write_pdf(
+          ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\virtual\weasyprint\__init__.py", line 14, in __init__
+    raise RuntimeError(
+        "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    )
+RuntimeError: weasyprint is virtualised in this environment: PDF rendering is unavailable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 728, in print
+    raise ValidationError(f'{msg}: {e!s}')
+django.core.exceptions.ValidationError: ['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 359, in test_print_build_order
+    output = template.print([build])
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\models.py", line 753, in print
+    raise ValidationError({
+    ...<2 lines>...
+    })
+django.core.exceptions.ValidationError: {'error': ['Error generating report'], 'detail': ["['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']"]}
+]]></error>
+	</testcase>
+</testsuite>

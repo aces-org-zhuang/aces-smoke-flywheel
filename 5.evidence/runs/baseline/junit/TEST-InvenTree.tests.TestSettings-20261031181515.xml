@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestSettings-20261031181515" tests="9" file="InvenTree/tests.py" time="3.209" timestamp="2026-10-31T18:26:42" failures="6" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestSettings" name="test_helpers_setting" time="0.546" timestamp="2026-10-31T18:26:40" file="InvenTree\tests.py" line="1492">
+		<!--Test get_setting.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_instance_id" time="0.019" timestamp="2026-10-31T18:26:40" file="InvenTree\tests.py" line="1517">
+		<!--Test get_instance_id.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_social_backends" time="0.009" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1331">
+		<!--Test that social backends are normalized and de-duplicated.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_helpers_cfg_file" time="0.009" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1366">
+		<!--Test get_config_file.-->
+		<failure type="AssertionError" message="False is not true : Path d:\wbeval\repos\inventree\config\config.yaml not in ['config/config.yaml', 'inventree/data/config.yaml']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1373, in test_helpers_cfg_file
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        any(opt in trgt_path for opt in valid), f'Path {trgt_path} not in {valid}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Path d:\wbeval\repos\inventree\config\config.yaml not in ['config/config.yaml', 'inventree/data/config.yaml']
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_helpers_get_oidc_private_key" time="0.009" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1450">
+		<!--Test get_oidc_private_key.-->
+		<failure type="AssertionError" message="False is not true : Path D:\wbeval\repos\inventree\config\oidc.pem not in ['config/oidc.pem', 'inventree/data/oidc.pem']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1455, in test_helpers_get_oidc_private_key
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        any(opt in str(trgt_path) for opt in valid),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        f'Path {trgt_path} not in {valid}',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Path D:\wbeval\repos\inventree\config\oidc.pem not in ['config/oidc.pem', 'inventree/data/oidc.pem']
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_helpers_plugin_file" time="0.009" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1400">
+		<!--Test get_plugin_file.-->
+		<failure type="AssertionError" message="False is not true : Path d:\wbeval\repos\inventree\config\plugins.txt not in ['config/plugins.txt', 'inventree/data/plugins.txt']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1407, in test_helpers_plugin_file
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        any(opt in trgt_path for opt in valid), f'Path {trgt_path} not in {valid}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Path d:\wbeval\repos\inventree\config\plugins.txt not in ['config/plugins.txt', 'inventree/data/plugins.txt']
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_helpers_secret_key" time="0.007" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1416">
+		<!--Test get_secret_key.-->
+		<failure type="AssertionError" message="False is not true : Path devkey-devkey-devkey-devkey-devkey not in ['config/secret_key.txt', 'inventree/data/secret_key.txt']"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1421, in test_helpers_secret_key
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        any(opt in trgt_path for opt in valid), f'Path {trgt_path} not in {valid}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: False is not true : Path devkey-devkey-devkey-devkey-devkey not in ['config/secret_key.txt', 'inventree/data/secret_key.txt']
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_initial_install" time="0.727" timestamp="2026-10-31T18:26:40" file="InvenTree\tests.py" line="1317">
+		<!--Test if install of plugins on startup works.-->
+		<failure type="AssertionError" message="0 not greater than 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1325, in test_initial_install
+    self.assertGreater(
+    ~~~~~~~~~~~~~~~~~~^
+        len(get_global_setting('_PLUGIN_FILE_HASH', '', create=False)), 0
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 0 not greater than 0
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSettings" name="test_set_user_to_few" time="1.873" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1278">
+		<!--Test adding an admin user via env variables.-->
+		<failure type="AssertionError" message="1 != 2"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 1300, in test_set_user_to_few
+    self.assertEqual(user_count(), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+]]></failure>
+	</testcase>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.FormatTest-20261031181515" tests="4" file="InvenTree/tests.py" time="0.003" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.FormatTest" name="test_create_regex" time="0.000" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="545">
+		<!--Test function for creating a regex from a format string.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.FormatTest" name="test_extract_value" time="0.001" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="577">
+		<!--Test that we can extract named values based on a format string.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.FormatTest" name="test_parse" time="0.000" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="529">
+		<!--Tests for the 'parse_format_string' function.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.FormatTest" name="test_validate_format" time="0.001" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="557">
+		<!--Test that string validation works as expected.-->
+	</testcase>
+</testsuite>

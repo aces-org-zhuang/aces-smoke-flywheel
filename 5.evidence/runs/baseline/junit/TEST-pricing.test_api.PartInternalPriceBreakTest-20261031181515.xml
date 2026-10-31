@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pricing.test_api.PartInternalPriceBreakTest-20261031181515" tests="2" file="pricing/test_api.py" time="1.010" timestamp="2026-10-31T18:20:48" failures="0" errors="0" skipped="0">
+	<testcase classname="pricing.test_api.PartInternalPriceBreakTest" name="test_create_price_breaks" time="0.320" timestamp="2026-10-31T18:20:47" file="pricing\test_api.py" line="167">
+		<!--Test we can create price breaks at various quantities.-->
+		<system-out><![CDATA[Warning: 129 queries executed at /api/part/1/
+]]></system-out>
+	</testcase>
+	<testcase classname="pricing.test_api.PartInternalPriceBreakTest" name="test_price_break_permissions" time="0.690" timestamp="2026-10-31T18:20:48" file="pricing\test_api.py" line="146">
+		<!--Test that price breaks require the 'pricing' role.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="importer.tests.DataImportRowConcurrencyTest-20261031181515" tests="1" file="importer/tests.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="importer.tests.DataImportRowConcurrencyTest" name="test_concurrent_update_does_not_lose_writes" time="0.001" timestamp="2026-10-31T18:26:58" file="importer\tests.py" line="510">
+		<!--Two concurrent updates to different fields must not clobber one another.-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

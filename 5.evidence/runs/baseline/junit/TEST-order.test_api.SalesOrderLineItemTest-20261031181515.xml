@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderLineItemTest-20261031181515" tests="6" file="order/test_api.py" time="2.968" timestamp="2026-10-31T18:18:42" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_output_options" time="0.368" timestamp="2026-10-31T18:18:40" file="order\test_api.py" line="3362">
+		<!--Test the various output options for the SalesOrderLineItem detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_so_extra_line_bulk_delete" time="0.089" timestamp="2026-10-31T18:18:40" file="order\test_api.py" line="3245">
+		<!--Test that we can bulk delete multiple SalesOrderExtraLine items via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_so_line_allocated_filters" time="1.181" timestamp="2026-10-31T18:18:41" file="order\test_api.py" line="3272">
+		<!--Test filtering by allocation status for a SalesOrderLineItem.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_so_line_bulk_delete" time="0.149" timestamp="2026-10-31T18:18:41" file="order\test_api.py" line="3229">
+		<!--Test that we can bulk delete multiple SalesOrderLineItems via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_so_line_list" time="0.824" timestamp="2026-10-31T18:18:42" file="order\test_api.py" line="3135">
+		<!--Test list endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderLineItemTest" name="test_so_line_ordering" time="0.357" timestamp="2026-10-31T18:18:42" file="order\test_api.py" line="3175">
+		<!--Test that the SalesOrderLineItem list can be ordered by order-related fields.
+
+Regression test for aliased ordering fields ('status', 'shipment_date')
+which are not present directly on the SalesOrderLineItem model,
+but rather on the linked SalesOrder.
+-->
+	</testcase>
+</testsuite>

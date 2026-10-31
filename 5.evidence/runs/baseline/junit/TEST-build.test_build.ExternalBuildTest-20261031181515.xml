@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.ExternalBuildTest-20261031181515" tests="4" file="build/test_build.py" time="0.844" timestamp="2026-10-31T18:16:01" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.ExternalBuildTest" name="test_api_filter" time="0.477" timestamp="2026-10-31T18:16:00" file="build\test_build.py" line="1437">
+		<!--Test that the 'external' API filter works as expected.-->
+	</testcase>
+	<testcase classname="build.test_build.ExternalBuildTest" name="test_build_requirement" time="0.089" timestamp="2026-10-31T18:16:00" file="build\test_build.py" line="1314">
+		<!--Test the global 'BUILDORDER_EXTERNAL_REQUIRED' setting.-->
+	</testcase>
+	<testcase classname="build.test_build.ExternalBuildTest" name="test_logic" time="0.243" timestamp="2026-10-31T18:16:01" file="build\test_build.py" line="1355">
+		<!--Test external build logic.-->
+	</testcase>
+	<testcase classname="build.test_build.ExternalBuildTest" name="test_validation" time="0.036" timestamp="2026-10-31T18:16:01" file="build\test_build.py" line="1291">
+		<!--Test validation of external build logic.-->
+	</testcase>
+</testsuite>

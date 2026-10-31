@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_category.CategoryTest-20261031181515" tests="13" file="part/test_category.py" time="3.345" timestamp="2026-10-31T18:20:34" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_category.CategoryTest" name="test_category_tree" time="1.860" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="263">
+		<!--Unit tests for the part category tree structure (MPTT).
+
+Ensure that the MPTT structure is rebuilt correctly,
+and the correct ancestor tree is observed.
+-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_children_count" time="0.003" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="41">
+		<!--Test that categories have the correct number of children.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_default_locations" time="0.017" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="203">
+		<!--Test traversal for default locations.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_delete" time="0.050" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="183">
+		<!--Test that category deletion moves the children properly.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_icon" time="0.033" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="463">
+		<!--Test the category icon.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_parameters" time="0.005" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="157">
+		<!--Test that the Category parameters are correctly fetched.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_parents" time="0.002" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="33">
+		<!--Test that the parent fields are properly set, based on the test fixtures.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_part_count" time="0.031" timestamp="2026-10-31T18:20:33" file="part\test_category.py" line="136">
+		<!--Test that the Category part count works.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_path_string" time="0.867" timestamp="2026-10-31T18:20:34" file="part\test_category.py" line="66">
+		<!--Test that the category path string works correctly.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_root_delete" time="0.473" timestamp="2026-10-31T18:20:34" file="part\test_category.py" line="224">
+		<!--Test that deleting a root category works correctly.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_unique_children" time="0.002" timestamp="2026-10-31T18:20:34" file="part\test_category.py" line="49">
+		<!--Test the 'unique_children' functionality.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_unique_parents" time="0.001" timestamp="2026-10-31T18:20:34" file="part\test_category.py" line="58">
+		<!--Test the 'unique_parents' functionality.-->
+	</testcase>
+	<testcase classname="part.test_category.CategoryTest" name="test_url" time="0.000" timestamp="2026-10-31T18:20:34" file="part\test_category.py" line="132">
+		<!--Test that the PartCategory URL works.-->
+	</testcase>
+</testsuite>

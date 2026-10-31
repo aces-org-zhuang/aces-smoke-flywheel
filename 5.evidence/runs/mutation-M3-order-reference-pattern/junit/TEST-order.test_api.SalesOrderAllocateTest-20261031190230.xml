@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAllocateTest-20261031190230" tests="1" file="order/test_api.py" time="0.239" timestamp="2026-10-31T19:02:33" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAllocateTest" name="test_allocate" time="0.239" timestamp="2026-10-31T19:02:33" file="order\test_api.py" line="3525">
+		<!--Test that the allocation endpoint acts as expected, when provided with valid data!-->
+		<system-out><![CDATA[Warning: 115 queries executed at /api/order/so/1/allocate/
+]]></system-out>
+	</testcase>
+</testsuite>

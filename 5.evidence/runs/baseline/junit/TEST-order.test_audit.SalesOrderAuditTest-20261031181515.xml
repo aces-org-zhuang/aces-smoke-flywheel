@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_audit.SalesOrderAuditTest-20261031181515" tests="6" file="order/test_audit.py" time="0.878" timestamp="2026-10-31T18:19:05" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_complete_shipment" time="0.099" timestamp="2026-10-31T18:19:04" file="order\test_audit.py" line="390">
+		<!--Shipped quantities (updated in bulk) are recorded against the user.-->
+	</testcase>
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_extra_lines" time="0.160" timestamp="2026-10-31T18:19:04" file="order\test_audit.py" line="339">
+		<!--Extra line changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_line_items" time="0.295" timestamp="2026-10-31T18:19:05" file="order\test_audit.py" line="322">
+		<!--Line item changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_order_edit" time="0.096" timestamp="2026-10-31T18:19:05" file="order\test_audit.py" line="307">
+		<!--Order edits are recorded - without the (derived) total price.-->
+	</testcase>
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_shipment_history" time="0.085" timestamp="2026-10-31T18:19:05" file="order\test_audit.py" line="369">
+		<!--The shipment History tab shows the shipment's own entries.-->
+	</testcase>
+	<testcase classname="order.test_audit.SalesOrderAuditTest" name="test_shipments" time="0.144" timestamp="2026-10-31T18:19:05" file="order\test_audit.py" line="355">
+		<!--Shipment changes are recorded against the order, and the shipment itself.-->
+	</testcase>
+</testsuite>

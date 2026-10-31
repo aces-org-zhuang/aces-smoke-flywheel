@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.CorsTest-20261031181515" tests="3" file="InvenTree/tests.py" time="0.072" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.CorsTest" name="test_auth_view" time="0.005" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="190">
+		<!--Test that CORS requests work for the /auth/ view.
+
+Here, we are not authorized by default,
+but the CORS headers should still be included.
+-->
+	</testcase>
+	<testcase classname="InvenTree.tests.CorsTest" name="test_cors_regex" time="0.006" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="231">
+		<!--Test that CORS regexes work as expected.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.CorsTest" name="test_no_origin" time="0.062" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="164">
+		<!--Test that CORS headers are not included for regular requests.
+
+- We use the /api/ endpoint for this test (it does not require auth)
+- By default, in debug mode *all* CORS origins are allowed
+-->
+	</testcase>
+</testsuite>

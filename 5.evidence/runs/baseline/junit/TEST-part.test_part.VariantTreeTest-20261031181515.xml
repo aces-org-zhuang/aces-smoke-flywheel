@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.VariantTreeTest-20261031181515" tests="3" file="part/test_part.py" time="0.660" timestamp="2026-10-31T18:20:45" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.VariantTreeTest" name="test_complex_tree" time="0.624" timestamp="2026-10-31T18:20:45" file="part\test_part.py" line="508">
+		<!--Test a complex part template/variant tree.-->
+	</testcase>
+	<testcase classname="part.test_part.VariantTreeTest" name="test_part_creation" time="0.029" timestamp="2026-10-31T18:20:45" file="part\test_part.py" line="491">
+		<!--Test that parts are created with the correct tree structure.-->
+	</testcase>
+	<testcase classname="part.test_part.VariantTreeTest" name="test_tree" time="0.006" timestamp="2026-10-31T18:20:45" file="part\test_part.py" line="479">
+		<!--Test tree structure for fixtured data.-->
+	</testcase>
+</testsuite>

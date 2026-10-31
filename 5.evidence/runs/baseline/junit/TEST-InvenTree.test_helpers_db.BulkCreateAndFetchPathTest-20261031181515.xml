@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_helpers_db.BulkCreateAndFetchPathTest-20261031181515" tests="3" file="InvenTree/test_helpers_db.py" time="0.011" timestamp="2026-10-31T18:26:08" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchPathTest" name="test_backend_detection" time="0.000" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="223">
+		<!--The fast path is selected according to the database backend features.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchPathTest" name="test_fast_path" time="0.004" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="230">
+		<!--When primary keys are returned, the temporary metadata is not used at all.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchPathTest" name="test_fast_path_filters" time="0.007" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="254">
+		<!--Caller-provided filters are applied on the fast path too.-->
+	</testcase>
+</testsuite>

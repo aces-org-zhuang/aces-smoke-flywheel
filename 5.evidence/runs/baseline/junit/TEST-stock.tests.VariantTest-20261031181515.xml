@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.VariantTest-20261031181515" tests="2" file="stock/tests.py" time="0.104" timestamp="2026-10-31T18:22:33" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.tests.VariantTest" name="test_serial_numbers" time="0.069" timestamp="2026-10-31T18:22:33" file="stock\tests.py" line="1418">
+		<!--Test serial number functionality for variant / template parts.-->
+	</testcase>
+	<testcase classname="stock.tests.VariantTest" name="test_variant_stock" time="0.035" timestamp="2026-10-31T18:22:33" file="stock\tests.py" line="1394">
+		<!--Test variant functions.-->
+	</testcase>
+</testsuite>

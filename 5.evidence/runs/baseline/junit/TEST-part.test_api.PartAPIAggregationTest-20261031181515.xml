@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartAPIAggregationTest-20261031181515" tests="6" file="part/test_api.py" time="4.417" timestamp="2026-10-31T18:19:37" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_allocation_annotations" time="0.814" timestamp="2026-10-31T18:19:33" file="part\test_api.py" line="2569">
+		<!--Tests for query annotations which add allocation information.
+
+Ref: https://github.com/inventree/InvenTree/pull/2797
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_building" time="0.491" timestamp="2026-10-31T18:19:34" file="part\test_api.py" line="2815">
+		<!--Test the 'building' quantity annotations.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_high_stock" time="0.215" timestamp="2026-10-31T18:19:34" file="part\test_api.py" line="2904">
+		<!--Test the 'high_stock' filter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_low_stock" time="0.197" timestamp="2026-10-31T18:19:34" file="part\test_api.py" line="2879">
+		<!--Test the 'low_stock' filter.-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_on_order" time="1.649" timestamp="2026-10-31T18:19:36" file="part\test_api.py" line="2707">
+		<!--Test that the 'on_order' queryset annotation works as expected.
+
+This queryset annotation takes into account any outstanding line items for active orders,
+and should also use the 'pack_size' of the supplier part objects.
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartAPIAggregationTest" name="test_stock_quantity" time="1.052" timestamp="2026-10-31T18:19:37" file="part\test_api.py" line="2549">
+		<!--Simple test for the stock quantity.-->
+	</testcase>
+</testsuite>

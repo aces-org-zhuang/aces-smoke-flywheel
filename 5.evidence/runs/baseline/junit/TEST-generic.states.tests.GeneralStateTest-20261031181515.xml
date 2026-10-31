@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="generic.states.tests.GeneralStateTest-20261031181515" tests="7" file="generic/states/tests.py" time="0.063" timestamp="2026-10-31T18:26:55" failures="0" errors="0" skipped="0">
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_api" time="0.013" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="204">
+		<!--Test StatusView API view.-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_code_definition" time="0.011" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="35">
+		<!--Test that the status code class has been defined correctly.-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_code_functions" time="0.011" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="41">
+		<!--Test that the status code class functions work correctly.-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_color" time="0.007" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="161">
+		<!--Test that the color enum validation works.-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_int_payload" time="0.007" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="126">
+		<!--The underlying int payload of each member matches its value.
+
+Regression test: members were previously constructed with a zero int payload,
+so any operation using the raw int ('!=' between members of the same class,
+ordering, bool(), arithmetic, json serialization) was silently wrong.
+-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_tag_display_status_label" time="0.008" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="189">
+		<!--Test that the display_status_label tag (mainly the same as status_label).-->
+	</testcase>
+	<testcase classname="generic.states.tests.GeneralStateTest" name="test_tag_status_label" time="0.007" timestamp="2026-10-31T18:26:55" file="generic\states\tests.py" line="172">
+		<!--Test that the status_label tag.-->
+	</testcase>
+</testsuite>

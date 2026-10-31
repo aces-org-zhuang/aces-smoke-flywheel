@@ -1,0 +1,1270 @@
+{
+  "note": "基线债务台账：由基线运行的分类结论生成，候选运行据此区分新增失败与存量失败",
+  "run_id": "baseline",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "generated_at": "2026-10-31T10:50:03.371497+00:00",
+  "count": 179,
+  "by_verdict": {
+    "product_defect": 0,
+    "flaky_candidate": 0,
+    "contract_violation": 0,
+    "environment_excluded": 40,
+    "case_stale": 0,
+    "unknown": 139
+  },
+  "tests": [
+    {
+      "test": "build.test_api.BuildTest.test_download_build_orders",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "common.test_api.AttachmentAPITests.test_attachments",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'test_file_0_AGOphxV.txt' != 'test_file_0.txt'\n- test_file_0_AGOphxV.txt\n?            --------\n+ test_file_0.txt"
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'"
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'"
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_email_notifications_locale_translation",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'Elemento ricevuto' not found in '[InvenTree] Items Received'"
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_ui_notifications_locale_translation",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'Items Received' != 'Elemento ricevuto'\n- Items Received\n+ Elemento ricevuto"
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_connection_error",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "no logs of level WARNING or higher triggered on inventree"
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_valid_url",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 == 0"
+    },
+    {
+      "test": "common.tests.CommonTest.test_health_api",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "200 != 503"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_cast",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_valid_plugin_slug",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_uninitialized_setting",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'pk'"
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_cast",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_user_setting_list",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_return_order",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "ValidationError not raised"
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_broken_transition_plugin",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'set_setting'"
+    },
+    {
+      "test": "InvenTree.test_api.GeneralApiTests.test_info_view",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "object of type 'bool' has no len()"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_backup_command_e2e",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'Writing metadata file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip' not found in \"['INFO:dbbackup.command:Backing Up Database: file:memorydb_default?mode=memory&c"
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='USD,EUR,GBP')",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=USD,EUR,GBP\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", "
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='JPY,CNY,KRW')",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=JPY,CNY,KRW\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", "
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_restore_validation",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "no logs of level INFO or higher triggered on root"
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_delete_old_emails",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "2 != 1"
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_offload_timeout",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "True is not false"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.testStaticUrl",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image_custom_static",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_download_image",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "Connection error: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Ca"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_cfg_file",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\config.yaml not in ['config/config.yaml', 'inventree/data/config.yaml']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_get_oidc_private_key",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "False is not true : Path D:\\wbeval\\repos\\inventree\\config\\oidc.pem not in ['config/oidc.pem', 'inventree/data/oidc.pem']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_plugin_file",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\plugins.txt not in ['config/plugins.txt', 'inventree/data/plugins.txt']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_secret_key",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "False is not true : Path devkey-devkey-devkey-devkey-devkey not in ['config/secret_key.txt', 'inventree/data/secret_key.txt']"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_initial_install",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_set_user_to_few",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 2"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_detail_settings",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_driver_list",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 1"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_list",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "{'pk'[145 chars]ed': False, 'active': True, 'status': 101, 'st[188 chars]: []} != {'pk'[145 chars]ed': True, 'active': True, 'status': 101, 'sta[186 chars]: []}\n  {'active': True,\n   'driver': 'test-l"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_restart",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'' != 'Restarting...'\n+ Restarting..."
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_settings_list",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 2"
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_status",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Error message matching pattern '\\'<class \\'.*\\.TestingLabelPrinterDriverNotImplemented\\'>\\' did not override the required attributes: one of print_label or print_labels' not found in machine registry "
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_type_list",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "machine.tests.TestDriverMachineInterface.test_machine_lifecycle",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 1"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_call_function",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_location_invalid_pk",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_print_label",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_printing_options_serializer",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_registration",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_csv",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_line_items",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.ReturnOrderTests.test_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderAllocationDownloadTest.test_download_csv",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_csv",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_xlsx",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.SalesOrderTest.test_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_csv",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_xlsx",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "order.test_api.TransferOrderTest.test_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_bom_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_piece_count_bom_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.PartAPITest.test_part_download",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_existing_image",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_update_existing_image",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 200"
+    },
+    {
+      "test": "part.test_api.PartOptionsAPITest.test_part_label_translation",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'IPN' != 'IPN (Interne Produktnummer)'"
+    },
+    {
+      "test": "plugin.base.integration.test_mixins.AppMixinTest.test_function",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'plugin.samples.integration' not found in ['django.contrib.admin', 'django.contrib.admindocs', 'build.apps.BuildConfig', 'common.apps.CommonConfig', 'plugin.apps.PluginAppConfig', 'company.apps.Compan"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_api",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 2"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_installed",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "3 != 4"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_endpoints",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_options",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_process",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_machine_driver_options_validate_before_print_task",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "None does not have the attribute 'get_printing_options_serializer'"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_installed",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_fail",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "\"Must supply either 'item' or 'location' parameter\" not found in '{\\'detail\\': ErrorDetail(string=\"Plugin \\'samplelocate\\' is not installed, or does not support the location mixin\", code=\\'parse_error"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_item",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 200"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_location",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 200"
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_permissions",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 403"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_dashboard_items",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 4"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_navigation_items",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_primary_actions",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_routes",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "2 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_template_editors",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "1 != 0"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_installed",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'is_active'"
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_panels",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'set_setting'"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_csv_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_xlsx_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.StocktakeExporterTest.test_stocktake_exporter",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_well_known_urls",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'passkey-endpoints' not found in {}"
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_passkey_view",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'plugin' is not a registered namespace"
+    },
+    {
+      "test": "plugin.samples.event.test_event_sample.EventPluginSampleTests.test_run_event",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:27.662409Z\\\\\\', \\\\\\'logg"
+    },
+    {
+      "test": "plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests.test_run_event",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:29.132855Z\\\\\\', \\\\\\'logg"
+    },
+    {
+      "test": "plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests.test_get_icons_api",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "1 != 2"
+    },
+    {
+      "test": "plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest.test_build_auto_allocate",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "Decimal('0') != 5"
+    },
+    {
+      "test": "plugin.samples.integration.test_api_caller.SampleApiCallerPluginTests.test_return",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'sample-api-caller' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B83BA10>, 'autocreatebuilds': <events.auto_create_builds.AutoCreat"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings_validator",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_view",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "302 != 200"
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_function",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'schedule' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B169E50>, 'autocreatebuilds': <events.auto_create_builds.AutoCreateBuildsPl"
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_calling",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "Plugin 'schedule' not found"
+    },
+    {
+      "test": "plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests.test_function",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "404 != 200"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_api_batch",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_generate_batch_code",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_ipn",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_model_instance",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_part_name",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.samples.locate.test_locate_sample.SampleLocatePluginTests.test_run_locator",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_in",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_out",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_import_part",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_list",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_search",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "'NoneType' object has no attribute 'plugin_config'"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filter_by_mixin",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 1"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filters",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 not greater than 0"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_install",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'ERROR: Could not find a version that satisfies the requirement' not found in \"{'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}\""
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_metadata",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_settings",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_uninstall",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 400"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_settings",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "404 != 200"
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_activate",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "PluginConfig matching query does not exist."
+    },
+    {
+      "test": "plugin.test_api.PluginFullAPITest.test_full_process",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_numeric_setting_patch_ignored",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_get",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_save_enforced",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_patch_ignored",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_read_only_flag",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_returns_override_value",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_no_overrides_settings_are_editable",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_can_be_changed",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_not_read_only",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_plugin.InstallerTests.test_plugin_install_errors",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'No package name or URL provided for installation' not found in \"['Plugin installation is disabled']\""
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_action_name",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False != True"
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_version",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_broken_samples",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 3"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_builtin_mandatory_plugins",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_config_attributes",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_custom_loading",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_mandatory_plugins",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "15 != 13"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_registry_reload",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'c060f5c0c8b7b63e67f1c5193969e245' == 'c060f5c0c8b7b63e67f1c5193969e245'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_with_mixin",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "0 != 2"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_folder_loading",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_loading",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_update_reload",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'version'"
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_subfolder_loading",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'NoneType' object has no attribute 'slug'"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "'data[76 chars]AAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZY[186 chars]gg==' != 'data[76 chars]AAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCg[182 chars]gg=='\n- data:image/png;charset=utf-8;base64,iVB"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_qrcode",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "968 != 700"
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix_svg_pdf",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    },
+    {
+      "test": "report.test_tags.ReportTagTest.test_logo_image",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "False is not true"
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_disabled_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_model_permission",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelTest.test_print_custom_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.LabelTest.test_generated_file_filename",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "['Error rendering label to PDF']"
+    },
+    {
+      "test": "report.tests.LabelTest.test_print",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "['Error rendering label to PDF']"
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_partial_batch",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Expected 'print_label' to have been called once. Called 0 times."
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_worker_validation",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "Lists differ: ['Error rendering label to PDF'] != ['Serial number is required for this label']\n\nFirst differing element 0:\n'Error rendering label to PDF'\n'Serial number is required for this label'\n\n- "
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_disabled_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_model_permission",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_custom_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_build_order",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_create_endpoint",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_detail_endpoint",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_internal_company_context",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_list_endpoint",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_build",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_returnorder",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_salesorder",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_metadata",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_build_order",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_custom_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_stock_location",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.TestReportTest.test_report_template_permissions",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "unexpectedly None"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_fetch_urls_disabled_blocks_http",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_file_url_blocked_in_render",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_custom_template",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_ssrf_url_blocked_in_render",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "400 != 201"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_build_order",
+      "verdict": "environment_excluded",
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}"
+    },
+    {
+      "test": "scim.tests.ScimProtocolTests.test_suite",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "SCIM conformance suite reported failures:\nERROR: query_all_schemas - Request was throttled. Expected available in 40 seconds.\nERROR: access_invalid_schema - /Schemas/ee3f5efa-d63c-4ddf-825a-0b8a697086"
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_large_export",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "Response is not a StreamingHttpResponse object as expected"
+    },
+    {
+      "test": "stock.tests.TestResultTest.test_duplicate_item_tests",
+      "verdict": "unknown",
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "message": "ValidationError not raised"
+    }
+  ]
+}

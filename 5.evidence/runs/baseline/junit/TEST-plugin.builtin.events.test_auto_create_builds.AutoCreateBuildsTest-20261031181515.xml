@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest-20261031181515" tests="6" file="plugin/builtin/events/test_auto_create_builds.py" time="4.778" timestamp="2026-10-31T18:23:12" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_cascade" time="1.074" timestamp="2026-10-31T18:23:08" file="plugin\builtin\events\test_auto_create_builds.py" line="81">
+		<!--Child builds are cascaded down to the configured depth.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_default_depth" time="0.725" timestamp="2026-10-31T18:23:09" file="plugin\builtin\events\test_auto_create_builds.py" line="62">
+		<!--With the default depth, only direct children are created.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_idempotent" time="0.864" timestamp="2026-10-31T18:23:10" file="plugin\builtin\events\test_auto_create_builds.py" line="103">
+		<!--Running the plugin multiple times does not create duplicate builds.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_inactive_build" time="0.679" timestamp="2026-10-31T18:23:10" file="plugin\builtin\events\test_auto_create_builds.py" line="125">
+		<!--No child builds are created for an inactive build order.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_sufficient_stock" time="0.714" timestamp="2026-10-31T18:23:11" file="plugin\builtin\events\test_auto_create_builds.py" line="115">
+		<!--No child build is created if there is sufficient stock.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.events.test_auto_create_builds.AutoCreateBuildsTest" name="test_validation_error" time="0.722" timestamp="2026-10-31T18:23:12" file="plugin\builtin\events\test_auto_create_builds.py" line="134">
+		<!--A sub-assembly which fails validation is skipped.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin autocreatebuilds
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

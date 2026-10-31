@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.ProjectCodesTest-20261031181515" tests="5" file="common/tests.py" time="0.144" timestamp="2026-10-31T18:17:32" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.ProjectCodesTest" name="test_delete" time="0.026" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="2104">
+		<!--Test we can delete a project code via the API.-->
+	</testcase>
+	<testcase classname="common.tests.ProjectCodesTest" name="test_duplicate_code" time="0.017" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="2121">
+		<!--Test that we cannot create two project codes with the same code.-->
+	</testcase>
+	<testcase classname="common.tests.ProjectCodesTest" name="test_filter_active" time="0.028" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="2135">
+		<!--Test that the 'active' field can be filtered via the API.-->
+	</testcase>
+	<testcase classname="common.tests.ProjectCodesTest" name="test_list" time="0.021" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="2099">
+		<!--Test that the list endpoint works as expected.-->
+	</testcase>
+	<testcase classname="common.tests.ProjectCodesTest" name="test_write_access" time="0.051" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="2151">
+		<!--Test that non-staff users have read-only access.-->
+	</testcase>
+</testsuite>

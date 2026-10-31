@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderTest-20261031190230" tests="1" file="order/test_api.py" time="0.270" timestamp="2026-10-31T19:02:31" failures="1" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_create" time="0.270" timestamp="2026-10-31T19:02:31" file="order\test_api.py" line="2667">
+		<!--Test that we can create a new SalesOrder via the API.-->
+		<failure type="AssertionError" message="201 != 400"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 2674, in test_so_create
+    response = self.post(
+        url,
+    ...<5 lines>...
+        expected_code=400,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 201 != 400
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/order/so/': status_code = 201 (expected 400)
+data: {'pk': 7, 'created_by': {'pk': 1, 'username': 'testuser', 'first_name': '', 'last_name': '', 'email': 'test@testing.com'}, 'creation_date': '2026-10-31', 'issue_date': None, 'start_date': None, 'target_date': None, 'description': 'A test sales order', 'line_items': None, 'completed_lines': None, 'link': '', 'project_code': None, 'reference': '1234566778', 'responsible': None, 'contact': None, 'address': None, 'status': 10, 'status_text': 'Pending', 'status_custom_key': None, 'barcode_hash': '', 'overdue': None, 'address_detail': None, 'contact_detail': None, 'project_code_detail': None, 'project_code_label': None, 'responsible_detail': None, 'parameters': [], 'tags': [], 'customer': 4, 'customer_detail': {'pk': 4, 'active': True, 'name': 'A customer', 'description': 'A company that we sell things to!', 'image': None, 'thumbnail': '/static/img/blank_image.thumbnail.png', 'currency': 'USD', 'tax_id': ''}, 'customer_reference': '', 'shipment_date': None, 'total_price': 0.0, 'order_currency': None, 'shipments_count': None, 'completed_shipments_count': None, 'allocated_lines': None, 'updated_at': '2026-10-31 19:02'}
+content: b'{"pk":7,"created_by":{"pk":1,"username":"testuser","first_name":"","last_name":"","email":"test@testing.com"},"creation_date":"2026-10-31","issue_date":null,"start_date":null,"target_date":null,"description":"A test sales order","line_items":null,"completed_lines":null,"link":"","project_code":null,"reference":"1234566778","responsible":null,"contact":null,"address":null,"status":10,"status_text":"Pending","status_custom_key":null,"barcode_hash":"","overdue":null,"address_detail":null,"contact_detail":null,"project_code_detail":null,"project_code_label":null,"responsible_detail":null,"parameters":[],"tags":[],"customer":4,"customer_detail":{"pk":4,"active":true,"name":"A customer","description":"A company that we sell things to!","image":null,"thumbnail":"/static/img/blank_image.thumbnail.png","currency":"USD","tax_id":""},"customer_reference":"","shipment_date":null,"total_price":0.0,"order_currency":null,"shipments_count":null,"completed_shipments_count":null,"allocated_lines":null,"updated_at":"2026-10-31 19:02"}'
+]]></system-out>
+	</testcase>
+</testsuite>

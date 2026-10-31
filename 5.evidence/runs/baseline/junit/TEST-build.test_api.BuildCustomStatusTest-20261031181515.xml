@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildCustomStatusTest-20261031181515" tests="1" file="build/test_api.py" time="0.424" timestamp="2026-10-31T18:15:30" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildCustomStatusTest" name="test_custom_status_query_count" time="0.424" timestamp="2026-10-31T18:15:30" file="build\test_api.py" line="2975">
+		<!--Test that listing Build orders with custom statuses does not cause N+1 queries.
+
+Ensures that resolving 'status_text' for custom status values is O(1)
+in database queries, not O(N) relative to the number of results.
+-->
+	</testcase>
+</testsuite>

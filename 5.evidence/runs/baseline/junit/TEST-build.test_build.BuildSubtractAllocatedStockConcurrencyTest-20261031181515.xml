@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildSubtractAllocatedStockConcurrencyTest-20261031181515" tests="1" file="build/test_build.py" time="0.000" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="build.test_build.BuildSubtractAllocatedStockConcurrencyTest" name="test_subtract_allocated_stock_is_not_processed_twice" time="0.000" timestamp="2026-10-31T18:26:58" file="build\test_build.py" line="2046">
+		<!--A duplicated/concurrent call to complete_outstanding_allocations() must not double-consume.
+
+Regression test: BuildItem allocation rows were read via a plain (unlocked)
+queryset before being consumed and deleted. Two overlapping calls to this
+method (e.g. a redelivered completion/cancellation background task) could
+each read the same still-existing allocation and both call
+complete_allocation() on it - double-counting the BuildLine's 'consumed'
+quantity. The BuildItem rows are now locked (select_for_update) before
+being processed, so a duplicate call finds nothing left to do.
+-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

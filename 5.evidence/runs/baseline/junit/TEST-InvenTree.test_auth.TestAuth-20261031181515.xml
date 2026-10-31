@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_auth.TestAuth-20261031181515" tests="5" file="InvenTree/test_auth.py" time="0.506" timestamp="2026-10-31T18:26:02" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_auth.TestAuth" name="test_auth_request" time="0.053" timestamp="2026-10-31T18:26:01" file="InvenTree\test_auth.py" line="287">
+		<!--Test the auth_request view.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestAuth" name="test_buildin_token" time="0.082" timestamp="2026-10-31T18:26:01" file="InvenTree\test_auth.py" line="204">
+		<!--Test the built-in token authentication.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestAuth" name="test_registration" time="0.160" timestamp="2026-10-31T18:26:02" file="InvenTree\test_auth.py" line="232">
+		<!--Test the registration process.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestAuth" name="test_registration_email" time="0.119" timestamp="2026-10-31T18:26:02" file="InvenTree\test_auth.py" line="253">
+		<!--Test that LOGIN_SIGNUP_MAIL_RESTRICTION works.-->
+	</testcase>
+	<testcase classname="InvenTree.test_auth.TestAuth" name="test_server_info_sso_enabled" time="0.092" timestamp="2026-10-31T18:26:02" file="InvenTree\test_auth.py" line="306">
+		<!--The server info endpoint should reflect the LOGIN_ENABLE_SSO setting.-->
+	</testcase>
+</testsuite>

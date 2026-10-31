@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.tests.BuildTestSimple-20261031181515" tests="7" file="build/tests.py" time="0.610" timestamp="2026-10-31T18:16:02" failures="0" errors="0" skipped="0">
+	<testcase classname="build.tests.BuildTestSimple" name="test_build_create" time="0.489" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="79">
+		<!--Test creation of build orders via API.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_build_objects" time="0.009" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="22">
+		<!--Ensure the Build objects were correctly created.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_cancel_build" time="0.049" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="69">
+		<!--Test build cancellation function.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_is_active" time="0.014" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="61">
+		<!--Test active / inactive build status.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_is_complete" time="0.010" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="36">
+		<!--Test build completion status.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_overdue" time="0.032" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="46">
+		<!--Test overdue status functionality.-->
+	</testcase>
+	<testcase classname="build.tests.BuildTestSimple" name="test_url" time="0.007" timestamp="2026-10-31T18:16:02" file="build\tests.py" line="31">
+		<!--Test URL lookup.-->
+	</testcase>
+</testsuite>

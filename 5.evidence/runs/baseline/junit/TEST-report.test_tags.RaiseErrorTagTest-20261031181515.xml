@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.test_tags.RaiseErrorTagTest-20261031181515" tests="2" file="report/test_tags.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="0">
+	<testcase classname="report.test_tags.RaiseErrorTagTest" name="test_conditional_failure" time="0.001" timestamp="2026-10-31T18:26:58" file="report\test_tags.py" line="48">
+		<!--A tag inside a false condition does not stop rendering.-->
+	</testcase>
+	<testcase classname="report.test_tags.RaiseErrorTagTest" name="test_raise_error" time="0.001" timestamp="2026-10-31T18:26:58" file="report\test_tags.py" line="34">
+		<!--Literal and variable messages are preserved by the template tag.-->
+	</testcase>
+</testsuite>

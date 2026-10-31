@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.integration.test_mixins.APICallMixinTest-20261031181515" tests="5" file="plugin/base/integration/test_mixins.py" time="0.044" timestamp="2026-10-31T18:22:50" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.integration.test_mixins.APICallMixinTest" name="test_api_call" time="0.023" timestamp="2026-10-31T18:22:50" file="plugin\base\integration\test_mixins.py" line="350">
+		<!--Test that api calls work.-->
+	</testcase>
+	<testcase classname="plugin.base.integration.test_mixins.APICallMixinTest" name="test_args" time="0.001" timestamp="2026-10-31T18:22:50" file="plugin\base\integration\test_mixins.py" line="334">
+		<!--Test that building up args work.-->
+	</testcase>
+	<testcase classname="plugin.base.integration.test_mixins.APICallMixinTest" name="test_base_setup" time="0.008" timestamp="2026-10-31T18:22:50" file="plugin\base\integration\test_mixins.py" line="323">
+		<!--Test that the base settings work.-->
+	</testcase>
+	<testcase classname="plugin.base.integration.test_mixins.APICallMixinTest" name="test_function_errors" time="0.010" timestamp="2026-10-31T18:22:50" file="plugin\base\integration\test_mixins.py" line="417">
+		<!--Test function errors.-->
+	</testcase>
+	<testcase classname="plugin.base.integration.test_mixins.APICallMixinTest" name="test_mixin_name" time="0.001" timestamp="2026-10-31T18:22:50" file="plugin\base\integration\test_mixins.py" line="29">
+		<!--Test that the mixin registers itself correctly.-->
+	</testcase>
+</testsuite>

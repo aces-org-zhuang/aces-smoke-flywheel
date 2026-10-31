@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="scim.tests.ScimConfigurationModelTests-20261031181515" tests="4" file="scim/tests.py" time="0.053" timestamp="2026-10-31T18:26:56" failures="0" errors="0" skipped="0">
+	<testcase classname="scim.tests.ScimConfigurationModelTests" name="test_generate_and_verify_secret" time="0.024" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="25">
+		<!--A generated secret can be verified, but only while enabled.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimConfigurationModelTests" name="test_revoke" time="0.012" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="56">
+		<!--Revoking clears the secret and disables the endpoint.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimConfigurationModelTests" name="test_rotate_invalidates_previous_secret" time="0.009" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="44">
+		<!--Generating a new secret invalidates the previous one.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimConfigurationModelTests" name="test_singleton" time="0.008" timestamp="2026-10-31T18:26:56" file="scim\tests.py" line="18">
+		<!--Only a single configuration object can ever exist.-->
+	</testcase>
+</testsuite>

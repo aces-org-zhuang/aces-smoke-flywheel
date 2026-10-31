@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_audit.SupplierPartAuditTest-20261031181515" tests="6" file="company/test_audit.py" time="0.810" timestamp="2026-10-31T18:17:47" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_availability_not_recorded" time="0.019" timestamp="2026-10-31T18:17:46" file="company\test_audit.py" line="400">
+		<!--Supplier availability updates are not recorded.-->
+	</testcase>
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_manufacturer_part" time="0.109" timestamp="2026-10-31T18:17:46" file="company\test_audit.py" line="430">
+		<!--Manufacturer part changes are shown in the manufacturer history.-->
+	</testcase>
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_price_break_permission" time="0.399" timestamp="2026-10-31T18:17:46" file="company\test_audit.py" line="499">
+		<!--Price break history requires permission on the price break model.-->
+	</testcase>
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_price_breaks" time="0.162" timestamp="2026-10-31T18:17:47" file="company\test_audit.py" line="455">
+		<!--Price break changes are shown in the supplier part history.-->
+	</testcase>
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_primary_supplier_part" time="0.019" timestamp="2026-10-31T18:17:47" file="company\test_audit.py" line="415">
+		<!--Demoting the previous primary supplier part (a bulk update) is recorded.-->
+	</testcase>
+	<testcase classname="company.test_audit.SupplierPartAuditTest" name="test_supplier_part_edit" time="0.103" timestamp="2026-10-31T18:17:47" file="company\test_audit.py" line="377">
+		<!--Supplier part edits are recorded, and shown in the supplier history.-->
+	</testcase>
+</testsuite>

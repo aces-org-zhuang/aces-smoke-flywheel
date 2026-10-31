@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_audit.BuildAuditAPITest-20261031181515" tests="1" file="build/test_audit.py" time="0.101" timestamp="2026-10-31T18:15:46" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_audit.BuildAuditAPITest" name="test_edit_via_api" time="0.101" timestamp="2026-10-31T18:15:46" file="build\test_audit.py" line="133">
+		<!--Edits made via the API are recorded against the user, and shown in the history.-->
+	</testcase>
+</testsuite>

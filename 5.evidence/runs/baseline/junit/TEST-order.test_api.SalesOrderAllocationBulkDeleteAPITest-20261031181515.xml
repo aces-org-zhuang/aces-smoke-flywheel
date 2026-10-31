@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAllocationBulkDeleteAPITest-20261031181515" tests="3" file="order/test_api.py" time="0.286" timestamp="2026-10-31T18:18:33" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAllocationBulkDeleteAPITest" name="test_bulk_delete_unshipped_allocations" time="0.089" timestamp="2026-10-31T18:18:32" file="order\test_api.py" line="6439">
+		<!--Unshipped allocations can be bulk-deleted.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocationBulkDeleteAPITest" name="test_mixed_delete_removes_only_unshipped" time="0.115" timestamp="2026-10-31T18:18:32" file="order\test_api.py" line="6462">
+		<!--A bulk-delete of mixed shipped/unshipped allocations removes only the unshipped ones.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocationBulkDeleteAPITest" name="test_shipped_allocations_are_not_deleted" time="0.082" timestamp="2026-10-31T18:18:33" file="order\test_api.py" line="6452">
+		<!--Shipped allocations are silently skipped when included in a bulk-delete request.-->
+	</testcase>
+</testsuite>

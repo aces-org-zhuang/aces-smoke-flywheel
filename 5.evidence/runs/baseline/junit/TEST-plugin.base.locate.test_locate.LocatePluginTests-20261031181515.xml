@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.locate.test_locate.LocatePluginTests-20261031181515" tests="6" file="plugin/base/locate/test_locate.py" time="0.345" timestamp="2026-10-31T18:22:55" failures="5" errors="0" skipped="0">
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_mixin_locate" time="0.012" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="151">
+		<!--Test the sample mixin redirection.-->
+	</testcase>
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_installed" time="0.009" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="25">
+		<!--Test that a locate plugin is actually installed.-->
+		<failure type="AssertionError" message="0 not greater than 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\locate\test_locate.py", line 29, in test_installed
+    self.assertGreater(len(plugins), 0)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 0 not greater than 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_locate_fail" time="0.059" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="33">
+		<!--Test various API failure modes.-->
+		<failure type="AssertionError" message="&quot;Must supply either 'item' or 'location' parameter&quot; not found in '{\'detail\': ErrorDetail(string=&quot;Plugin \'samplelocate\' is not installed, or does not support the location mixin&quot;, code=\'parse_error\')}'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\locate\test_locate.py", line 54, in test_locate_fail
+    self.assertIn(
+    ~~~~~~~~~~~~~^
+        "Must supply either 'item' or 'location' parameter", str(response.data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: "Must supply either 'item' or 'location' parameter" not found in '{\'detail\': ErrorDetail(string="Plugin \'samplelocate\' is not installed, or does not support the location mixin", code=\'parse_error\')}'
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_locate_item" time="0.033" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="107">
+		<!--Test that the plugin correctly 'locates' a StockItem.
+
+As the background worker is not running during unit testing,
+the sample 'locate' function will be called 'inline'
+-->
+		<failure type="AssertionError" message="400 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\locate\test_locate.py", line 120, in test_locate_item
+    response = self.post(
+        url, {'plugin': 'samplelocate', 'item': 1}, expected_code=200
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/locate/': status_code = 400 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'samplelocate' is not installed, or does not support the location mixin", code='parse_error')}
+content: b'{"detail":"Plugin \'samplelocate\' is not installed, or does not support the location mixin"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_locate_location" time="0.038" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="131">
+		<!--Test that the plugin correctly 'locates' a StockLocation.-->
+		<failure type="AssertionError" message="400 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\locate\test_locate.py", line 138, in test_locate_location
+    response = self.post(
+        url,
+        {'plugin': 'samplelocate', 'location': location.pk},
+        expected_code=200,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/locate/': status_code = 400 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'samplelocate' is not installed, or does not support the location mixin", code='parse_error')}
+content: b'{"detail":"Plugin \'samplelocate\' is not installed, or does not support the location mixin"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="plugin.base.locate.test_locate.LocatePluginTests" name="test_locate_permissions" time="0.194" timestamp="2026-10-31T18:22:55" file="plugin\base\locate\test_locate.py" line="74">
+		<!--Test that the locate endpoint enforces role permissions.
+
+A user without the required view permission must be denied,
+for both existing and non-existent targets (no existence oracle).
+-->
+		<failure type="AssertionError" message="400 != 403"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\locate\test_locate.py", line 88, in test_locate_permissions
+    self.post(url, {'plugin': 'samplelocate', 'item': pk}, expected_code=403)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 403
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/locate/': status_code = 400 (expected 403)
+data: {'detail': ErrorDetail(string="Plugin 'samplelocate' is not installed, or does not support the location mixin", code='parse_error')}
+content: b'{"detail":"Plugin \'samplelocate\' is not installed, or does not support the location mixin"}'
+]]></system-out>
+	</testcase>
+</testsuite>

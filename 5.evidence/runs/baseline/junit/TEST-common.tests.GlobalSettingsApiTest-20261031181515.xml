@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.GlobalSettingsApiTest-20261031181515" tests="7" file="common/tests.py" time="0.512" timestamp="2026-10-31T18:17:26" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_api_detail" time="0.060" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="783">
+		<!--Test that we can access the detail view for a setting based on the <key>.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_cast" time="0.101" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="817">
+		<!--Test that values are cast to the correct type.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_company_name" time="0.095" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="720">
+		<!--Test a settings object lifecycle e2e.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_currency_settings" time="0.052" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="696">
+		<!--Run tests for currency specific settings.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_global_settings_api_list" time="0.160" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="679">
+		<!--Test list URL for global settings.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_mfa_change" time="0.013" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="747">
+		<!--Test that changes in LOGIN_ENFORCE_MFA are handled correctly.-->
+	</testcase>
+	<testcase classname="common.tests.GlobalSettingsApiTest" name="test_model_filters" time="0.031" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="759">
+		<!--Test that model-backed settings expose their model filters.-->
+	</testcase>
+</testsuite>

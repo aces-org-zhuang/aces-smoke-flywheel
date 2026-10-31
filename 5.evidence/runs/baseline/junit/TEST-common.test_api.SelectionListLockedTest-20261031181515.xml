@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.SelectionListLockedTest-20261031181515" tests="5" file="common/test_api.py" time="0.099" timestamp="2026-10-31T18:16:22" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.SelectionListLockedTest" name="test_create_entry_locked" time="0.019" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2472">
+		<!--POST a new entry to a locked list should be rejected.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListLockedTest" name="test_delete_entry_locked" time="0.017" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2490">
+		<!--DELETE an entry from a locked list should be rejected.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListLockedTest" name="test_patch_list_with_choices_locked" time="0.019" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2495">
+		<!--PATCH the list with a choices payload should be rejected when locked.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListLockedTest" name="test_patch_list_without_choices_preserves_entries" time="0.025" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2504">
+		<!--PATCH the list without choices should not touch entries (even when unlocked).-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListLockedTest" name="test_update_entry_locked" time="0.018" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2482">
+		<!--PATCH an entry on a locked list should be rejected.-->
+	</testcase>
+</testsuite>

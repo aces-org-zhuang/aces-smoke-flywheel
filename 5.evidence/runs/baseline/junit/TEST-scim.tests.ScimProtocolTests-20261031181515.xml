@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="scim.tests.ScimProtocolTests-20261031181515" tests="5" file="scim/tests.py" time="1.090" timestamp="2026-10-31T18:26:58" failures="1" errors="0" skipped="0">
+	<testcase classname="scim.tests.ScimProtocolTests" name="test_create_group_with_members" time="0.349" timestamp="2026-10-31T18:26:57" file="scim\tests.py" line="160">
+		<!--A group can be provisioned with initial membership via SCIM.-->
+		<system-out><![CDATA[Warning: 278 queries executed at /scim/v2/Groups
+]]></system-out>
+	</testcase>
+	<testcase classname="scim.tests.ScimProtocolTests" name="test_filter_users_by_username" time="0.086" timestamp="2026-10-31T18:26:57" file="scim\tests.py" line="133">
+		<!--Users can be filtered by an exact userName match.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimProtocolTests" name="test_service_provider_config_is_public" time="0.102" timestamp="2026-10-31T18:26:57" file="scim\tests.py" line="121">
+		<!--The discovery endpoints do not require authentication.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimProtocolTests" name="test_users_endpoint_requires_bearer_token" time="0.075" timestamp="2026-10-31T18:26:58" file="scim\tests.py" line="127">
+		<!--The Users endpoint rejects requests without a valid bearer token.-->
+	</testcase>
+	<testcase classname="scim.tests.ScimProtocolTests" name="test_suite" time="0.476" timestamp="2026-10-31T18:26:58" file="scim\tests.py" line="201">
+		<!--Run the SCIM 2.0 conformance test suite against the endpoint.-->
+		<failure type="AssertionError" message="SCIM conformance suite reported failures:&#10;ERROR: query_all_schemas - Request was throttled. Expected available in 40 seconds.&#10;ERROR: access_invalid_schema - /Schemas/ee3f5efa-d63c-4ddf-825a-0b8a69708673 invalid URL did return an Error object, but the status code is 429&#10;ERROR: schemas_endpoint_methods - POST /Schemas returned 429 instead of 405&#10;ERROR: schemas_endpoint_methods - PUT /Schemas returned 429 instead of 405&#10;ERROR: schemas_endpoint_methods - PATCH /Schemas returned 429 instead of 405&#10;ERROR: schemas_endpoint_methods - DELETE /Schemas returned 429 instead of 405"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\scim\tests.py", line 233, in test_suite
+    self.fail(
+    ~~~~~~~~~^
+        f'SCIM conformance suite reported failures:\n{details}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )  # pragma: no cover
+    ^
+AssertionError: SCIM conformance suite reported failures:
+ERROR: query_all_schemas - Request was throttled. Expected available in 40 seconds.
+ERROR: access_invalid_schema - /Schemas/ee3f5efa-d63c-4ddf-825a-0b8a69708673 invalid URL did return an Error object, but the status code is 429
+ERROR: schemas_endpoint_methods - POST /Schemas returned 429 instead of 405
+ERROR: schemas_endpoint_methods - PUT /Schemas returned 429 instead of 405
+ERROR: schemas_endpoint_methods - PATCH /Schemas returned 429 instead of 405
+ERROR: schemas_endpoint_methods - DELETE /Schemas returned 429 instead of 405
+]]></failure>
+	</testcase>
+</testsuite>

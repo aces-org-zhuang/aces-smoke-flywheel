@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_api.PluginLockedSettingsTest-20261031181515" tests="9" file="plugin/test_api.py" time="6.240" timestamp="2026-10-31T18:25:02" failures="9" errors="0" skipped="0">
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_numeric_setting_patch_ignored" time="0.571" timestamp="2026-10-31T18:24:56" file="plugin\test_api.py" line="779">
+		<!--PATCH to a locked numeric setting must not change the value.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_setting_model_get" time="0.588" timestamp="2026-10-31T18:24:57" file="plugin\test_api.py" line="753">
+		<!--PluginSetting.get_setting() must return the override value directly.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_setting_model_save_enforced" time="0.582" timestamp="2026-10-31T18:24:57" file="plugin\test_api.py" line="806">
+		<!--Saving a PluginSetting instance directly must enforce the override value.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_setting_patch_ignored" time="1.181" timestamp="2026-10-31T18:24:58" file="plugin\test_api.py" line="764">
+		<!--PATCH to a locked setting must not change the value; override is re-applied.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_setting_read_only_flag" time="0.744" timestamp="2026-10-31T18:24:59" file="plugin\test_api.py" line="735">
+		<!--Locked settings must be reported as read_only=True via the API.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_locked_setting_returns_override_value" time="0.768" timestamp="2026-10-31T18:25:00" file="plugin\test_api.py" line="747">
+		<!--GET on a locked setting must return the configured override value.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_no_overrides_settings_are_editable" time="0.597" timestamp="2026-10-31T18:25:00" file="plugin\test_api.py" line="820">
+		<!--Without any PLUGIN_SETTING_OVERRIDES, all settings default to read_only=False.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_unlocked_setting_can_be_changed" time="0.624" timestamp="2026-10-31T18:25:01" file="plugin\test_api.py" line="789">
+		<!--Settings not in the override dict must still be freely editable.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginLockedSettingsTest" name="test_unlocked_setting_not_read_only" time="0.585" timestamp="2026-10-31T18:25:02" file="plugin\test_api.py" line="741">
+		<!--Settings that are NOT overridden must be reported as read_only=False.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 717, in setUp
+    self.assertIsNotNone(self.cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+</testsuite>

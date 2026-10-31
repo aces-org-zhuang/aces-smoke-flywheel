@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.UserAPITests-20261031181515" tests="10" file="users/test_api.py" time="1.869" timestamp="2026-10-31T18:22:37" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.UserAPITests" name="test_api_url" time="0.075" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="49">
+		<!--Test the 'api_url' attribute in related API endpoints.
+
+Ref: https://github.com/inventree/InvenTree/pull/10182
+-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_group_api" time="0.055" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="270">
+		<!--Tests for the Group API endpoints.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_login_redirect" time="0.019" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="298">
+		<!--Test login redirect endpoint.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_me_endpoint" time="0.278" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="340">
+		<!--Test against the users /me/ endpoint.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_me_endpoint_delete_is_blocked" time="0.019" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="405">
+		<!--A user must not be able to delete their own account via '/api/user/me/'.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_api" time="0.318" timestamp="2026-10-31T18:22:36" file="users\test_api.py" line="71">
+		<!--Tests for User API endpoints.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_create_with_groups" time="0.536" timestamp="2026-10-31T18:22:37" file="users\test_api.py" line="175">
+		<!--Test that groups can be assigned when creating a new user via the API.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_detail" time="0.238" timestamp="2026-10-31T18:22:37" file="users\test_api.py" line="217">
+		<!--Test the UserDetail API endpoint.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_options" time="0.205" timestamp="2026-10-31T18:22:37" file="users\test_api.py" line="19">
+		<!--Tests for the User OPTIONS request.-->
+	</testcase>
+	<testcase classname="users.test_api.UserAPITests" name="test_user_roles" time="0.125" timestamp="2026-10-31T18:22:37" file="users\test_api.py" line="303">
+		<!--Test the user 'roles' API endpoint.-->
+	</testcase>
+</testsuite>

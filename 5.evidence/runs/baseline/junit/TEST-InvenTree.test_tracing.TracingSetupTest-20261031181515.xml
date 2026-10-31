@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_tracing.TracingSetupTest-20261031181515" tests="4" file="InvenTree/test_tracing.py" time="0.114" timestamp="2026-10-31T18:27:03" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_tracing.TracingSetupTest" name="test_first_call_configures_tracing" time="0.097" timestamp="2026-10-31T18:27:03" file="InvenTree\test_tracing.py" line="89">
+		<!--The first call to setup_tracing must actually configure tracing.
+
+Regression test for a bug where the "already configured" guard checked
+`trace.get_tracer_provider() is not None`. OpenTelemetry's API never returns
+None here - before anything is configured it returns a ProxyTracerProvider -
+so that check was always true, and setup_tracing returned immediately without
+ever installing an exporter, even on the very first call.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tracing.TracingSetupTest" name="test_missing_endpoint_or_headers_skips_setup" time="0.000" timestamp="2026-10-31T18:27:03" file="InvenTree\test_tracing.py" line="138">
+		<!--setup_tracing should skip setup if endpoint or headers are not provided.-->
+		<system-out><![CDATA[Tracing endpoint or headers not specified - skipping tracing setup
+Tracing endpoint or headers not specified - skipping tracing setup
+]]></system-out>
+	</testcase>
+	<testcase classname="InvenTree.test_tracing.TracingSetupTest" name="test_reconfigures_after_simulated_fork" time="0.011" timestamp="2026-10-31T18:27:03" file="InvenTree\test_tracing.py" line="113">
+		<!--setup_tracing must reconfigure in a forked child process, even though it inherits TRACE_PROV from the parent.
+
+Regression test for gunicorn's `preload_app = True`: settings (and so
+setup_tracing) are imported once in the master process before workers are
+forked. Each forked worker inherits TRACE_PROV via copy-on-write memory, but
+the parent's BatchSpanProcessor background thread does not survive fork()
+(only the forking thread continues in the child), so post_fork's explicit
+setup_tracing() call must still be able to reconfigure a real exporter in
+each worker rather than being skipped as "already configured".
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_tracing.TracingSetupTest" name="test_second_call_is_skipped" time="0.006" timestamp="2026-10-31T18:27:03" file="InvenTree\test_tracing.py" line="105">
+		<!--A second call to setup_tracing should not reconfigure tracing.-->
+	</testcase>
+</testsuite>

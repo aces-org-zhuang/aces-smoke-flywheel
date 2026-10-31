@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.TrackingEventBatchTests-20261031181515" tests="4" file="stock/tests.py" time="0.244" timestamp="2026-10-31T18:22:32" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.tests.TrackingEventBatchTests" name="test_events_discarded_on_rollback" time="0.012" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1308">
+		<!--Tracking events are discarded if the transaction rolls back.-->
+	</testcase>
+	<testcase classname="stock.tests.TrackingEventBatchTests" name="test_events_outside_batch_written_immediately" time="0.011" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1325">
+		<!--Tracking events recorded outside any batch are written immediately.-->
+	</testcase>
+	<testcase classname="stock.tests.TrackingEventBatchTests" name="test_events_written_on_exit" time="0.021" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1282">
+		<!--Tracking events recorded inside write_batched() are written when the context exits.-->
+	</testcase>
+	<testcase classname="stock.tests.TrackingEventBatchTests" name="test_stocktake_batch" time="0.200" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1337">
+		<!--Integration test: batching stocktake() events via the StockCountSerializer path.-->
+	</testcase>
+</testsuite>

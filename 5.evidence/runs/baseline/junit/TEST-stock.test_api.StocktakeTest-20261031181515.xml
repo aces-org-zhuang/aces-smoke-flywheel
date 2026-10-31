@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StocktakeTest-20261031181515" tests="10" file="stock/test_api.py" time="13.515" timestamp="2026-10-31T18:22:21" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StocktakeTest" name="test_action" time="0.305" timestamp="2026-10-31T18:22:07" file="stock\test_api.py" line="2977">
+		<!--Test each stocktake action endpoint, for validation.-->
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_bulk_add_query_benchmark" time="2.928" timestamp="2026-10-31T18:22:10" file="stock\test_api.py" line="3301">
+		<!--Benchmark: measure the number of DB queries required to add stock to 100 items at once.-->
+		<system-out><![CDATA[Warning: 826 queries executed at /api/stock/add/
+Benchmark @ '/api/stock/add/': 826 queries (of 950) in 0.6746s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_bulk_count_query_benchmark" time="3.532" timestamp="2026-10-31T18:22:14" file="stock\test_api.py" line="3267">
+		<!--Benchmark: measure the number of DB queries required to count 100 stock items at once.-->
+		<system-out><![CDATA[Warning: 828 queries executed at /api/stock/count/
+Benchmark @ '/api/stock/count/': 828 queries (of 950) in 0.8048s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_bulk_move_query_benchmark" time="3.059" timestamp="2026-10-31T18:22:17" file="stock\test_api.py" line="3361">
+		<!--Benchmark: measure the number of DB queries required to move 100 stock items at once.-->
+		<system-out><![CDATA[Warning: 727 queries executed at /api/stock/transfer/
+Benchmark @ '/api/stock/transfer/': 727 queries (of 850) in 0.7048s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_bulk_remove_query_benchmark" time="3.205" timestamp="2026-10-31T18:22:20" file="stock\test_api.py" line="3331">
+		<!--Benchmark: measure the number of DB queries required to remove stock from 100 items at once.-->
+		<system-out><![CDATA[Warning: 826 queries executed at /api/stock/remove/
+Benchmark @ '/api/stock/remove/': 826 queries (of 950) in 0.9377s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_count_serialized" time="0.050" timestamp="2026-10-31T18:22:20" file="stock\test_api.py" line="3075">
+		<!--Test that counting a serialized stock item correctly updates stocktake_date.-->
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_count_unchanged_quantity_saves_field_changes" time="0.047" timestamp="2026-10-31T18:22:20" file="stock\test_api.py" line="3218">
+		<!--Location / status changes are saved even if the counted quantity is unchanged.
+
+Regression test: counting an item to its *existing* quantity used to skip
+the model save entirely, losing any location / status change while still
+recording the change in stock history.
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_count_with_location" time="0.124" timestamp="2026-10-31T18:22:20" file="stock\test_api.py" line="3141">
+		<!--Test that the stock count endpoint correctly handles the optional location field.-->
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_notes_max_length" time="0.161" timestamp="2026-10-31T18:22:21" file="stock\test_api.py" line="3048">
+		<!--Test that overly long notes are rejected with a validation error.-->
+	</testcase>
+	<testcase classname="stock.test_api.StocktakeTest" name="test_transfer" time="0.104" timestamp="2026-10-31T18:22:21" file="stock\test_api.py" line="3101">
+		<!--Test stock transfers.-->
+	</testcase>
+</testsuite>

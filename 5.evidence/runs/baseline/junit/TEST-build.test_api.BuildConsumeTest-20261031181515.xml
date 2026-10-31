@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildConsumeTest-20261031181515" tests="9" file="build/test_api.py" time="7.235" timestamp="2026-10-31T18:15:29" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_items" time="0.203" timestamp="2026-10-31T18:15:22" file="build\test_api.py" line="2398">
+		<!--Test consuming against build items.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_items_redelivery" time="0.176" timestamp="2026-10-31T18:15:22" file="build\test_api.py" line="2425">
+		<!--A redelivered partial-quantity consume task must not consume stock twice.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_items_repeated_requests" time="0.221" timestamp="2026-10-31T18:15:22" file="build\test_api.py" line="2526">
+		<!--Separate API requests for partial quantities are each applied.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_lines" time="0.181" timestamp="2026-10-31T18:15:22" file="build\test_api.py" line="2378">
+		<!--Test consuming against build lines.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_lines_redelivery" time="0.172" timestamp="2026-10-31T18:15:22" file="build\test_api.py" line="2456">
+		<!--A redelivered line consume task must not consume stock twice.
+
+The consumed quantity is clamped by the stock item quantity here, so a
+(partially consumed) build item remains after the first run.
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_many_lines" time="4.725" timestamp="2026-10-31T18:15:27" file="build\test_api.py" line="2548">
+		<!--Test consuming stock against a build order with a large number of BOM lines.
+
+- Create 100 sub-components for a new assembly
+- Create a build order against the assembly
+- Create a stock item for each component - some with exactly the required
+  quantity, others with more than required (to test stock splitting)
+- Every 10th line is instead allocated from *two* different stock items,
+  whose quantities combined equal the required quantity (to test multiple
+  BuildItems being allocated against a single BuildLine)
+- Allocate stock against each build line
+- Complete the build order (via output creation, output completion, and finish)
+- Check that every build line is fully consumed
+- Check that stock items are reduced (and split) correctly
+- Check that associated events are triggered
+- Check that required low-stock checks are triggered for each component
+- Check that the correct stock tracking entries are created for each split stock item
+-->
+		<system-out><![CDATA[Benchmark @ '/api/build/7/allocate/': 29 queries (of 50) in 0.0940s (of 2.0s max)
+Benchmark @ '/api/build/7/complete/': 59 queries (of 200) in 0.0746s (of 0.5s max)
+Benchmark @ '/api/build/7/finish/': 84 queries (of 180) in 0.5230s (of 4.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_stale_snapshot" time="0.191" timestamp="2026-10-31T18:15:27" file="build\test_api.py" line="2502">
+		<!--A build item modified after the request was made is not consumed.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_tracked_allocations" time="1.151" timestamp="2026-10-31T18:15:28" file="build\test_api.py" line="2852">
+		<!--Test consuming of tracked allocations against a BuildOrder.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildConsumeTest" name="test_consume_without_snapshot" time="0.216" timestamp="2026-10-31T18:15:29" file="build\test_api.py" line="2488">
+		<!--Tasks queued without an 'expected' snapshot retain the previous behavior.-->
+	</testcase>
+</testsuite>

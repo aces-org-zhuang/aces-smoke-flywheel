@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.StockItemSerialGloballyUniqueConcurrencyTest-20261031181515" tests="1" file="stock/tests.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="stock.tests.StockItemSerialGloballyUniqueConcurrencyTest" name="test_concurrent_creation_across_parts_does_not_duplicate_serial" time="0.001" timestamp="2026-10-31T18:26:58" file="stock\tests.py" line="2175">
+		<!--Two concurrent requests for different parts must not both succeed.-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

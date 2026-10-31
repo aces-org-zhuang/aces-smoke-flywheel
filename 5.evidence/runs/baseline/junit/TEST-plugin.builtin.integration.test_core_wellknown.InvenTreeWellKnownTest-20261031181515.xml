@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest-20261031181515" tests="2" file="plugin/builtin/integration/test_core_wellknown.py" time="2.450" timestamp="2026-10-31T18:23:20" failures="1" errors="1" skipped="0">
+	<testcase classname="plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest" name="test_well_known_urls" time="1.114" timestamp="2026-10-31T18:23:20" file="plugin\builtin\integration\test_core_wellknown.py" line="19">
+		<!--Test that the well-known URLs are returned correctly from the index view.-->
+		<failure type="AssertionError" message="'passkey-endpoints' not found in {}"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\builtin\integration\test_core_wellknown.py", line 32, in test_well_known_urls
+    self.assertIn('passkey-endpoints', data['well_known_urls'])
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'passkey-endpoints' not found in {}
+]]></failure>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest" name="test_passkey_view" time="1.336" timestamp="2026-10-31T18:23:19" file="plugin\builtin\integration\test_core_wellknown.py" line="34">
+		<!--Test that the passkey view returns the correct JSON response.-->
+		<error type="NoReverseMatch" message="'plugin' is not a registered namespace"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\urls\base.py", line 81, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+                      ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 'plugin'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\builtin\integration\test_core_wellknown.py", line 39, in test_passkey_view
+    response = self.client.get(
+        '/.well-known/passkey-endpoints/', follow=True, accept='application/json'
+    )
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 295, in get
+    response = super().get(path, data=data, **extra)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 212, in get
+    return self.generic('GET', path, **r)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 240, in generic
+    return super().generic(
+           ~~~~~~~~~~~~~~~^
+        method, path, data, content_type, secure, **extra)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 292, in request
+    return super().request(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 244, in request
+    request = super().request(**kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 1090, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\generic\base.py", line 144, in dispatch
+    return handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\generic\base.py", line 259, in get
+    url = self.get_redirect_url(*args, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\generic\base.py", line 246, in get_redirect_url
+    if self.url:
+       ^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\utils\functional.py", line 187, in __wrapper__
+    result = func(*self._args, **self._kw)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\urls\base.py", line 92, in reverse
+    raise NoReverseMatch("%s is not a registered namespace" % key)
+django.urls.exceptions.NoReverseMatch: 'plugin' is not a registered namespace
+]]></error>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

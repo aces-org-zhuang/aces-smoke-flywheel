@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_api.PluginFullAPITest-20261031181515" tests="1" file="plugin/test_api.py" time="0.872" timestamp="2026-10-31T18:24:55" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.test_api.PluginFullAPITest" name="test_full_process" time="0.872" timestamp="2026-10-31T18:24:55" file="plugin\test_api.py" line="630">
+		<!--Test the full plugin install/uninstall process via API.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 637, in test_full_process
+    data = self.post(
+           ~~~~~~~~~^
+        reverse('api-plugin-install'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        max_query_count=450,
+        ^^^^^^^^^^^^^^^^^^^^
+    ).data
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/install/': status_code = 400 (expected 201)
+data: {'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}
+content: b'{"non_field_errors":["Plugin installation is disabled"]}'
+]]></system-out>
+	</testcase>
+</testsuite>

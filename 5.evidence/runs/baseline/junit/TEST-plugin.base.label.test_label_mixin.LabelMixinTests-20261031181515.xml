@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.label.test_label_mixin.LabelMixinTests-20261031181515" tests="7" file="plugin/base/label/test_label_mixin.py" time="3.049" timestamp="2026-10-31T18:22:54" failures="5" errors="1" skipped="0">
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_wrong_implementation" time="0.007" timestamp="2026-10-31T18:22:54" file="plugin\base\label\test_label_mixin.py" line="101">
+		<!--Test that a wrong implementation raises an error.-->
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_api" time="1.297" timestamp="2026-10-31T18:22:53" file="plugin\base\label\test_label_mixin.py" line="125">
+		<!--Test that we can filter the API endpoint by mixin.-->
+		<failure type="AssertionError" message="1 != 2"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 147, in test_api
+    self.assertEqual(len(response.data), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_installed" time="0.014" timestamp="2026-10-31T18:22:53" file="plugin\base\label\test_label_mixin.py" line="111">
+		<!--Test that the sample printing plugin is installed.-->
+		<failure type="AssertionError" message="3 != 4"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 115, in test_installed
+    self.assertEqual(len(plugins), 4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 3 != 4
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_printing_endpoints" time="0.040" timestamp="2026-10-31T18:22:53" file="plugin\base\label\test_label_mixin.py" line="387">
+		<!--Cover the endpoints not covered by `test_printing_process`.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 391, in test_printing_endpoints
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_printing_options" time="0.041" timestamp="2026-10-31T18:22:53" file="plugin\base\label\test_label_mixin.py" line="287">
+		<!--Test printing options.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 297, in test_printing_options
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_printing_process" time="1.015" timestamp="2026-10-31T18:22:54" file="plugin\base\label\test_label_mixin.py" line="169">
+		<!--Test that a label can be printed.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 211, in test_printing_process
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.base.label.test_label_mixin.LabelMixinTests" name="test_machine_driver_options_validate_before_print_task" time="0.635" timestamp="2026-10-31T18:22:53" file="plugin\base\label\test_label_mixin.py" line="336">
+		<!--Test that machine driver option validation runs before the print task.-->
+		<error type="AttributeError" message="None does not have the attribute 'get_printing_options_serializer'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\label\test_label_mixin.py", line 366, in test_machine_driver_options_validate_before_print_task
+    mock.patch.object(
+    ~~~~~~~~~~~~~~~~~^
+        driver,
+        ^^^^^^^
+        'get_printing_options_serializer',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        side_effect=lambda *args, **kwargs: RejectingOptionsSerializer(),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ),
+    ^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\mock.py", line 1503, in __enter__
+    original, local = self.get_original()
+                      ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\mock.py", line 1473, in get_original
+    raise AttributeError(
+        "%s does not have the attribute %r" % (target, name)
+    )
+AttributeError: None does not have the attribute 'get_printing_options_serializer'
+]]></error>
+	</testcase>
+</testsuite>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.tests.AddressTest-20261031181515" tests="5" file="company/tests.py" time="0.049" timestamp="2026-10-31T18:17:47" failures="0" errors="0" skipped="0">
+	<testcase classname="company.tests.AddressTest" name="test_create" time="0.007" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="225">
+		<!--Test that object creation with only company supplied is successful.-->
+	</testcase>
+	<testcase classname="company.tests.AddressTest" name="test_delete" time="0.011" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="230">
+		<!--Test Address deletion.-->
+	</testcase>
+	<testcase classname="company.tests.AddressTest" name="test_first_address_is_primary" time="0.006" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="252">
+		<!--Test that first address related to company is always set to primary.-->
+	</testcase>
+	<testcase classname="company.tests.AddressTest" name="test_model_str" time="0.009" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="257">
+		<!--Test value of __str__.-->
+	</testcase>
+	<testcase classname="company.tests.AddressTest" name="test_primary_constraint" time="0.016" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="236">
+		<!--Test that there can only be one company-'primary=true' pair.-->
+	</testcase>
+</testsuite>

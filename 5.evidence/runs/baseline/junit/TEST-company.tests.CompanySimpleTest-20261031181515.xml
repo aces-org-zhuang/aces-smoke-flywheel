@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.tests.CompanySimpleTest-20261031181515" tests="7" file="company/tests.py" time="0.057" timestamp="2026-10-31T18:17:47" failures="0" errors="0" skipped="0">
+	<testcase classname="company.tests.CompanySimpleTest" name="test_company_model" time="0.002" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="54">
+		<!--Tests for the company model data.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_company_url" time="0.002" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="60">
+		<!--Test the detail URL for a company.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_currency_validation" time="0.009" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="103">
+		<!--Test validation for currency selection.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_image_renamer" time="0.002" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="65">
+		<!--Test the company image upload functionality.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_metadata" time="0.019" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="120">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_price_breaks" time="0.008" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="74">
+		<!--Unit tests for price breaks.-->
+	</testcase>
+	<testcase classname="company.tests.CompanySimpleTest" name="test_quantity_pricing" time="0.016" timestamp="2026-10-31T18:17:47" file="company\tests.py" line="86">
+		<!--Simple test for quantity pricing.-->
+	</testcase>
+</testsuite>

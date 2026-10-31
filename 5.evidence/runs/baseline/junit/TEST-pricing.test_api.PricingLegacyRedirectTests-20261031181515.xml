@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pricing.test_api.PricingLegacyRedirectTests-20261031181515" tests="4" file="pricing/test_api.py" time="0.507" timestamp="2026-10-31T18:20:50" failures="0" errors="0" skipped="0">
+	<testcase classname="pricing.test_api.PricingLegacyRedirectTests" name="test_redirect_csrf" time="0.039" timestamp="2026-10-31T18:20:49" file="pricing\test_api.py" line="306">
+		<!--The redirect itself is not subject to CSRF checks, but the new endpoint is.-->
+	</testcase>
+	<testcase classname="pricing.test_api.PricingLegacyRedirectTests" name="test_redirect_methods" time="0.134" timestamp="2026-10-31T18:20:49" file="pricing\test_api.py" line="250">
+		<!--The request method (and data) is preserved when following a redirect.-->
+	</testcase>
+	<testcase classname="pricing.test_api.PricingLegacyRedirectTests" name="test_redirect_permissions" time="0.248" timestamp="2026-10-31T18:20:50" file="pricing\test_api.py" line="290">
+		<!--Redirects do not bypass the permission checks of the new endpoints.-->
+	</testcase>
+	<testcase classname="pricing.test_api.PricingLegacyRedirectTests" name="test_redirect_urls" time="0.086" timestamp="2026-10-31T18:20:50" file="pricing\test_api.py" line="219">
+		<!--Legacy URLs redirect (HTTP 308) to the new endpoints.-->
+	</testcase>
+</testsuite>

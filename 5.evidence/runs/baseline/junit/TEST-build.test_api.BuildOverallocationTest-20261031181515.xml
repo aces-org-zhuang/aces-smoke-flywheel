@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildOverallocationTest-20261031181515" tests="3" file="build/test_api.py" time="0.207" timestamp="2026-10-31T18:15:42" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildOverallocationTest" name="test_overallocated_can_trim" time="0.099" timestamp="2026-10-31T18:15:41" file="build\test_api.py" line="1268">
+		<!--Test build order will trim/de-allocate overallocated stock when requested.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOverallocationTest" name="test_overallocated_requires_acceptance" time="0.099" timestamp="2026-10-31T18:15:42" file="build\test_api.py" line="1238">
+		<!--Test build order cannot complete with overallocated items.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildOverallocationTest" name="test_setup" time="0.010" timestamp="2026-10-31T18:15:42" file="build\test_api.py" line="1232">
+		<!--Validate expected state after set-up.-->
+	</testcase>
+</testsuite>

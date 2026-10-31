@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.CustomStockItemStatusTest-20261031181515" tests="3" file="stock/test_api.py" time="2.851" timestamp="2026-10-31T18:21:13" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.CustomStockItemStatusTest" name="test_custom_status" time="0.628" timestamp="2026-10-31T18:21:11" file="stock\test_api.py" line="1399">
+		<!--Tests interaction with states.-->
+	</testcase>
+	<testcase classname="stock.test_api.CustomStockItemStatusTest" name="test_custom_status_query_count" time="2.001" timestamp="2026-10-31T18:21:13" file="stock\test_api.py" line="1514">
+		<!--Test that listing StockItems with custom statuses does not cause N+1 queries.
+
+Ensures that resolving 'status_text' for custom status values is O(1)
+in database queries, not O(N) relative to the number of results.
+-->
+	</testcase>
+	<testcase classname="stock.test_api.CustomStockItemStatusTest" name="test_options" time="0.222" timestamp="2026-10-31T18:21:13" file="stock\test_api.py" line="1499">
+		<!--Test the StockItem OPTIONS endpoint to contain custom StockStatuses.-->
+	</testcase>
+</testsuite>

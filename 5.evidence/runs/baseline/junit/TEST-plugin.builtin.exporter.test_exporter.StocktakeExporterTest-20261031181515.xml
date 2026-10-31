@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.exporter.test_exporter.StocktakeExporterTest-20261031181515" tests="1" file="plugin/builtin/exporter/test_exporter.py" time="1.437" timestamp="2026-10-31T18:23:16" failures="0" errors="1" skipped="0">
+	<testcase classname="plugin.builtin.exporter.test_exporter.StocktakeExporterTest" name="test_stocktake_exporter" time="1.437" timestamp="2026-10-31T18:23:16" file="plugin\builtin\exporter\test_exporter.py" line="17">
+		<!--Test the stocktake exporter plugin.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\builtin\exporter\test_exporter.py", line 29, in test_stocktake_exporter
+    with self.export_data(
+         ~~~~~~~~~~~~~~~~^
+        url, export_plugin=slug, export_format='csv'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as data_file:
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin inventree-stocktake-exporter
+  cfg.save()
+]]></system-err>
+	</testcase>
+</testsuite>

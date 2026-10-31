@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAllocationDownloadTest-20261031181515" tests="1" file="order/test_api.py" time="0.710" timestamp="2026-10-31T18:18:34" failures="0" errors="1" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAllocationDownloadTest" name="test_download_csv" time="0.710" timestamp="2026-10-31T18:18:34" file="order\test_api.py" line="3857">
+		<!--Test that SalesOrderAllocation data can be downloaded as a .csv file.
+
+Regression test for a bug where the SalesOrderAllocation list endpoint
+did not support data export.
+-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 3867, in test_download_csv
+    with self.export_data(url, export_format='csv', expected_code=200) as file:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

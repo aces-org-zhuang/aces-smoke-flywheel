@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.action.test_action.ActionMixinTests-20261031181515" tests="2" file="plugin/base/action/test_action.py" time="0.002" timestamp="2026-10-31T18:22:43" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.action.test_action.ActionMixinTests" name="test_action_name" time="0.001" timestamp="2026-10-31T18:22:43" file="plugin\base\action\test_action.py" line="47">
+		<!--Check the name definition possibilities.-->
+	</testcase>
+	<testcase classname="plugin.base.action.test_action.ActionMixinTests" name="test_function" time="0.001" timestamp="2026-10-31T18:22:43" file="plugin\base\action\test_action.py" line="53">
+		<!--Check functions.-->
+	</testcase>
+</testsuite>

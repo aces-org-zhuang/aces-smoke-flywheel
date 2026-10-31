@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartApiPerformanceTest-20261031181515" tests="1" file="part/test_api.py" time="0.103" timestamp="2026-10-31T18:19:58" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartApiPerformanceTest" name="test_api_part_list" time="0.103" timestamp="2026-10-31T18:19:58" file="part\test_api.py" line="3839">
+		<!--Test that Part API queries are performant.-->
+	</testcase>
+</testsuite>

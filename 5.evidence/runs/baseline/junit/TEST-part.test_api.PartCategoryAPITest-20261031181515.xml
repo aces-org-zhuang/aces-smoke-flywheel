@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartCategoryAPITest-20261031181515" tests="11" file="part/test_api.py" time="15.032" timestamp="2026-10-31T18:20:14" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_bulk_set_parent" time="8.575" timestamp="2026-10-31T18:20:08" file="part\test_api.py" line="116">
+		<!--Test that bulk re-parenting of categories correctly rebuilds the tree.
+
+Re-parenting multiple categories in a single 'bulk update' API call must
+leave the tree structure and the 'pathstring' values fully consistent.
+
+Ref: https://github.com/inventree/InvenTree/issues/12394
+-->
+		<system-out><![CDATA[Warning: 2071 queries executed at /api/part/category/
+]]></system-out>
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_category_delete" time="1.312" timestamp="2026-10-31T18:20:09" file="part\test_api.py" line="406">
+		<!--Test category deletion with different parameters.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_category_list" time="0.363" timestamp="2026-10-31T18:20:09" file="part\test_api.py" line="182">
+		<!--Test the PartCategoryList API endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_category_parameters" time="0.281" timestamp="2026-10-31T18:20:10" file="part\test_api.py" line="301">
+		<!--Test that the PartCategoryParameterTemplate API function work.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_invisible_chars" time="0.418" timestamp="2026-10-31T18:20:10" file="part\test_api.py" line="381">
+		<!--Test that invisible characters are removed from the input data.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_part_category_default_location" time="0.366" timestamp="2026-10-31T18:20:10" file="part\test_api.py" line="597">
+		<!--Test default location propagation through location trees.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_part_category_tree" time="2.007" timestamp="2026-10-31T18:20:12" file="part\test_api.py" line="571">
+		<!--Test the PartCategoryTree API endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_part_count" time="1.436" timestamp="2026-10-31T18:20:14" file="part\test_api.py" line="262">
+		<!--Test that the 'part_count' field is annotated correctly.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_path_detail" time="0.051" timestamp="2026-10-31T18:20:14" file="part\test_api.py" line="549">
+		<!--Test path_detail information.-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_sanitizer" time="0.180" timestamp="2026-10-31T18:20:14" file="part\test_api.py" line="353">
+		<!--Test that the data cleaning functionality is working.
+
+This helps to protect against XSS injection
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartCategoryAPITest" name="test_structural" time="0.043" timestamp="2026-10-31T18:20:14" file="part\test_api.py" line="497">
+		<!--Test the effectiveness of structural categories.
+
+Make sure:
+- Parts cannot be created in structural categories
+- Parts cannot be assigned to structural categories
+-->
+	</testcase>
+</testsuite>

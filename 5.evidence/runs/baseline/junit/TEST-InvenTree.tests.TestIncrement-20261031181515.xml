@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestIncrement-20261031181515" tests="1" file="InvenTree/tests.py" time="0.000" timestamp="2026-10-31T18:26:38" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestIncrement" name="tests" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="899">
+		<!--Test 'intelligent' incrementing function.-->
+	</testcase>
+</testsuite>

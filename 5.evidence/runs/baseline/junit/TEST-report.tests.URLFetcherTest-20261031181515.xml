@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.URLFetcherTest-20261031181515" tests="4" file="report/tests.py" time="0.011" timestamp="2026-10-31T18:21:10" failures="0" errors="0" skipped="0">
+	<testcase classname="report.tests.URLFetcherTest" name="test_data_uri_allowed" time="0.001" timestamp="2026-10-31T18:21:10" file="report\tests.py" line="1454">
+		<!--data: URIs must always be permitted.-->
+	</testcase>
+	<testcase classname="report.tests.URLFetcherTest" name="test_dns_rebind_is_blocked_at_fetch_time" time="0.007" timestamp="2026-10-31T18:21:10" file="report\tests.py" line="1460">
+		<!--A hostname that resolves safely for validation but privately for the real fetch must be blocked.
+
+Regression test: `validate_url_no_ssrf()` used to resolve the hostname once,
+validate that result, and then discard it, so `InvenTreeURLFetcher.fetch()`
+would delegate straight to WeasyPrint's own fetcher, which resolves the
+hostname *again* independently. An attacker controlling DNS for their own
+domain could answer the first ("check") lookup with a public IP and every
+subsequent ("use") lookup with a private/internal one (DNS rebinding), so the
+real request WeasyPrint made went somewhere the validator never saw.
+-->
+	</testcase>
+	<testcase classname="report.tests.URLFetcherTest" name="test_file_url_blocked" time="0.003" timestamp="2026-10-31T18:21:10" file="report\tests.py" line="1437">
+		<!--file:// URLs must always be rejected regardless of path.-->
+	</testcase>
+	<testcase classname="report.tests.URLFetcherTest" name="test_unknown_scheme_blocked" time="0.000" timestamp="2026-10-31T18:21:10" file="report\tests.py" line="1448">
+		<!--Non-http/data/file schemes must be rejected.-->
+	</testcase>
+</testsuite>

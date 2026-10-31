@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.NotesImageTest-20261031181515" tests="5" file="common/tests.py" time="0.275" timestamp="2026-10-31T18:17:26" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.NotesImageTest" name="test_copy_notes_with_images" time="0.056" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="1952">
+		<!--Images are duplicated (file + DB record) when copy_notes_from is called.
+
+Specifically:
+- New NotesImage records are created pointing to the new notes
+- The image files are physically copied (independent from the source)
+- The new note content references the new image URLs, not the old ones
+- Deleting the source note does not affect the copied note's images
+-->
+	</testcase>
+	<testcase classname="common.tests.NotesImageTest" name="test_image_cleanup" time="0.036" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="1850">
+		<!--Images no longer referenced in note content are deleted when the note is saved.
+
+Specifically:
+- An image removed from the content is deleted (DB record and file on disk)
+- An image still referenced in the content is preserved (DB record and file on disk)
+-->
+	</testcase>
+	<testcase classname="common.tests.NotesImageTest" name="test_image_cleanup_on_cascade_delete" time="0.051" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="1911">
+		<!--Images are removed from storage when their note is deleted via a cascade.
+
+InvenTreeNoteMixin.delete() (and Note.delete()'s own cascade to its images) delete
+notes/images via Django's deletion Collector, not by calling NotesImage.delete() on
+each instance directly - the collector never invokes an overridden Model.delete()
+on cascaded objects, only its pre_delete/post_delete signals. This exercises that
+path specifically, rather than test_image_cleanup's direct note.save()-driven cleanup.
+-->
+	</testcase>
+	<testcase classname="common.tests.NotesImageTest" name="test_invalid_files" time="0.025" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="1815">
+		<!--Test that invalid files are rejected.-->
+	</testcase>
+	<testcase classname="common.tests.NotesImageTest" name="test_rollback_preserves_image_files" time="0.107" timestamp="2026-10-31T18:17:26" file="common\tests.py" line="1769">
+		<!--Rolled-back note edits and cascaded deletions preserve image files.-->
+	</testcase>
+</testsuite>

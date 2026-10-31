@@ -1,0 +1,104 @@
+{
+  "run_id": "l1-run-01",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "sut_dirty": false,
+  "baseline_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "head_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "diff_files": [],
+  "classified_at": "2026-10-31T10:50:13.077515+00:00",
+  "total_failures": 0,
+  "new_failures": 0,
+  "preexisting_debt": 0,
+  "debt_ledger": {
+    "run_id": "baseline",
+    "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+    "count": 178,
+    "path": "5.evidence/verdicts/baseline-debt.json"
+  },
+  "by_verdict": {
+    "product_defect": 0,
+    "flaky_candidate": 0,
+    "contract_violation": 0,
+    "environment_excluded": 0,
+    "case_stale": 0,
+    "unknown": 0
+  },
+  "unknown_ratio": 0.0,
+  "new_failure_unknown_ratio": 0.0,
+  "unknown_ratio_limit": 0.2,
+  "ratio_semantics": {
+    "unknown_ratio": "全量失败中的未知比例，仅用于披露存量债务质量",
+    "new_failure_unknown_ratio": "增量失败中的未知比例，can-i-deploy 的实际判据"
+  },
+  "rule_set": [
+    "S0-declared-environment-deviation",
+    "S1-rerun",
+    "S2-attribution-on-diff",
+    "S3-contract",
+    "S4-unknown"
+  ],
+  "env_rules": [
+    {
+      "rule": "S0-virtualized:weasyprint",
+      "declared_in": "3.env/target.yaml#runtime.virtualization",
+      "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+      "match_message": [
+        "weasyprint",
+        "weasyprint",
+        "Error rendering report",
+        "Error rendering label",
+        "Error generating report"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:windows-path-separator",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+      "match_message": [
+        "not in ['config/"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:translations-not-compiled",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）",
+      "match_message": [
+        "Elemento ricevuto"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:sample-plugins-not-installed",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+      "match_message": [
+        "plugin.samples"
+      ],
+      "match_test_prefix": [
+        "plugin.samples."
+      ]
+    },
+    {
+      "rule": "S0-env:network-egress-restricted",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "本机对公网的部分出站受限，用例中的真实远端请求不可达",
+      "match_message": [
+        "HTTPSConnectionPool",
+        "Connection error:"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:windows-file-lock",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "Windows 对被打开文件加写锁，Linux 不锁",
+      "match_message": [
+        "WinError 32"
+      ],
+      "match_test_prefix": []
+    }
+  ],
+  "results": []
+}

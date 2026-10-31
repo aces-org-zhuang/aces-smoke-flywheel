@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartTest-20261031181515" tests="14" file="part/test_part.py" time="0.731" timestamp="2026-10-31T18:20:44" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartTest" name="test_attributes" time="0.001" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="256">
+		<!--Test Part attributes.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_barcode" time="0.010" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="282">
+		<!--Test barcode format functionality.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_barcode_mixin" time="0.010" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="157">
+		<!--Test the barcode mixin functionality.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_category" time="0.011" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="261">
+		<!--Test PartCategory path.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_delete" time="0.083" timestamp="2026-10-31T18:20:43" file="part\test_part.py" line="356">
+		<!--Test delete operation for a Part instance.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_delete_locking_disabled" time="0.065" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="374">
+		<!--Test that a locked part can be deleted when PART_ENABLE_LOCKING is disabled.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_duplicate" time="0.053" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="170">
+		<!--Test that we cannot create a "duplicate" Part.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_duplicate_no_ipn_revision" time="0.032" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="222">
+		<!--Test that we cannot create a duplicate Part when IPN and revision are both blank strings.
+
+Regression test: the underlying 'unique_part' database constraint treats
+blank IPN/revision values (empty strings, as sent by the API when these
+fields are omitted) as equal, so validate_unique() must catch this case
+too, rather than raising an unhandled IntegrityError. Note that this is
+distinct from *unset* (None/NULL) values, which the database constraint
+does *not* treat as colliding (see test_revisions).
+-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_metadata" time="0.110" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="287">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_related" time="0.148" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="304">
+		<!--Unit tests for the PartRelated model.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_rename_img" time="0.001" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="270">
+		<!--Test that an image can be renamed.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_revisions" time="0.193" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="396">
+		<!--Test the 'revision' and 'revision_of' field.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_stock" time="0.014" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="275">
+		<!--Test case where there is zero stock.-->
+	</testcase>
+	<testcase classname="part.test_part.PartTest" name="test_str" time="0.002" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="165">
+		<!--Test string representation of a Part.-->
+	</testcase>
+</testsuite>

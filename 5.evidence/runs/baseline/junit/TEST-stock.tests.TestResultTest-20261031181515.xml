@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.TestResultTest-20261031181515" tests="4" file="stock/tests.py" time="0.122" timestamp="2026-10-31T18:22:32" failures="1" errors="0" skipped="0">
+	<testcase classname="stock.tests.TestResultTest" name="test_installed_tests" time="0.045" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1825">
+		<!--Test test results for stock in stock.
+
+Or, test "test results" for "stock items" installed "inside" a "stock item"
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField StockItemTestResult.date received a naive datetime (2026-10-31 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.tests.TestResultTest" name="test_test_count" time="0.012" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1682">
+		<!--Test test count.-->
+	</testcase>
+	<testcase classname="stock.tests.TestResultTest" name="test_test_results" time="0.046" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1704">
+		<!--Test test results.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField StockItemTestResult.date received a naive datetime (2022-12-12 00:00:00) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1671: RuntimeWarning: DateTimeField StockItemTestResult.date received a naive datetime (2025-12-12 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.tests.TestResultTest" name="test_duplicate_item_tests" time="0.018" timestamp="2026-10-31T18:22:32" file="stock\tests.py" line="1759">
+		<!--Test duplicate item behaviour.-->
+		<failure type="AssertionError" message="ValidationError not raised"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\stock\tests.py", line 1780, in test_duplicate_item_tests
+    with self.assertRaises(ValidationError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+]]></failure>
+	</testcase>
+</testsuite>

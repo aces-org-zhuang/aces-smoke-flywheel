@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockItemTest-20261031181515" tests="21" file="stock/test_api.py" time="7.865" timestamp="2026-10-31T18:21:51" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockItemTest" name="test_bulk_batch_change" time="0.446" timestamp="2026-10-31T18:21:44" file="stock\test_api.py" line="2452">
+		<!--Test that we can bulk-change batch code for a set of stock items.-->
+		<system-out><![CDATA[Warning: 201 queries executed at /api/stock/
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_bulk_serialize_benchmark" time="1.714" timestamp="2026-10-31T18:21:45" file="stock\test_api.py" line="1782">
+		<!--Benchmark: measure the number of DB queries required to serialize 100 stock items at once.-->
+		<system-out><![CDATA[Warning: 107 queries executed at /api/stock/1235/serialize/
+Benchmark @ '/api/stock/1235/serialize/': 107 queries (of 150) in 0.6475s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_convert_to_variant" time="0.426" timestamp="2026-10-31T18:21:46" file="stock\test_api.py" line="2268">
+		<!--Test that we can convert a StockItem to a variant part via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_create_default_location" time="0.253" timestamp="2026-10-31T18:21:46" file="stock\test_api.py" line="1612">
+		<!--Test the default location functionality, if a 'location' is not specified in the creation request.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_creation_date_is_readonly" time="0.134" timestamp="2026-10-31T18:21:46" file="stock\test_api.py" line="1742">
+		<!--creation_date must not be modifiable via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_creation_date_set_on_serialize" time="0.159" timestamp="2026-10-31T18:21:46" file="stock\test_api.py" line="1760">
+		<!--creation_date must be set on items produced by the serialize endpoint.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_creation_with_serials" time="0.282" timestamp="2026-10-31T18:21:47" file="stock\test_api.py" line="1914">
+		<!--Test that serialized stock items can be created via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_default_expiry" time="0.320" timestamp="2026-10-31T18:21:47" file="stock\test_api.py" line="2002">
+		<!--Test that the "default_expiry" functionality works via the API.
+
+- If an expiry_date is specified, use that
+- Otherwise, check if the referenced part has a default_expiry defined
+    - If so, use that!
+    - Otherwise, no expiry
+
+Notes:
+    - Part <25> has a default_expiry of 10 days
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_duplicate_copies_notes" time="0.234" timestamp="2026-10-31T18:21:47" file="stock\test_api.py" line="1649">
+		<!--Test that notes are copied when duplicating a StockItem via the API.
+
+StockItemSerializer declares its 'duplicate' options with copy_notes=True,
+so notes should be copied by default (i.e. without explicitly requesting it).
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_edit_serial" time="0.420" timestamp="2026-10-31T18:21:48" file="stock\test_api.py" line="1972">
+		<!--Test that we can edit serial numbers via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_install" time="0.230" timestamp="2026-10-31T18:21:48" file="stock\test_api.py" line="2132">
+		<!--Test that stock item can be installed into another item, via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_note_max_length" time="0.152" timestamp="2026-10-31T18:21:48" file="stock\test_api.py" line="2113">
+		<!--Test that overly long transaction notes are rejected with a validation error.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_output_options" time="0.686" timestamp="2026-10-31T18:21:49" file="stock\test_api.py" line="2078">
+		<!--Test the output options for StockItemt detail.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_part_detail_permissions" time="0.434" timestamp="2026-10-31T18:21:49" file="stock\test_api.py" line="2091">
+		<!--Test that the part_detail output option is only available to users with permission.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_purchase_price" time="0.524" timestamp="2026-10-31T18:21:50" file="stock\test_api.py" line="2044">
+		<!--Test that we can correctly read and adjust purchase price information via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_return_from_customer" time="0.118" timestamp="2026-10-31T18:21:50" file="stock\test_api.py" line="2215">
+		<!--Test that we can return a StockItem from a customer, via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_set_custom_status" time="0.337" timestamp="2026-10-31T18:21:50" file="stock\test_api.py" line="2390">
+		<!--Test API endpoint for setting StockItem custom status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_set_status" time="0.351" timestamp="2026-10-31T18:21:50" file="stock\test_api.py" line="2325">
+		<!--Test API endpoint for setting StockItem status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_status_codes_endpoint" time="0.052" timestamp="2026-10-31T18:21:50" file="stock\test_api.py" line="2479">
+		<!--The 'stock/status/' endpoint must resolve to the status-codes view.
+
+Regression test: ensures the literal 'status/' path is not shadowed by the
+'stock/<pk>/' detail route it sits alongside in the same urlconf.
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_stock_item_create" time="0.187" timestamp="2026-10-31T18:21:51" file="stock\test_api.py" line="1693">
+		<!--Test creation of a StockItem via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_stock_item_create_with_supplier_part" time="0.405" timestamp="2026-10-31T18:21:51" file="stock\test_api.py" line="1812">
+		<!--Test creation of a StockItem via the API, including SupplierPart data.-->
+	</testcase>
+</testsuite>

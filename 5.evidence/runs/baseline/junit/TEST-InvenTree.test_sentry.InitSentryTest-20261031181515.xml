@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_sentry.InitSentryTest-20261031181515" tests="2" file="InvenTree/test_sentry.py" time="0.013" timestamp="2026-10-31T18:27:03" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_sentry.InitSentryTest" name="test_pii_can_be_enabled" time="0.007" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="46">
+		<!--An administrator can still explicitly opt in to sending PII.-->
+	</testcase>
+	<testcase classname="InvenTree.test_sentry.InitSentryTest" name="test_pii_disabled_by_default" time="0.006" timestamp="2026-10-31T18:27:03" file="InvenTree\test_sentry.py" line="35">
+		<!--Regression test: send_default_pii must default to False.
+
+Previously init_sentry hard-coded send_default_pii=True, meaning enabling
+sentry.io reporting - which by default reports to InvenTree's own DSN -
+would always attach the reporting user's id/email, IP address and request
+data to every event, with no way to opt out.
+-->
+	</testcase>
+</testsuite>

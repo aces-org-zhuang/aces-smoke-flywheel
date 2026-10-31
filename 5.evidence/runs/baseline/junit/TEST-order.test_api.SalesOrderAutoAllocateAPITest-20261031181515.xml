@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAutoAllocateAPITest-20261031181515" tests="18" file="order/test_api.py" time="1.043" timestamp="2026-10-31T18:18:36" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_allocates_available_stock" time="0.060" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6223">
+		<!--Stock is allocated to the line item after a successful POST.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_basic_post_returns_200" time="0.059" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6155">
+		<!--POST with defaults runs synchronously in tests and returns 200.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_exclude_location_filter" time="0.070" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6338">
+		<!--Stock in the excluded location is not used.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_interchangeable_false_skips_split_stock" time="0.062" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6364">
+		<!--With interchangeable=False, allocation is skipped when no single item covers the full quantity.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_invalid_order_pk_returns_404" time="0.019" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6169">
+		<!--POST to a non-existent order pk returns 404.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_invalid_serialized_stock_rejected" time="0.038" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6186">
+		<!--An unrecognised serialized_stock value is rejected with 400.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_invalid_stock_sort_by_rejected" time="0.037" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6177">
+		<!--An unrecognised stock_sort_by value is rejected with 400.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_line_items_from_another_order_rejected" time="0.056" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6210">
+		<!--line_items belonging to a different order are rejected with 400.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_line_items_subset_only_allocates_selected_lines" time="0.079" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6235">
+		<!--When line_items is specified only those lines are allocated.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_location_filter" time="0.063" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6326">
+		<!--Only stock within the specified location is used.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_requires_authentication" time="0.033" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6149">
+		<!--POST without authentication returns 401.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_serialized_stock_only" time="0.066" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6257">
+		<!--serialized_stock='serialized' allocates only serialized items.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_shipment_assigned_to_allocations" time="0.057" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6352">
+		<!--When a shipment is specified, all allocations are assigned to it.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_shipment_from_another_order_rejected" time="0.053" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6191">
+		<!--A shipment that belongs to a different order is rejected with 400.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_shipped_shipment_rejected" time="0.040" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6200">
+		<!--A shipment that has already been marked as shipped is rejected with 400.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_stock_sort_by_quantity_asc" time="0.064" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6289">
+		<!--stock_sort_by=QUANTITY_ASC consumes the smallest lot first.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_stock_sort_by_quantity_desc" time="0.060" timestamp="2026-10-31T18:18:35" file="order\test_api.py" line="6307">
+		<!--stock_sort_by=QUANTITY_DESC consumes the largest lot first, covering the requirement in one allocation.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAutoAllocateAPITest" name="test_unserialized_stock_only" time="0.127" timestamp="2026-10-31T18:18:36" file="order\test_api.py" line="6275">
+		<!--serialized_stock='unserialized' skips serialized items.-->
+	</testcase>
+</testsuite>

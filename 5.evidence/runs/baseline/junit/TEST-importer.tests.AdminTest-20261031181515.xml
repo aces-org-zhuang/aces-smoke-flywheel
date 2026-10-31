@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="importer.tests.AdminTest-20261031181515" tests="1" file="importer/tests.py" time="0.425" timestamp="2026-10-31T18:17:48" failures="0" errors="0" skipped="0">
+	<testcase classname="importer.tests.AdminTest" name="test_admin" time="0.425" timestamp="2026-10-31T18:17:48" file="importer\tests.py" line="1007">
+		<!--Test the admin URL.-->
+	</testcase>
+</testsuite>

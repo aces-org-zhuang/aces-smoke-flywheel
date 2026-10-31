@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.PartNotificationTest-20261031181515" tests="1" file="part/test_part.py" time="0.097" timestamp="2026-10-31T18:20:42" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.PartNotificationTest" name="test_low_stock_notification" time="0.097" timestamp="2026-10-31T18:20:42" file="part\test_part.py" line="948">
+		<!--Test that a low stocknotification is generated.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_tasks.TaskBatchTests-20261031181515" tests="9" file="InvenTree/test_tasks.py" time="0.026" timestamp="2026-10-31T18:26:35" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_batched_calls_skip_duplicate_check" time="0.003" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1124">
+		<!--Unlike individual offload_task() calls, batched calls are never deduplicated.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_force_sync_excluded_from_batch" time="0.003" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1098">
+		<!--force_sync=True calls bypass batch_offload_tasks() entirely and run immediately.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_nested_batch_share_one_flush" time="0.003" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1083">
+		<!--A nested batch_offload_tasks() call reuses the outer batch, rather than flushing twice.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_discarded_on_rollback" time="0.001" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1062">
+		<!--Tasks queued in a batch are discarded, not fired, if the transaction rolls back.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_grouped_by_name_and_group" time="0.006" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="997">
+		<!--Tasks with different (taskname, group) combinations are flushed as separate bulk writes.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_grouped_by_retry" time="0.002" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1028">
+		<!--Tasks with different retry values are flushed as separate bulk writes.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_grouped_by_timeout" time="0.002" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1045">
+		<!--Tasks with different timeout values are flushed as separate bulk writes.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_outside_batch_fire_immediately" time="0.002" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="1076">
+		<!--Tasks offloaded outside any batch_offload_tasks() context are unaffected - fired immediately.-->
+	</testcase>
+	<testcase classname="InvenTree.test_tasks.TaskBatchTests" name="test_tasks_queued_and_flushed_on_commit" time="0.004" timestamp="2026-10-31T18:26:35" file="InvenTree\test_tasks.py" line="972">
+		<!--Tasks offloaded inside batch_offload_tasks() are queued and flushed as one bulk write on commit.-->
+	</testcase>
+</testsuite>

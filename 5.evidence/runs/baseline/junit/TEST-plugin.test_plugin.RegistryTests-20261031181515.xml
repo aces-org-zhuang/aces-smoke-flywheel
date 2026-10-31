@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_plugin.RegistryTests-20261031181515" tests="27" file="plugin/test_plugin.py" time="45.708" timestamp="2026-10-31T18:25:51" failures="7" errors="4" skipped="0">
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_acquire_lease_blocking_times_out" time="0.364" timestamp="2026-10-31T18:25:06" file="plugin\test_plugin.py" line="828">
+		<!--Test that acquire_lease_blocking gives up after its timeout, rather than hanging.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_check_reload" time="2.159" timestamp="2026-10-31T18:25:10" file="plugin\test_plugin.py" line="676">
+		<!--Test that check_reload works as expected.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_check_reload_mismatch" time="4.368" timestamp="2026-10-31T18:25:14" file="plugin\test_plugin.py" line="690">
+		<!--Test that a persistent registry hash mismatch is reported, rather than looping.
+
+Simulates another process publishing a registry hash which this process
+cannot reproduce (e.g. it has loaded a different plugin version).
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_init_plugin_missing_config" time="0.791" timestamp="2026-10-31T18:25:17" file="plugin\test_plugin.py" line="469">
+		<!--Test that _init_plugin does not crash if PluginConfig cannot be looked up.
+
+get_plugin_config() can legitimately return None - e.g. if the database
+is not ready, or PluginConfig creation is disallowed in the current
+context - leaving plugin.db as None. _init_plugin must still be able to
+mark such a plugin as inactive without raising
+AttributeError: 'NoneType' object has no attribute 'active'.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_init_plugin_missing_config_mandatory" time="0.798" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="494">
+		<!--Test that a mandatory plugin with no PluginConfig does not error out.
+
+Same underlying gap as test_init_plugin_missing_config, but hit via the
+'ensure mandatory plugin is active' branch instead of the 'deactivate'
+branch - both dereferenced plg_db.active without checking plg_db was
+actually found.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_install_plugin_file_failure_does_not_persist_hash" time="0.023" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="908">
+		<!--Test that a failed install leaves the hash unset, so it is retried next time.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_install_plugin_file_falls_back_to_process_cache_when_marker_unwritable" time="0.031" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="995">
+		<!--Test that a non-writable marker location still settles within one process.
+
+If sys.prefix is not writable (e.g. a read-only root filesystem),
+set_env_plugin_hash() cannot persist the marker file to disk. Without
+an in-process fallback, get_env_plugin_hash() would then return None
+forever, and install_plugin_file() would re-attempt `pip install` on
+every single call within the same process - not just once per
+process start.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_install_plugin_file_persists_hash_only_after_success" time="0.024" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="856">
+		<!--Test that install_plugin_file() only persists the hash once installed.
+
+Regression test for a bug found in PR review (inventree/InvenTree#12776):
+the hash must not be visible as "up to date" until the install has actually
+finished. Otherwise a process killed outright (not a Python exception - an
+OOM kill, a container stopped mid-install) between claiming the lease and
+finishing would leave the hash pointing at content that was never
+installed, and no future check would ever retry it.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_install_plugin_file_reinstalls_in_fresh_environment" time="0.028" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="957">
+		<!--Test that a matching database hash alone does not skip installation.
+
+Regression test for inventree/InvenTree#12848: a fresh python
+environment (e.g. a container replaced without a persistent venv
+volume) must reinstall even though the database still remembers a
+previous environment's successful install of the exact same file.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_install_plugin_file_skips_if_already_current" time="0.025" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="931">
+		<!--Test that install_plugin_file() is a no-op once the hash already matches.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_lease_acquire_release" time="0.027" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="785">
+		<!--Test that try_acquire_lease / release_lease provide mutual exclusion.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_lease_expires_after_grace_period" time="0.028" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="803">
+		<!--Test that an abandoned lease (e.g. a crashed holder) can be reclaimed.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_lease_survives_database_not_ready" time="0.007" timestamp="2026-10-31T18:25:18" file="plugin\test_plugin.py" line="763">
+		<!--Test that the lease functions degrade gracefully if the database is not ready.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_plugin_override_active" time="0.001" timestamp="2026-10-31T18:25:40" file="plugin\test_plugin.py" line="540">
+		<!--Test that the plugin override works as expected.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_plugin_override_mandatory" time="0.000" timestamp="2026-10-31T18:25:40" file="plugin\test_plugin.py" line="518">
+		<!--Test that a plugin cannot override the is_mandatory method.-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_registry_hash_order_independence" time="0.118" timestamp="2026-10-31T18:25:40" file="plugin\test_plugin.py" line="739">
+		<!--Test that the registry hash does not depend on plugin iteration order.
+
+Different processes (gunicorn workers, background worker, shell) can
+discover the same set of plugins in a different order. If the hash
+depends on iteration order, processes disagree about the hash for the
+same registry state, and ping-pong each other into endless reloads
+via check_reload.
+-->
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_broken_samples" time="1.307" timestamp="2026-10-31T18:25:07" file="plugin\test_plugin.py" line="425">
+		<!--Test that the broken samples trigger reloads.-->
+		<failure type="AssertionError" message="0 != 3"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 444, in test_broken_samples
+    self.assertEqual(len(registry.errors), 3)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 3
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_builtin_mandatory_plugins" time="0.778" timestamp="2026-10-31T18:25:08" file="plugin\test_plugin.py" line="1034">
+		<!--Test that mandatory builtin plugins are always loaded.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 1060, in test_builtin_mandatory_plugins
+    self.assertTrue(cfg.is_builtin())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_config_attributes" time="0.776" timestamp="2026-10-31T18:25:15" file="plugin\test_plugin.py" line="1226">
+		<!--Test attributes for PluginConfig objects.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 1235, in test_config_attributes
+    self.assertTrue(cfg.is_builtin())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_custom_loading" time="0.012" timestamp="2026-10-31T18:25:15" file="plugin\test_plugin.py" line="295">
+		<!--Test if data in custom dir is loaded correctly.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 306, in test_custom_loading
+    self.assertTrue(test_dir.exists())
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_mandatory_plugins" time="1.765" timestamp="2026-10-31T18:25:20" file="plugin\test_plugin.py" line="1080">
+		<!--Test that plugins marked as 'mandatory' are always active.-->
+		<failure type="AssertionError" message="15 != 13"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 1116, in test_mandatory_plugins
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        N_ACTIVE + 4, PluginConfig.objects.filter(active=True).count()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 15 != 13
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_registry_reload" time="8.790" timestamp="2026-10-31T18:25:49" file="plugin\test_plugin.py" line="567">
+		<!--Test that the registry correctly reloads plugin modules.
+
+- Create a simple plugin which we can change the version
+- Ensure that the "hash" of the plugin registry changes
+-->
+		<failure type="AssertionError" message="'c060f5c0c8b7b63e67f1c5193969e245' == 'c060f5c0c8b7b63e67f1c5193969e245'"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\mock.py", line 1897, in _inner
+    return f(*args, **kw)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 656, in test_registry_reload
+    self.assertNotEqual(hash_disabled, hash_enabled)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'c060f5c0c8b7b63e67f1c5193969e245' == 'c060f5c0c8b7b63e67f1c5193969e245'
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_with_mixin" time="0.895" timestamp="2026-10-31T18:25:51" file="plugin\test_plugin.py" line="1136">
+		<!--Tests for the 'with_mixin' registry method.-->
+		<failure type="AssertionError" message="0 != 2"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 1220, in test_with_mixin
+    self.assertEqual(len(plugins), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 2
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_folder_loading" time="0.809" timestamp="2026-10-31T18:25:16" file="plugin\test_plugin.py" line="315">
+		<!--Test that plugins in folders outside of BASE_DIR get loaded.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'slug'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 324, in test_folder_loading
+    self.run_package_test(str(new_dir))
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 282, in run_package_test
+    self.assertEqual(plg.slug, 'simple')
+                     ^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'slug'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_package_loading" time="19.240" timestamp="2026-10-31T18:25:39" file="plugin\test_plugin.py" line="403">
+		<!--Test that package distributed plugins work.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'slug'"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 422, in test_package_loading
+    self.assertEqual(plg.slug, 'zapier')
+                     ^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'slug'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_package_update_reload" time="1.489" timestamp="2026-10-31T18:25:40" file="plugin\test_plugin.py" line="326">
+		<!--Test that reloading the registry picks up a plugin package updated on disk.
+
+The plugin class reads its version from the package __init__.py
+(as per the plugin-creator template), so reloading only the module
+which defines the class would still report the old version.
+-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'version'"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\utils.py", line 456, in inner
+    return func(*args, **kwargs)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 390, in test_package_update_reload
+    self.assertEqual(plg.version, '1.0.0')
+                     ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'version'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.test_plugin.RegistryTests" name="test_subfolder_loading" time="1.057" timestamp="2026-10-31T18:25:50" file="plugin\test_plugin.py" line="311">
+		<!--Test that plugins in subfolders get loaded.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'slug'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 313, in test_subfolder_loading
+    self.run_package_test(self.mockDir())
+    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_plugin.py", line 282, in run_package_test
+    self.assertEqual(plg.slug, 'simple')
+                     ^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'slug'
+]]></error>
+	</testcase>
+</testsuite>

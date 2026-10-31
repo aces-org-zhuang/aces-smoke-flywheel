@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.ReportPrintPermissionTest-20261031181515" tests="2" file="report/tests.py" time="0.348" timestamp="2026-10-31T18:21:03" failures="2" errors="0" skipped="0">
+	<testcase classname="report.tests.ReportPrintPermissionTest" name="test_report_print_disabled_template" time="0.174" timestamp="2026-10-31T18:21:03" file="report\tests.py" line="1164">
+		<!--Printing against a disabled report template must be rejected.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1181, in test_report_print_disabled_template
+    self.post(url, data=post_data, expected_code=201)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/report/print/': status_code = 400 (expected 201)
+data: {'error': [ErrorDetail(string='Error generating report', code='invalid')], 'detail': [ErrorDetail(string="['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']", code='invalid')]}
+content: b'{"error":["Error generating report"],"detail":["[\'Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable\']"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_reports at 0x0000020769499620>' failed due to {'error': ['Error generating report'], 'detail': ["['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']"]}
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.ReportPrintPermissionTest" name="test_report_print_model_permission" time="0.175" timestamp="2026-10-31T18:21:03" file="report\tests.py" line="1141">
+		<!--A user without VIEW permission on the model type must receive 403; granting the role allows printing.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1162, in test_report_print_model_permission
+    self.post(url, data=post_data, expected_code=201)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/report/print/': status_code = 400 (expected 201)
+data: {'error': [ErrorDetail(string='Error generating report', code='invalid')], 'detail': [ErrorDetail(string="['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']", code='invalid')]}
+content: b'{"error":["Error generating report"],"detail":["[\'Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable\']"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_reports at 0x0000020769499620>' failed due to {'error': ['Error generating report'], 'detail': ["['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']"]}
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+</testsuite>

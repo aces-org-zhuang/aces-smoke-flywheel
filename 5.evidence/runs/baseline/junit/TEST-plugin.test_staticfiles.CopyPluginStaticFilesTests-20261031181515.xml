@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_staticfiles.CopyPluginStaticFilesTests-20261031181515" tests="8" file="plugin/test_staticfiles.py" time="0.199" timestamp="2026-10-31T18:25:51" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_basic_copy" time="0.030" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="93">
+		<!--Files (including nested ones) are copied to the destination unchanged.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_no_static_dir_is_a_noop" time="0.005" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="101">
+		<!--A plugin with no 'static' folder at all is silently skipped.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_overwrite_does_not_leave_suffixed_duplicate" time="0.041" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="119">
+		<!--Re-collecting replaces a file's content in place.
+
+Storage.save() does not overwrite an existing name by default - it invents
+a '..._XXXXXXX' suffixed name instead. This is one of the ways the original
+bug corrupted plugin output, so it must not happen here.
+-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_partial_write_failure_only_affects_the_in_flight_file" time="0.038" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="147">
+		<!--If writing to live storage fails partway, only the in-flight file is affected.
+
+Files are written in a deterministic (sorted) order. A file processed
+before the failure keeps its new content; a file not yet reached keeps
+its old content untouched. The file being written at the moment of
+failure is a disclosed exception to this: replacing an existing file is
+a delete-then-save pair (the storage API has no atomic replace/rename
+primitive), so it may be left transiently missing rather than at its
+old *or* new content - this is a known, accepted gap (self-healing on
+the next successful run), not a regression to guard against here. What
+must hold is that nothing *else* is affected, and the exception
+propagates rather than being swallowed.
+-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_source_read_failure_does_not_touch_destination" time="0.023" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="184">
+		<!--If reading the plugin's own source files fails, live content is untouched.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_stale_directory_is_removed" time="0.027" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="138">
+		<!--A directory that only contained now-stale files is removed, not left empty.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_stale_file_is_removed" time="0.033" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="131">
+		<!--A file present in the old content but not the new content is removed.-->
+	</testcase>
+	<testcase classname="plugin.test_staticfiles.CopyPluginStaticFilesTests" name="test_unknown_plugin_is_a_noop" time="0.001" timestamp="2026-10-31T18:25:51" file="plugin\test_staticfiles.py" line="112">
+		<!--An unrecognised slug is silently skipped.-->
+	</testcase>
+</testsuite>

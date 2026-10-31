@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest-20261031181515" tests="2" file="plugin/samples/integration/test_allocate_sample.py" time="0.182" timestamp="2026-10-31T18:24:29" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest" name="test_sales_order_auto_allocate" time="0.067" timestamp="2026-10-31T18:24:29" file="plugin\samples\integration\test_allocate_sample.py" line="54">
+		<!--The plugin should exclude 'REJECT' batches from sales order allocation.-->
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest" name="test_build_auto_allocate" time="0.114" timestamp="2026-10-31T18:24:29" file="plugin\samples\integration\test_allocate_sample.py" line="19">
+		<!--The plugin should exclude 'REJECT' batches from build order allocation.-->
+		<failure type="AssertionError" message="Decimal('0') != 5"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_allocate_sample.py", line 46, in test_build_auto_allocate
+    self.assertEqual(line.allocated_quantity(), 5)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Decimal('0') != 5
+]]></failure>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

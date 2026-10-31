@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="generic.states.test_transition.TransitionTests-20261031181515" tests="10" file="generic/states/test_transition.py" time="9.790" timestamp="2026-10-31T18:26:54" failures="1" errors="1" skipped="0">
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_can_issue_property" time="0.901" timestamp="2026-10-31T18:26:46" file="generic\states\test_transition.py" line="148">
+		<!--Test the can_issue property delegates to can_proceed.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_can_proceed_purchase_order" time="0.935" timestamp="2026-10-31T18:26:47" file="generic\states\test_transition.py" line="47">
+		<!--Test can_proceed() reflects current state correctly for PurchaseOrder.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_decorator_applied_to_purchase_order" time="1.184" timestamp="2026-10-31T18:26:48" file="generic\states\test_transition.py" line="39">
+		<!--Verify @inventree_transition metadata is attached to PurchaseOrder methods.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_invalid_transition_returns_false" time="1.018" timestamp="2026-10-31T18:26:49" file="generic\states\test_transition.py" line="104">
+		<!--Test that an invalid transition returns False (backward-compatible behaviour).-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_purchase_order_transitions" time="1.115" timestamp="2026-10-31T18:26:50" file="generic\states\test_transition.py" line="63">
+		<!--Test that PurchaseOrder transitions work correctly via @inventree_transition.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_return_order_transitions" time="0.859" timestamp="2026-10-31T18:26:51" file="generic\states\test_transition.py" line="119">
+		<!--Test that ReturnOrder transitions work correctly via @inventree_transition.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_sale_order_transitions" time="0.860" timestamp="2026-10-31T18:26:52" file="generic\states\test_transition.py" line="94">
+		<!--Test that SaleOrder transitions work correctly via @inventree_transition.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_fsm_transferorder" time="0.959" timestamp="2026-10-31T18:26:53" file="generic\states\test_transition.py" line="137">
+		<!--Test that TransferOrder transitions work correctly via @inventree_transition.-->
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_return_order" time="1.247" timestamp="2026-10-31T18:26:54" file="generic\states\test_transition.py" line="157">
+		<!--Test transition of a return order.-->
+		<failure type="AssertionError" message="ValidationError not raised"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\generic\states\test_transition.py", line 167, in test_return_order
+    with self.assertRaises(ValidationError) as e:
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+AssertionError: ValidationError not raised
+]]></failure>
+	</testcase>
+	<testcase classname="generic.states.test_transition.TransitionTests" name="test_broken_transition_plugin" time="0.712" timestamp="2026-10-31T18:26:45" file="generic\states\test_transition.py" line="191">
+		<!--Test handling of an intentionally broken transition plugin.
+
+This test uses a custom plugin which is designed to fail in various ways.
+-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'set_setting'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\generic\states\test_transition.py", line 209, in test_broken_transition_plugin
+    plugin.set_setting('BROKEN_GET_METHOD', False)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'set_setting'
+]]></error>
+	</testcase>
+</testsuite>

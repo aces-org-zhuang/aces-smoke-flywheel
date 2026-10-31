@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.NotificationTest-20261031181515" tests="10" file="common/tests.py" time="0.357" timestamp="2026-10-31T18:17:27" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.NotificationTest" name="test_api_list" time="0.029" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1428">
+		<!--Test list URL.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_api_read" time="0.050" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1450">
+		<!--Test that NotificationMessage can be marked as read.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_bulk_delete" time="0.188" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1479">
+		<!--Tests for bulk deletion of user notifications.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_check_notification_entries" time="0.009" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1399">
+		<!--Test that notification entries can be created.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_recent" time="0.018" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1584">
+		<!--Test that a notification is not created if it was already sent recently.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_simple" time="0.010" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1534">
+		<!--Test that a simple notification can be created.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_uuid_notification_entry" time="0.007" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1416">
+		<!--Notification entries support objects with UUID primary keys.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_with_group" time="0.024" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1542">
+		<!--Test that a notification can be created with a group.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_wrong_obj" time="0.010" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1563">
+		<!--Test that a object without a reference is raising an issue.-->
+	</testcase>
+	<testcase classname="common.tests.NotificationTest" name="test_wrong_target" time="0.011" timestamp="2026-10-31T18:17:27" file="common\tests.py" line="1552">
+		<!--Test that a notification with an invalid target raises an error.-->
+	</testcase>
+</testsuite>

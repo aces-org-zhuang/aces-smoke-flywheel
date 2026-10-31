@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.tests.OrderTest-20261031181515" tests="18" file="order/tests.py" time="1.688" timestamp="2026-10-31T18:19:19" failures="0" errors="0" skipped="0">
+	<testcase classname="order.tests.OrderTest" name="test_add_items" time="0.045" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="319">
+		<!--Test functions for adding line items to an order.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_basics" time="0.010" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="58">
+		<!--Basic tests e.g. repr functions etc.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_default_receiving_company" time="0.047" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="114">
+		<!--Test that the default internal company is assigned to a new PurchaseOrder.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_locking" time="0.095" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="219">
+		<!--Test the (auto)locking functionality of the (Purchase)Order model.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_metadata" time="0.174" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="718">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_new_po_notification" time="0.036" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="626">
+		<!--Test that a notification is sent when a new PurchaseOrder is created.
+
+- The responsible user(s) should receive a notification
+- The creating user should *not* receive a notification
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_on_order" time="0.010" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="305">
+		<!--There should be 3 separate items on order for the M2x4 LPHS part.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_overdue" time="0.022" timestamp="2026-10-31T18:19:18" file="order\tests.py" line="290">
+		<!--Test overdue status functionality.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_overdue_notification" time="0.532" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="579">
+		<!--Test overdue purchase order notification.
+
+Ensure that a notification is sent when a PurchaseOrder becomes overdue
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_pricing" time="0.068" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="355">
+		<!--Test functions for adding line items to an order including price-breaks.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_rebuild_reference" time="0.019" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="209">
+		<!--Test that the reference_int field is correctly updated when the model is saved.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_receive" time="0.227" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="387">
+		<!--Test order receiving functions.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_receive_convert_currency" time="0.100" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="541">
+		<!--Test receiving orders with different currencies.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_receive_pack_size" time="0.118" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="446">
+		<!--Test receiving orders from suppliers with different pack_size values.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_received_email_notification" time="0.120" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="656">
+		<!--Test the email notification sent when items are received against a PurchaseOrder.
+
+- The responsible user should receive an email
+- The email should list the received stock items
+-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_validate_contact" time="0.020" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="90">
+		<!--Test for validation of linked Contact.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_validate_dates" time="0.014" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="71">
+		<!--Test for validation of date fields.-->
+	</testcase>
+	<testcase classname="order.tests.OrderTest" name="test_validate_delivery_address" time="0.031" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="147">
+		<!--Regression test for validation of the delivery address against the receiving company.-->
+	</testcase>
+</testsuite>

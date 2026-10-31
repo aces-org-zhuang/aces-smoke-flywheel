@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_serializers.ConcurrentOptionalFieldTests-20261031181515" tests="1" file="InvenTree/test_serializers.py" time="15.495" timestamp="2026-10-31T18:26:25" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_serializers.ConcurrentOptionalFieldTests" name="test_concurrent_optional_field_inclusion" time="15.495" timestamp="2026-10-31T18:26:25" file="InvenTree\test_serializers.py" line="269">
+		<!--Serializers built concurrently with conflicting field_b inclusion must not corrupt each other.
+
+Builds many `SampleSerializer` instances in parallel threads, alternating
+whether `field_b` should be included (passed directly as a constructor
+kwarg, per `FilterableSerializerMixin.is_field_included`, so this needs no
+HTTP request/response machinery). Every instance's rendered `.data` must
+match what *that* instance asked for, regardless of what other concurrently
+running instances asked for.
+-->
+	</testcase>
+</testsuite>

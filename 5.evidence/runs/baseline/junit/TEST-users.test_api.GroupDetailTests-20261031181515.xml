@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.GroupDetailTests-20261031181515" tests="1" file="users/test_api.py" time="0.282" timestamp="2026-10-31T18:22:34" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.GroupDetailTests" name="test_group_list" time="0.282" timestamp="2026-10-31T18:22:34" file="users\test_api.py" line="698">
+		<!--Test the GroupDetail API endpoint.-->
+	</testcase>
+</testsuite>

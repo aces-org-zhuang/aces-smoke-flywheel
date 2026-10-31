@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_commands.CommandTestCase-20261031181515" tests="10" file="InvenTree/test_commands.py" time="5.550" timestamp="2026-10-31T18:26:07" failures="4" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_backup_metadata" time="0.001" timestamp="2026-10-31T18:26:02" file="InvenTree\test_commands.py" line="308">
+		<!--Test the backup metadata functions.-->
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_bulkdumpdata_natural_key_caching" time="0.078" timestamp="2026-10-31T18:26:02" file="InvenTree\test_commands.py" line="240">
+		<!--Test that bulkdumpdata caches natural-key FK resolution during serialization.-->
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_bulkloaddata" time="0.042" timestamp="2026-10-31T18:26:02" file="InvenTree\test_commands.py" line="120">
+		<!--Test the bulkloaddata command.-->
+		<system-err><![CDATA[Importing: 0 records [00:00, ? records/s]Importing: 5 records [00:00, 3094.51 records/s]
+Importing: 0 records [00:00, ? records/s]Importing: 0 records [00:00, ? records/s]
+Importing: 0 records [00:00, ? records/s]Importing: 5 records [00:00, 4124.19 records/s]
+Importing: 0 records [00:00, ? records/s]Importing: 5 records [00:00, 2905.05 records/s]
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_bulkloaddata_preserves_auto_now_add" time="0.201" timestamp="2026-10-31T18:26:02" file="InvenTree\test_commands.py" line="164">
+		<!--bulk_create() must not overwrite fixture values for auto_now_add fields.
+
+Covers both an auto_now_add DateTimeField (BarcodeScanResult.timestamp,
+StockItem.creation_date) and an auto_now_add DateField (Part.creation_date)
+- StockItem is also the model the bug was originally reported against.
+-->
+		<system-err><![CDATA[Importing: 0 records [00:00, ? records/s]Importing: 3 records [00:00, 923.38 records/s]
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_remove_mfa" time="0.058" timestamp="2026-10-31T18:26:03" file="InvenTree\test_commands.py" line="70">
+		<!--Test the remove_mfa command.-->
+		<system-out><![CDATA[Removed all (1) MFA methods for user admin
+done
+Removed all (1) MFA methods for user admin3
+done
+]]></system-out>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_schema" time="4.616" timestamp="2026-10-31T18:26:07" file="InvenTree\test_commands.py" line="63">
+		<!--Test the schema generation command.-->
+		<system-out><![CDATA[
+Schema statistics:
+Paths without oauth2:                   58
+Paths without oauth2 (without allauth): 2
+Paths without security:                 0
+
+Scope stats:
+  a:staff: 71
+  a:superuser: 20
+  g:read: 220
+  r:add:admin: 4
+  r:add:bom: 2
+  r:add:build: 9
+  r:add:part: 6
+  r:add:part_category: 2
+  r:add:pricing: 2
+  r:add:purchase_order: 12
+  r:add:return_order: 6
+  r:add:sales_order: 8
+  r:add:stock: 2
+  r:add:stock_location: 2
+  r:add:transfer_order: 2
+  r:change:admin: 17
+  r:change:bom: 15
+  r:change:build: 41
+  r:change:part: 27
+  r:change:part_category: 15
+  r:change:pricing: 15
+  r:change:purchase_order: 27
+  r:change:return_order: 23
+  r:change:sales_order: 27
+  r:change:stock: 15
+  r:change:stock_location: 15
+  r:change:transfer_order: 17
+  r:delete:admin: 3
+  r:delete:bom: 3
+  r:delete:build: 12
+  r:delete:part: 9
+  r:delete:part_category: 2
+  r:delete:pricing: 2
+  r:delete:purchase_order: 15
+  r:delete:return_order: 10
+  r:delete:sales_order: 13
+  r:delete:stock: 4
+  r:delete:stock_location: 2
+  r:delete:transfer_order: 4
+  r:view:admin: 9
+  r:view:bom: 6
+  r:view:build: 27
+  r:view:part: 18
+  r:view:part_category: 7
+  r:view:pricing: 7
+  r:view:purchase_order: 20
+  r:view:return_order: 14
+  r:view:sales_order: 18
+  r:view:stock: 7
+  r:view:stock_location: 7
+  r:view:transfer_order: 8
+
+done
+]]></system-out>
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\api.py:926: Error [GenericMetadataView]: exception raised while getting serializer. Hint: Is get_serializer_class() returning None or is get_queryset() not working without a request? Ignoring the view for now. (Exception: [ErrorDetail(string="GenericMetadataView called without 'model' URL parameter", code='invalid')])
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\api.py:992: Error [SimpleGenericMetadataView]: exception raised while getting serializer. Hint: Is get_serializer_class() returning None or is get_queryset() not working without a request? Ignoring the view for now. (Exception: [ErrorDetail(string="GenericMetadataView called without 'model' URL parameter", code='invalid')])
+
+Schema generation summary:
+Warnings: 0 (0 unique)
+Errors:   23 (2 unique)
+
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_backup_command_e2e" time="0.088" timestamp="2026-10-31T18:26:02" file="InvenTree\test_commands.py" line="408">
+		<!--Test the backup command.-->
+		<failure type="AssertionError" message="'Writing metadata file to D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\_testfolder\\backup.zip' not found in &quot;['INFO:dbbackup.command:Backing Up Database: file:memorydb_default?mode=memory&amp;cache=shared', 'INFO:dbbackup.command:Writing file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip', 'INFO:dbbackup.command:Writing metadata file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip.metadata']&quot;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_commands.py", line 427, in test_backup_command_e2e
+    self.assertIn(f'Writing metadata file to {output_path}', str(cm[1]))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Writing metadata file to D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\_testfolder\\backup.zip' not found in "['INFO:dbbackup.command:Backing Up Database: file:memorydb_default?mode=memory&cache=shared', 'INFO:dbbackup.command:Writing file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip', 'INFO:dbbackup.command:Writing metadata file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip.metadata']"
+]]></failure>
+		<system-err><![CDATA[INFO Backing Up Database: file:memorydb_default?mode=memory&cache=shared
+DEBUG Backup size: 1.9 MiB
+INFO Writing file to D:\wbeval\repos\inventree\src\backend\InvenTree\_testfolder\backup.zip
+INFO Writing metadata file to D:\wbeval\repos\inventree\src\backend\InvenTree\_testfolder\backup.zip.metadata
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_makemigrations_currency_overrides_no_changes (currency_codes='USD,EUR,GBP')" time="0.000" timestamp="0001-01-01T00:00:00" file="InvenTree\test_commands.py" line="21">
+		<!--Ensure currency list changes do not cause migration drift.-->
+		<failure type="AssertionError" message="makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=USD,EUR,GBP&#10;stdout:&#10;&#10;stderr:&#10;Traceback (most recent call last):&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 13, in main&#10;    from django.core.management import execute_from_command_line&#10;ModuleNotFoundError: No module named 'django'&#10;&#10;The above exception was the direct cause of the following exception:&#10;&#10;Traceback (most recent call last):&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 26, in &lt;module&gt;&#10;    main()&#10;    ~~~~^^&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 15, in main&#10;    raise ImportError(&#10;    ...&lt;3 lines&gt;...&#10;    ) from exc&#10;ImportError: INVE-E14: Could not import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_commands.py", line 51, in test_makemigrations_currency_overrides_no_changes
+    self.fail(
+    ~~~~~~~~~^
+        'makemigrations reported schema changes '
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        f'stderr:\n{result.stderr}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=USD,EUR,GBP
+stdout:
+
+stderr:
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 13, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 26, in <module>
+    main()
+    ~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 15, in main
+    raise ImportError(
+    ...<3 lines>...
+    ) from exc
+ImportError: INVE-E14: Could not import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_makemigrations_currency_overrides_no_changes (currency_codes='JPY,CNY,KRW')" time="0.428" timestamp="2026-10-31T18:26:03" file="InvenTree\test_commands.py" line="21">
+		<!--Ensure currency list changes do not cause migration drift.-->
+		<failure type="AssertionError" message="makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=JPY,CNY,KRW&#10;stdout:&#10;&#10;stderr:&#10;Traceback (most recent call last):&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 13, in main&#10;    from django.core.management import execute_from_command_line&#10;ModuleNotFoundError: No module named 'django'&#10;&#10;The above exception was the direct cause of the following exception:&#10;&#10;Traceback (most recent call last):&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 26, in &lt;module&gt;&#10;    main()&#10;    ~~~~^^&#10;  File &quot;D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py&quot;, line 15, in main&#10;    raise ImportError(&#10;    ...&lt;3 lines&gt;...&#10;    ) from exc&#10;ImportError: INVE-E14: Could not import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_commands.py", line 51, in test_makemigrations_currency_overrides_no_changes
+    self.fail(
+    ~~~~~~~~~^
+        'makemigrations reported schema changes '
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        f'stderr:\n{result.stderr}'
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=JPY,CNY,KRW
+stdout:
+
+stderr:
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 13, in main
+    from django.core.management import execute_from_command_line
+ModuleNotFoundError: No module named 'django'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 26, in <module>
+    main()
+    ~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\manage.py", line 15, in main
+    raise ImportError(
+    ...<3 lines>...
+    ) from exc
+ImportError: INVE-E14: Could not import Django. Are you sure it's installed and available on your PYTHONPATH environment variable? Did you forget to activate a virtual environment?
+
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.test_commands.CommandTestCase" name="test_restore_validation" time="0.039" timestamp="2026-10-31T18:26:03" file="InvenTree\test_commands.py" line="323">
+		<!--Test the restore validation functions.-->
+		<failure type="AssertionError" message="no logs of level INFO or higher triggered on root"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_commands.py", line 372, in test_restore_validation
+    with self.assertLogs() as cm:
+         ~~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\versions\3.13.12\Lib\unittest\_log.py", line 84, in __exit__
+    self._raiseFailure(
+    ~~~~~~~~~~~~~~~~~~^
+        "no logs of level {} or higher triggered on {}"
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        .format(logging.getLevelName(self.level), self.logger.name))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: no logs of level INFO or higher triggered on root
+]]></failure>
+	</testcase>
+</testsuite>

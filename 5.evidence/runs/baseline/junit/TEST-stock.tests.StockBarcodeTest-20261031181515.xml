@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.StockBarcodeTest-20261031181515" tests="2" file="stock/tests.py" time="0.039" timestamp="2026-10-31T18:22:25" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.tests.StockBarcodeTest" name="test_location_barcode_basics" time="0.022" timestamp="2026-10-31T18:22:25" file="stock\tests.py" line="1371">
+		<!--Simple tests for the StockLocation barcode integration.-->
+	</testcase>
+	<testcase classname="stock.tests.StockBarcodeTest" name="test_stock_item_barcode_basics" time="0.017" timestamp="2026-10-31T18:22:25" file="stock\tests.py" line="1361">
+		<!--Simple tests for the StockItem barcode integration.-->
+	</testcase>
+</testsuite>

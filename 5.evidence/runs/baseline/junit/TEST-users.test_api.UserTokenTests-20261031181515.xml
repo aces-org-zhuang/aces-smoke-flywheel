@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.UserTokenTests-20261031181515" tests="6" file="users/test_api.py" time="0.574" timestamp="2026-10-31T18:22:39" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_api" time="0.106" timestamp="2026-10-31T18:22:38" file="users\test_api.py" line="591">
+		<!--Test the token API.-->
+	</testcase>
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_auth" time="0.101" timestamp="2026-10-31T18:22:38" file="users\test_api.py" line="505">
+		<!--Test user token authentication.-->
+	</testcase>
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_generation" time="0.136" timestamp="2026-10-31T18:22:39" file="users\test_api.py" line="446">
+		<!--Test user token generation.-->
+	</testcase>
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_last_seen_no_clobber" time="0.075" timestamp="2026-10-31T18:22:39" file="users\test_api.py" line="553">
+		<!--Regression test: updating token.last_seen must overwrite other fields.
+
+Simulates a revoke landing in the window between this request's token
+lookup and its last_seen save, by revoking the token (directly against
+the database) from inside a patched ApiToken.save().
+-->
+	</testcase>
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_security" time="0.059" timestamp="2026-10-31T18:22:39" file="users\test_api.py" line="636">
+		<!--Test that token generation is only available to users with the correct permissions.-->
+	</testcase>
+	<testcase classname="users.test_api.UserTokenTests" name="test_token_v1" time="0.097" timestamp="2026-10-31T18:22:39" file="users\test_api.py" line="658">
+		<!--Test that v1 API tokens still work.-->
+	</testcase>
+</testsuite>

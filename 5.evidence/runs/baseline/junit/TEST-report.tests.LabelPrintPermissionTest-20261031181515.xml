@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.LabelPrintPermissionTest-20261031181515" tests="2" file="report/tests.py" time="0.309" timestamp="2026-10-31T18:21:01" failures="2" errors="0" skipped="0">
+	<testcase classname="report.tests.LabelPrintPermissionTest" name="test_label_print_disabled_template" time="0.155" timestamp="2026-10-31T18:21:01" file="report\tests.py" line="1227">
+		<!--Printing against a disabled label template must be rejected.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1244, in test_label_print_disabled_template
+    self.post(url, data=post_data, expected_code=201)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/label/print/': status_code = 400 (expected 201)
+data: {'non_field_errors': [ErrorDetail(string='Error rendering label to PDF', code='invalid')]}
+content: b'{"non_field_errors":["Error rendering label to PDF"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_labels at 0x0000020769499800>' failed due to ['Error rendering label to PDF']
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+	<testcase classname="report.tests.LabelPrintPermissionTest" name="test_label_print_model_permission" time="0.154" timestamp="2026-10-31T18:21:01" file="report\tests.py" line="1204">
+		<!--A user without VIEW permission on the model type must receive 403; granting the role allows printing.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1225, in test_label_print_model_permission
+    self.post(url, data=post_data, expected_code=201)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/label/print/': status_code = 400 (expected 201)
+data: {'non_field_errors': [ErrorDetail(string='Error rendering label to PDF', code='invalid')]}
+content: b'{"non_field_errors":["Error rendering label to PDF"]}'
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:529: UserWarning: WARNING: '<function print_labels at 0x0000020769499800>' failed due to ['Error rendering label to PDF']
+  raise_warning(f"WARNING: '{taskname}' failed due to {exc!s}")
+]]></system-err>
+	</testcase>
+</testsuite>

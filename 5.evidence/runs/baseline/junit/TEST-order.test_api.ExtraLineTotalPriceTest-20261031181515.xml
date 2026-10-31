@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.ExtraLineTotalPriceTest-20261031181515" tests="3" file="order/test_api.py" time="0.368" timestamp="2026-10-31T18:17:55" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.ExtraLineTotalPriceTest" name="test_po_extra_line_total_price" time="0.259" timestamp="2026-10-31T18:17:55" file="order\test_api.py" line="4811">
+		<!--Check 'total_price' for a PurchaseOrderExtraLine.-->
+	</testcase>
+	<testcase classname="order.test_api.ExtraLineTotalPriceTest" name="test_return_order_extra_line_total_price" time="0.058" timestamp="2026-10-31T18:17:55" file="order\test_api.py" line="4829">
+		<!--Check 'total_price' for a ReturnOrderExtraLine.-->
+	</testcase>
+	<testcase classname="order.test_api.ExtraLineTotalPriceTest" name="test_so_extra_line_total_price" time="0.051" timestamp="2026-10-31T18:17:55" file="order\test_api.py" line="4820">
+		<!--Check 'total_price' for a SalesOrderExtraLine.-->
+	</testcase>
+</testsuite>

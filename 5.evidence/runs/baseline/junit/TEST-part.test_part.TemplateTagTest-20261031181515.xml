@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_part.TemplateTagTest-20261031181515" tests="13" file="part/test_part.py" time="0.105" timestamp="2026-10-31T18:20:44" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_part.TemplateTagTest" name="test_date" time="0.007" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="74">
+		<!--Test that the commit date template tag returns correctly.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_define" time="0.006" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="31">
+		<!--Test the 'define' template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_hash" time="0.006" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="64">
+		<!--Test that the commit hash template tag returns correctly.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_inventree_customize" time="0.006" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="50">
+		<!--Test the 'inventree_customize' template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_inventree_instance_name" time="0.007" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="42">
+		<!--Test the 'instance name' setting.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_inventree_title" time="0.007" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="46">
+		<!--Test the 'inventree_title' setting.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_inventree_version" time="0.007" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="54">
+		<!--Test the 'version' setting.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_keyvalue" time="0.006" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="84">
+		<!--Test keyvalue template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_render_date" time="0.009" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="92">
+		<!--Test the 'render_date' template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_setting_object" time="0.013" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="101">
+		<!--Test the 'setting_object' template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_settings_value" time="0.017" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="124">
+		<!--Test the 'settings_value' template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_str2bool" time="0.006" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="35">
+		<!--Various test for the str2bool template tag.-->
+	</testcase>
+	<testcase classname="part.test_part.TemplateTagTest" name="test_to_list" time="0.007" timestamp="2026-10-31T18:20:44" file="part\test_part.py" line="88">
+		<!--Test the 'to_list' template tag.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockItemTest-20261031190038" tests="2" file="stock/test_api.py" time="0.760" timestamp="2026-10-31T19:00:40" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockItemTest" name="test_stock_item_create" time="0.377" timestamp="2026-10-31T19:00:40" file="stock\test_api.py" line="1693">
+		<!--Test creation of a StockItem via the API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemTest" name="test_stock_item_create_with_supplier_part" time="0.383" timestamp="2026-10-31T19:00:40" file="stock\test_api.py" line="1812">
+		<!--Test creation of a StockItem via the API, including SupplierPart data.-->
+	</testcase>
+</testsuite>

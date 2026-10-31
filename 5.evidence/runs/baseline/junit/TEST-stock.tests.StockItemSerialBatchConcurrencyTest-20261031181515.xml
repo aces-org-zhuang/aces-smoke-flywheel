@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.StockItemSerialBatchConcurrencyTest-20261031181515" tests="1" file="stock/tests.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="stock.tests.StockItemSerialBatchConcurrencyTest" name="test_concurrent_overlapping_batches_do_not_duplicate_serials" time="0.001" timestamp="2026-10-31T18:26:58" file="stock\tests.py" line="2064">
+		<!--Three concurrent, partially-overlapping batch creation requests must stay consistent.-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

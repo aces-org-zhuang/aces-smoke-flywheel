@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.WebhookMessageTests-20261031181515" tests="9" file="common/tests.py" time="0.077" timestamp="2026-10-31T18:17:39" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.WebhookMessageTests" name="test_bad_hmac" time="0.009" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1342">
+		<!--Test that a malformed HMAC does not pass.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_bad_json" time="0.008" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1315">
+		<!--Test that malformed JSON is not accepted.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_bad_method" time="0.007" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1280">
+		<!--Test that a wrong HTTP method does not work.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_bad_token" time="0.008" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1295">
+		<!--Test that a wrong token is not working.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_bad_url" time="0.010" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1307">
+		<!--Test that a wrongly formed url is not working.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_missing_token" time="0.008" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1285">
+		<!--Tests that token checks work.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_success" time="0.009" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1375">
+		<!--Test full e2e webhook call.
+
+The message should go through and save the json payload.
+-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_success_hmac" time="0.009" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1358">
+		<!--Test with a valid HMAC provided.-->
+	</testcase>
+	<testcase classname="common.tests.WebhookMessageTests" name="test_success_no_token_check" time="0.009" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="1330">
+		<!--Test that a endpoint without a token set does not require one.-->
+	</testcase>
+</testsuite>

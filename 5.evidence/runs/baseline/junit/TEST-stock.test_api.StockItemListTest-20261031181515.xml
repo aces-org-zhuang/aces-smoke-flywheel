@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockItemListTest-20261031181515" tests="35" file="stock/test_api.py" time="23.157" timestamp="2026-10-31T18:21:43" failures="0" errors="2" skipped="0">
+	<testcase classname="stock.test_api.StockItemListTest" name="test_batch_generate_api" time="0.244" timestamp="2026-10-31T18:21:20" file="stock\test_api.py" line="1278">
+		<!--Test helper API for batch management.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_child_items" time="0.474" timestamp="2026-10-31T18:21:20" file="stock\test_api.py" line="1331">
+		<!--Test that the 'child_items' annotation works as expected.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_creation_date_filter_and_ordering" time="0.402" timestamp="2026-10-31T18:21:20" file="stock\test_api.py" line="621">
+		<!--Test created_before / created_after filters and ordering by creation_date.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField StockItem.creation_date received a naive datetime (2020-01-01 00:00:00) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField StockItem.creation_date received a naive datetime (2021-06-15 00:00:00) while time zone support is active.
+  warnings.warn(
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField StockItem.creation_date received a naive datetime (2023-03-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_available" time="0.161" timestamp="2026-10-31T18:21:21" file="stock\test_api.py" line="984">
+		<!--Filter StockItem by available.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_allocated" time="0.355" timestamp="2026-10-31T18:21:22" file="stock\test_api.py" line="1163">
+		<!--Test that we can filter by "allocated" status.
+
+Rules:
+- Only return stock items which are 'allocated'
+- Either to a build order or sales order
+- Test that the results are "distinct" (no duplicated results)
+- Ref: https://github.com/inventree/InvenTree/pull/5916
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_batch" time="0.092" timestamp="2026-10-31T18:21:22" file="stock\test_api.py" line="878">
+		<!--Filter StockItem by batch code.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_company" time="0.568" timestamp="2026-10-31T18:21:22" file="stock\test_api.py" line="883">
+		<!--Test that we can filter stock items by company.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_depleted" time="0.253" timestamp="2026-10-31T18:21:23" file="stock\test_api.py" line="846">
+		<!--Filter StockItem by depleted status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_expired" time="0.490" timestamp="2026-10-31T18:21:23" file="stock\test_api.py" line="938">
+		<!--Filter StockItem by expiry status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_has_batch" time="0.175" timestamp="2026-10-31T18:21:23" file="stock\test_api.py" line="902">
+		<!--Test the 'has_batch' filter, which tests if the stock item has been assigned a batch code.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_in_stock" time="0.192" timestamp="2026-10-31T18:21:24" file="stock\test_api.py" line="854">
+		<!--Filter StockItem by 'in stock' status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_ipn" time="0.081" timestamp="2026-10-31T18:21:24" file="stock\test_api.py" line="827">
+		<!--Filter StockItem by IPN reference.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_location" time="0.336" timestamp="2026-10-31T18:21:24" file="stock\test_api.py" line="832">
+		<!--Filter StockItem by StockLocation reference.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_part" time="0.164" timestamp="2026-10-31T18:21:24" file="stock\test_api.py" line="774">
+		<!--Filter StockItem by Part reference.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_part_include_variants" time="0.330" timestamp="2026-10-31T18:21:25" file="stock\test_api.py" line="784">
+		<!--Filter StockItem list by part, with / without including variants.
+
+Regression test for https://github.com/inventree/InvenTree/issues/12232
+- The 'Install Stock Item' form relies on 'include_variants=false' to avoid
+  surfacing variant stock which the BOM does not allow
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_serialized" time="0.165" timestamp="2026-10-31T18:21:25" file="stock\test_api.py" line="888">
+		<!--Filter StockItem by serialized status.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_status" time="0.736" timestamp="2026-10-31T18:21:25" file="stock\test_api.py" line="862">
+		<!--Filter StockItem by 'status' field.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_by_tracked" time="0.161" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="918">
+		<!--Test the 'tracked' filter.
+
+This checks if the stock item has either a batch code *or* a serial number
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_external" time="0.155" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="976">
+		<!--Filter StockItem by external.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_has_child_items" time="0.161" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="1008">
+		<!--Filter StockItem by has_child_items.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_has_installed" time="0.161" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="1000">
+		<!--Filter StockItem by has_installed.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_has_purchase_price" time="0.157" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="1024">
+		<!--Filter StockItem by has_purchase_price.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_installed" time="0.163" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="992">
+		<!--Filter StockItem by installed.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_manufacturer" time="0.068" timestamp="2026-10-31T18:21:26" file="stock\test_api.py" line="769">
+		<!--Filter StockItem by manufacturer.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_sent_to_customer" time="0.158" timestamp="2026-10-31T18:21:27" file="stock\test_api.py" line="1016">
+		<!--Filter StockItem by sent_to_customer.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_filter_stale" time="0.345" timestamp="2026-10-31T18:21:27" file="stock\test_api.py" line="1032">
+		<!--Filter StockItem by stale.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_get_stock_list" time="0.093" timestamp="2026-10-31T18:21:27" file="stock\test_api.py" line="763">
+		<!--List *all* StockItem objects.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_ordering" time="2.120" timestamp="2026-10-31T18:21:37" file="stock\test_api.py" line="616">
+		<!--Run ordering tests against the StockItem list endpoint.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_paginate" time="0.214" timestamp="2026-10-31T18:21:37" file="stock\test_api.py" line="1049">
+		<!--Test that we can paginate results correctly.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_pagination" time="3.741" timestamp="2026-10-31T18:21:41" file="stock\test_api.py" line="677">
+		<!--Test that pagination boundaries are observed correctly.
+
+Ref: https://github.com/inventree/InvenTree/issues/11442
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_query_count" time="0.902" timestamp="2026-10-31T18:21:42" file="stock\test_api.py" line="1255">
+		<!--Test that the number of queries required to fetch stock items is reasonable.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_serial_generate_api" time="0.271" timestamp="2026-10-31T18:21:42" file="stock\test_api.py" line="1303">
+		<!--Test helper API for serial management.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_top_level_filtering" time="0.330" timestamp="2026-10-31T18:21:43" file="stock\test_api.py" line="740">
+		<!--Test filtering against "top level" stock location.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_export" time="0.801" timestamp="2026-10-31T18:21:21" file="stock\test_api.py" line="1059">
+		<!--Test exporting of Stock data via the API.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\stock\test_api.py", line 1084, in test_export
+    with self.export_data(self.list_url, params=filters) as data_file:
+         ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+	<testcase classname="stock.test_api.StockItemListTest" name="test_large_export" time="7.937" timestamp="2026-10-31T18:21:35" file="stock\test_api.py" line="1124">
+		<!--Test export of very large dataset.
+
+- Ensure that the time taken to export a large dataset is reasonable.
+- Ensure that the number of DB queries is reasonable.
+-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\stock\test_api.py", line 1154, in test_large_export
+    with self.export_data(
+         ~~~~~~~~~~~~~~~~^
+        self.list_url,
+        ^^^^^^^^^^^^^^
+        max_query_count=100,
+        ^^^^^^^^^^^^^^^^^^^^
+        max_query_time=12.0,  # Test time increased due to worker variability
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as data_file:
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

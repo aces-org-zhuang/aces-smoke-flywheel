@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests-20261031181515" tests="2" file="plugin/samples/icons/test_icon_sample.py" time="0.302" timestamp="2026-10-31T18:24:29" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests" name="test_mixin" time="0.007" timestamp="2026-10-31T18:24:29" file="plugin\samples\icons\test_icon_sample.py" line="42">
+		<!--Test that MixinNotImplementedError is raised.-->
+	</testcase>
+	<testcase classname="plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests" name="test_get_icons_api" time="0.295" timestamp="2026-10-31T18:24:29" file="plugin\samples\icons\test_icon_sample.py" line="14">
+		<!--Check get icons api.-->
+		<failure type="AssertionError" message="1 != 2"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\icons\test_icon_sample.py", line 20, in test_get_icons_api
+    self.assertEqual(len(response.data), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+]]></failure>
+	</testcase>
+</testsuite>

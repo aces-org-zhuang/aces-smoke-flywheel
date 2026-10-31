@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.integration.test_core_notifications.CoreNotificationTestTests-20261031181515" tests="2" file="plugin/builtin/integration/test_core_notifications.py" time="1.156" timestamp="2026-10-31T18:23:17" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.builtin.integration.test_core_notifications.CoreNotificationTestTests" name="test_email" time="0.064" timestamp="2026-10-31T18:23:16" file="plugin\builtin\integration\test_core_notifications.py" line="44">
+		<!--Ensure that the email notifications run.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.integration.test_core_notifications.CoreNotificationTestTests" name="test_slack_timeout" time="1.092" timestamp="2026-10-31T18:23:17" file="plugin\builtin\integration\test_core_notifications.py" line="67">
+		<!--Ensure that the slack webhook call cannot block indefinitely.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin inventree-slack-notification
+  cfg.save()
+]]></system-err>
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TreeFixtureTest-20261031181515" tests="3" file="InvenTree/tests.py" time="0.076" timestamp="2026-10-31T18:26:43" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TreeFixtureTest" name="test_build" time="0.012" timestamp="2026-10-31T18:26:43" file="InvenTree\tests.py" line="109">
+		<!--Test MPTT tree structure for Build model.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TreeFixtureTest" name="test_part" time="0.046" timestamp="2026-10-31T18:26:43" file="InvenTree\tests.py" line="102">
+		<!--Test MPTT tree structure for Part model.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TreeFixtureTest" name="test_stock" time="0.018" timestamp="2026-10-31T18:26:43" file="InvenTree\tests.py" line="115">
+		<!--Test MPTT tree structure for StockLocation model.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestVersionNumber-20261031181515" tests="3" file="InvenTree/tests.py" time="0.066" timestamp="2026-10-31T18:26:42" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestVersionNumber" name="test_commit_info" time="0.066" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1153">
+		<!--Test that the git commit information is extracted successfully.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestVersionNumber" name="test_comparison" time="0.000" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1141">
+		<!--Test direct comparison of version numbers.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestVersionNumber" name="test_tuple" time="0.000" timestamp="2026-10-31T18:26:42" file="InvenTree\tests.py" line="1132">
+		<!--Test inventreeVersionTuple.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.barcodes.test_barcode.BarcodeScanResultAPITest-20261031181515" tests="4" file="plugin/base/barcodes/test_barcode.py" time="0.126" timestamp="2026-10-31T18:22:45" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeScanResultAPITest" name="test_detail_non_staff" time="0.036" timestamp="2026-10-31T18:22:45" file="plugin\base\barcodes\test_barcode.py" line="308">
+		<!--A non-staff user cannot retrieve another user's barcode scan result.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeScanResultAPITest" name="test_detail_staff" time="0.036" timestamp="2026-10-31T18:22:45" file="plugin\base\barcodes\test_barcode.py" line="327">
+		<!--A staff user can retrieve any user's barcode scan result.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeScanResultAPITest" name="test_list_non_staff" time="0.027" timestamp="2026-10-31T18:22:45" file="plugin\base\barcodes\test_barcode.py" line="284">
+		<!--A non-staff user can only see their own barcode scan history.-->
+	</testcase>
+	<testcase classname="plugin.base.barcodes.test_barcode.BarcodeScanResultAPITest" name="test_list_staff" time="0.027" timestamp="2026-10-31T18:22:45" file="plugin\base\barcodes\test_barcode.py" line="296">
+		<!--A staff user can see barcode scan history for all users.-->
+	</testcase>
+</testsuite>

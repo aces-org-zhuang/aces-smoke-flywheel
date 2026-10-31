@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_audit.TransferOrderAuditTest-20261031181515" tests="3" file="order/test_audit.py" time="0.356" timestamp="2026-10-31T18:19:06" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_audit.TransferOrderAuditTest" name="test_line_items" time="0.224" timestamp="2026-10-31T18:19:06" file="order\test_audit.py" line="593">
+		<!--Line item changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.TransferOrderAuditTest" name="test_order_edit" time="0.061" timestamp="2026-10-31T18:19:06" file="order\test_audit.py" line="579">
+		<!--Order edits are recorded.-->
+	</testcase>
+	<testcase classname="order.test_audit.TransferOrderAuditTest" name="test_transferred" time="0.070" timestamp="2026-10-31T18:19:06" file="order\test_audit.py" line="608">
+		<!--The 'transferred' quantity (updated via an F() expression) is recorded as a number.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.ParameterTests-20261031181515" tests="1" file="part/test_api.py" time="0.036" timestamp="2026-10-31T18:19:32" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.ParameterTests" name="test_export_data" time="0.036" timestamp="2026-10-31T18:19:32" file="part\test_api.py" line="3815">
+		<!--Test data export functionality for Parameter objects.-->
+	</testcase>
+</testsuite>

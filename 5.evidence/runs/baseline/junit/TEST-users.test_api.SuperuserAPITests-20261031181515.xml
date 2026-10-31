@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.SuperuserAPITests-20261031181515" tests="1" file="users/test_api.py" time="0.045" timestamp="2026-10-31T18:22:35" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.SuperuserAPITests" name="test_user_password_set" time="0.045" timestamp="2026-10-31T18:22:35" file="users\test_api.py" line="421">
+		<!--Test the set-password/ endpoint.-->
+	</testcase>
+</testsuite>

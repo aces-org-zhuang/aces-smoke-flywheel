@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartOptionsAPITest-20261031181515" tests="4" file="part/test_api.py" time="1.053" timestamp="2026-10-31T18:20:25" failures="1" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartOptionsAPITest" name="test_bom_item" time="0.151" timestamp="2026-10-31T18:20:24" file="part\test_api.py" line="779">
+		<!--Test the BomItem API OPTIONS endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartOptionsAPITest" name="test_category" time="0.110" timestamp="2026-10-31T18:20:25" file="part\test_api.py" line="760">
+		<!--Test the PartCategory API OPTIONS endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartOptionsAPITest" name="test_part" time="0.206" timestamp="2026-10-31T18:20:25" file="part\test_api.py" line="681">
+		<!--Test the Part API OPTIONS.-->
+	</testcase>
+	<testcase classname="part.test_api.PartOptionsAPITest" name="test_part_label_translation" time="0.585" timestamp="2026-10-31T18:20:25" file="part\test_api.py" line="715">
+		<!--Test that 'label' values are correctly translated.-->
+		<failure type="AssertionError" message="'IPN' != 'IPN (Interne Produktnummer)'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 758, in test_part_label_translation
+    self.assertEqual(label, value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: 'IPN' != 'IPN (Interne Produktnummer)'
+]]></failure>
+	</testcase>
+</testsuite>

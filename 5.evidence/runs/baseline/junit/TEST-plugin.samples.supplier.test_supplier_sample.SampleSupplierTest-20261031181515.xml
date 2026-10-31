@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.supplier.test_supplier_sample.SampleSupplierTest-20261031181515" tests="3" file="plugin/samples/supplier/test_supplier_sample.py" time="0.067" timestamp="2026-10-31T18:24:36" failures="0" errors="3" skipped="0">
+	<testcase classname="plugin.samples.supplier.test_supplier_sample.SampleSupplierTest" name="test_import_part" time="0.012" timestamp="2026-10-31T18:24:36" file="plugin\samples\supplier\test_supplier_sample.py" line="72">
+		<!--Test importing a part by supplier.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\supplier\test_supplier_sample.py", line 76, in test_import_part
+    config = plugin.plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.samples.supplier.test_supplier_sample.SampleSupplierTest" name="test_list" time="0.033" timestamp="2026-10-31T18:24:36" file="plugin\samples\supplier\test_supplier_sample.py" line="18">
+		<!--Check the list api.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\supplier\test_supplier_sample.py", line 28, in test_list
+    config = registry.get_plugin('samplesupplier', active=None).plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.samples.supplier.test_supplier_sample.SampleSupplierTest" name="test_search" time="0.022" timestamp="2026-10-31T18:24:36" file="plugin\samples\supplier\test_supplier_sample.py" line="39">
+		<!--Check the search api.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\supplier\test_supplier_sample.py", line 42, in test_search
+    config = registry.get_plugin('samplesupplier', active=None).plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+</testsuite>

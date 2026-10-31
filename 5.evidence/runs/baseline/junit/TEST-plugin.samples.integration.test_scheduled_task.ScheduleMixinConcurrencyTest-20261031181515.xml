@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_scheduled_task.ScheduleMixinConcurrencyTest-20261031181515" tests="1" file="plugin/samples/integration/test_scheduled_task.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="plugin.samples.integration.test_scheduled_task.ScheduleMixinConcurrencyTest" name="test_concurrent_register_tasks_does_not_duplicate" time="0.001" timestamp="2026-10-31T18:26:58" file="plugin\samples\integration\test_scheduled_task.py" line="122">
+		<!--Two concurrent register_tasks() calls for the same plugin must not create duplicate Schedule rows.-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

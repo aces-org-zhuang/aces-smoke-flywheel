@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>冒烟飞轮 · 一轮完整实践证明</title>
+<style>
+  :root {
+    --ink:#111418; --ink2:#3d4653; --mute:#6b7684; --line:#e3e7ee;
+    --bg:#f7f8fa; --card:#ffffff; --brand:#1a56db; --ok:#0f7b4f;
+    --bad:#b42318; --warn:#946200;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.65; font-size:15px; }
+  .wrap { max-width:1100px; margin:0 auto; padding:48px 28px 96px; }
+  header.top { border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:36px; }
+  .kicker { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); }
+  h1 { font-size:33px; line-height:1.25; margin:10px 0 8px; letter-spacing:-.01em; }
+  h2 { font-size:21px; margin:52px 0 14px; padding-top:18px; border-top:1px solid var(--line); }
+  h3 { font-size:15.5px; margin:26px 0 8px; }
+  p { margin:10px 0; color:var(--ink2); }
+  .lead { font-size:17px; color:var(--ink); }
+  .grid { display:grid; gap:14px; }
+  .g2 { grid-template-columns:repeat(2,1fr); }
+  .g3 { grid-template-columns:repeat(3,1fr); }
+  .g4 { grid-template-columns:repeat(4,1fr); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:15px 17px; }
+  .kpi .n { font-size:26px; font-weight:650; letter-spacing:-.02em; }
+  .kpi .l { font-size:12.5px; color:var(--mute); margin-top:2px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13.4px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-weight:600; color:var(--ink); background:#f0f2f6; font-size:12.4px; letter-spacing:.02em; }
+  td code, p code, li code { background:#eef1f5; padding:1px 5px; border-radius:4px;
+    font-family:ui-monospace,Consolas,monospace; font-size:12.4px; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11.5px;
+    font-weight:600; letter-spacing:.02em; }
+  .pill.ok { background:#e3f5ea; color:var(--ok); }
+  .pill.bad { background:#fdecea; color:var(--bad); }
+  .pill.warn { background:#fdf3e0; color:var(--warn); }
+  .pill.mute { background:#eef1f5; color:var(--mute); }
+  .quote { border-left:3px solid var(--brand); background:#f2f5fd; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  .caveat { border-left:3px solid var(--warn); background:#fffaf0; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  .badnote { border-left:3px solid var(--bad); background:#fdf3f2; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  pre { background:#11161d; color:#e6edf3; padding:14px 16px; border-radius:8px;
+    overflow-x:auto; font-size:12.5px; line-height:1.55; }
+  a { color:var(--brand); text-decoration:none; border-bottom:1px solid #c7d7f7; }
+  ul, ol { margin:8px 0 8px 22px; color:var(--ink2); }
+  li { margin:5px 0; }
+  .small { font-size:12.5px; color:var(--mute); }
+  .step { display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed var(--line); }
+  .step .no { flex:0 0 34px; height:34px; border-radius:50%; background:var(--ink);
+    color:#fff; font-size:13px; font-weight:600; display:flex; align-items:center;
+    justify-content:center; }
+  .step .body { flex:1; }
+  .step .body .t { font-weight:600; color:var(--ink); }
+  footer { margin-top:60px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--mute); }
+  @media (max-width:820px) { .g2,.g3,.g4 { grid-template-columns:1fr 1fr; } h1 { font-size:25px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">冒烟飞轮 · 实践证明 · 2026-10-31</div>
+  <h1>一轮完整转动：从 SSOT 到 can-i-deploy，<br>全部跑在真实仓、真实用例、真实缺陷上</h1>
+  <p class="lead">被测对象是 275,140 行的 InvenTree（Django REST + React 前后端分离）。
+  本报告不含“预计”“大约”“通常”——每个数字都能在交付仓的证据文件里复算。</p>
+</header>
+
+<div class="grid g4">
+  <div class="card kpi"><div class="n">617</div>
+    <div class="l">后端 API 操作（OpenAPI 实测）</div></div>
+  <div class="card kpi"><div class="n">216</div>
+    <div class="l">前端消费方声明</div></div>
+  <div class="card kpi"><div class="n">16</div>
+    <div class="l">L1 实跑用例（9 条不变量）</div></div>
+  <div class="card kpi"><div class="n">3/3</div>
+    <div class="l">注入缺陷被杀灭</div></div>
+</div>
+
+<h2>0. 一句话结论</h2>
+<div class="quote">
+<p><strong>飞轮转起来了，而且咬得住东西。</strong>
+上游 1,886 个成品用例里选了 16 个进 L1（全绿，126 秒）；L3 黄金路径 26 步真实 HTTP 走通（6 条断言含库存账实）；
+注入 3 个真实缺陷后 3 个全部被既有用例杀死；L0 抓出 4 条前端声明在后端不存在的漂移。</p>
+<p><strong>但同样要说清楚它做不到什么。</strong>179 条存量失败里，只有 40 条能凭“已声明并探针验证过的环境偏差”排除，
+其余 139 条（77.6%）无法定责，只能进隔离区等人工签字。
+这个数字不好看，但它就是本轮最重要的负面结论：<strong>一个自称能定责的分类器，在陌生仓首轮必然大面积判不出</strong>。
+把它藏起来，方案就变成了演示品。</p>
+</div>
+
+<h2>1. 测的是哪个仓（可点开核对）</h2>
+<table>
+<tr><th style="width:22%">项</th><th>值</th></tr>
+<tr><td>被测仓</td><td><a href="https://github.com/inventree/InvenTree">https://github.com/inventree/InvenTree</a></td></tr>
+<tr><td>提交</td><td><code>d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1</code>（2026-10-30）</td></tr>
+<tr><td>规模（实测）</td><td>275,140 行 / 1,304 文件：
+Python 176,773 + TypeScript 97,175</td></tr>
+<tr><td>前后端分离</td><td>Django REST（617 个操作）+ React SPA（216 条 ApiEndpoints 声明），前端独立 Vite 工程</td></tr>
+<tr><td>上游用例</td><td>92 个测试文件 / 1,886 个用例函数</td></tr>
+<tr><td>领域</td><td>电子元件 / BOM / 库存 / 生产工单 —— <strong>PCB 装配链，不是原理图编辑器</strong></td></tr>
+<tr><td>交付仓</td><td><a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">https://github.com/aces-org-zhuang/aces-smoke-flywheel</a></td></tr>
+</table>
+
+<div class="caveat">
+<strong>域的正名与对照。</strong> 开源世界里，“原理图/PCB 编辑器 + 20 万行 + 前后端分离 + 成熟用例”四条同时成立的仓几乎不存在。
+域最正的 <a href="https://github.com/LibrePCB/LibrePCB">LibrePCB</a>（<code>be16f52</code>，375,122 行 C++/Slint）是桌面单体：
+全仓 C++ 里 <code>QTcpServer</code>/<code>QHttpServer</code>/<code>listen(</code> 零命中，没有可被独立验证的 provider 边界，
+L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓，并把“域偏制造侧”这句话放在首页，而不是藏在附录。
+</div>
+
+<h2>2. 交付仓的提交记录</h2>
+<p>所有资产都在 <a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">https://github.com/aces-org-zhuang/aces-smoke-flywheel</a>，下面直接取自 <code>git log</code>。</p>
+<table>
+<tr><th style="width:14%">提交</th><th style="width:14%">日期</th><th>说明</th></tr>
+<tr><td><code>b501826</code></td><td>2026-10-31</td><td>feat(L3): 黄金路径 26 步跑通 + 证据链修正</td></tr><tr><td><code>39bc332</code></td><td>2026-10-31</td><td>feat: 六层骨架 + SSOT(617 端点/216 消费方声明) + 9 条不变量 + 4 道门禁</td></tr>
+</table>
+
+<h2>3. 一次完整转动：七步，每一步都留证据</h2>
+<p>飞轮的每一步都必须产出可复算的 JSON，缺证据就判 <code>UNKNOWN</code>，不允许“跑过了”这类口头结论。</p>
+
+<div class="step"><div class="no">1</div><div class="body"><div class="t">L0 · 把事实从源码抽出来</div><p><code>python tools/emit_ssot.py --repo &lt;inventree 克隆&gt; --out 0.ssot</code></p><p>端点模型不是手写清单，是从真实 URLconf 经 <code>manage.py spectacular</code> 导出的 <code>0.ssot/openapi.yaml</code>（617 个操作）；消费方期望来自前端 <code>lib/enums/ApiEndpoints.tsx</code> 的枚举声明。两边归一化后求交。</p></div></div>
+
+<div class="step"><div class="no">2</div><div class="body"><div class="t">lint-boundary · 边界契约自检</div><p><code>python 4.gates/lint-boundary/lint.py</code> → 检查 9 份契约 / 索引 ? 个上游用例 ID / 违规 0 → <span class="pill ok">PASS</span></p><p class="small">四类规则：schema 完整性、依赖必须显式声明且路径存在、用例 ID 必须在被测仓真实存在、禁令与时限。第三条是关键——上游一改名，这里会直接红，而不是让用例静默消失。</p></div></div>
+
+<div class="step"><div class="no">3</div><div class="body"><div class="t">L1 · 9 条不变量指向 16 个成品用例</div><p>实跑：<strong>16 个 test case，通过 16，失败 0，失效 ID 0，耗时 126.52s</strong> <span class="pill ok">PASS</span></p><p class="small">不新写玩具用例。每条不变量直接指向 InvenTree 里已存在、已被上游 CI 长期运行的用例。</p></div></div>
+
+<div class="step"><div class="no">4</div><div class="body"><div class="t">L3 · 一条不可失败的业务主线</div><p>起真实 <code>runserver</code>，用 API Token 走完 26 个 HTTP 步骤，6 条断言：<span class="pill ok">PASS</span></p><p class="small">建库位 → 建零件 → 供应商物料 → 采购订单 → 收货入库 → BOM(1:2) → 工单(5 台) → 分配库存 → 产出 → 结单。断言口径是 response + 库存账实，不是“返回 200 就算过”。</p></div></div>
+
+<div class="step"><div class="no">5</div><div class="body"><div class="t">全量基线 + 建账</div><p>口径按你的选择：全量 + 注入缺陷。2020 个用例 / 340 个 JUnit XML / 失败 179。</p><p>这 179 条失败连同定责结论与到期日写入债务台账 <code>5.evidence/verdicts/baseline-debt.json</code>（179 条）。<strong>台账的作用不是让红灯变绿，而是让债务可见且不得静默消失。</strong></p></div></div>
+
+<div class="step"><div class="no">6</div><div class="body"><div class="t">mutation-diff · 用例到底抓不抓得住</div><p>三个真实缺陷，各自绑定“应该杀死它”的用例：<strong>3/3 被杀灭，杀灭率 1.0</strong>，工作区还原：是。</p></div></div>
+
+<div class="step"><div class="no">7</div><div class="body"><div class="t">can-i-deploy · 只看证据的闸门</div><p>最终判决：<span class="pill ok">ALLOW</span></p><p class="small">五道检查：边界契约、L1、失败定责（增量口径）、变异、契约矩阵。另附存量债务披露（不阻断，但每条带 owner 与到期日）。</p></div></div>
+
+<h2>4. L0：事实与漂移</h2>
+<div class="grid g4">
+  <div class="card kpi"><div class="n">617</div><div class="l">提供方操作</div></div>
+  <div class="card kpi"><div class="n">216</div><div class="l">消费方声明</div></div>
+  <div class="card kpi"><div class="n">190</div><div class="l">命中</div></div>
+  <div class="card kpi"><div class="n">26</div><div class="l">前端声明未命中</div></div>
+</div>
+
+<h3>未命中的 26 条，分两类（这是真实发现，不是疏漏）</h3>
+<table>
+<tr><th style="width:18%">类别</th><th style="width:10%">数量</th><th>说明</th></tr>
+<tr><td>非 DRF 管辖</td><td>21</td>
+<td><code>auth/v1/...</code> 由 django-allauth headless 提供，本就不在 DRF schema 里 —— 属正常边界，不算漂移</td></tr>
+<tr><td><strong>疑似陈旧声明</strong></td><td>5</td>
+<td><code>/auth/</code>、<code>machine/:machine/settings/:config_type/</code>、<code>part/:id/scheduling/</code>、<code>order/so/:id/ship/</code>、<code>user/me/tips/</code> —— 前端引用了后端未暴露的路由。
+逐条回源码核过：<code>tips</code> 只有 detail 路由，<code>scheduling</code>/<code>ship</code> 在 api.py 里搜不到对应类。
+这是真实技术债，交给 L0 报出来，而不是让它在运行时 404。</td></tr>
+</table>
+<p class="small">依赖图：15 个后端 app、129 条 import 边，写入
+<code>0.ssot/dependency_graph.json</code>，作为“受影响面反查”的输入（触发源是端点/契约/依赖边，不是 .vue 文件）。</p>
+
+<h2>5. L1 与 L3 的实跑数字</h2>
+<div class="grid g2">
+  <div class="card">
+    <h3 style="margin-top:0">L1：9 条不变量</h3>
+    <p class="small">part.catalog / bom.validity / stock.receive / sales.allocate / sales.create /
+    purchase.complete / build.complete / role.isolation / api.contract</p>
+    <p><span class="pill ok">PASS</span>
+    16 例 / 126.52 秒</p>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">L3：黄金路径断言口径</h3>
+    <ul>
+      <li>收货生成库存条目：<strong>1</strong>（期望 1）</li><li>元件到货数量：<strong>100.0</strong>（期望 100.0）</li><li>采购订单状态=完成：<strong>30</strong>（期望 30）</li><li>工单状态=完成：<strong>40</strong>（期望 40）</li><li>元件库存扣减：<strong>90.0</strong>（期望 90.0）</li><li>产出库存增加：<strong>5.0</strong>（期望 5.0）</li>
+    </ul>
+  </div>
+</div>
+
+<h2>6. 全量基线：2020 个用例的真实结果</h2>
+<table>
+<tr><th style="width:30%">项</th><th>值</th></tr>
+<tr><td>覆盖方式</td><td>17 个 app 全量：build common company importer machine order part pricing report stock users plugin InvenTree generic web scim</td></tr>
+<tr><td>JUnit 产物</td><td>340 个 XML（<code>5.evidence/runs/baseline/junit/</code>）</td></tr>
+<tr><td>通过 / 失败 / 跳过</td><td>1829 / 179 / 12</td></tr>
+<tr><td>总耗时</td><td>602.32 秒</td></tr>
+<tr><td>债务台账</td><td><code>5.evidence/verdicts/baseline-debt.json</code>（179 条，每条带 owner 与到期日）</td></tr>
+</table>
+<p class="small">首次全量运行曾丢失全部结构化证据：InvenTree 的 settings.py 显式写死了 TEST_RUNNER，
+环境变量被静默忽略，XML 散落到工作目录还污染了 git 工作区。改为 settings 覆盖层（<code>3.env/flywheel_junit_settings.py</code>）后重跑，
+这段弯路保留在提交记录里，因为它正是“证据链不能靠约定”的例证。</p>
+
+<h2>7. 失败定责：确定性分类器（LLM 不参与）</h2>
+<p>判据顺序不可逆。关键是<strong>例外表只能来自 <code>3.env/target.yaml</code></strong>——
+代码里不出现任何具体包名或主机名，否则就等于给“看着像环境问题”开后门。</p>
+<table>
+<tr><th style="width:26%">结论</th><th style="width:10%">数量</th><th>含义</th></tr>
+<tr><td><code>environment_excluded</code></td><td>40</td><td>失败文本命中 target.yaml 里已声明并探针验证过的环境偏差 → 环境性排除，不计入缺陷</td></tr><tr><td><code>product_defect</code></td><td>0</td><td>改动面或增量判据成立 → 回开发，用例冻结</td></tr><tr><td><code>contract_violation</code></td><td>0</td><td>命中合同矩阵已知漂移路由 → 阻断 + 通知双方</td></tr><tr><td><code>flaky_candidate</code></td><td>0</td><td>同 commit 重跑两次均过 → 隔离区，不计入通过率但必须披露</td></tr><tr><td><code>case_stale</code></td><td>0</td><td>用例本身陈旧</td></tr><tr><td><code>unknown</code></td><td>139</td><td>五条判据均未命中 → 隔离区，必须人工签字（owner + 到期日）</td></tr>
+</table>
+<div class="grid g2">
+  <div class="card"><h3 style="margin-top:0">两个比例，语义不同</h3>
+  <p><code>unknown_ratio</code> = 0.7765 —— 全量失败里的未知比例，
+  只用于披露存量债务质量。</p>
+  <p><code>new_failure_unknown_ratio</code> = 0.0 ——
+  增量失败里的未知比例，才是 <code>can-i-deploy</code> 的实际判据。</p>
+  <p class="small">混用这两个指标会得出相反结论：拿全量口径卡每一次部署，闸门会永久红灯；
+  拿增量口径去披露历史债务，债务就会消失。所以两个都算、都写进证据，用途分开。</p></div>
+  <div class="card"><h3 style="margin-top:0">候选集口径</h3>
+  <p>候选 = <code>l1-run-01</code>，
+  新增失败 0 条。</p>
+  <p class="small">最初实现取“最新一个 run.json”，而变异门禁每轮都落 run.json，
+  于是闸门会把某个变异体当候选集去判——判决对象漂移且无人察觉。现在必须显式指定。</p></div>
+</div>
+
+<div class="badnote">
+<strong>为什么 77.6% 判不出来，这是本轮最该讲的负面结论。</strong>
+分类器的每一条结论都要带可复算的证据，所以它只在两种情况下敢下判断：失败文本自己指认了缺失的前置条件（S0），
+或者改动面/基线增量能证明是候选引入（S2）。剩下的失败——比如 <code>plugin.test_api.*</code> 大量 404、
+<code>report.tests.TestReportTest.*</code> 返回 None——文本里没有任何指向根因的线索。
+<strong>要么补探针把根因变成可复算事实，要么让它进隔离区等签字；不能靠“我觉得是环境问题”把它划掉。</strong>
+本轮选择了后者，并把这些条目连同 owner 与到期日写进台账。
+</div>
+
+<h3>已声明并验证过的环境偏差（S0 的合法来源）</h3>
+<table>
+<tr><th style="width:20%">偏差</th><th style="width:26%">与上游 CI 的差别</th><th style="width:18%">命中串</th><th>探针</th></tr>
+<tr><td><code>windows-path-separator</code></td><td>上游 CI 在 Linux 上运行，本机为 Windows</td><td><code>not in ['config/</code></td><td>用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))， 在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中</td></tr><tr><td><code>translations-not-compiled</code></td><td>未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）</td><td><code>Elemento ricevuto</code></td><td>find src/backend/InvenTree/locale -name "*.mo" | wc -l → 0</td></tr><tr><td><code>sample-plugins-not-installed</code></td><td>未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）</td><td><code>plugin.samples</code></td><td>registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自</td></tr><tr><td><code>network-egress-restricted</code></td><td>本机对公网的部分出站受限，用例中的真实远端请求不可达</td><td><code>HTTPSConnectionPool</code></td><td>失败文本携带 HTTPSConnectionPool / Connection error 与具体主机名</td></tr><tr><td><code>windows-file-lock</code></td><td>Windows 对被打开文件加写锁，Linux 不锁</td><td><code>WinError 32</code></td><td>失败文本携带 WinError 32（另一个程序正在使用此文件）</td></tr>
+</table>
+
+<h2>8. 变异：用例到底能不能抓住缺陷</h2>
+<p>注入的不是随机翻转，是真实 PR 里出现过的写法：注释校验、去掉边界、关掉守卫。
+每个变异体先 <code>git commit</code> 成一次真实提交（否则 <code>git blame</code> 看不到，S2 无法证伪），跑完立即 <code>reset --hard</code>。</p>
+<table>
+<tr><th style="width:24%">变异体</th><th style="width:9%">结果</th><th style="width:28%">被杀于</th><th>缺陷形态</th></tr>
+<tr><td><code>M1-bom-self-reference</code></td><td><span class="pill ok">killed</span></td><td>part.test_bom_item.BomItemTest.test_self_reference</td><td>为了让某个报错的用例先过去，直接把循环 BOM 校验注释掉。 这是"绕过校验换绿灯"的典型形态，也是自引用脏数据进入 BOM 的唯一入口。</td></tr><tr><td><code>M2-trackable-fractional-quantity</code></td><td><span class="pill ok">killed</span></td><td>part.test_bom_item.BomItemTest.test_integer_quantity</td><td>去掉"可追溯件的 BOM 用量必须是整数"这一条。 线上表现：可追溯件被按 21.7 个领用，序列号无法与用量对齐， 下游工单产出与库存账永远差一个小数。 </td></tr><tr><td><code>M3-order-reference-pattern</code></td><td><span class="pill ok">killed</span></td><td>order.test_api.SalesOrderTest.test_so_create</td><td>关掉订单编号的模式校验。这是所有单据（SO/PO/BO…）共用的唯一守卫， 一旦失效，任意字符串都能成为编号，编号前缀契约（SO-/PO-/BO-）与排序全</td></tr>
+</table>
+<p>杀灭率 <strong>1.0</strong>（阈值 0.8），工作区还原：<strong>是</strong>。</p>
+
+<div class="caveat">
+<strong>等价变异体：一个必须留下的教训。</strong>
+第一轮的 M2（放宽超分配）和 M3（短路结单守卫）都被判“存活”，看起来像断言缺口。读代码后发现是工具的问题：
+放宽 <code>SalesOrderAllocation.clean</code> 后，同函数里 <code>total_allocation &gt; self.item.quantity</code> 仍然拦截；
+短路 <code>build/models.py</code> 的结单守卫后，<code>build/serializers.py</code> 的
+<code>Build order has incomplete outputs</code> 仍然拦截。<strong>变异体没改变行为，用例当然抓不住。</strong>
+把这两条当断言缺口上报，就是把工具的无能粉饰成代码的问题。所以两个锚点都重挑（可追溯件整数用量 / 单据编号模式），
+终获 3/3。</div>
+
+<p class="small">断言密度账本 <code>5.evidence/ledger/assertion_density.csv</code>：
+2061 个用例、9391 条断言、34348 行代码，密度 <strong>0.2734</strong>；
+其中 <strong>98</strong> 个用例断言行数为 0 —— 这些就是“绿灯但不可信”的候选，是唯一与通过率反向的刹车指标。</p>
+
+<h2>9. 部署闸门 can-i-deploy</h2>
+<table>
+<tr><th style="width:22%">检查</th><th style="width:10%">状态</th><th>依据</th></tr>
+<tr><td><code>lint-boundary</code></td><td><span class="pill ok">PASS</span></td><td>9 份契约 / 0 处违规</td></tr><tr><td><code>l1</code></td><td><span class="pill ok">PASS</span></td><td>candidate=l1-run-01 passed=16 failed=0 missing=0</td></tr><tr><td><code>classify-failure</code></td><td><span class="pill ok">PASS</span></td><td>new_failures=0 新增缺陷=0 new_unknown_ratio=0.0</td></tr><tr><td><code>mutation-diff</code></td><td><span class="pill ok">PASS</span></td><td>kill_rate=1.0 (阈值 0.8)，killed=3/3，restored=True</td></tr><tr><td><code>contract-matrix</code></td><td><span class="pill ok">PASS</span></td><td>黄金路径使用 22 条路由，命中漂移 0</td></tr>
+</table>
+<p>最终判决：<strong><span class="pill ok">ALLOW</span></strong>
+</p>
+<p class="small">代入注入缺陷的候选：<span class="pill bad">BLOCK</span>，阻断项 l1、classify-failure —— 同一套闸门，注入的缺陷会被拦下。</p>
+
+<h2>10. 环境偏差与三处不藏</h2>
+<div class="caveat">
+<ol>
+<li><strong>数据库 sqlite3</strong>（上游 CI 用 PostgreSQL）。本机 Docker daemon 未运行。影响并发与 JSON 字段实现，不影响本次业务语义。</li>
+<li><strong>weasyprint 声明式虚拟化</strong>。本机缺 GTK3/libgobject，而上游 <code>report/models.py</code> 在 import 期
+<code>sys.exit(1)</code>，不替换则整套 Django 起不来。替身只满足导入期依赖，任何真实 PDF 渲染调用都抛
+<code>RuntimeError</code>；受影响用例已从 L1 选择中排除并写明原因。</li>
+<li><strong>L2 用“前后端契约矩阵”而非 Pact Broker</strong>。消费方是同仓前端，没有跨团队 broker，拉 Pact 进来是为演示而演示。
+矩阵口径与 can-i-deploy 一致：消费方声明 → 提供方操作 → 是否命中。</li>
+</ol>
+<p class="small">另：L4 探索层本轮未做。方案要求“赚到资格再上”，留白比硬凑一个假 L4 诚实。</p>
+</div>
+
+<h2>11. 走过的弯路（按主题，全部真实发生过）</h2>
+<table>
+<tr><th style="width:14%">主题</th><th style="width:46%">现象</th><th>怎么定的</th></tr>
+<tr><td>解释器环境</td><td>&lt;code&gt;PYTHONHOME=D:\software\Python311&lt;/code&gt; 与 3.13 解释器冲突，报 &lt;code&gt;SRE module mismatch&lt;/code&gt;</td><td>所有命令显式 &lt;code&gt;env -u PYTHONHOME -u PYTHONPATH&lt;/code&gt; + 绝对路径解释器；写进 README 的环境声明</td></tr><tr><td>依赖安装</td><td>&lt;code&gt;pip install -r requirements.txt&lt;/code&gt; 在 &lt;code&gt;--require-hashes&lt;/code&gt; 下因 &lt;code&gt;ansicon&lt;/code&gt; 无 hash 失败</td><td>剥离 hash 生成 &lt;code&gt;.nohash.txt&lt;/code&gt; 再装；产物加入 &lt;code&gt;.git/info/exclude&lt;/code&gt;，工作区保持干净</td></tr><tr><td>进程启动</td><td>&lt;code&gt;INVENTREE_STATIC_ROOT not specified&lt;/code&gt; → 补齐后又 &lt;code&gt;BACKUP_DIR not specified&lt;/code&gt;</td><td>在 &lt;code&gt;target.yaml#runtime.env&lt;/code&gt; 一次性声明全部运行时变量，不再逐个试错</td></tr><tr><td>原生依赖</td><td>缺 GTK3，&lt;code&gt;report/models.py&lt;/code&gt; 在 import 期 &lt;code&gt;sys.exit(1)&lt;/code&gt;，整套 Django 起不来</td><td>声明式替身 &lt;code&gt;3.env/virtual/weasyprint&lt;/code&gt;：只满足导入期依赖，真实渲染一律抛 &lt;code&gt;RuntimeError&lt;/code&gt;</td></tr><tr><td>OpenAPI 导出</td><td>&lt;code&gt;manage.py spectacular&lt;/code&gt; 因 &lt;code&gt;INVE-W8: Database Migrations required&lt;/code&gt; 退出且输出 0 字节</td><td>先 &lt;code&gt;migrate --noinput&lt;/code&gt;（2 分 07 秒）再导出，得到 1.1MB openapi.yaml</td></tr><tr><td>契约矩阵</td><td>首次全量假阴性：命中 0 / 617。后端路径带 &lt;code&gt;/api&lt;/code&gt; 前缀，前端模板是相对路径</td><td>两侧统一归一化到同一坐标系（&lt;code&gt;normalize_path(consumer=True)&lt;/code&gt;）后重算 → 命中 190</td></tr><tr><td>测试运行器</td><td>&lt;code&gt;pytest&lt;/code&gt; 跑 &lt;code&gt;company&lt;/code&gt; 用 416 秒（77 例），Django 原生 runner 8.3 秒（75 例），慢 30 倍</td><td>放弃 pytest，改 Django runner + xmlrunner</td></tr><tr><td>证据落盘</td><td>全量基线丢失全部 JUnit：InvenTree &lt;code&gt;settings.py&lt;/code&gt; 写死 &lt;code&gt;TEST_RUNNER&lt;/code&gt;，环境变量被静默忽略；随后又发现 xmlrunner 只读 &lt;code&gt;settings.TEST_OUTPUT_DIR&lt;/code&gt;，XML 散落污染 git</td><td>改为 &lt;code&gt;DJANGO_SETTINGS_MODULE=flywheel_junit_settings&lt;/code&gt; 覆盖层，同时设 &lt;code&gt;TEST_OUTPUT_DIR&lt;/code&gt;</td></tr><tr><td>认证</td><td>API Token 401 &lt;code&gt;Invalid token&lt;/code&gt;：v2 token 库只存 identifier + hmac，&lt;code&gt;token.key&lt;/code&gt; 不是可用明文</td><td>&lt;code&gt;delete()&lt;/code&gt; 后重建并读 &lt;code&gt;_raw_secret&lt;/code&gt;</td></tr><tr><td>L3 黄金路径</td><td>连续 7 次失败：无可用非结构库位 / 编号不符 &lt;code&gt;PO-{ref:04d}&lt;/code&gt; / &lt;code&gt;/api/build-line/&lt;/code&gt; 404 / 该端点不返回分页信封 / &lt;code&gt;/finish/&lt;/code&gt; 要 &lt;code&gt;accept_incomplete&lt;/code&gt; / 无自动产出条目 / 工单状态 40≠30</td><td>逐个回源码与 SSOT 核对后修正；最终 26 步全通。全部坑写进代码注释</td></tr><tr><td>L3 断言口径</td><td>元件库存断言 100≠90：遍历库存条目求和，消耗后条目仍保留，得出“没扣减”的假结论</td><td>改用零件聚合字段 &lt;code&gt;part.in_stock&lt;/code&gt;（权威口径），并在函数 docstring 写明原因</td></tr><tr><td>变异锚点</td><td>&lt;code&gt;if self.quantity &gt; self.item.quantity:&lt;/code&gt; 在 order/models.py 出现 3 次，唯一匹配规则拒绝执行，M2/M3 判 invalid</td><td>给 &lt;code&gt;run_mutation.py&lt;/code&gt; 增加 &lt;code&gt;nth&lt;/code&gt; 参数只替换第 n 处，并记录 &lt;code&gt;mutated_line&lt;/code&gt; 与 &lt;code&gt;anchor_occurrences&lt;/code&gt;</td></tr><tr><td>静默失败</td><td>run_l1 的 &lt;code&gt;PY = os.environ.get("FLYWHEEL_PYTHON")&lt;/code&gt; 未设置时为 &lt;code&gt;None&lt;/code&gt;，subprocess 抛 TypeError 被吞掉；变异门禁读到上一轮残留 JUnit，报出假的 &lt;code&gt;killed&lt;/code&gt;</td><td>&lt;code&gt;PY&lt;/code&gt; 兜底为 &lt;code&gt;sys.executable&lt;/code&gt;；门禁跑前清空 run 目录，且 &lt;code&gt;run.json&lt;/code&gt; 缺失/收集为 0 一律判 invalid</td></tr><tr><td>归因判据</td><td>S2 用“文件最后一次提交的 sha”，基线自身会全体误判；实测该写法返回空串，规则静默失效。改用改动集后，assertRaises 类失败又因调用栈只到测试文件而全部落 unknown</td><td>补第二判据 S2b：基线 passed + 候选 failed + 存在改动集 → 候选引入。证据是两份 JUnit，可复算</td></tr><tr><td>等价变异体</td><td>首轮 M2（放宽超分配）/M3（短路结单守卫）判“存活”。读代码发现二者都有第二道守卫兜底，属等价变异体</td><td>不把工具的无能算成断言缺口：换掉两个锚点重挑（可追溯件整数用量 / 单据编号模式），终获 3/3</td></tr><tr><td>闸门对象漂移</td><td>can-i-deploy 取“最新一个 run.json”，而变异门禁每轮都落 run.json，于是会把某个变异体当候选集去判</td><td>候选集必须显式指定 &lt;code&gt;--candidate&lt;/code&gt;，并在判决里写出候选 run id</td></tr>
+</table>
+
+<h2>12. 怎么复现</h2>
+<pre>git clone https://github.com/aces-org-zhuang/aces-smoke-flywheel &amp;&amp; cd aces-smoke-flywheel
+python tools/emit_ssot.py --repo &lt;inventree 克隆&gt; --out 0.ssot
+python 4.gates/lint-boundary/lint.py
+python tools/run_l1.py --run-id l1-run-01
+python 4.gates/classify-failure/classify.py --run-dir 5.evidence/runs/l1-run-01 \
+       --out 5.evidence/verdicts/classification.json \
+       --debt-ledger 5.evidence/verdicts/baseline-debt.json
+python 4.gates/mutation-diff/run_mutation.py
+python 4.gates/can-i-deploy/can_i_deploy.py --candidate l1-run-01</pre>
+<p class="small">解释器需显式清掉 <code>PYTHONHOME</code>/<code>PYTHONPATH</code>（见 README 的环境声明），
+被测仓工作区必须干净——变异门禁在脏工作区会直接 ABORT，不会给出“看起来 PASS”的结论。</p>
+
+<footer>
+被测仓 <a href="https://github.com/inventree/InvenTree">inventree/InvenTree</a> @ <code>d96174c</code> ·
+交付仓 <a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">aces-org-zhuang/aces-smoke-flywheel</a> ·
+报告生成于 2026-10-31 19:03 ·
+页面所有数字来自 <code>5.evidence/</code> 与 <code>0.ssot/</code>，可逐条复算
+</footer>
+
+</div>
+</body>
+</html>

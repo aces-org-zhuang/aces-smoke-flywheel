@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockMergeTest-20261031181515" tests="3" file="stock/test_api.py" time="0.211" timestamp="2026-10-31T18:22:00" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockMergeTest" name="test_invalid_data" time="0.084" timestamp="2026-10-31T18:22:00" file="stock\test_api.py" line="4228">
+		<!--Test responses which have invalid data.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockMergeTest" name="test_missing_data" time="0.037" timestamp="2026-10-31T18:22:00" file="stock\test_api.py" line="4214">
+		<!--Test responses which are missing required data.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockMergeTest" name="test_valid_merge" time="0.091" timestamp="2026-10-31T18:22:00" file="stock\test_api.py" line="4268">
+		<!--Test valid merging of stock items.-->
+	</testcase>
+</testsuite>

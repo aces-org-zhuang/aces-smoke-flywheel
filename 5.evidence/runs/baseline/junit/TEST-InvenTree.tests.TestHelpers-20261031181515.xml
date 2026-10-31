@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestHelpers-20261031181515" tests="14" file="InvenTree/tests.py" time="0.092" timestamp="2026-10-31T18:26:38" failures="3" errors="1" skipped="0">
+	<testcase classname="InvenTree.tests.TestHelpers" name="testDecimal2String" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="708">
+		<!--Test decimal2string.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="testMediaUrl" time="0.044" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="695">
+		<!--Test getMediaUrl.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_absolute_url" time="0.007" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="624">
+		<!--Test helper function for generating an absolute URL.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_download_image_dns_rebind_blocked" time="0.002" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="783">
+		<!--A hostname that resolves safely for validation but privately for the real fetch must be blocked.
+
+Regression test: `validate_url_no_ssrf()` used to resolve the hostname once,
+validate that result, and then discard it - the actual `requests.get()` call
+resolved the same hostname again independently. An attacker controlling DNS
+for their own domain could answer the first ("check") lookup with a public IP
+and every subsequent ("use") lookup with a private/internal one (DNS
+rebinding), so the real connection went somewhere the validator never saw.
+-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_image_url" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="654">
+		<!--Test if a filename looks like an image.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_isnull" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="676">
+		<!--Test isNull.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_logo_image_custom_media" time="0.004" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="743">
+		<!--Test retrieval of a custom logo which lives in the media (uploaded) storage backend.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_model_mixin" time="0.002" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="818">
+		<!--Test the getModelsWithMixin function.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_str2bool" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="662">
+		<!--Test string to boolean conversion.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_test_key" time="0.000" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="831">
+		<!--Test for the generateTestKey function.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="testStaticUrl" time="0.002" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="684">
+		<!--Test static URL helpers.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 693, in testStaticUrl
+    self.assertTrue(helpers.checkStaticFile('img', 'blank_image.png'))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_logo_image" time="0.005" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="713">
+		<!--Test for retrieving logo image.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 723, in test_logo_image
+    self.assertTrue(logo.startswith('data:image/png;base64,'))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_logo_image_custom_static" time="0.003" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="729">
+		<!--Test retrieval of a custom logo which lives in the static storage backend.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 737, in test_logo_image_custom_static
+    self.assertTrue(logo.startswith('data:image/png;base64,'))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+	<testcase classname="InvenTree.tests.TestHelpers" name="test_download_image" time="0.020" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="769">
+		<!--Test function for downloading image from remote URL.-->
+		<error type="Exception" message="Connection error: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError(&quot;HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)&quot;)))"><![CDATA[Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+        (self._dns_host, self.port),
+    ...<2 lines>...
+        socket_options=self.socket_options,
+    )
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\helpers_model.py", line 122, in _guarded_getaddrinfo
+    raise socket.gaierror(
+        f'Host {host!r} resolved to a private or reserved address'
+    )
+socket.gaierror: Host '127.0.0.1' resolved to a private or reserved address
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connectionpool.py", line 779, in urlopen
+    self._prepare_proxy(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connectionpool.py", line 1074, in _prepare_proxy
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ~~~~~~~~~~~~~~^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connection.py", line 246, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)
+
+The above exception was the direct cause of the following exception:
+
+urllib3.exceptions.ProxyError: ('Unable to connect to proxy', NameResolutionError("HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)"))
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\helpers_model.py", line 225, in download_image_from_url
+    response = requests.get(
+        remote_url,
+    ...<3 lines>...
+        headers=headers,
+    )
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\api.py", line 87, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\requests\adapters.py", line 723, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)")))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tests.py", line 779, in test_download_image
+    InvenTree.helpers_model.download_image_from_url(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        large_img, timeout=10, max_size=10 * 1024 * 1024
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\helpers_model.py", line 261, in download_image_from_url
+    raise Exception(_('Connection error') + f': {exc!s}')
+Exception: Connection error: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError("HTTPSConnection(host='127.0.0.1', port=7897): Failed to resolve '127.0.0.1' (Host '127.0.0.1' resolved to a private or reserved address)")))
+]]></error>
+	</testcase>
+</testsuite>

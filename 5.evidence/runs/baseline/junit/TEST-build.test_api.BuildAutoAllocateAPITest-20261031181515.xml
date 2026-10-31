@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildAutoAllocateAPITest-20261031181515" tests="9" file="build/test_api.py" time="2.998" timestamp="2026-10-31T18:15:21" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_build_lines_empty_allocates_all" time="0.084" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3200">
+		<!--When build_lines is omitted, all untracked lines are allocated.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_build_lines_subset_only_allocates_selected_lines" time="0.080" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3175">
+		<!--When build_lines is specified only those lines are allocated.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_direct_match_preferred_over_variant_stock" time="0.129" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3223">
+		<!--Direct part matches are allocated ahead of variant stock (sort priority 1 vs 2).-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_exclude_location_filters_allocation" time="0.072" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3273">
+		<!--The 'exclude_location' filter excludes stock within that location.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_invalid_stock_sort_by_rejected" time="0.040" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3122">
+		<!--An unrecognised stock_sort_by value is rejected with 400.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_location_filters_allocation" time="0.068" timestamp="2026-10-31T18:15:18" file="build\test_api.py" line="3254">
+		<!--The 'location' filter restricts allocation to stock within that location.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_many_build_lines_allocated_correctly" time="2.387" timestamp="2026-10-31T18:15:21" file="build\test_api.py" line="3296">
+		<!--A build with 100 BOM lines, each with sufficient dedicated stock, is fully auto-allocated.
+
+This test is a performance benchmark for the auto-allocate endpoint,
+to ensure that auto-allocating 100x items does not cause an excessive amount of DB hits.
+-->
+		<system-out><![CDATA[Warning: 127 queries executed at /api/build/1/auto-allocate/
+Benchmark @ '/api/build/1/auto-allocate/': 127 queries (of 150) in 0.4710s (of 7.5s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_stock_sort_by_quantity_asc" time="0.066" timestamp="2026-10-31T18:15:21" file="build\test_api.py" line="3133">
+		<!--stock_sort_by=QUANTITY_ASC consumes the smallest lot first.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildAutoAllocateAPITest" name="test_stock_sort_by_quantity_desc" time="0.070" timestamp="2026-10-31T18:15:21" file="build\test_api.py" line="3151">
+		<!--stock_sort_by=QUANTITY_DESC consumes the largest lot first, covering requirement in one allocation.-->
+	</testcase>
+</testsuite>

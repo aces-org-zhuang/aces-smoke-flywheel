@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.ConversionTest-20261031181515" tests="10" file="InvenTree/tests.py" time="0.516" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_base_units" time="0.006" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="353">
+		<!--Test conversion to specified base units.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_custom_units" time="0.485" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="437">
+		<!--Tests for custom unit conversion.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_dimensionless_units" time="0.005" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="389">
+		<!--Tests for 'dimensionless' unit quantities.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_engineering_units" time="0.004" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="281">
+		<!--Test that conversion works with engineering notation.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_imperial_lengths" time="0.003" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="371">
+		<!--Test support of imperial length measurements.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_invalid_units" time="0.001" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="416">
+		<!--Test conversion with bad units.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_invalid_values" time="0.002" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="424">
+		<!--Test conversion of invalid inputs.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_prefixes" time="0.004" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="266">
+		<!--Test inputs where prefixes are used.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_scientific_notation" time="0.001" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="315">
+		<!--Test that scientific notation is handled correctly.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ConversionTest" name="test_temperature_units" time="0.005" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="328">
+		<!--Test conversion of temperature units.
+
+Ref: https://github.com/inventree/InvenTree/issues/6495
+-->
+	</testcase>
+</testsuite>

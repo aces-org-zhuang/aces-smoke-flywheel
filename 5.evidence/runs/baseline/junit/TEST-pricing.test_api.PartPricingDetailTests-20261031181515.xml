@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pricing.test_api.PartPricingDetailTests-20261031181515" tests="3" file="pricing/test_api.py" time="0.661" timestamp="2026-10-31T18:20:49" failures="0" errors="0" skipped="0">
+	<testcase classname="pricing.test_api.PartPricingDetailTests" name="test_override_validation" time="0.163" timestamp="2026-10-31T18:20:48" file="pricing\test_api.py" line="72">
+		<!--Override minimum price must not exceed override maximum price.-->
+	</testcase>
+	<testcase classname="pricing.test_api.PartPricingDetailTests" name="test_pricing_detail" time="0.025" timestamp="2026-10-31T18:20:48" file="pricing\test_api.py" line="26">
+		<!--Test an empty pricing detail.-->
+	</testcase>
+	<testcase classname="pricing.test_api.PartPricingDetailTests" name="test_pricing_permissions" time="0.474" timestamp="2026-10-31T18:20:49" file="pricing\test_api.py" line="53">
+		<!--Test that the 'pricing' role (not the 'part' role) controls access.-->
+	</testcase>
+</testsuite>

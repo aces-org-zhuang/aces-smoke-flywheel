@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_audit.StockAuditTest-20261031181515" tests="15" file="stock/test_audit.py" time="1.063" timestamp="2026-10-31T18:22:22" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_add_remove_stock" time="0.033" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="166">
+		<!--Adding / removing stock records a single entry for each operation.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_create" time="0.014" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="66">
+		<!--Creating a stock item records a single CREATE entry, with the CREATED event.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_create_serialized_via_api" time="0.138" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="96">
+		<!--Serialized items created via the API are recorded (with status).-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_create_via_api" time="0.095" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="81">
+		<!--Creating a stock item via the API records the user.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_deplete" time="0.043" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="209">
+		<!--Depleting a stock item (which is then deleted) records the event against the deletion.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_edit" time="0.114" timestamp="2026-10-31T18:22:21" file="stock\test_audit.py" line="260">
+		<!--Editing a stock item (e.g. changing the status) records a regular update entry.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_install" time="0.051" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="280">
+		<!--Installing an item records an entry against both items.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_merge" time="0.047" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="339">
+		<!--Merging stock items records the event against the merged item.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_move" time="0.025" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="124">
+		<!--Moving the entire stock item records a single entry.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_part_history" time="0.062" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="362">
+		<!--Stock item entries are included in the history of the part.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_partial_move" time="0.039" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="141">
+		<!--Moving part of a stock item records an entry for each item.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_permissions" time="0.278" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="376">
+		<!--Stock history is visible to (non-staff) users with permission to view stock.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_serialize" time="0.058" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="320">
+		<!--Serializing stock records an entry for each new item, and the original item.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_status_change" time="0.039" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="231">
+		<!--Changing the status of stock items (via the API) records a single entry for each item.-->
+	</testcase>
+	<testcase classname="stock.test_audit.StockAuditTest" name="test_stocktake" time="0.027" timestamp="2026-10-31T18:22:22" file="stock\test_audit.py" line="184">
+		<!--A stocktake is always recorded - even if the quantity is unchanged.-->
+	</testcase>
+</testsuite>

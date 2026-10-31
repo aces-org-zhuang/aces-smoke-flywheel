@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildLineTests-20261031181515" tests="8" file="build/test_api.py" time="5.235" timestamp="2026-10-31T18:15:36" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildLineTests" name="test_filter_available" time="0.263" timestamp="2026-10-31T18:15:31" file="build\test_api.py" line="1877">
+		<!--Filter BuildLine objects by 'available' status.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_filter_available_allocated_consumed_mixed" time="0.364" timestamp="2026-10-31T18:15:31" file="build\test_api.py" line="1896">
+		<!--Filter BuildLine objects with mixed allocated / consumed / stock states.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_filter_available_substitute_and_variant_stock" time="0.379" timestamp="2026-10-31T18:15:32" file="build\test_api.py" line="1985">
+		<!--Filter BuildLine objects where availability comes from substitute or variant stock.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_filter_consumable_via_part" time="0.316" timestamp="2026-10-31T18:15:32" file="build\test_api.py" line="2065">
+		<!--Filter BuildLine objects by 'consumable' status, accounting for the underlying part.
+
+A BuildLine should be treated as 'consumable' if either the BOM line
+itself is marked as consumable, or the underlying part is marked as consumable.
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_filter_consumed" time="0.448" timestamp="2026-10-31T18:15:32" file="build\test_api.py" line="2149">
+		<!--Filter for the 'consumed' status.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_list_unfiltered_count_query_has_no_group_by" time="0.220" timestamp="2026-10-31T18:15:33" file="build\test_api.py" line="2228">
+		<!--Regression test for a bug where the (unfiltered) BuildLine list endpoint was catastrophically slow.
+
+The specific trigger: a plain GET against the list endpoint with no 'build'
+filter (BuildLineMixin.get_source_build() then returns None, so
+BuildLineSerializer.annotate_queryset() runs across *every* BuildLine in the
+database, unscoped) - e.g. an external API client just paging through results.
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_ordering_unit_quantity_piece_count" time="0.224" timestamp="2026-10-31T18:15:33" file="build\test_api.py" line="2289">
+		<!--Ordering by 'unit_quantity' must account for the BOM piece_count.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildLineTests" name="test_output_options" time="3.019" timestamp="2026-10-31T18:15:36" file="build\test_api.py" line="2136">
+		<!--Test output options  for the BuildLine endpoint.-->
+	</testcase>
+</testsuite>

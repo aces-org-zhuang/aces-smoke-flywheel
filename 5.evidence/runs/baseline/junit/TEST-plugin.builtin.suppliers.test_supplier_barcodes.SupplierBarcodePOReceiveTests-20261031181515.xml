@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests-20261031181515" tests="17" file="plugin/builtin/suppliers/test_supplier_barcodes.py" time="60.769" timestamp="2026-10-31T18:24:21" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_explicit_line_item_missing_supplier_part" time="3.391" timestamp="2026-10-31T18:23:24" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="584">
+		<!--Explicitly-provided line item whose supplier part has been deleted.
+
+SupplierPart.part uses on_delete=SET_NULL, so a line item can end up with
+part=None if its supplier part is deleted after the line item was created.
+-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_multiple_matching_line_items_in_po" time="3.356" timestamp="2026-10-31T18:23:27" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="566">
+		<!--Same supplier part appears on two line items of the same PO.
+
+line_item auto-detection requires a *unique* match; with two line items
+referencing the same supplier part, it should fail cleanly instead of crashing.
+-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_no_auto_allocate" time="3.482" timestamp="2026-10-31T18:23:30" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="306">
+		<!--Test with auto_allocate explicitly disabled.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_no_matching_line_item_in_po" time="3.455" timestamp="2026-10-31T18:23:34" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="544">
+		<!--Supplier part matches globally, but is not a line item on the resolved PO.
+
+Regression test: previously line_item stayed None in this case and
+scan_receive_item raised an unhandled AttributeError, which was swallowed
+by the calling code and surfaced as a misleading 'No plugin match' error.
+-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_no_supplier_matches_when_both_missing" time="3.358" timestamp="2026-10-31T18:23:37" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="532">
+		<!--When neither PO nor supplier part can be resolved, no supplier_matches is set.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_no_supplier_plugin_error" time="3.415" timestamp="2026-10-31T18:23:41" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="508">
+		<!--Plugins that cannot resolve a supplier are listed in no_supplier_plugin_error.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_partial_match_po_found_no_supplier_part" time="3.458" timestamp="2026-10-31T18:23:44" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="466">
+		<!--Barcode references a known PO but the SKU has no matching supplier part.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_partial_match_supplier_part_found_no_po" time="3.391" timestamp="2026-10-31T18:23:48" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="487">
+		<!--Barcode references a known supplier part but the PO reference has no match.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_permission_denied" time="3.612" timestamp="2026-10-31T18:23:51" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="260">
+		<!--A user without the 'purchase_order.add' role cannot receive stock via barcode scan.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive" time="3.594" timestamp="2026-10-31T18:23:55" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="275">
+		<!--Test receiving an item from a barcode.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_custom_order_number" time="3.789" timestamp="2026-10-31T18:23:59" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="324">
+		<!--Test receiving an item from a barcode with a custom order number.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_default_line_item_location" time="3.676" timestamp="2026-10-31T18:24:02" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="367">
+		<!--Test receiving an item into the default line_item location.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_default_part_location" time="3.768" timestamp="2026-10-31T18:24:06" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="388">
+		<!--Test receiving an item into the default part location.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_includes_no_match_false" time="3.857" timestamp="2026-10-31T18:24:10" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="455">
+		<!--Successful receive merges no_match=False from the plugin response.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_missing_quantity" time="3.520" timestamp="2026-10-31T18:24:13" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="442">
+		<!--Test receiving an with missing quantity information.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_specific_order_and_location" time="3.615" timestamp="2026-10-31T18:24:17" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="418">
+		<!--Test receiving an item from a specific order into a specific location.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodePOReceiveTests" name="test_receive_stock_location" time="4.033" timestamp="2026-10-31T18:24:21" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="344">
+		<!--Test receiving an item when the location is provided.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin digikeyplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin lcscplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin tmeplugin
+  cfg.save()
+C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

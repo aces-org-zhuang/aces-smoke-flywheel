@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.InstanceInfoAPITests-20261031181515" tests="6" file="common/test_api.py" time="0.348" timestamp="2026-10-31T18:16:07" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_counts_reflect_related_objects" time="0.115" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="1351">
+		<!--Counts reflect actual attachments/notes/parameters attached to the instance.-->
+	</testcase>
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_invalid_model_id" time="0.032" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="1327">
+		<!--A non-numeric model_id is rejected.-->
+	</testcase>
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_missing_params" time="0.029" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1320">
+		<!--Both model_type and model_id are required.-->
+	</testcase>
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_nonexistent_model_type" time="0.036" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1342">
+		<!--An unsupported/unrecognized model_type returns all zeros, not an error.-->
+	</testcase>
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_note_count_respects_view_permission" time="0.093" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1387">
+		<!--note_count is gated by 'view' permission on the target model, matching NoteList.
+
+attachment_count / parameter_count are *not* gated (matching AttachmentList /
+ParameterList, neither of which apply view-permission filtering today) - this
+pins down that intentional asymmetry rather than accidentally widening or
+narrowing either behaviour.
+-->
+	</testcase>
+	<testcase classname="common.test_api.InstanceInfoAPITests" name="test_zero_counts" time="0.044" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1333">
+		<!--A part with no attachments/notes/parameters returns all zeros.-->
+	</testcase>
+</testsuite>

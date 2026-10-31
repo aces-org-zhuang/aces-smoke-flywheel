@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.TestReportTest-20261031181515" tests="13" file="report/tests.py" time="0.765" timestamp="2026-10-31T18:21:07" failures="13" errors="0" skipped="0">
+	<testcase classname="report.tests.TestReportTest" name="test_create_endpoint" time="0.059" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="141">
+		<!--Test that creating a new report works for each report.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_detail_endpoint" time="0.057" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="185">
+		<!--Test that the DETAIL endpoint works for each report.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_internal_company_context" time="0.061" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="70">
+		<!--Test that the default internal company is available in the base context.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_list_endpoint" time="0.058" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="87">
+		<!--Test that the LIST endpoint works for each report.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_mdl_build" time="0.059" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="1104">
+		<!--Test the Build model.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_mdl_returnorder" time="0.061" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="1108">
+		<!--Test the ReturnOrder model.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_mdl_salesorder" time="0.058" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="1112">
+		<!--Test the SalesOrder model.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_metadata" time="0.057" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="246">
+		<!--Unit tests for the metadata field.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_print" time="0.059" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="1016">
+		<!--Printing tests for the TestReport.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_print_build_order" time="0.062" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="337">
+		<!--Test that the built-in Build Order report renders correctly.
+
+Regression test: this report renders a build's notes via the '{% note %}'
+tag - Build.notes is now a QuerySet (via InvenTreeNoteMixin), not text, so
+the old '{{ build.notes|markdownify }}' would error out during rendering.
+-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_print_custom_template" time="0.058" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="405">
+		<!--Create a new template, print it, and check the output.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_print_stock_location" time="0.057" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="365">
+		<!--Test that the built-in Stock Location report renders each item's note.
+
+Regression test: this report renders each contained StockItem's note
+inline via the '{% note %}' tag - StockItem.notes is now a QuerySet
+(via InvenTreeNoteMixin), not text, so the old '{{ line.notes }}' would
+render a broken QuerySet repr instead of note content.
+
+Renders the template directly (rather than going through
+ReportTemplate.print(), as test_print_build_order does) because
+StockLocation.report_context() unconditionally generates a barcode,
+which depends on a barcode plugin being registered - unrelated to what
+this test is actually checking, and not reliably available in every
+test environment.
+-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="report.tests.TestReportTest" name="test_report_template_permissions" time="0.058" timestamp="2026-10-31T18:21:07" file="report\tests.py" line="264">
+		<!--Test that the user permissions are correctly applied.
+
+- For all /api/report/ endpoints, any authenticated user should have full read access
+- Write access is limited to staff users
+- Non authenticated users should have no access at all
+-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 1012, in setUp
+    self.do_activate_plugin()
+    ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\tests.py", line 945, in do_activate_plugin
+    self.assertIsNotNone(plugin)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+</testsuite>

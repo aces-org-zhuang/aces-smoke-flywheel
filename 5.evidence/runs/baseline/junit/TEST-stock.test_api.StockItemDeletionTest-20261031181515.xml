@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockItemDeletionTest-20261031181515" tests="2" file="stock/test_api.py" time="1.481" timestamp="2026-10-31T18:21:17" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockItemDeletionTest" name="test_delete" time="1.288" timestamp="2026-10-31T18:21:17" file="stock\test_api.py" line="3715">
+		<!--Test stock item deletion.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockItemDeletionTest" name="test_delete_serialized" time="0.192" timestamp="2026-10-31T18:21:17" file="stock\test_api.py" line="3739">
+		<!--Test deletion of serialized stock items.-->
+	</testcase>
+</testsuite>

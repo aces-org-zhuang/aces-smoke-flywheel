@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartNotesTests-20261031181515" tests="2" file="part/test_api.py" time="0.057" timestamp="2026-10-31T18:20:24" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartNotesTests" name="test_long_notes" time="0.026" timestamp="2026-10-31T18:20:24" file="part\test_api.py" line="2436">
+		<!--Test that a very long note content field is rejected.
+
+Notes are no longer stored directly on the Part model - they are stored
+as generic 'Note' instances, linked via a generic foreign key.
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartNotesTests" name="test_multiline_formatting" time="0.031" timestamp="2026-10-31T18:20:24" file="part\test_api.py" line="2461">
+		<!--Ensure that markdown formatting is retained in a note's content.-->
+	</testcase>
+</testsuite>

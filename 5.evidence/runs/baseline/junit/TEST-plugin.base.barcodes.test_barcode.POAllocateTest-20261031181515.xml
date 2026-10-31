@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.barcodes.test_barcode.POAllocateTest-20261031181515" tests="1" file="plugin/base/barcodes/test_barcode.py" time="0.106" timestamp="2026-10-31T18:22:45" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.base.barcodes.test_barcode.POAllocateTest" name="test_permission_denied" time="0.106" timestamp="2026-10-31T18:22:45" file="plugin\base\barcodes\test_barcode.py" line="373">
+		<!--A user without the 'purchase_order.add' role cannot allocate against a PO via barcode scan.-->
+	</testcase>
+</testsuite>

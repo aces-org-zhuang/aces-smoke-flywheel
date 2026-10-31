@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.test_tags.BarcodeTagTest-20261031181515" tests="10" file="report/test_tags.py" time="0.046" timestamp="2026-10-31T18:20:59" failures="2" errors="1" skipped="0">
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_2d_barcode_svg_renderer" time="0.002" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1227">
+		<!--Test vector rendering of a two-dimensional barcode matrix.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_barcode" time="0.008" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1151">
+		<!--Test the barcode generation tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_clean_barcode" time="0.001" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1187">
+		<!--Test clean_barcode tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix_raster_geometry" time="0.005" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1092">
+		<!--Raster output preserves modules, borders, colors, and scaling.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix_svg" time="0.004" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1257">
+		<!--Test SVG output from the Data Matrix template tag.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix_svg_geometry" time="0.006" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1284">
+		<!--SVG modules retain the encoded matrix geometry at different scales.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix_svg_template" time="0.002" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1327">
+		<!--The template tag produces embeddable SVG and rejects empty data.-->
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix" time="0.009" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1197">
+		<!--Test the datamatrix generation tag.-->
+		<failure type="AssertionError" message="'data[76 chars]AAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZY[186 chars]gg==' != 'data[76 chars]AAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCg[182 chars]gg=='&#10;- data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZYCkfcdhZgA+jTfExgGbK2nqQfJUlDZsBgA0BpEP+xIwIFXiDGo1FzhvFU8j1c99PV7nW21JlW0SQm31EFy1ItfiSktUCd6bkKa74TzY+RmeqA0ehTluD9lE2yjLydp17F5sxW1PVpLUrsHJ6o23PnTmj/925//7phck1eOtEo/VXwAAAABJRU5ErkJggg==&#10;+ data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCgZJnNsFICKOPAAIjeSM5T11IznK5f5WRMgnkhP9JfCcTC/MxFZ5hxLOgqrn3o/z/OqtsNpdSL31Iu9W4Dq8Sulu+q5Nuqa3XYOdnuidlICPpXhZVBruyzAKSZehT+yNlzvZQcq6JiW7Ni592swf/43kdlDfdgMk1eOtR7kWpAAAAABJRU5ErkJggg==&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\test_tags.py", line 1201, in test_datamatrix
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        datamatrix,
+        ^^^^^^^^^^^
+        'data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCgZJnNsFICKOPAAIjeSM5T11IznK5f5WRMgnkhP9JfCcTC/MxFZ5hxLOgqrn3o/z/OqtsNpdSL31Iu9W4Dq8Sulu+q5Nuqa3XYOdnuidlICPpXhZVBruyzAKSZehT+yNlzvZQcq6JiW7Ni592swf/43kdlDfdgMk1eOtR7kWpAAAAABJRU5ErkJggg==',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'data[76 chars]AAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZY[186 chars]gg==' != 'data[76 chars]AAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCg[182 chars]gg=='
+- data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZYCkfcdhZgA+jTfExgGbK2nqQfJUlDZsBgA0BpEP+xIwIFXiDGo1FzhvFU8j1c99PV7nW21JlW0SQm31EFy1ItfiSktUCd6bkKa74TzY+RmeqA0ehTluD9lE2yjLydp17F5sxW1PVpLUrsHJ6o23PnTmj/925//7phck1eOtEo/VXwAAAABJRU5ErkJggg==
++ data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCgZJnNsFICKOPAAIjeSM5T11IznK5f5WRMgnkhP9JfCcTC/MxFZ5hxLOgqrn3o/z/OqtsNpdSL31Iu9W4Dq8Sulu+q5Nuqa3XYOdnuidlICPpXhZVBruyzAKSZehT+yNlzvZQcq6JiW7Ni592swf/43kdlDfdgMk1eOtR7kWpAAAAABJRU5ErkJggg==
+
+]]></failure>
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_qrcode" time="0.007" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1167">
+		<!--Test the qrcode generation tag.-->
+		<failure type="AssertionError" message="968 != 700"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\test_tags.py", line 1173, in test_qrcode
+    self.assertEqual(len(qrcode), 700)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+AssertionError: 968 != 700
+]]></failure>
+	</testcase>
+	<testcase classname="report.test_tags.BarcodeTagTest" name="test_datamatrix_svg_pdf" time="0.003" timestamp="2026-10-31T18:20:59" file="report\test_tags.py" line="1342">
+		<!--PDF output contains painted vector modules, not a missing image.-->
+		<error type="RuntimeError" message="weasyprint is virtualised in this environment: PDF rendering is unavailable"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\report\test_tags.py", line 1354, in test_datamatrix_svg_pdf
+    pdf = HTML(string=html).write_pdf()
+          ~~~~^^^^^^^^^^^^^
+  File "D:\wbeval\virtual\weasyprint\__init__.py", line 14, in __init__
+    raise RuntimeError(
+        "weasyprint is virtualised in this environment: PDF rendering is unavailable"
+    )
+RuntimeError: weasyprint is virtualised in this environment: PDF rendering is unavailable
+]]></error>
+	</testcase>
+</testsuite>

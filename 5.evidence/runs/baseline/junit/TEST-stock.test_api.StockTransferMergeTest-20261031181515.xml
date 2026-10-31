@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockTransferMergeTest-20261031181515" tests="7" file="stock/test_api.py" time="0.747" timestamp="2026-10-31T18:22:07" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_merge_does_not_copy_source_tracking" time="0.093" timestamp="2026-10-31T18:22:06" file="stock\test_api.py" line="3497">
+		<!--Transfer merge keeps destination history and adds a single merge entry.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_merge_partial_reuses_split_transfer_deltas" time="0.098" timestamp="2026-10-31T18:22:06" file="stock\test_api.py" line="3558">
+		<!--Partial merge reuses split transfer deltas on the merge tracking entry.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_merge_skips_protected_source" time="0.116" timestamp="2026-10-31T18:22:06" file="stock\test_api.py" line="3594">
+		<!--Merge-on-transfer must not absorb items in a protected state.
+
+Regression test: only the *target* item used to be validated, so a
+transfer with merge=True could absorb (and delete) an in-production
+build output. Such items must be moved as a separate lot instead.
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_merge_with_status_change" time="0.194" timestamp="2026-10-31T18:22:06" file="stock\test_api.py" line="3639">
+		<!--Merge-on-transfer must match against the *requested* status.
+
+Regression test for https://github.com/inventree/InvenTree/issues/13086
+The merge target used to be selected using the current status of the item,
+so a full transfer with a new status was merged into stock with the old status.
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_mixed_merge_per_item" time="0.100" timestamp="2026-10-31T18:22:06" file="stock\test_api.py" line="3464">
+		<!--Each transfer line can merge or move independently.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_with_merge_combines_lots" time="0.084" timestamp="2026-10-31T18:22:07" file="stock\test_api.py" line="3438">
+		<!--Transfer with merge combines into an existing compatible lot.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockTransferMergeTest" name="test_transfer_without_merge_creates_separate_lot" time="0.063" timestamp="2026-10-31T18:22:07" file="stock\test_api.py" line="3413">
+		<!--Transfer without merge leaves multiple stock rows at destination.-->
+	</testcase>
+</testsuite>

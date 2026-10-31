@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.CustomUnitAPITest-20261031181515" tests="6" file="common/tests.py" time="4.237" timestamp="2026-10-31T18:17:25" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_api" time="0.404" timestamp="2026-10-31T18:17:21" file="common\tests.py" line="2291">
+		<!--Test the CustomUnit API.-->
+	</testcase>
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_api_circular_unit" time="2.505" timestamp="2026-10-31T18:17:23" file="common\tests.py" line="2299">
+		<!--Test that a pre-existing circular unit definition does not break the 'all units' endpoint.
+
+It is not possible to *create* a circular definition via the API (refer to
+test_validation_circular), but this test guards against any other way such
+a definition could end up in the database (e.g. a direct DB edit, or a bug
+in some other validation path).
+
+Ref: https://github.com/inventree/InvenTree/issues/12813
+-->
+	</testcase>
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_edit" time="0.525" timestamp="2026-10-31T18:17:24" file="common\tests.py" line="2221">
+		<!--Test edit permissions for CustomUnit model.-->
+	</testcase>
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_list" time="0.018" timestamp="2026-10-31T18:17:24" file="common\tests.py" line="2216">
+		<!--Test API list functionality.-->
+	</testcase>
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_validation" time="0.053" timestamp="2026-10-31T18:17:24" file="common\tests.py" line="2249">
+		<!--Test that validation works as expected.-->
+	</testcase>
+	<testcase classname="common.tests.CustomUnitAPITest" name="test_validation_circular" time="0.731" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="2265">
+		<!--Test that circular / recursive unit definitions are rejected.
+
+Ref: https://github.com/inventree/InvenTree/issues/12813
+-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.SchemaPostprocessingTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.002" timestamp="2026-10-31T18:26:38" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.SchemaPostprocessingTest" name="test_file_field_request_schema_binary" time="0.001" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="1995">
+		<!--Verify only request file fields are exposed as binary.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.SchemaPostprocessingTest" name="test_postprocess_required_nullable" time="0.001" timestamp="2026-10-31T18:26:38" file="InvenTree\tests.py" line="1958">
+		<!--Verify that only selected elements are removed from required list.-->
+	</testcase>
+</testsuite>

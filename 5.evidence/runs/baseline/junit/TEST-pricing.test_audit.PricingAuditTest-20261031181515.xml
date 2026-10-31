@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pricing.test_audit.PricingAuditTest-20261031181515" tests="5" file="pricing/test_audit.py" time="0.595" timestamp="2026-10-31T18:20:50" failures="0" errors="0" skipped="0">
+	<testcase classname="pricing.test_audit.PricingAuditTest" name="test_internal_price_breaks" time="0.113" timestamp="2026-10-31T18:20:50" file="pricing\test_audit.py" line="103">
+		<!--Internal price break changes are recorded against the part.-->
+	</testcase>
+	<testcase classname="pricing.test_audit.PricingAuditTest" name="test_pricing_overrides" time="0.049" timestamp="2026-10-31T18:20:50" file="pricing\test_audit.py" line="111">
+		<!--Only the user-specified pricing overrides are recorded.-->
+	</testcase>
+	<testcase classname="pricing.test_audit.PricingAuditTest" name="test_pricing_permission" time="0.280" timestamp="2026-10-31T18:20:50" file="pricing\test_audit.py" line="146">
+		<!--Pricing entries require the 'pricing' role, even via the part history.-->
+	</testcase>
+	<testcase classname="pricing.test_audit.PricingAuditTest" name="test_recalculation_not_recorded" time="0.041" timestamp="2026-10-31T18:20:50" file="pricing\test_audit.py" line="134">
+		<!--Automatic pricing recalculation (cached values) is not recorded.-->
+	</testcase>
+	<testcase classname="pricing.test_audit.PricingAuditTest" name="test_sale_price_breaks" time="0.112" timestamp="2026-10-31T18:20:50" file="pricing\test_audit.py" line="97">
+		<!--Sale price break changes are recorded against the part.-->
+	</testcase>
+</testsuite>

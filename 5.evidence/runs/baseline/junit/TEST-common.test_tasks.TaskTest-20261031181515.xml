@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_tasks.TaskTest-20261031181515" tests="1" file="common/test_tasks.py" time="0.004" timestamp="2026-10-31T18:17:06" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_tasks.TaskTest" name="test_delete" time="0.004" timestamp="2026-10-31T18:17:06" file="common\test_tasks.py" line="15">
+		<!--Test that the task `delete_old_notifications` runs through without errors.-->
+	</testcase>
+</testsuite>

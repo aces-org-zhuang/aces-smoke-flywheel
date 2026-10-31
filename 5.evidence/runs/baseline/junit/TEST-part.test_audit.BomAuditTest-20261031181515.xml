@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_audit.BomAuditTest-20261031181515" tests="5" file="part/test_audit.py" time="0.584" timestamp="2026-10-31T18:20:27" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_audit.BomAuditTest" name="test_bom_item" time="0.316" timestamp="2026-10-31T18:20:27" file="part\test_audit.py" line="211">
+		<!--BOM item changes via the API are recorded against the assembly.-->
+	</testcase>
+	<testcase classname="part.test_audit.BomAuditTest" name="test_copy_bom" time="0.083" timestamp="2026-10-31T18:20:27" file="part\test_audit.py" line="331">
+		<!--Copying a BOM is recorded against the new assembly.-->
+	</testcase>
+	<testcase classname="part.test_audit.BomAuditTest" name="test_substitute_cascade_delete" time="0.029" timestamp="2026-10-31T18:20:27" file="part\test_audit.py" line="312">
+		<!--Substitutes deleted along with their BOM item retain the assembly reference.-->
+	</testcase>
+	<testcase classname="part.test_audit.BomAuditTest" name="test_substitutes" time="0.099" timestamp="2026-10-31T18:20:27" file="part\test_audit.py" line="278">
+		<!--Substitute changes are recorded against the assembly (not the BOM item).-->
+	</testcase>
+	<testcase classname="part.test_audit.BomAuditTest" name="test_validate_bom" time="0.057" timestamp="2026-10-31T18:20:27" file="part\test_audit.py" line="251">
+		<!--Validating the BOM (which re-saves every line) records no BOM item entries.-->
+	</testcase>
+</testsuite>

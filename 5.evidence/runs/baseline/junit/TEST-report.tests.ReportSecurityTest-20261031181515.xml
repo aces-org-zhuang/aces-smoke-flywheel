@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="report.tests.ReportSecurityTest-20261031181515" tests="3" file="report/tests.py" time="0.024" timestamp="2026-10-31T18:21:04" failures="0" errors="0" skipped="0">
+	<testcase classname="report.tests.ReportSecurityTest" name="test_blocked_models" time="0.008" timestamp="2026-10-31T18:21:04" file="report\tests.py" line="1729">
+		<!--Blocked models cannot be queried via the template tag.-->
+	</testcase>
+	<testcase classname="report.tests.ReportSecurityTest" name="test_normal_access" time="0.010" timestamp="2026-10-31T18:21:04" file="report\tests.py" line="1747">
+		<!--Regular models still work.-->
+	</testcase>
+	<testcase classname="report.tests.ReportSecurityTest" name="test_traversal_blocked" time="0.007" timestamp="2026-10-31T18:21:04" file="report\tests.py" line="1737">
+		<!--Raw queries on blocked tables are rejected, even without the tag.-->
+	</testcase>
+</testsuite>

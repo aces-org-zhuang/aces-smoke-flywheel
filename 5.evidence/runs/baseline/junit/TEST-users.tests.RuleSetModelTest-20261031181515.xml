@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.RuleSetModelTest-20261031181515" tests="5" file="users/tests.py" time="1.558" timestamp="2026-10-31T18:22:42" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.RuleSetModelTest" name="test_model_names" time="0.001" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="67">
+		<!--Test that each model defined in the rulesets is valid, based on the database schema!-->
+	</testcase>
+	<testcase classname="users.tests.RuleSetModelTest" name="test_permission_assign" time="1.206" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="148">
+		<!--Test that the permission assigning works!-->
+	</testcase>
+	<testcase classname="users.tests.RuleSetModelTest" name="test_permission_inherit_stable" time="0.350" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="197">
+		<!--Inherited child permissions must survive repeated group updates.
+
+The 'part' role grants permissions against 'part_bomitem' via RULESET_CHANGE_INHERIT,
+even though 'part_bomitem' is not covered by the 'part' role directly.
+These inherited permissions must not be dropped (or toggled) on subsequent updates.
+-->
+	</testcase>
+	<testcase classname="users.tests.RuleSetModelTest" name="test_ruleset_models" time="0.001" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="30">
+		<!--Test that the role rulesets work as intended.-->
+	</testcase>
+	<testcase classname="users.tests.RuleSetModelTest" name="test_scope_names" time="0.000" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="127">
+		<!--Ensure that the rulesets map to scopes and vice versa.-->
+	</testcase>
+</testsuite>

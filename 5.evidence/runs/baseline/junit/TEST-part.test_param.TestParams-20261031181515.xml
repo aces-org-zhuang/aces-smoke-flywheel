@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_param.TestParams-20261031181515" tests="8" file="part/test_param.py" time="0.181" timestamp="2026-10-31T18:20:41" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_param.TestParams" name="test_get_parameter" time="0.007" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="95">
+		<!--Test the Part.get_parameter method.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_invalid_numbers" time="0.029" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="59">
+		<!--Test that invalid floating point numbers are correctly handled.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_locked_part" time="0.062" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="108">
+		<!--Test parameter editing for a locked part.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_locked_part_locking_disabled" time="0.052" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="145">
+		<!--Test that parameter restrictions are lifted when PART_ENABLE_LOCKING is disabled.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_metadata" time="0.015" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="78">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_str" time="0.002" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="20">
+		<!--Test the str representation of the ParameterTemplate model.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_updated" time="0.010" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="32">
+		<!--Test that the 'updated' field is correctly set.-->
+	</testcase>
+	<testcase classname="part.test_param.TestParams" name="test_validate" time="0.004" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="44">
+		<!--Test validation for part templates.-->
+	</testcase>
+</testsuite>

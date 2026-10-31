@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_serializers.FilteredSerializers-20261031181515" tests="2" file="InvenTree/test_serializers.py" time="0.448" timestamp="2026-10-31T18:26:26" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_serializers.FilteredSerializers" name="test_basic_setup" time="0.239" timestamp="2026-10-31T18:26:26" file="InvenTree\test_serializers.py" line="186">
+		<!--Test simple sample setup.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.FilteredSerializers" name="test_permission_gating" time="0.209" timestamp="2026-10-31T18:26:26" file="InvenTree\test_serializers.py" line="226">
+		<!--An OptionalField which embeds a model should respect the model's permissions.
+
+'field_f' defaults to included, but declares 'model=Part' - it should only
+appear in the response if the requesting user actually has 'part.view'.
+-->
+	</testcase>
+</testsuite>

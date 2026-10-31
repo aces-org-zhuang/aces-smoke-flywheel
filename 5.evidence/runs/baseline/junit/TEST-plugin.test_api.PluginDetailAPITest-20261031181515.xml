@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.test_api.PluginDetailAPITest-20261031181515" tests="15" file="plugin/test_api.py" time="17.621" timestamp="2026-10-31T18:24:54" failures="7" errors="1" skipped="0">
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_admin_action" time="2.532" timestamp="2026-10-31T18:24:39" file="plugin\test_api.py" line="251">
+		<!--Test the PluginConfig action commands.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_check_plugin" time="0.708" timestamp="2026-10-31T18:24:40" file="plugin\test_api.py" line="346">
+		<!--Test check_plugin function.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_model" time="1.870" timestamp="2026-10-31T18:24:42" file="plugin\test_api.py" line="311">
+		<!--Test the PluginConfig model.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_config_delete" time="0.864" timestamp="2026-10-31T18:24:44" file="plugin\test_api.py" line="236">
+		<!--Test deleting a config.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_deactivate_mandatory" time="0.791" timestamp="2026-10-31T18:24:44" file="plugin\test_api.py" line="175">
+		<!--Test deactivating a mandatory plugin.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_user_settings" time="0.893" timestamp="2026-10-31T18:24:52" file="plugin\test_api.py" line="431">
+		<!--Test the PluginUserSetting API endpoints.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_registry" time="1.126" timestamp="2026-10-31T18:24:53" file="plugin\test_api.py" line="507">
+		<!--Test registry endpoint for plugin.-->
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_filter_by_mixin" time="2.102" timestamp="2026-10-31T18:24:46" file="plugin\test_api.py" line="520">
+		<!--Test filtering plugins by mixin.-->
+		<failure type="AssertionError" message="0 != 1"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 543, in test_plugin_filter_by_mixin
+    self.assertEqual(len(data), expected_count)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_filters" time="2.059" timestamp="2026-10-31T18:24:49" file="plugin\test_api.py" line="549">
+		<!--Unit testing for plugin API filters.-->
+		<failure type="AssertionError" message="0 not greater than 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 582, in test_plugin_filters
+    self.assertGreater(Y_BUILTIN, 0)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+AssertionError: 0 not greater than 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_install" time="0.812" timestamp="2026-10-31T18:24:49" file="plugin\test_api.py" line="62">
+		<!--Test the plugin install command.-->
+		<failure type="AssertionError" message="'ERROR: Could not find a version that satisfies the requirement' not found in &quot;{'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}&quot;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 92, in test_plugin_install
+    self.assertIn(
+    ~~~~~~~~~~~~~^
+        'ERROR: Could not find a version that satisfies the requirement', str(data)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: 'ERROR: Could not find a version that satisfies the requirement' not found in "{'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}"
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_metadata" time="0.608" timestamp="2026-10-31T18:24:50" file="plugin\test_api.py" line="489">
+		<!--Test metadata endpoint for plugin.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 495, in test_plugin_metadata
+    self.assertIsNotNone(cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_settings" time="0.560" timestamp="2026-10-31T18:24:51" file="plugin\test_api.py" line="363">
+		<!--Test plugin settings access via the API.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 371, in test_plugin_settings
+    self.assertIsNotNone(cfg)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_uninstall" time="0.818" timestamp="2026-10-31T18:24:51" file="plugin\test_api.py" line="26">
+		<!--Test plugin uninstall command.-->
+		<failure type="AssertionError" message="404 != 400"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 42, in test_plugin_uninstall
+    data = self.patch(url, expected_code=400).data
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 607, in patch
+    return self.query(url, self.client.patch, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 400
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/uninstall/': status_code = 404 (expected 400)
+data: {'detail': ErrorDetail(string='No PluginConfig matches the given query.', code='not_found')}
+content: b'{"detail":"No PluginConfig matches the given query."}'
+]]></system-out>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_settings" time="0.802" timestamp="2026-10-31T18:24:54" file="plugin\test_api.py" line="499">
+		<!--Test settings endpoint for plugin.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 505, in test_settings
+    self.get(url, expected_code=200)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 582, in get
+    return self.query(url, self.client.get, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/settings/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'sample' not installed", code='not_found')}
+content: b'{"detail":"Plugin \'sample\' not installed"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="plugin.test_api.PluginDetailAPITest" name="test_plugin_activate" time="1.076" timestamp="2026-10-31T18:24:43" file="plugin\test_api.py" line="191">
+		<!--Test the plugin activation API endpoint.-->
+		<error type="DoesNotExist" message="PluginConfig matching query does not exist."><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\test_api.py", line 193, in test_plugin_activate
+    test_plg = PluginConfig.objects.get(key='samplelocate')
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\query.py", line 635, in get
+    raise self.model.DoesNotExist(
+        "%s matching query does not exist." % self.model._meta.object_name
+    )
+plugin.models.PluginConfig.DoesNotExist: PluginConfig matching query does not exist.
+]]></error>
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.AdminTest-20261031181515" tests="3" file="users/tests.py" time="0.436" timestamp="2026-10-31T18:22:39" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.AdminTest" name="test_admin" time="0.209" timestamp="2026-10-31T18:22:39" file="users\tests.py" line="452">
+		<!--Test the admin URL.-->
+	</testcase>
+	<testcase classname="users.tests.AdminTest" name="test_owner_admin_autocomplete" time="0.033" timestamp="2026-10-31T18:22:39" file="users\tests.py" line="537">
+		<!--Test admin autocomplete endpoint for SalesOrder responsible field.-->
+	</testcase>
+	<testcase classname="users.tests.AdminTest" name="test_owner_admin_search" time="0.194" timestamp="2026-10-31T18:22:39" file="users\tests.py" line="466">
+		<!--Test search functionality in OwnerAdmin.-->
+	</testcase>
+</testsuite>

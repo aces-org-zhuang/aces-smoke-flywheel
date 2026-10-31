@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.TaskListApiTests-20261031181515" tests="3" file="common/tests.py" time="0.276" timestamp="2026-10-31T18:17:38" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.TaskListApiTests" name="test_pending_tasks" time="0.208" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="1195">
+		<!--Test that the pending tasks endpoint is available.-->
+	</testcase>
+	<testcase classname="common.tests.TaskListApiTests" name="test_scheduled_tasks" time="0.020" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="1217">
+		<!--Test that the scheduled tasks endpoint is available.-->
+	</testcase>
+	<testcase classname="common.tests.TaskListApiTests" name="test_task_detail" time="0.048" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="1235">
+		<!--Test the BackgroundTaskDetail API endpoint.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:505: UserWarning: WARNING: 'fake_module.test_task' not started - No module named 'fake_module'
+  raise_warning(
+]]></system-err>
+	</testcase>
+</testsuite>

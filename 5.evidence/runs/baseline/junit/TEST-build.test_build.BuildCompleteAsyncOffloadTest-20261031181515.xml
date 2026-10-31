@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildCompleteAsyncOffloadTest-20261031181515" tests="1" file="build/test_build.py" time="0.187" timestamp="2026-10-31T18:15:52" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.BuildCompleteAsyncOffloadTest" name="test_complete_build_after_genuine_async_offload" time="0.187" timestamp="2026-10-31T18:15:52" file="build\test_build.py" line="2236">
+		<!--Completing a build via a truly-offloaded task must still consume stock correctly.-->
+	</testcase>
+</testsuite>

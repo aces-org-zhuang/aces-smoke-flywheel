@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.DeleteOldNotesImagesTaskTest-20261031181515" tests="4" file="common/tests.py" time="0.107" timestamp="2026-10-31T18:17:25" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.DeleteOldNotesImagesTaskTest" name="test_missing_file_is_removed_regardless_of_age" time="0.028" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="2069">
+		<!--An image whose file no longer exists in storage is removed, even if recent.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotesImage.date received a naive datetime (2026-08-02 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="common.tests.DeleteOldNotesImagesTaskTest" name="test_old_referenced_image_is_kept" time="0.029" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="2057">
+		<!--An old image still referenced by its note's content is kept.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotesImage.date received a naive datetime (2026-08-02 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="common.tests.DeleteOldNotesImagesTaskTest" name="test_old_unreferenced_image_is_removed" time="0.024" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="2051">
+		<!--An old image no longer referenced by its note's content is removed.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotesImage.date received a naive datetime (2026-08-02 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="common.tests.DeleteOldNotesImagesTaskTest" name="test_recent_unreferenced_image_is_kept" time="0.026" timestamp="2026-10-31T18:17:25" file="common\tests.py" line="2063">
+		<!--A recently-uploaded, unreferenced image is kept - not yet old enough.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotesImage.date received a naive datetime (2026-08-02 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+</testsuite>

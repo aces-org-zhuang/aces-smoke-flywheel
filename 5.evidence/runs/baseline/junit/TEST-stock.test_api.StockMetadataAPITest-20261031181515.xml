@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockMetadataAPITest-20261031181515" tests="1" file="stock/test_api.py" time="0.130" timestamp="2026-10-31T18:22:00" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockMetadataAPITest" name="test_metadata" time="0.130" timestamp="2026-10-31T18:22:00" file="stock\test_api.py" line="4337">
+		<!--Test all endpoints.-->
+	</testcase>
+</testsuite>

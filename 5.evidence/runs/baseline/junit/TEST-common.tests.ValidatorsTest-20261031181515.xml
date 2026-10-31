@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.ValidatorsTest-20261031181515" tests="1" file="common/tests.py" time="0.000" timestamp="2026-10-31T18:17:39" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.ValidatorsTest" name="test_validate_icon" time="0.000" timestamp="2026-10-31T18:17:39" file="common\tests.py" line="2392">
+		<!--Test the validate_icon function.-->
+	</testcase>
+</testsuite>

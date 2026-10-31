@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_param.TestCategoryTemplates-20261031181515" tests="1" file="part/test_param.py" time="0.003" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_param.TestCategoryTemplates" name="test_validate" time="0.003" timestamp="2026-10-31T18:26:58" file="part\test_param.py" line="188">
+		<!--Test that category templates are correctly applied to Part instances.-->
+	</testcase>
+</testsuite>

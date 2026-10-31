@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests-20261031181515" tests="2" file="plugin/samples/event/test_filtered_event_sample.py" time="1.469" timestamp="2026-10-31T18:24:29" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests" name="test_ignore_event" time="0.719" timestamp="2026-10-31T18:24:28" file="plugin\samples\event\test_filtered_event_sample.py" line="27">
+		<!--Check if the event is issued.-->
+	</testcase>
+	<testcase classname="plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests" name="test_run_event" time="0.750" timestamp="2026-10-31T18:24:29" file="plugin\samples\event\test_filtered_event_sample.py" line="13">
+		<!--Check if the event is issued.-->
+		<failure type="AssertionError" message="'Event `test.event` triggered in sample plugin' not found in '[\'DEBUG:inventree:{\\\'event\\\': &quot;Event triggered: \\\'test.event\\\'&quot;, \\\'timestamp\\\': \\\'2026-10-31T10:24:29.132855Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\', \'DEBUG:inventree:{\\\'event\\\': &quot;Registering triggered event: \\\'test.event\\\'&quot;, \\\'timestamp\\\': \\\'2026-10-31T10:24:29.135197Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\']'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\event\test_filtered_event_sample.py", line 25, in test_run_event
+    self.assertIn('Event `test.event` triggered in sample plugin', str(cm[1]))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'Event `test.event` triggered in sample plugin' not found in '[\'DEBUG:inventree:{\\\'event\\\': "Event triggered: \\\'test.event\\\'", \\\'timestamp\\\': \\\'2026-10-31T10:24:29.132855Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\', \'DEBUG:inventree:{\\\'event\\\': "Registering triggered event: \\\'test.event\\\'", \\\'timestamp\\\': \\\'2026-10-31T10:24:29.135197Z\\\', \\\'logger\\\': \\\'inventree\\\', \\\'level\\\': \\\'debug\\\'}\']'
+]]></failure>
+	</testcase>
+</testsuite>

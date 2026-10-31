@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest-20261031181515" tests="10" file="InvenTree/test_helpers_db.py" time="0.342" timestamp="2026-10-31T18:26:08" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_basic" time="0.009" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="19">
+		<!--Created items are returned with populated, unique primary keys.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_does_not_mutate_caller_filters" time="0.005" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="118">
+		<!--The caller-provided 'filters' dict should not be mutated as a side effect.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_empty_list" time="0.001" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="113">
+		<!--Calling with an empty list of items should not raise, and return no items.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_ignores_pre_existing_rows" time="0.007" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="66">
+		<!--The 'search floor' should exclude pre-existing rows in the table.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_insertion_order" time="0.008" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="102">
+		<!--Results are returned in insertion order (callers zip them against the input).-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_preserves_metadata" time="0.007" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="79">
+		<!--Metadata provided with the input items is retained (in the database and on the items).-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_purchase_order" time="0.028" timestamp="2026-10-31T18:26:07" file="InvenTree\test_helpers_db.py" line="126">
+		<!--The helper works for the PurchaseOrder model.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_query_count_is_constant" time="0.186" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="191">
+		<!--The number of queries used should not depend on the number of created items.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_stock_item" time="0.081" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="152">
+		<!--The helper works for the StockItem model.-->
+	</testcase>
+	<testcase classname="InvenTree.test_helpers_db.BulkCreateAndFetchFallbackTest" name="test_with_filters" time="0.010" timestamp="2026-10-31T18:26:08" file="InvenTree\test_helpers_db.py" line="45">
+		<!--Additional filters correctly scope the returned queryset.-->
+	</testcase>
+</testsuite>

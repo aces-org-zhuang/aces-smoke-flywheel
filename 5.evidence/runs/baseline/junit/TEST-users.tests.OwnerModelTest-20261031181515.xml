@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.OwnerModelTest-20261031181515" tests="4" file="users/tests.py" time="0.243" timestamp="2026-10-31T18:22:40" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.OwnerModelTest" name="test_api" time="0.116" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="293">
+		<!--Test user APIs.-->
+	</testcase>
+	<testcase classname="users.tests.OwnerModelTest" name="test_display_name" time="0.021" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="359">
+		<!--Test the display name for the owner.-->
+	</testcase>
+	<testcase classname="users.tests.OwnerModelTest" name="test_owner" time="0.052" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="252">
+		<!--Tests for the 'owner' model.-->
+	</testcase>
+	<testcase classname="users.tests.OwnerModelTest" name="test_token" time="0.053" timestamp="2026-10-31T18:22:40" file="users\tests.py" line="336">
+		<!--Test token mechanisms.-->
+	</testcase>
+</testsuite>

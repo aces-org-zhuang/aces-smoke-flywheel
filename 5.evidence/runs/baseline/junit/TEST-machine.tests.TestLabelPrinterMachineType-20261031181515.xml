@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="machine.tests.TestLabelPrinterMachineType-20261031181515" tests="5" file="machine/tests.py" time="0.480" timestamp="2026-10-31T18:17:55" failures="5" errors="0" skipped="0">
+	<testcase classname="machine.tests.TestLabelPrinterMachineType" name="test_call_function" time="0.104" timestamp="2026-10-31T18:17:54" file="machine\tests.py" line="217">
+		<!--Test arbitrary function calls against a machine.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 221, in test_call_function
+    machine = self.create_machine('test-label-printer-api')
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 201, in create_machine
+    self.assertIsNotNone(driver)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="machine.tests.TestLabelPrinterMachineType" name="test_location_invalid_pk" time="0.100" timestamp="2026-10-31T18:17:54" file="machine\tests.py" line="386">
+		<!--Test that location property returns None for an invalid PK without raising.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 388, in test_location_invalid_pk
+    machine = self.create_machine('test-label-printer-api')
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 201, in create_machine
+    self.assertIsNotNone(driver)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="machine.tests.TestLabelPrinterMachineType" name="test_print_label" time="0.099" timestamp="2026-10-31T18:17:54" file="machine\tests.py" line="230">
+		<!--Test the print label method.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 234, in test_print_label
+    machine = self.create_machine('test-label-printer-api')
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 201, in create_machine
+    self.assertIsNotNone(driver)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="machine.tests.TestLabelPrinterMachineType" name="test_printing_options_serializer" time="0.098" timestamp="2026-10-31T18:17:54" file="machine\tests.py" line="300">
+		<!--Test the printing options serializer.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 304, in test_printing_options_serializer
+    machine = self.create_machine('test-label-printer-options')
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 201, in create_machine
+    self.assertIsNotNone(driver)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+	<testcase classname="machine.tests.TestLabelPrinterMachineType" name="test_registration" time="0.079" timestamp="2026-10-31T18:17:55" file="machine\tests.py" line="177">
+		<!--Test that the machine is correctly registered from the plugin.-->
+		<failure type="AssertionError" message="unexpectedly None"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\tests.py", line 187, in test_registration
+    self.assertIsNotNone(machine)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+AssertionError: unexpectedly None
+]]></failure>
+	</testcase>
+</testsuite>

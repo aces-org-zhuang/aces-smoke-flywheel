@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderTest-20261031181515" tests="17" file="order/test_api.py" time="4.503" timestamp="2026-10-31T18:18:48" failures="0" errors="1" skipped="0">
+	<testcase classname="order.test_api.SalesOrderTest" name="test_output_options" time="0.083" timestamp="2026-10-31T18:18:44" file="order\test_api.py" line="3020">
+		<!--Test the output options for the SalesOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_overdue" time="0.200" timestamp="2026-10-31T18:18:44" file="order\test_api.py" line="2561">
+		<!--Test "overdue" status.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_sales_order_complete" time="0.255" timestamp="2026-10-31T18:18:44" file="order\test_api.py" line="2938">
+		<!--Tests for marking a SalesOrder as complete.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_attachments" time="0.026" timestamp="2026-10-31T18:18:44" file="order\test_api.py" line="2584">
+		<!--Test the list endpoint for the SalesOrderAttachment model.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_calendar" time="0.464" timestamp="2026-10-31T18:18:45" file="order\test_api.py" line="2828">
+		<!--Test the calendar export endpoint.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_calendar_no_permission" time="0.242" timestamp="2026-10-31T18:18:45" file="order\test_api.py" line="2900">
+		<!--Test that an authenticated user without sales_order view permission is denied.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_cancel" time="0.074" timestamp="2026-10-31T18:18:45" file="order\test_api.py" line="2809">
+		<!--Test API endpoint for cancelling a SalesOrder.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_create" time="0.092" timestamp="2026-10-31T18:18:45" file="order\test_api.py" line="2667">
+		<!--Test that we can create a new SalesOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_custom_status_query_count" time="0.330" timestamp="2026-10-31T18:18:46" file="order\test_api.py" line="3026">
+		<!--Test that listing SalesOrders with custom statuses does not cause N+1 queries.
+
+Ensures that resolving the 'status_text' field for custom status values
+is O(1) in database queries, not O(N) relative to the number of results.
+-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_detail" time="0.046" timestamp="2026-10-31T18:18:46" file="order\test_api.py" line="2574">
+		<!--Test the SalesOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_duplicate" time="0.168" timestamp="2026-10-31T18:18:46" file="order\test_api.py" line="2698">
+		<!--Test SalesOrder duplication via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_duplicate_copies_notes" time="0.129" timestamp="2026-10-31T18:18:46" file="order\test_api.py" line="2757">
+		<!--Test that notes are copied when duplicating a SalesOrder via the API.
+
+SalesOrderSerializer declares its 'duplicate' options with
+copy_notes=True, so notes should be copied by default (i.e. without
+explicitly requesting it).
+-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_list" time="0.578" timestamp="2026-10-31T18:18:47" file="order\test_api.py" line="2464">
+		<!--Test the SalesOrder list API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_operations" time="0.360" timestamp="2026-10-31T18:18:47" file="order\test_api.py" line="2593">
+		<!--Test that we can create / edit and delete a SalesOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_status_codes_endpoint" time="0.018" timestamp="2026-10-31T18:18:47" file="order\test_api.py" line="3083">
+		<!--The 'so/status/' endpoint must resolve to the status-codes view.
+
+SalesOrder is not (yet) served by a ViewSet router - its detail route uses
+Django's '<int:pk>' path converter, which is not vulnerable to the
+router-based bug affecting PurchaseOrder (see PurchaseOrderTest for
+details). This is a coverage test guarding against a future regression,
+e.g. if SalesOrder is migrated to a router-based viewset without also
+restricting the pk lookup pattern.
+-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_total_price" time="0.663" timestamp="2026-10-31T18:18:48" file="order\test_api.py" line="2492">
+		<!--Unit tests for the 'total_price' field.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderTest" name="test_export" time="0.775" timestamp="2026-10-31T18:18:44" file="order\test_api.py" line="2915">
+		<!--Test we can export the SalesOrder list.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 2930, in test_export
+    self.export_data(
+    ~~~~~~~~~~~~~~~~^
+        reverse('api-so-list'),
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+        expected_fn=r'InvenTree_SalesOrder_.+',
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

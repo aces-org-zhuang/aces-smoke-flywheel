@@ -1,0 +1,104 @@
+Found 16 test(s).
+System check identified no issues (0 silenced).
+Unexpected response at '/api/order/so/': status_code = 201 (expected 400)
+data: {'pk': 7, 'created_by': {'pk': 1, 'username': 'testuser', 'first_name': '', 'last_name': '', 'email': 'test@testing.com'}, 'creation_date': '2026-10-31', 'issue_date': None, 'start_date': None, 'target_date': None, 'description': 'A test sales order', 'line_items': None, 'completed_lines': None, 'link': '', 'project_code': None, 'reference': '1234566778', 'responsible': None, 'contact': None, 'address': None, 'status': 10, 'status_text': 'Pending', 'status_custom_key': None, 'barcode_hash': '', 'overdue': None, 'address_detail': None, 'contact_detail': None, 'project_code_detail': None, 'project_code_label': None, 'responsible_detail': None, 'parameters': [], 'tags': [], 'customer': 4, 'customer_detail': {'pk': 4, 'active': True, 'name': 'A customer', 'description': 'A company that we sell things to!', 'image': None, 'thumbnail': '/static/img/blank_image.thumbnail.png', 'currency': 'USD', 'tax_id': ''}, 'customer_reference': '', 'shipment_date': None, 'total_price': 0.0, 'order_currency': None, 'shipments_count': None, 'completed_shipments_count': None, 'allocated_lines': None, 'updated_at': '2026-10-31 19:02'}
+content: b'{"pk":7,"created_by":{"pk":1,"username":"testuser","first_name":"","last_name":"","email":"test@testing.com"},"creation_date":"2026-10-31","issue_date":null,"start_date":null,"target_date":null,"description":"A test sales order","line_items":null,"completed_lines":null,"link":"","project_code":null,"reference":"1234566778","responsible":null,"contact":null,"address":null,"status":10,"status_text":"Pending","status_custom_key":null,"barcode_hash":"","overdue":null,"address_detail":null,"contact_detail":null,"project_code_detail":null,"project_code_label":null,"responsible_detail":null,"parameters":[],"tags":[],"customer":4,"customer_detail":{"pk":4,"active":true,"name":"A customer","description":"A company that we sell things to!","image":null,"thumbnail":"/static/img/blank_image.thumbnail.png","currency":"USD","tax_id":""},"customer_reference":"","shipment_date":null,"total_price":0.0,"order_currency":null,"shipments_count":null,"completed_shipments_count":null,"allocated_lines":null,"updated_at":"2026-10-31 19:02"}'
+Warning: 115 queries executed at /api/order/so/1/allocate/
+
+--- stderr ---
+Creating test database for alias 'default'...
+
+
+Running tests...
+----------------------------------------------------------------------
+  test_so_create (order.test_api.SalesOrderTest.test_so_create) ... FAIL (0.270s)
+  test_attributes (part.test_part.PartTest.test_attributes) ... ok (0.001s)
+  test_category (part.test_part.PartTest.test_category) ... ok (0.012s)
+  test_self_reference (part.test_bom_item.BomItemTest.test_self_reference) ... ok (0.019s)
+  test_integer_quantity (part.test_bom_item.BomItemTest.test_integer_quantity) ... ok (0.074s)
+  test_bom_validated (part.test_bom_item.BomItemTest.test_bom_validated) ... ok (0.365s)
+  test_stock_item_create (stock.test_api.StockItemTest.test_stock_item_create) ... 2026-10-31T11:02:32.553073Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/stock/' request_id=bd450075-4b62-48ab-8381-ae8478494eed user_id=1
+2026-10-31 19:02:32,553 WARNING {'code': 400, 'request': 'POST /api/stock/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': 'bd450075-4b62-48ab-8381-ae8478494eed', 'timestamp': '2026-10-31T11:02:32.553073Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:32,553 WARNING Bad Request: /api/stock/
+2026-10-31T11:02:32.575291Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/stock/' request_id=209ce638-7ba2-4c80-8acc-cdebf44a1099 user_id=1
+2026-10-31 19:02:32,575 WARNING {'code': 400, 'request': 'POST /api/stock/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '209ce638-7ba2-4c80-8acc-cdebf44a1099', 'timestamp': '2026-10-31T11:02:32.575291Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:32,575 WARNING Bad Request: /api/stock/
+2026-10-31T11:02:32.595567Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/stock/' request_id=c78d5483-487a-4bc5-a0ce-1d79d054abb5 user_id=1
+2026-10-31 19:02:32,595 WARNING {'code': 400, 'request': 'POST /api/stock/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': 'c78d5483-487a-4bc5-a0ce-1d79d054abb5', 'timestamp': '2026-10-31T11:02:32.595567Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:32,596 WARNING Bad Request: /api/stock/
+ok (0.185s)
+  test_stock_item_create_with_supplier_part (stock.test_api.StockItemTest.test_stock_item_create_with_supplier_part) ... 2026-10-31T11:02:32.731543Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/stock/' request_id=711b4f10-765e-489f-9047-3c39421409be user_id=1
+2026-10-31 19:02:32,731 WARNING {'code': 400, 'request': 'POST /api/stock/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '711b4f10-765e-489f-9047-3c39421409be', 'timestamp': '2026-10-31T11:02:32.731543Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:32,732 WARNING Bad Request: /api/stock/
+ok (0.377s)
+  test_allocate (order.test_api.SalesOrderAllocateTest.test_allocate) ... ok (0.239s)
+  test_allocate_consumed (build.test_build.AutoAllocationTests.test_allocate_consumed) ... ok (0.135s)
+  test_po_complete (order.test_api.PurchaseOrderTest.test_po_complete) ... 2026-10-31T11:02:35.352782Z [warning  ] request_finished               [django_structlog.middlewares.request] code=403 ip=127.0.0.1 request='POST /api/order/po/3/complete/' request_id=2641f334-a422-4024-ac5b-8bc1b07ac33f user_id=1
+2026-10-31 19:02:35,352 WARNING {'code': 403, 'request': 'POST /api/order/po/3/complete/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '2641f334-a422-4024-ac5b-8bc1b07ac33f', 'timestamp': '2026-10-31T11:02:35.352782Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:35,353 WARNING Forbidden: /api/order/po/3/complete/
+2026-10-31T11:02:35.417013Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/order/po/3/complete/' request_id=e0e44be0-45b2-4e58-bde2-83cb7b8dfec6 user_id=1
+2026-10-31 19:02:35,417 WARNING {'code': 400, 'request': 'POST /api/order/po/3/complete/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': 'e0e44be0-45b2-4e58-bde2-83cb7b8dfec6', 'timestamp': '2026-10-31T11:02:35.417013Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:35,417 WARNING Bad Request: /api/order/po/3/complete/
+ok (0.139s)
+  test_complete (build.test_build.BuildTest.test_complete) ... 2026-10-31T11:02:36.447248Z [warning  ] get_setting: Setting key 'LANGUAGE' is not defined for class <class 'common.models.InvenTreeUserSetting'> [inventree]
+2026-10-31 19:02:36,447 WARNING {'event': "get_setting: Setting key 'LANGUAGE' is not defined for class <class 'common.models.InvenTreeUserSetting'>", 'timestamp': '2026-10-31T11:02:36.447248Z', 'logger': 'inventree', 'level': 'warning'}
+ok (0.204s)
+  test_user_roles (users.test_api.UserAPITests.test_user_roles) ... ok (0.122s)
+  test_user_api (users.test_api.UserAPITests.test_user_api) ... 2026-10-31T11:02:36.786736Z [warning  ] request_finished               [django_structlog.middlewares.request] code=403 ip=127.0.0.1 request='POST /api/user/' request_id=f8701e87-c95b-48f1-bcea-7677bbe84a2e user_id=1
+2026-10-31 19:02:36,786 WARNING {'code': 403, 'request': 'POST /api/user/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': 'f8701e87-c95b-48f1-bcea-7677bbe84a2e', 'timestamp': '2026-10-31T11:02:36.786736Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:36,787 WARNING Forbidden: /api/user/
+2026-10-31T11:02:36.796551Z [warning  ] request_finished               [django_structlog.middlewares.request] code=403 ip=127.0.0.1 request='POST /api/user/' request_id=4015a073-f59e-4aac-b24d-b9ea89b74cb8 user_id=1
+2026-10-31 19:02:36,796 WARNING {'code': 403, 'request': 'POST /api/user/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '4015a073-f59e-4aac-b24d-b9ea89b74cb8', 'timestamp': '2026-10-31T11:02:36.796551Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:36,797 WARNING Forbidden: /api/user/
+2026-10-31T11:02:36.858538Z [warning  ] request_finished               [django_structlog.middlewares.request] code=403 ip=127.0.0.1 request='POST /api/user/' request_id=9d65b628-134d-4c86-b42d-3de1d1063834 user_id=1
+2026-10-31 19:02:36,858 WARNING {'code': 403, 'request': 'POST /api/user/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '9d65b628-134d-4c86-b42d-3de1d1063834', 'timestamp': '2026-10-31T11:02:36.858538Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:36,859 WARNING Forbidden: /api/user/
+2026-10-31T11:02:37.029614Z [warning  ] request_finished               [django_structlog.middlewares.request] code=400 ip=127.0.0.1 request='POST /api/user/' request_id=7c1c9641-c670-4c3e-8585-dfd21c7ad120 user_id=1
+2026-10-31 19:02:37,029 WARNING {'code': 400, 'request': 'POST /api/user/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '7c1c9641-c670-4c3e-8585-dfd21c7ad120', 'timestamp': '2026-10-31T11:02:37.029614Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:37,030 WARNING Bad Request: /api/user/
+2026-10-31T11:02:37.037555Z [warning  ] request_finished               [django_structlog.middlewares.request] code=403 ip=127.0.0.1 request='POST /api/user/' request_id=09744764-eed0-433f-bc46-8b32420c7cc4 user_id=1
+2026-10-31 19:02:37,037 WARNING {'code': 403, 'request': 'POST /api/user/', 'event': 'request_finished', 'user_id': 1, 'ip': '127.0.0.1', 'request_id': '09744764-eed0-433f-bc46-8b32420c7cc4', 'timestamp': '2026-10-31T11:02:37.037555Z', 'logger': 'django_structlog.middlewares.request', 'level': 'warning'}
+2026-10-31 19:02:37,038 WARNING Forbidden: /api/user/
+ok (0.316s)
+  test_part_api (InvenTree.test_api.HTMLAPITests.test_part_api) ... ok (0.085s)
+  test_stock_api (InvenTree.test_api.HTMLAPITests.test_stock_api) ... ok (0.053s)
+
+======================================================================
+FAIL [0.270s]: test_so_create (order.test_api.SalesOrderTest.test_so_create)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 2674, in test_so_create
+    response = self.post(
+        url,
+    ...<5 lines>...
+        expected_code=400,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 201 != 400
+
+----------------------------------------------------------------------
+Ran 16 tests in 7.135s
+
+FAILED (failures=1)
+
+Generating XML reports...
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-part.test_part.PartTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-part.test_bom_item.BomItemTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-stock.test_api.StockItemTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-order.test_api.SalesOrderAllocateTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-build.test_build.AutoAllocationTests-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-order.test_api.PurchaseOrderTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-build.test_build.BuildTest-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-users.test_api.UserAPITests-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-InvenTree.test_api.HTMLAPITests-20261031190230.xml
+Generated XML report: D:\wbeval\flywheel\5.evidence\runs\mutation-M3-order-reference-pattern\junit\TEST-order.test_api.SalesOrderTest-20261031190230.xml
+Destroying test database for alias 'default'...
+

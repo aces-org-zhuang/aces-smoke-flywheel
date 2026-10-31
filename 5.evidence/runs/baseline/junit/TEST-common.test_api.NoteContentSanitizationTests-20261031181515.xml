@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NoteContentSanitizationTests-20261031181515" tests="34" file="common/test_api.py" time="2.746" timestamp="2026-10-31T18:16:11" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_base_tag_stripped" time="0.086" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1859">
+		<!--<base> tags are stripped (prevents base-URL hijacking).-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_data_uri_in_img_src_stripped" time="0.093" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1928">
+		<!--data: URI in img src containing a script payload is stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_embed_stripped" time="0.095" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1854">
+		<!--<embed> tags are stripped entirely.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_form_stripped" time="0.098" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1880">
+		<!--<form> tags are stripped (prevents CSRF / phishing via injected forms).-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_iframe_stripped" time="0.080" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1842">
+		<!--<iframe> tags are stripped entirely.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_javascript_href_stripped" time="0.081" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1817">
+		<!--javascript: href is removed from anchor tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_javascript_href_uppercase_stripped" time="0.080" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1824">
+		<!--JAVASCRIPT: href (uppercase) is removed from anchor tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_link_tag_stripped" time="0.079" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1866">
+		<!--<link> tags are stripped (prevents external stylesheet injection).-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_meta_refresh_stripped" time="0.079" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1873">
+		<!--<meta http-equiv=refresh> tags are stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_mixed_case_script_stripped" time="0.080" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1775">
+		<!--Mixed-case <ScRiPt> tags are stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_object_stripped" time="0.080" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1849">
+		<!--<object> tags are stripped entirely.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_onclick_handler_stripped" time="0.080" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1796">
+		<!--Onclick attribute is stripped from otherwise-allowed tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_onerror_handler_stripped" time="0.082" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1784">
+		<!--Onerror attribute is stripped from img tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_onfocus_handler_stripped" time="0.079" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1806">
+		<!--Onfocus attribute on an input element is stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_onload_handler_stripped" time="0.080" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1789">
+		<!--Onload attribute is stripped (e.g. on svg tags).-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_onmouseover_handler_stripped" time="0.081" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1801">
+		<!--Onmouseover attribute is stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_patch_sanitizes_content" time="0.101" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1942">
+		<!--Updating note content via PATCH also sanitises the payload.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_script_tag_stripped" time="0.086" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1761">
+		<!--<script> tags are stripped when content is submitted via the API.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_style_attribute_javascript_stripped" time="0.083" timestamp="2026-10-31T18:16:09" file="common\test_api.py" line="1891">
+		<!--Style attributes containing javascript: expressions are stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_style_expression_stripped" time="0.080" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1898">
+		<!--IE-era CSS expression() is stripped from style attributes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_svg_animate_javascript_stripped" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1917">
+		<!--SVG animate element with javascript: href value is stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_svg_onload_stripped" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1909">
+		<!--SVG with onload handler is sanitized.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_uppercase_script_stripped" time="0.081" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1770">
+		<!--Uppercase <SCRIPT> tags are stripped.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_api_vbscript_href_stripped" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1831">
+		<!--vbscript: href is removed from anchor tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_blockquote_preserved" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1993">
+		<!--Block-level formatting elements such as blockquote are preserved.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_empty_content_accepted" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="2002">
+		<!--An empty content field is valid and stored as-is.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_html_entities_in_plain_text_not_executed" time="0.081" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="2013">
+		<!--HTML-entity-encoded script tags in plain text are not executed as markup.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_model_clean_strips_event_handlers" time="0.063" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1724">
+		<!--Note.clean() strips inline event-handler attributes from allowed tags.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_model_clean_strips_javascript_protocol" time="0.060" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1741">
+		<!--Note.clean() removes javascript: from href attributes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_model_clean_strips_script_tags" time="0.062" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1707">
+		<!--Note.clean() removes <script> tags, preserving safe surrounding content.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_plain_text_content_preserved" time="0.079" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="2007">
+		<!--Plain text with no HTML tags is stored without modification.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_safe_https_link_preserved" time="0.083" timestamp="2026-10-31T18:16:10" file="common\test_api.py" line="1984">
+		<!--An anchor with an https:// href is kept after sanitization.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_safe_inline_formatting_preserved" time="0.077" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1976">
+		<!--Legitimate inline HTML (strong, em) survives sanitization.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteContentSanitizationTests" name="test_sanitized_content_persisted_in_database" time="0.079" timestamp="2026-10-31T18:16:11" file="common\test_api.py" line="1960">
+		<!--Sanitization is applied before DB write, not only in the API response.-->
+	</testcase>
+</testsuite>

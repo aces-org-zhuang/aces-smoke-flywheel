@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildActionMissingPkTest-20261031181515" tests="2" file="build/test_api.py" time="0.378" timestamp="2026-10-31T18:15:15" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildActionMissingPkTest" name="test_actions_404_for_missing_build" time="0.314" timestamp="2026-10-31T18:15:15" file="build\test_api.py" line="3379">
+		<!--Every BuildOrderContextMixin-based action should 404, not 500, for a bad pk.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildActionMissingPkTest" name="test_output_actions_already_safe" time="0.064" timestamp="2026-10-31T18:15:15" file="build\test_api.py" line="3391">
+		<!--The build-output actions already guard against a missing build themselves.
+
+(BuildOutputScrap/Complete/Delete/AutoAllocate/Consume all call
+self.get_build() explicitly at the top of a custom post() override, which
+already raises NotFound correctly - this test just locks that in.)
+-->
+	</testcase>
+</testsuite>

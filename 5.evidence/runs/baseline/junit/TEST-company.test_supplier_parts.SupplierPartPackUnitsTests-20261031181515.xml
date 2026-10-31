@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_supplier_parts.SupplierPartPackUnitsTests-20261031181515" tests="2" file="company/test_supplier_parts.py" time="0.130" timestamp="2026-10-31T18:17:47" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_supplier_parts.SupplierPartPackUnitsTests" name="test_pack_quantity" time="0.077" timestamp="2026-10-31T18:17:47" file="company\test_supplier_parts.py" line="50">
+		<!--Test pack_quantity for a part with a specified dimension.-->
+	</testcase>
+	<testcase classname="company.test_supplier_parts.SupplierPartPackUnitsTests" name="test_pack_quantity_dimensionless" time="0.054" timestamp="2026-10-31T18:17:47" file="company\test_supplier_parts.py" line="15">
+		<!--Test valid values for the 'pack_quantity' field.-->
+	</testcase>
+</testsuite>

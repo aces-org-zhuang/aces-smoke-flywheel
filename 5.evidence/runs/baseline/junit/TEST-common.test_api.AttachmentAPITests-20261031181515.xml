@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.AttachmentAPITests-20261031181515" tests="2" file="common/test_api.py" time="0.425" timestamp="2026-10-31T18:16:03" failures="1" errors="0" skipped="0">
+	<testcase classname="common.test_api.AttachmentAPITests" name="test_attachment_read_permissions" time="0.184" timestamp="2026-10-31T18:16:03" file="common\test_api.py" line="1225">
+		<!--Test that reading attachments is gated on the linked model's own view permission.
+
+A user should not be able to list or retrieve attachments linked to a model
+type they have no view permission for, even though attachments themselves
+have no RuleSet of their own (see users.ruleset.get_ruleset_ignore).
+-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentAPITests" name="test_attachments" time="0.241" timestamp="2026-10-31T18:16:03" file="common\test_api.py" line="1119">
+		<!--Test API functionality for attachments.-->
+		<failure type="AssertionError" message="'test_file_0_AGOphxV.txt' != 'test_file_0.txt'&#10;- test_file_0_AGOphxV.txt&#10;?            --------&#10;+ test_file_0.txt&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\test_api.py", line 1156, in test_attachments
+    self.assertEqual(data['filename'], fn)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'test_file_0_AGOphxV.txt' != 'test_file_0.txt'
+- test_file_0_AGOphxV.txt
+?            --------
++ test_file_0.txt
+
+]]></failure>
+	</testcase>
+</testsuite>

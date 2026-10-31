@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_audit.ReturnOrderAuditTest-20261031181515" tests="4" file="order/test_audit.py" time="0.602" timestamp="2026-10-31T18:19:03" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_audit.ReturnOrderAuditTest" name="test_extra_lines" time="0.191" timestamp="2026-10-31T18:19:03" file="order\test_audit.py" line="510">
+		<!--Extra line changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.ReturnOrderAuditTest" name="test_line_items" time="0.248" timestamp="2026-10-31T18:19:03" file="order\test_audit.py" line="493">
+		<!--Line item changes (including the outcome status) are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.ReturnOrderAuditTest" name="test_order_edit" time="0.074" timestamp="2026-10-31T18:19:03" file="order\test_audit.py" line="478">
+		<!--Order edits are recorded.-->
+	</testcase>
+	<testcase classname="order.test_audit.ReturnOrderAuditTest" name="test_receive_stock" time="0.089" timestamp="2026-10-31T18:19:03" file="order\test_audit.py" line="525">
+		<!--Receiving an item against a return order records a single entry.-->
+	</testcase>
+</testsuite>

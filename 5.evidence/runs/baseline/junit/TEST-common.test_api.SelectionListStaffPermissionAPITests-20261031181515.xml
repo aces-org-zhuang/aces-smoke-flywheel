@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.SelectionListStaffPermissionAPITests-20261031181515" tests="7" file="common/test_api.py" time="0.150" timestamp="2026-10-31T18:16:22" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_create_entry" time="0.019" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2564">
+		<!--A non-staff user cannot create a new SelectionListEntry.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_create_list" time="0.018" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2539">
+		<!--A non-staff user cannot create a new SelectionList.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_delete_entry" time="0.017" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2585">
+		<!--A non-staff user cannot delete a SelectionListEntry.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_delete_list" time="0.017" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2556">
+		<!--A non-staff user cannot delete a SelectionList.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_edit_entry" time="0.019" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2576">
+		<!--A non-staff user cannot update an existing SelectionListEntry.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_non_staff_cannot_edit_list" time="0.018" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2547">
+		<!--A non-staff user cannot update an existing SelectionList.-->
+	</testcase>
+	<testcase classname="common.test_api.SelectionListStaffPermissionAPITests" name="test_staff_can_still_manage_lists_and_entries" time="0.042" timestamp="2026-10-31T18:16:22" file="common\test_api.py" line="2593">
+		<!--A staff user retains full create/edit/delete access.-->
+	</testcase>
+</testsuite>

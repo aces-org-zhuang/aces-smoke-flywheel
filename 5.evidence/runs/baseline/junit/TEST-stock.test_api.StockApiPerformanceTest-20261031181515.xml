@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockApiPerformanceTest-20261031181515" tests="1" file="stock/test_api.py" time="0.099" timestamp="2026-10-31T18:21:14" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockApiPerformanceTest" name="test_api_stock_list" time="0.099" timestamp="2026-10-31T18:21:14" file="stock\test_api.py" line="4350">
+		<!--Test that Stock API queries are performant.-->
+	</testcase>
+</testsuite>

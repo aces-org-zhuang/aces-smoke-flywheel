@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderAllocateSerialsTest-20261031181515" tests="8" file="order/test_api.py" time="1.103" timestamp="2026-10-31T18:18:28" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_allocate" time="0.157" timestamp="2026-10-31T18:18:27" file="order\test_api.py" line="3921">
+		<!--Test that we can allocate stock items to a SalesOrder line, by serial number.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_allocate_with_shipment" time="0.141" timestamp="2026-10-31T18:18:27" file="order\test_api.py" line="3940">
+		<!--Test that allocations are correctly assigned to a provided shipment.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_block_on_required_tests" time="0.186" timestamp="2026-10-31T18:18:27" file="order\test_api.py" line="4037">
+		<!--Test the SALESORDER_BLOCK_INCOMPLETE_ITEM_TESTS setting.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_invalid_line_item" time="0.132" timestamp="2026-10-31T18:18:27" file="order\test_api.py" line="3954">
+		<!--Test that a line item belonging to a different order is rejected.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_serial_not_exist" time="0.119" timestamp="2026-10-31T18:18:27" file="order\test_api.py" line="4005">
+		<!--Test that non-existent serial numbers are rejected.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_serial_unavailable" time="0.127" timestamp="2026-10-31T18:18:28" file="order\test_api.py" line="4018">
+		<!--Test that an already-allocated serial number is rejected as unavailable.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_shipment_already_shipped" time="0.120" timestamp="2026-10-31T18:18:28" file="order\test_api.py" line="3969">
+		<!--Test that a shipment which has already been shipped is rejected.-->
+	</testcase>
+	<testcase classname="order.test_api.SalesOrderAllocateSerialsTest" name="test_shipment_wrong_order" time="0.121" timestamp="2026-10-31T18:18:28" file="order\test_api.py" line="3987">
+		<!--Test that a shipment belonging to a different order is rejected.-->
+	</testcase>
+</testsuite>

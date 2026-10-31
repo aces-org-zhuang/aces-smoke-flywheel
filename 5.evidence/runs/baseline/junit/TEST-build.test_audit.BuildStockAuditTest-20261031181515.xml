@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_audit.BuildStockAuditTest-20261031181515" tests="7" file="build/test_audit.py" time="0.367" timestamp="2026-10-31T18:15:49" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_complete_output" time="0.060" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="254">
+		<!--Completing a build output records a single entry.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_consume" time="0.045" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="212">
+		<!--Consuming allocated stock records a single entry for each affected item.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_consume_install" time="0.047" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="298">
+		<!--Consuming trackable stock (installed into an output) records an entry for both items.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_consume_install_multiple" time="0.061" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="339">
+		<!--Installing multiple components into one output records an entry for each.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_create_output" time="0.052" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="170">
+		<!--Creating build outputs records a single CREATE entry for each output.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_create_serialized_outputs" time="0.065" timestamp="2026-10-31T18:15:48" file="build\test_audit.py" line="193">
+		<!--Creating serialized build outputs records a single CREATE entry for each output.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildStockAuditTest" name="test_scrap_output" time="0.037" timestamp="2026-10-31T18:15:49" file="build\test_audit.py" line="269">
+		<!--Scrapping a build output records a single entry.-->
+	</testcase>
+</testsuite>

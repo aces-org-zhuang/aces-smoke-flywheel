@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.HostTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.078" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.HostTest" name="test_allowed_hosts" time="0.040" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="125">
+		<!--Test that the ALLOWED_HOSTS functions as expected.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.HostTest" name="test_allowed_hosts_2" time="0.038" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="138">
+		<!--Another test for ALLOWED_HOSTS functionality.-->
+	</testcase>
+</testsuite>

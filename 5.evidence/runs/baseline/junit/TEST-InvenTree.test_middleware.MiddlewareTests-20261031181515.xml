@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_middleware.MiddlewareTests-20261031181515" tests="10" file="InvenTree/test_middleware.py" time="1.156" timestamp="2026-10-31T18:26:09" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_AuthRequiredMiddleware" time="0.057" timestamp="2026-10-31T18:26:08" file="InvenTree\test_middleware.py" line="27">
+		<!--Test the auth middleware.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_Check2FAMiddleware" time="0.422" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="42">
+		<!--Test the 2FA middleware.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_csrf_failure" time="0.014" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="298">
+		<!--Test the custom CSRF failure handler.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_error_exceptions" time="0.155" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="117">
+		<!--Test that ignored errors are not logged.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_site_lax_protocol" time="0.070" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="168">
+		<!--Test that the site URL check is correctly working with/without lax protocol check.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_site_url_checks" time="0.078" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="152">
+		<!--Test that the site URL check is correctly working.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_site_url_checks_fails" time="0.098" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="252">
+		<!--Test that the site URL check is correctly failing.
+
+Important for security.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_site_url_checks_multi" time="0.081" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="217">
+		<!--Test that the site URL check is correctly working in a multi-site setup.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_site_url_port" time="0.051" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="195">
+		<!--URL checks with different ports.-->
+	</testcase>
+	<testcase classname="InvenTree.test_middleware.MiddlewareTests" name="test_token_auth" time="0.132" timestamp="2026-10-31T18:26:09" file="InvenTree\test_middleware.py" line="91">
+		<!--Test auth with token auth.-->
+	</testcase>
+</testsuite>

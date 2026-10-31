@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.ApiAccessTests-20261031181515" tests="7" file="InvenTree/test_api.py" time="1.951" timestamp="2026-10-31T18:25:54" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_detail_endpoint_actions" time="0.666" timestamp="2026-10-31T18:25:53" file="InvenTree\test_api.py" line="431">
+		<!--Tests for detail API endpoint actions.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_list_endpoint_actions" time="0.430" timestamp="2026-10-31T18:25:53" file="InvenTree\test_api.py" line="400">
+		<!--Tests for the OPTIONS method for API endpoints.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_role_view" time="0.294" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="315">
+		<!--Test that we can access the 'roles' view for the logged in user.
+
+Also tests that it is *not* accessible if the client is not logged in.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_token_failure" time="0.027" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="296">
+		<!--Test token resolve endpoint does not work without basic auth.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_token_success" time="0.063" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="303">
+		<!--Test token auth works.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_with_roles" time="0.123" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="381">
+		<!--Assign some roles to the user.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.ApiAccessTests" name="test_with_superuser" time="0.348" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="364">
+		<!--Superuser should have *all* roles assigned.-->
+	</testcase>
+</testsuite>

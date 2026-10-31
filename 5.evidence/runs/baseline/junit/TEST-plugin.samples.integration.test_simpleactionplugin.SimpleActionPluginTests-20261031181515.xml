@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests-20261031181515" tests="2" file="plugin/samples/integration/test_simpleactionplugin.py" time="1.071" timestamp="2026-10-31T18:24:34" failures="1" errors="0" skipped="0">
+	<testcase classname="plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests" name="test_name" time="0.007" timestamp="2026-10-31T18:24:34" file="plugin\samples\integration\test_simpleactionplugin.py" line="11">
+		<!--Check plugn names.-->
+	</testcase>
+	<testcase classname="plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests" name="test_function" time="1.064" timestamp="2026-10-31T18:24:34" file="plugin\samples\integration\test_simpleactionplugin.py" line="23">
+		<!--Check if functions work.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_simpleactionplugin.py", line 38, in test_function
+    self.assertEqual(response.status_code, 200)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\integration\test_simpleactionplugin.py:21: UserWarning: A plugin registry reload was triggered for plugin simpleaction
+  cfg.save()
+]]></system-err>
+	</testcase>
+</testsuite>

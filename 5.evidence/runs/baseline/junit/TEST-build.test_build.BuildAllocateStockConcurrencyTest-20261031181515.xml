@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildAllocateStockConcurrencyTest-20261031181515" tests="1" file="build/test_build.py" time="0.001" timestamp="2026-10-31T18:26:58" failures="0" errors="0" skipped="1">
+	<testcase classname="build.test_build.BuildAllocateStockConcurrencyTest" name="test_concurrent_allocation_does_not_over_allocate" time="0.001" timestamp="2026-10-31T18:26:58" file="build\test_build.py" line="2154">
+		<!--Two concurrent full-quantity allocation requests must not both succeed.-->
+		<skipped type="skip" message="Database doesn't support feature(s): has_select_for_update"/>
+	</testcase>
+</testsuite>

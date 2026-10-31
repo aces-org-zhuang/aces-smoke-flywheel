@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.TransferOrderAllocateTest-20261031181515" tests="5" file="order/test_api.py" time="1.741" timestamp="2026-10-31T18:18:50" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.TransferOrderAllocateTest" name="test_allocate" time="0.441" timestamp="2026-10-31T18:18:49" file="order\test_api.py" line="5878">
+		<!--Test that the allocation endpoint acts as expected, when provided with valid data!-->
+		<system-out><![CDATA[Warning: 226 queries executed at /api/order/transfer-order/1/allocate/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderAllocateTest" name="test_allocate_serials" time="0.282" timestamp="2026-10-31T18:18:49" file="order\test_api.py" line="5908">
+		<!--Test that the allocation endpoint acts as expected, when provided with serials.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderAllocateTest" name="test_allocate_variant" time="0.275" timestamp="2026-10-31T18:18:49" file="order\test_api.py" line="5937">
+		<!--Test that the allocation endpoint acts as expected, when provided with variant.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderAllocateTest" name="test_invalid" time="0.266" timestamp="2026-10-31T18:18:49" file="order\test_api.py" line="5845">
+		<!--Test POST with invalid data.-->
+	</testcase>
+	<testcase classname="order.test_api.TransferOrderAllocateTest" name="test_output_options" time="0.477" timestamp="2026-10-31T18:18:50" file="order\test_api.py" line="5996">
+		<!--Test the various output options for the SalesOrderAllocation detail endpoint.-->
+	</testcase>
+</testsuite>

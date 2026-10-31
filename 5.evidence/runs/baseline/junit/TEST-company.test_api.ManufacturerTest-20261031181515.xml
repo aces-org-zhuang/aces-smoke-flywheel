@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_api.ManufacturerTest-20261031181515" tests="6" file="company/test_api.py" time="0.512" timestamp="2026-10-31T18:17:42" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_api.ManufacturerTest" name="test_manufacturer_part_detail" time="0.078" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="575">
+		<!--Tests for the ManufacturerPart detail endpoint.-->
+	</testcase>
+	<testcase classname="company.test_api.ManufacturerTest" name="test_manufacturer_part_duplicate_copies_notes" time="0.090" timestamp="2026-10-31T18:17:41" file="company\test_api.py" line="599">
+		<!--Test that notes are copied when duplicating a ManufacturerPart via the API.
+
+ManufacturerPartSerializer declares its 'duplicate' options with
+copy_notes=True, so notes should be copied by default.
+-->
+	</testcase>
+	<testcase classname="company.test_api.ManufacturerTest" name="test_manufacturer_part_list" time="0.108" timestamp="2026-10-31T18:17:42" file="company\test_api.py" line="552">
+		<!--Test the ManufacturerPart API list functionality.-->
+	</testcase>
+	<testcase classname="company.test_api.ManufacturerTest" name="test_manufacturer_part_search" time="0.028" timestamp="2026-10-31T18:17:42" file="company\test_api.py" line="592">
+		<!--Test search functionality in manufacturer list.-->
+	</testcase>
+	<testcase classname="company.test_api.ManufacturerTest" name="test_output_options" time="0.123" timestamp="2026-10-31T18:17:42" file="company\test_api.py" line="682">
+		<!--Test the output options for SupplierPart detail.-->
+	</testcase>
+	<testcase classname="company.test_api.ManufacturerTest" name="test_supplier_part_create" time="0.085" timestamp="2026-10-31T18:17:42" file="company\test_api.py" line="641">
+		<!--Test a SupplierPart can be created via the API.-->
+	</testcase>
+</testsuite>

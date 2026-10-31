@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.tests.OrderUpdatedAtTest-20261031181515" tests="8" file="order/tests.py" time="0.774" timestamp="2026-10-31T18:19:20" failures="0" errors="0" skipped="0">
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_changes_on_save" time="0.083" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="774">
+		<!--updated_at should advance when the order is saved again.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_extra_line_add" time="0.088" timestamp="2026-10-31T18:19:19" file="order\tests.py" line="785">
+		<!--updated_at should advance on the parent order when an extra line is added.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_extra_line_delete" time="0.111" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="816">
+		<!--updated_at should advance on the parent order when an extra line is deleted.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_extra_line_update" time="0.115" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="799">
+		<!--updated_at should advance on the parent order when an extra line is updated.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_line_item_add" time="0.087" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="832">
+		<!--updated_at should advance on the parent order when a regular line item is added.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_line_item_delete" time="0.112" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="870">
+		<!--updated_at should advance on the parent order when a regular line item is deleted.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_on_line_item_update" time="0.119" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="848">
+		<!--updated_at should advance on the parent order when a regular line item is updated.-->
+	</testcase>
+	<testcase classname="order.tests.OrderUpdatedAtTest" name="test_updated_at_set_on_save" time="0.057" timestamp="2026-10-31T18:19:20" file="order\tests.py" line="769">
+		<!--updated_at should be populated after the order is saved.-->
+	</testcase>
+</testsuite>

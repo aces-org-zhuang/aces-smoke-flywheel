@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="web.tests.TemplateTagTest-20261031181515" tests="3" file="web/tests.py" time="0.047" timestamp="2026-10-31T18:26:55" failures="0" errors="0" skipped="0">
+	<testcase classname="web.tests.TemplateTagTest" name="test_get_frontend_settings" time="0.028" timestamp="2026-10-31T18:26:55" file="web\tests.py" line="64">
+		<!--Test frontend settings retrieval.-->
+	</testcase>
+	<testcase classname="web.tests.TemplateTagTest" name="test_spa_bundle" time="0.012" timestamp="2026-10-31T18:26:55" file="web\tests.py" line="24">
+		<!--Test the 'spa_bundle' template tag.-->
+	</testcase>
+	<testcase classname="web.tests.TemplateTagTest" name="test_spa_settings" time="0.007" timestamp="2026-10-31T18:26:55" file="web\tests.py" line="54">
+		<!--Test the 'spa_settings' template tag.-->
+	</testcase>
+</testsuite>

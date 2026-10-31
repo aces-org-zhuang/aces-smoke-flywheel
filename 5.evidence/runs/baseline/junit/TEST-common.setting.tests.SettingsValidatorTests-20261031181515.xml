@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.setting.tests.SettingsValidatorTests-20261031181515" tests="5" file="common/setting/tests.py" time="0.027" timestamp="2026-10-31T18:16:03" failures="0" errors="0" skipped="0">
+	<testcase classname="common.setting.tests.SettingsValidatorTests" name="test_base_url_validator" time="0.001" timestamp="2026-10-31T18:16:03" file="common\setting\tests.py" line="52">
+		<!--Test valid and invalid base URL values.-->
+	</testcase>
+	<testcase classname="common.setting.tests.SettingsValidatorTests" name="test_base_url_validator_locked_by_configuration" time="0.001" timestamp="2026-10-31T18:16:03" file="common\setting\tests.py" line="64">
+		<!--Test that a configured site URL cannot be changed.-->
+	</testcase>
+	<testcase classname="common.setting.tests.SettingsValidatorTests" name="test_update_instance_name_no_multi" time="0.000" timestamp="2026-10-31T18:16:03" file="common\setting\tests.py" line="44">
+		<!--Test valid cases for update_instance_name.-->
+	</testcase>
+	<testcase classname="common.setting.tests.SettingsValidatorTests" name="test_update_instance_url_no_multi" time="0.000" timestamp="2026-10-31T18:16:03" file="common\setting\tests.py" line="48">
+		<!--Test update_instance_url.-->
+	</testcase>
+	<testcase classname="common.setting.tests.SettingsValidatorTests" name="test_validate_part_name_format" time="0.024" timestamp="2026-10-31T18:16:03" file="common\setting\tests.py" line="12">
+		<!--Test error cases for validate_part_name_format.-->
+	</testcase>
+</testsuite>

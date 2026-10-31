@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.ReturnOrderTests-20261031181515" tests="16" file="order/test_api.py" time="2.983" timestamp="2026-10-31T18:18:26" failures="0" errors="1" skipped="0">
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_complete_stale_instance_is_noop" time="0.047" timestamp="2026-10-31T18:18:23" file="order\test_api.py" line="4453">
+		<!--A second completion attempt with a stale instance must be a no-op.
+
+Regression test: _action_complete() checked 'status' on the caller's
+(potentially stale) instance, so two concurrent completion requests
+could both run the completion side effects (duplicate COMPLETED events).
+The status is now re-read (under lock) from the database before the check.
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_create" time="0.088" timestamp="2026-10-31T18:18:23" file="order\test_api.py" line="4170">
+		<!--Test creation of ReturnOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_list" time="0.207" timestamp="2026-10-31T18:18:24" file="order\test_api.py" line="4125">
+		<!--Tests for the list endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_options" time="0.120" timestamp="2026-10-31T18:18:24" file="order\test_api.py" line="4096">
+		<!--Test the OPTIONS endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_output_options" time="0.074" timestamp="2026-10-31T18:18:25" file="order\test_api.py" line="4559">
+		<!--Test the various output options for the ReturnOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_project_code" time="0.121" timestamp="2026-10-31T18:18:25" file="order\test_api.py" line="4113">
+		<!--Test the 'project_code' serializer field.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_receive" time="0.373" timestamp="2026-10-31T18:18:25" file="order\test_api.py" line="4234">
+		<!--Test that we can receive items against a ReturnOrder.-->
+		<system-out><![CDATA[Warning: 136 queries executed at /api/order/ro/7/receive/
+]]></system-out>
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_receive_note_max_length" time="0.054" timestamp="2026-10-31T18:18:25" file="order\test_api.py" line="4076">
+		<!--Test that an overly long 'note' value is rejected with a validation error.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_receive_stale_line_instance" time="0.157" timestamp="2026-10-31T18:18:25" file="order\test_api.py" line="4395">
+		<!--A second receipt attempt with a stale line instance must be a no-op.
+
+Regression test: receive_line_item() checked received_date on the
+caller's (potentially stale) instance, so two concurrent receipt
+requests could both process the same line - splitting the source stock
+item twice and orphaning one of the splits. The line is now re-read
+(under lock) from the database before the check.
+-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_receive_untracked" time="0.310" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4330">
+		<!--Test that we can receive untracked items against a ReturnOrder.
+
+Ref: https://github.com/inventree/InvenTree/pull/8590
+-->
+		<system-out><![CDATA[Warning: 135 queries executed at /api/order/ro/7/receive/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_ro_calendar" time="0.021" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4489">
+		<!--Test the calendar export endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_ro_calendar_no_permission" time="0.184" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4500">
+		<!--Test that an authenticated user without return_order view permission is denied.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_ro_issue" time="0.081" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4216">
+		<!--Test the 'issue' order for a ReturnOrder.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_status_codes_endpoint" time="0.020" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4565">
+		<!--The 'ro/status/' endpoint must resolve to the status-codes view.
+
+ReturnOrder is not (yet) served by a ViewSet router - its detail route uses
+Django's '<int:pk>' path converter, which is not vulnerable to the
+router-based bug affecting PurchaseOrder (see PurchaseOrderTest for
+details). This is a coverage test guarding against a future regression.
+-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_update" time="0.136" timestamp="2026-10-31T18:18:26" file="order\test_api.py" line="4195">
+		<!--Test that we can update a ReturnOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.ReturnOrderTests" name="test_export" time="0.991" timestamp="2026-10-31T18:18:24" file="order\test_api.py" line="4515">
+		<!--Test data export for the ReturnOrder API endpoints.-->
+		<error type="ValueError" message="Response is not a StreamingHttpResponse object as expected"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\order\test_api.py", line 4518, in test_export
+    data = self.export_data(
+        reverse('api-return-order-list'),
+    ...<2 lines>...
+        expected_code=200,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 737, in export_data
+    return self.download_file(filename, **kwargs)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 639, in download_file
+    raise ValueError(
+        'Response is not a StreamingHttpResponse object as expected'
+    )
+ValueError: Response is not a StreamingHttpResponse object as expected
+]]></error>
+	</testcase>
+</testsuite>

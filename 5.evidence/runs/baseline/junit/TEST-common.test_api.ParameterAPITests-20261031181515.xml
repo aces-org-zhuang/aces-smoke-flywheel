@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.ParameterAPITests-20261031181515" tests="14" file="common/test_api.py" time="6.963" timestamp="2026-10-31T18:16:21" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.ParameterAPITests" name="test_bulk_create_parameters" time="4.083" timestamp="2026-10-31T18:16:18" file="common\test_api.py" line="708">
+		<!--Test bulk creation of parameters via the API.
+
+Test that:
+    - The correct number of items are created
+    - Instance creation events are offloaded to the background worker
+-->
+		<system-out><![CDATA[Warning: 478 queries executed at /api/parameter/
+Benchmark @ '/api/parameter/': 478 queries (of 500) in 0.5704s (of 2.0s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_copy_unique_parameters" time="0.048" timestamp="2026-10-31T18:16:18" file="common\test_api.py" line="957">
+		<!--Test that 'unique' parameters are skipped when copying parameters between model instances.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_invalid_filters" time="0.247" timestamp="2026-10-31T18:16:18" file="common\test_api.py" line="593">
+		<!--Test error messages for invalid filter combinations.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_annotation" time="1.092" timestamp="2026-10-31T18:16:19" file="common\test_api.py" line="997">
+		<!--Test that we can annotate parameters against a queryset.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_api" time="0.222" timestamp="2026-10-31T18:16:19" file="common\test_api.py" line="630">
+		<!--Test Parameter API functionality.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_delete" time="0.180" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="1075">
+		<!--Test that associated parameters are correctly deleted when removing the linked model.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_options" time="0.035" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="197">
+		<!--Test OPTIONS information for the Parameter API endpoint.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_uniqueness" time="0.095" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="798">
+		<!--Test the uniqueness options which can be applied to a ParameterTemplate.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_parameter_uniqueness_units" time="0.068" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="885">
+		<!--Test that uniqueness checks are unit-aware for templates which define units.
+
+Values expressed in different (but compatible) units which represent the
+same physical quantity must be detected as duplicates.
+-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_template_api" time="0.078" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="219">
+		<!--Test ParameterTemplate API functionality.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_template_extended_filters" time="0.525" timestamp="2026-10-31T18:16:20" file="common\test_api.py" line="419">
+		<!--Unit testing for more complex filters on the ParameterTemplate endpoint.
+
+Ref: https://github.com/inventree/InvenTree/pull/11383
+
+In these tests we will filter by complex model relations.
+-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_template_filters" time="0.236" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="316">
+		<!--Tests for API filters against ParameterTemplate endpoint.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_template_options" time="0.022" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="160">
+		<!--Test OPTIONS information for the ParameterTemplate API endpoint.-->
+	</testcase>
+	<testcase classname="common.test_api.ParameterAPITests" name="test_template_write_requires_staff" time="0.032" timestamp="2026-10-31T18:16:21" file="common\test_api.py" line="284">
+		<!--Non-staff users cannot create, edit or delete a ParameterTemplate.-->
+	</testcase>
+</testsuite>

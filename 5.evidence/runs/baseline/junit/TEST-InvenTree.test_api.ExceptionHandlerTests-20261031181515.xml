@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.ExceptionHandlerTests-20261031181515" tests="1" file="InvenTree/test_api.py" time="0.000" timestamp="2026-10-31T18:25:54" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_api.ExceptionHandlerTests" name="test_app_registry_not_ready" time="0.000" timestamp="2026-10-31T18:25:54" file="InvenTree\test_api.py" line="88">
+		<!--AppRegistryNotReady should be reported as a transient 503, not a 500.
+
+Regression test: this can be raised on a request served by one thread while
+the plugin registry is mid-reload on another (see
+plugin.registry.PluginsRegistry._reload_apps, which briefly clears Django's
+app registry) - it is not a genuine server error, so the client should be
+told to retry rather than seeing a hard failure.
+-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildOutputCancelTest-20261031181515" tests="1" file="build/test_api.py" time="0.240" timestamp="2026-10-31T18:15:39" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildOutputCancelTest" name="test_cancel_output" time="0.240" timestamp="2026-10-31T18:15:39" file="build\test_api.py" line="1830">
+		<!--Test cancellation of a build output.-->
+	</testcase>
+</testsuite>

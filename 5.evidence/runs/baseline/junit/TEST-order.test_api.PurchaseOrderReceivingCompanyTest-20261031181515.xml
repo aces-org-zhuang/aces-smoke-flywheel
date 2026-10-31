@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.PurchaseOrderReceivingCompanyTest-20261031181515" tests="7" file="order/test_api.py" time="2.018" timestamp="2026-10-31T18:18:13" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_create_default" time="0.145" timestamp="2026-10-31T18:18:11" file="order\test_api.py" line="1238">
+		<!--The default internal company is used when no receiving company is specified.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_create_delivery_address" time="0.276" timestamp="2026-10-31T18:18:12" file="order\test_api.py" line="1281">
+		<!--Regression test: the delivery address must match the receiving company on creation.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_create_explicit" time="0.148" timestamp="2026-10-31T18:18:12" file="order\test_api.py" line="1252">
+		<!--A specified receiving company takes priority over the default.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_create_non_internal" time="0.098" timestamp="2026-10-31T18:18:12" file="order\test_api.py" line="1270">
+		<!--A non-internal company cannot be specified as the receiving company.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_options_default" time="0.280" timestamp="2026-10-31T18:18:12" file="order\test_api.py" line="1211">
+		<!--The default internal company is presented as the default in an OPTIONS request.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_options_default_single_company" time="0.481" timestamp="2026-10-31T18:18:13" file="order\test_api.py" line="1219">
+		<!--A single internal company is presented as the default, even without the setting.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderReceivingCompanyTest" name="test_update_delivery_address" time="0.590" timestamp="2026-10-31T18:18:13" file="order\test_api.py" line="1341">
+		<!--Regression test: the delivery address must match the receiving company on update.-->
+	</testcase>
+</testsuite>

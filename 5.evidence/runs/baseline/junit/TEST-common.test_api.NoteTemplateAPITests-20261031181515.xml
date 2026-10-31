@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NoteTemplateAPITests-20261031181515" tests="8" file="common/test_api.py" time="0.266" timestamp="2026-10-31T18:16:12" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_non_staff_cannot_create_template" time="0.023" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2968">
+		<!--A non-staff user cannot create a note template.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_non_staff_cannot_delete_template" time="0.029" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="3018">
+		<!--A non-staff user cannot delete a note template.
+
+Regression test: see the NoteTemplateAPITests docstring - DELETE bypasses
+the staff-only check that NoteSerializer.save() enforces for create/update.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_non_staff_cannot_edit_template" time="0.030" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2995">
+		<!--A non-staff user cannot update an existing note template.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_staff_can_create_template" time="0.025" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2955">
+		<!--A staff user can create a note template without a model_type/model_id.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_staff_can_delete_template" time="0.029" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="3009">
+		<!--A staff user can delete a note template.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_staff_can_edit_template" time="0.032" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="2982">
+		<!--A staff user can update an existing note template.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_template_filter" time="0.060" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="3047">
+		<!--The 'template' filter correctly separates templates from regular notes.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteTemplateAPITests" name="test_template_visible_to_any_authenticated_user" time="0.039" timestamp="2026-10-31T18:16:12" file="common\test_api.py" line="3031">
+		<!--Templates are visible to any authenticated user, regardless of role.-->
+	</testcase>
+</testsuite>

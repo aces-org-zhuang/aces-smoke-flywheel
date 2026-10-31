@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_serializers.DependentFieldTests-20261031181515" tests="6" file="InvenTree/test_serializers.py" time="0.004" timestamp="2026-10-31T18:27:03" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_child_conversion_error" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="91">
+		<!--Preserve ordinary child field conversion errors.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_child_field_validators" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="44">
+		<!--Run validators on the selected child field.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_child_serializer_field_error" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="98">
+		<!--Preserve nested field errors from a child serializer.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_child_serializer_validation" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="51">
+		<!--Propagate object-level validation errors under the dependent field.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_valid_child_field" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="69">
+		<!--Preserve conversion of valid child field input.-->
+	</testcase>
+	<testcase classname="InvenTree.test_serializers.DependentFieldTests" name="test_valid_child_serializer" time="0.001" timestamp="2026-10-31T18:27:03" file="InvenTree\test_serializers.py" line="76">
+		<!--Use the data returned by the child serializer's validate method.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_api.PartDetailTests-20261031181515" tests="10" file="part/test_api.py" time="4.267" timestamp="2026-10-31T18:20:21" failures="2" errors="0" skipped="0">
+	<testcase classname="part.test_api.PartDetailTests" name="test_details" time="0.089" timestamp="2026-10-31T18:20:17" file="part\test_api.py" line="2232">
+		<!--Test that the required details are available.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_duplicates" time="0.417" timestamp="2026-10-31T18:20:17" file="part\test_api.py" line="2035">
+		<!--Check that trying to create 'duplicate' parts results in errors.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_image_upload" time="1.201" timestamp="2026-10-31T18:20:19" file="part\test_api.py" line="2100">
+		<!--Test that we can upload an image to the part API.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_location_detail" time="0.098" timestamp="2026-10-31T18:20:19" file="part\test_api.py" line="2271">
+		<!--Check that location_detail can be requested against the serializer.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_min_max_stock" time="0.969" timestamp="2026-10-31T18:20:20" file="part\test_api.py" line="2011">
+		<!--Test that decimal values can be set for minimum_stock and maximum_stock.
+
+Ref: https://github.com/inventree/InvenTree/issues/12925
+-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_part_operations" time="0.825" timestamp="2026-10-31T18:20:21" file="part\test_api.py" line="1950">
+		<!--Test that Part instances can be adjusted via the API.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_part_requirements" time="0.068" timestamp="2026-10-31T18:20:21" file="part\test_api.py" line="2281">
+		<!--Unit test for the "PartRequirements" API endpoint.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_path_detail" time="0.085" timestamp="2026-10-31T18:20:21" file="part\test_api.py" line="2260">
+		<!--Check that path_detail can be requested against the serializer.-->
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_existing_image" time="0.231" timestamp="2026-10-31T18:20:18" file="part\test_api.py" line="2149">
+		<!--Test that we can allocate an existing uploaded image to a new Part.-->
+		<failure type="AssertionError" message="400 != 201"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 2167, in test_existing_image
+    response = self.post(
+        reverse('api-part-list'),
+    ...<6 lines>...
+        expected_code=201,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 593, in post
+    return self.query(url, self.client.post, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 201
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/part/': status_code = 400 (expected 201)
+data: {'existing_image': [ErrorDetail(string='Image file does not exist', code='invalid')]}
+content: b'{"existing_image":["Image file does not exist"]}'
+]]></system-out>
+	</testcase>
+	<testcase classname="part.test_api.PartDetailTests" name="test_update_existing_image" time="0.282" timestamp="2026-10-31T18:20:21" file="part\test_api.py" line="2180">
+		<!--Test that we can update the image of an existing part with an already existing image.-->
+		<failure type="AssertionError" message="400 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\part\test_api.py", line 2216, in test_update_existing_image
+    response = self.patch(
+        reverse('api-part-detail', kwargs={'pk': part_pk}),
+        {'existing_image': image_name},
+        expected_code=200,
+    )
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 607, in patch
+    return self.query(url, self.client.patch, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 400 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/part/10005/': status_code = 400 (expected 200)
+data: {'existing_image': [ErrorDetail(string='Image file does not exist', code='invalid')]}
+content: b'{"existing_image":["Image file does not exist"]}'
+]]></system-out>
+	</testcase>
+</testsuite>

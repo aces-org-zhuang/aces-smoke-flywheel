@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockLocationTest-20261031181515" tests="10" file="stock/test_api.py" time="6.720" timestamp="2026-10-31T18:21:58" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockLocationTest" name="test_add" time="0.050" timestamp="2026-10-31T18:21:52" file="stock\test_api.py" line="204">
+		<!--Test adding StockLocation.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_bulk_set_parent" time="2.829" timestamp="2026-10-31T18:21:54" file="stock\test_api.py" line="83">
+		<!--Test that bulk re-parenting of locations correctly rebuilds the tree.
+
+Re-parenting multiple locations in a single 'bulk update' API call must
+leave the tree structure and the 'pathstring' values fully consistent.
+
+Ref: https://github.com/inventree/InvenTree/issues/12394
+-->
+		<system-out><![CDATA[Warning: 1020 queries executed at /api/stock/location/
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_list" time="0.258" timestamp="2026-10-31T18:21:55" file="stock\test_api.py" line="148">
+		<!--Test the StockLocationList API endpoint.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_ordering" time="0.327" timestamp="2026-10-31T18:21:55" file="stock\test_api.py" line="78">
+		<!--Test ordering options for the StockLocation list endpoint.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_output_options" time="0.053" timestamp="2026-10-31T18:21:55" file="stock\test_api.py" line="315">
+		<!--Test output options.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_stock_location_delete" time="0.924" timestamp="2026-10-31T18:21:56" file="stock\test_api.py" line="215">
+		<!--Test stock location deletion with different parameters.-->
+		<system-out><![CDATA[Warning: 115 queries executed at /api/stock/location/25/
+]]></system-out>
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_stock_location_icon" time="0.107" timestamp="2026-10-31T18:21:56" file="stock\test_api.py" line="384">
+		<!--Test stock location icon inheritance from StockLocationType.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_stock_location_list_filter" time="0.191" timestamp="2026-10-31T18:21:56" file="stock\test_api.py" line="429">
+		<!--Test stock location list filters.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_stock_location_structural" time="0.040" timestamp="2026-10-31T18:21:56" file="stock\test_api.py" line="321">
+		<!--Test the effectiveness of structural stock locations.
+
+Make sure:
+- Stock items cannot be created in structural locations
+- Stock items cannot be located to structural locations
+- Check that stock location change to structural fails if items located into it
+-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTest" name="test_stock_location_tree" time="1.942" timestamp="2026-10-31T18:21:58" file="stock\test_api.py" line="498">
+		<!--Test the StockLocationTree API endpoint.-->
+	</testcase>
+</testsuite>

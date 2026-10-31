@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.StockTest-20261031181515" tests="42" file="stock/tests.py" time="4.761" timestamp="2026-10-31T18:22:31" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.tests.StockTest" name="test_add_stock" time="0.021" timestamp="2026-10-31T18:22:26" file="stock\tests.py" line="781">
+		<!--Test adding stock.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_adjustment_stale_quantity" time="0.154" timestamp="2026-10-31T18:22:27" file="stock\tests.py" line="606">
+		<!--Stock adjustments operate on database quantities, not stale in-memory copies.
+
+Simulates concurrent adjustment operations, where each worker holds
+its own (stale) in-memory copy of the same StockItem.
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_allocate_to_customer" time="0.053" timestamp="2026-10-31T18:22:27" file="stock\tests.py" line="797">
+		<!--Test allocating stock to a customer.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_big_serials" time="0.703" timestamp="2026-10-31T18:22:27" file="stock\tests.py" line="956">
+		<!--Unit tests for "large" serial numbers which exceed integer encoding.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_child_items" time="0.096" timestamp="2026-10-31T18:22:27" file="stock\tests.py" line="561">
+		<!--Test the 'children' reverse relation and 'child_count' property.
+
+Regression test: StockItem previously defined a 'children' property
+(shadowed by the reverse FK accessor, and referencing a method which no
+longer exists on the model). The property has been removed - 'children'
+must resolve to the reverse foreign-key manager for the 'parent' field.
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_children" time="0.009" timestamp="2026-10-31T18:22:27" file="stock\tests.py" line="227">
+		<!--Test has_children.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_delete_location" time="0.103" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="264">
+		<!--Test deleting stock.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_delete_reparents_children" time="0.119" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="376">
+		<!--Test that deleting an intermediate item re-links children to the grandparent.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_deplete_stock" time="0.043" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="906">
+		<!--Test depleted stock deletion.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_expiry" time="0.037" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="136">
+		<!--Test expiry date functionality for StockItem model.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_exteneded_schema" time="0.023" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="104">
+		<!--Test that extended URL schemes are allowed.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_implicit_delete_reparents_children" time="0.159" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="406">
+		<!--Test child re-linking when items are deleted by depletion or merging.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_is_building" time="0.132" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="165">
+		<!--Test that the is_building flag does not count towards stock.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_items" time="0.008" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="240">
+		<!--Test has_items.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_link" time="0.094" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="70">
+		<!--Test the link URL field validation.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_loc_count" time="0.006" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="192">
+		<!--Test count function.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_merge" time="0.227" timestamp="2026-10-31T18:22:28" file="stock\tests.py" line="1101">
+		<!--Test merging of multiple stock items.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_merge_protected_items" time="0.082" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1166">
+		<!--Stock items in a protected state cannot be absorbed by a merge.
+
+Regression test: merge_stock_items() used to run the generic state checks
+(in production, assigned to customer, etc.) against the *target* item only,
+allowing e.g. a build output to be merged away and deleted.
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_merge_stale_quantity" time="0.061" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="654">
+		<!--Merging stock items uses database quantities, not stale in-memory values.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_metadata" time="0.079" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1084">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_move" time="0.022" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="285">
+		<!--Test stock movement functions.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_notify_low_stock" time="0.027" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1214">
+		<!--Test that the 'notify_low_stock' task is triggered correctly.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_over_adjustment_quantities" time="0.110" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="441">
+		<!--Stock adjustments are clamped to the available stock quantity.
+
+Regression test: take_stock / allocateToCustomer / installStockItem
+previously recorded the *requested* quantity in the stock history,
+even when less stock was actually removed / allocated / installed.
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_parent_locations" time="0.042" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="207">
+		<!--Test parent.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_partial_move" time="0.042" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="317">
+		<!--Test partial stock moving.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_purchase_price" time="0.079" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1253">
+		<!--Test purchase price field.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_return_from_customer" time="0.169" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="825">
+		<!--Test removing previous allocated stock from customer.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_self_move" time="0.023" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="304">
+		<!--Test moving stock to its current location.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_serial_numbers" time="0.063" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="112">
+		<!--Test serial number uniqueness.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_serialize_stock_invalid" time="0.012" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1017">
+		<!--Test manual serialization of parts.
+
+Each of these tests should fail
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_serialize_stock_valid" time="0.155" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="1045">
+		<!--Perform valid stock serializations.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_serials" time="0.062" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="925">
+		<!--Tests for stock serialization.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_split_stock" time="0.033" timestamp="2026-10-31T18:22:29" file="stock\tests.py" line="342">
+		<!--Test stock splitting.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_split_stock_tracking_deltas" time="0.032" timestamp="2026-10-31T18:22:30" file="stock\tests.py" line="362">
+		<!--The parent's SPLIT_CHILD_ITEM tracking entry must reference the new child item.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_stock_count" time="0.012" timestamp="2026-10-31T18:22:30" file="stock\tests.py" line="246">
+		<!--Test stock count.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_stocktake" time="0.035" timestamp="2026-10-31T18:22:30" file="stock\tests.py" line="671">
+		<!--Test stocktake function.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_stocktake_batch_events" time="0.926" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="724">
+		<!--Test that batch_events() collapses per-item stocktake() events into one bulk write.
+
+StockItem.stocktake() always calls trigger_event() exactly as it does when called
+standalone (see test_stocktake_events_outside_batch below) - a bulk caller wraps its
+loop in batch_events() to collapse those N individual event offloads into a single
+bulk_trigger_event() call, fired when the enclosing transaction commits.
+-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_stocktake_events_outside_batch" time="0.627" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="762">
+		<!--Test that stocktake() still fires events immediately when called outside batch_events().-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_strings" time="0.009" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="202">
+		<!--Test str function.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_take_stock" time="0.019" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="888">
+		<!--Test stock removal.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_uninstall_into_structural_location" time="0.045" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="529">
+		<!--Test that an item cannot be uninstalled into a structural location.-->
+	</testcase>
+	<testcase classname="stock.tests.StockTest" name="test_url" time="0.007" timestamp="2026-10-31T18:22:31" file="stock\tests.py" line="196">
+		<!--Test get_absolute_url function.-->
+	</testcase>
+</testsuite>

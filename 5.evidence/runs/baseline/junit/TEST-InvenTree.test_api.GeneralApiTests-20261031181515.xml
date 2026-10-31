@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.GeneralApiTests-20261031181515" tests="8" file="InvenTree/test_api.py" time="1.481" timestamp="2026-10-31T18:25:56" failures="0" errors="1" skipped="0">
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_api_license" time="0.049" timestamp="2026-10-31T18:25:55" file="InvenTree\test_api.py" line="825">
+		<!--Test that the license endpoint is working.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_api_version" time="0.056" timestamp="2026-10-31T18:25:55" file="InvenTree\test_api.py" line="772">
+		<!--Test that the API text is correct.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_generic_metadata_lookup_field_injection" time="0.184" timestamp="2026-10-31T18:25:55" file="InvenTree\test_api.py" line="967">
+		<!--The generic metadata endpoint must not accept arbitrary lookup expressions.
+
+Regression test for a vulnerability where 'lookup_field' was passed
+straight from the URL into the ORM (e.g. 'key__regex'), letting an
+unprivileged user turn distinguishable 403 / 404 / 500 responses into
+an oracle to recover another user's raw API token, byte by byte.
+-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_info_view_link" time="0.104" timestamp="2026-10-31T18:25:56" file="InvenTree\test_api.py" line="908">
+		<!--Test the link proof in the 'info-view' endpoint.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_inventree_api_text_fnc" time="0.007" timestamp="2026-10-31T18:25:56" file="InvenTree\test_api.py" line="785">
+		<!--Test that the inventreeApiText function works expected.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_link_proof" time="0.034" timestamp="2026-10-31T18:25:56" file="InvenTree\test_api.py" line="936">
+		<!--Test the link proof helper.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_parse_version_text_fnc" time="0.012" timestamp="2026-10-31T18:25:56" file="InvenTree\test_api.py" line="804">
+		<!--Test that api version text is correctly parsed.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.GeneralApiTests" name="test_info_view" time="1.035" timestamp="2026-10-31T18:25:56" file="InvenTree\test_api.py" line="850">
+		<!--Test that we can read the 'info-view' endpoint.-->
+		<error type="TypeError" message="object of type 'bool' has no len()"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\test_api.py", line 893, in test_info_view
+    N = len(plugins)
+TypeError: object of type 'bool' has no len()
+]]></error>
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestSerialNumberExtraction-20261031181515" tests="3" file="InvenTree/tests.py" time="0.044" timestamp="2026-10-31T18:26:39" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestSerialNumberExtraction" name="test_combinations" time="0.015" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1090">
+		<!--Test complex serial number combinations.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSerialNumberExtraction" name="test_failures" time="0.010" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1037">
+		<!--Test wrong serial numbers.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestSerialNumberExtraction" name="test_simple" time="0.018" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="973">
+		<!--Test simple serial numbers.-->
+	</testcase>
+</testsuite>

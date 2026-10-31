@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_api.BuildListTest-20261031181515" tests="7" file="build/test_api.py" time="1.429" timestamp="2026-10-31T18:15:38" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_api.BuildListTest" name="test_api_options" time="0.090" timestamp="2026-10-31T18:15:36" file="build\test_api.py" line="1298">
+		<!--Test OPTIONS endpoint for the Build list API.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_detail_fields" time="0.071" timestamp="2026-10-31T18:15:37" file="build\test_api.py" line="1318">
+		<!--Test inclusion of detail fields.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_get_all_builds" time="0.197" timestamp="2026-10-31T18:15:37" file="build\test_api.py" line="1337">
+		<!--Retrieve *all* builds via the API.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_output_options" time="0.308" timestamp="2026-10-31T18:15:37" file="build\test_api.py" line="1440">
+		<!--Test the output options for BuildOrderList list.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_overdue" time="0.061" timestamp="2026-10-31T18:15:37" file="build\test_api.py" line="1355">
+		<!--Create a new build, in the past.-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_status_codes_endpoint" time="0.017" timestamp="2026-10-31T18:15:37" file="build\test_api.py" line="1454">
+		<!--The 'build/status/' endpoint must resolve to the status-codes view.
+
+Regression test: ensures the literal 'status/' path is not shadowed by the
+'build/<pk>/' detail route it sits alongside in the same urlconf.
+-->
+	</testcase>
+	<testcase classname="build.test_api.BuildListTest" name="test_sub_builds" time="0.684" timestamp="2026-10-31T18:15:38" file="build\test_api.py" line="1376">
+		<!--Test the build / sub-build relationship.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_sales_order.SalesOrderTest-20261031181515" tests="26" file="order/test_sales_order.py" time="8.490" timestamp="2026-10-31T18:19:17" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_add_duplicate_line_item" time="0.042" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="180">
+		<!--Adding a duplicate line item to a SalesOrder is accepted.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_allocate_full" time="0.013" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="254">
+		<!--Fully allocate stock.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_allocate_partial" time="0.014" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="245">
+		<!--Partially allocate stock.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_allocate_variant" time="0.009" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="286">
+		<!--Allocate a variant of the designated item.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_complete_allocation_stale_line_instance" time="0.037" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="262">
+		<!--The 'shipped' count is incremented atomically at the database level.
+
+Simulates two concurrent workers completing different allocations
+against the same order line, each holding its own (stale) copy of the line.
+-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_complete_order" time="0.100" timestamp="2026-10-31T18:19:08" file="order\test_sales_order.py" line="346">
+		<!--Allocate line items, then ship the order.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_complete_order_stale_instance_is_noop" time="0.101" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="434">
+		<!--A second completion attempt with a stale order instance must be a no-op.
+
+Regression test: _action_complete() checked 'status' on the caller's
+(potentially stale) instance, so two concurrent completion requests could
+both run the completion side effects (duplicate COMPLETED events and
+duplicate pricing-update scheduling). The status is now re-read (under
+lock) from the database before the check.
+-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_complete_shipment_task_is_idempotent" time="0.051" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="490">
+		<!--Duplicate execution of the shipment completion task must not double-ship.
+
+Regression test: two rapid completion requests could enqueue the background
+completion task twice - each execution then completed every allocation again,
+double-counting the 'shipped' quantity and re-assigning stock to the customer.
+-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_default_shipment" time="0.024" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="764">
+		<!--Test sales order default shipment creation.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_empty_order" time="0.012" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="169">
+		<!--Test for an empty order.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_metadata" time="0.189" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="932">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_new_so_notification" time="0.041" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="909">
+		<!--Test that a notification is sent when a new SalesOrder is issued.
+
+- The responsible user should receive a notification
+- The creating user should *not* receive a notification
+-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_order_cancel" time="0.033" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="296">
+		<!--Allocate line items then cancel the order.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_order_cancel_stale_instance_is_noop" time="0.038" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="314">
+		<!--A second cancellation attempt with a stale order instance must be a no-op.
+
+Regression test: _action_cancel() checked 'status' on the caller's
+(potentially stale) instance, so two concurrent cancellation requests
+could both run the cancellation side effects (duplicate CANCELLED
+events). The status is now re-read (under lock) from the database
+before the check.
+-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_over_allocate" time="0.021" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="221">
+		<!--Test that over allocation logic works.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_overdue" time="0.023" timestamp="2026-10-31T18:19:09" file="order\test_sales_order.py" line="152">
+		<!--Tests for overdue functionality.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_overdue_notification" time="0.806" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="885">
+		<!--Test overdue sales order notification.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_rebuild_reference" time="0.021" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="140">
+		<!--Test that the 'reference_int' field gets rebuilt when the model is saved.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_scratch_complete_allocation_single" time="0.057" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="203">
+		<!--Scratch check: SalesOrderAllocation.complete_allocation() backwards-compat shim.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_shipment_address" time="0.036" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="803">
+		<!--Unit tests for SalesOrderShipment address field.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_shipment_contact" time="0.018" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="855">
+		<!--Unit tests for SalesOrderShipment contact field.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_shipment_delivery" time="0.007" timestamp="2026-10-31T18:19:10" file="order\test_sales_order.py" line="797">
+		<!--Test the shipment delivery settings.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_shipment_many_items" time="6.555" timestamp="2026-10-31T18:19:16" file="order\test_sales_order.py" line="527">
+		<!--Test completion of a shipment with many items.
+
+Here, we create a shipment with a very large number of items assigned,
+and check that the shipment can be completed without error.
+
+This test is designed to test that the database does not error out,
+even when a large number of items are assigned to a shipment.
+
+It also checks that:
+- Stock items are split (or fully consumed) correctly
+- The correct stock tracking entries are created for each item
+- The associated ITEM_SPLIT / ITEM_ASSIGNED_TO_CUSTOMER events are queued
+- A low-stock check is queued for the (single) affected part
+- Line 'shipped' quantities and allocation->item references are updated correctly
+
+Ref: https://github.com/inventree/InvenTree/pull/11500
+-->
+		<system-out><![CDATA[Warning: 121 queries executed at /api/order/so/shipment/2/ship/
+Benchmark @ '/api/order/so/shipment/2/ship/': 121 queries (of 150) in 3.1146s (of 10.0s max)
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_so_reference" time="0.030" timestamp="2026-10-31T18:19:16" file="order\test_sales_order.py" line="133">
+		<!--Unit tests for sales order generation.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_validate_address" time="0.031" timestamp="2026-10-31T18:19:17" file="order\test_sales_order.py" line="101">
+		<!--Test validation of the linked Address.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderTest" name="test_virtual_parts" time="0.183" timestamp="2026-10-31T18:19:17" file="order\test_sales_order.py" line="954">
+		<!--Test shipment of virtual parts against an order.-->
+	</testcase>
+</testsuite>

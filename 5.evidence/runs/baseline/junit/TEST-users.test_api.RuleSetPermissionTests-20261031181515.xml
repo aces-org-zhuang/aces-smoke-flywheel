@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.test_api.RuleSetPermissionTests-20261031181515" tests="3" file="users/test_api.py" time="0.454" timestamp="2026-10-31T18:22:35" failures="0" errors="0" skipped="0">
+	<testcase classname="users.test_api.RuleSetPermissionTests" name="test_group_write_requires_admin_role" time="0.184" timestamp="2026-10-31T18:22:34" file="users\test_api.py" line="724">
+		<!--A staff-only user (without the 'admin' role) cannot write to the Group API.-->
+	</testcase>
+	<testcase classname="users.test_api.RuleSetPermissionTests" name="test_non_staff_user_read_only" time="0.055" timestamp="2026-10-31T18:22:34" file="users\test_api.py" line="776">
+		<!--A non-staff, non-admin authenticated user retains read-only access.-->
+	</testcase>
+	<testcase classname="users.test_api.RuleSetPermissionTests" name="test_ruleset_write_requires_admin_role" time="0.215" timestamp="2026-10-31T18:22:35" file="users\test_api.py" line="747">
+		<!--A staff-only user cannot self-escalate permissions via the RuleSet API.-->
+		<system-out><![CDATA[Warning: 150 queries executed at /api/user/ruleset/1/
+]]></system-out>
+	</testcase>
+</testsuite>

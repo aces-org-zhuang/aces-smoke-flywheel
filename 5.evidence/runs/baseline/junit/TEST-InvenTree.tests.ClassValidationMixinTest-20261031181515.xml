@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.ClassValidationMixinTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.001" timestamp="2026-10-31T18:26:36" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.ClassValidationMixinTest" name="test_invalid_class" time="0.001" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1891">
+		<!--Test that an invalid class fails the validation.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ClassValidationMixinTest" name="test_valid_class" time="0.000" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1875">
+		<!--Test that a valid class passes the validation.-->
+	</testcase>
+</testsuite>

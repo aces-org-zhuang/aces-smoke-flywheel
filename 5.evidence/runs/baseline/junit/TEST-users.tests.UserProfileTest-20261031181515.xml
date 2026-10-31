@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.UserProfileTest-20261031181515" tests="5" file="users/tests.py" time="0.523" timestamp="2026-10-31T18:22:43" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.UserProfileTest" name="test_primary_group_validation" time="0.152" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="606">
+		<!--Test that primary_group is a group that the user is a member of.-->
+	</testcase>
+	<testcase classname="users.tests.UserProfileTest" name="test_profile_retrieve" time="0.020" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="560">
+		<!--Test retrieving the user profile.-->
+	</testcase>
+	<testcase classname="users.tests.UserProfileTest" name="test_profile_update" time="0.023" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="577">
+		<!--Test updating the user profile.-->
+	</testcase>
+	<testcase classname="users.tests.UserProfileTest" name="test_validate_primary_group_on_delete" time="0.173" timestamp="2026-10-31T18:22:43" file="users\tests.py" line="632">
+		<!--Test validate_primary_group_on_delete signal handler.-->
+	</testcase>
+	<testcase classname="users.tests.UserProfileTest" name="test_validate_primary_group_on_save" time="0.155" timestamp="2026-10-31T18:22:43" file="users\tests.py" line="614">
+		<!--Test validate_primary_group_on_save signal handler.-->
+	</testcase>
+</testsuite>

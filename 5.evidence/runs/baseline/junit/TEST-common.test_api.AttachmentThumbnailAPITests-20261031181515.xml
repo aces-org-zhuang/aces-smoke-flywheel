@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.AttachmentThumbnailAPITests-20261031181515" tests="9" file="common/test_api.py" time="1.326" timestamp="2026-10-31T18:16:05" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_is_image_filter" time="0.222" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2157">
+		<!--The is_image filter on the attachment list endpoint should return only matching attachments.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_deleted_with_attachment" time="0.123" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2109">
+		<!--Deleting an attachment via the API should also remove its thumbnail from storage.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_invalid_image" time="0.107" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2068">
+		<!--Uploading a file with an image extension but invalid image data should not create a thumbnail.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_large_image" time="0.132" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2094">
+		<!--A large image attachment should produce a thumbnail no larger than THUMBNAIL_SIZE on each side.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_link_attachment" time="0.115" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2137">
+		<!--An attachment created with an external link (no file) should not generate a thumbnail.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_non_image_file" time="0.107" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2081">
+		<!--Uploading a non-image file should leave is_image=False with no thumbnail.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_valid_image" time="0.108" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2057">
+		<!--Uploading a valid image file should set is_image=True and generate a thumbnail.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_thumbnail_zero_byte_file" time="0.097" timestamp="2026-10-31T18:16:04" file="common\test_api.py" line="2130">
+		<!--Uploading a zero-byte file should be rejected by Django's file validation before reaching thumbnail logic.-->
+	</testcase>
+	<testcase classname="common.test_api.AttachmentThumbnailAPITests" name="test_upload_exceeds_size_limit" time="0.314" timestamp="2026-10-31T18:16:05" file="common\test_api.py" line="2196">
+		<!--Uploading a file that exceeds INVENTREE_UPLOAD_MAX_SIZE should be rejected with a 400 error.-->
+	</testcase>
+</testsuite>

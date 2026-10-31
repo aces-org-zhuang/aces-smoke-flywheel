@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.NoteAPITests-20261031181515" tests="6" file="common/test_api.py" time="0.796" timestamp="2026-10-31T18:16:08" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.NoteAPITests" name="test_creating_primary_note_demotes_existing_primary" time="0.133" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1500">
+		<!--Explicitly creating a new note with primary=True demotes the existing primary note.
+
+Regression test: DRF auto-generates a UniqueTogetherValidator from the
+'unique_primary_note_per_model' partial unique constraint, which used to
+reject this at the serializer-validation stage (before Note.save()'s
+demote-then-save logic ever ran), raising a spurious 'unique set' error.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NoteAPITests" name="test_first_note_is_primary" time="0.109" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1456">
+		<!--A note created when no other notes exist is automatically primary.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteAPITests" name="test_phantom_row_race_retries_instead_of_500" time="0.077" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1544">
+		<!--Two concurrent creates of the *first* note for an instance must not 500.
+
+Note.save()'s select_for_update() sibling lock has nothing to lock when no
+sibling note exists yet, so it cannot by itself serialize two concurrent
+creates of the first note for the same model instance - both can decide
+they're primary before either commits. This can't be reproduced
+deterministically with real threads inside a TestCase (each test runs
+inside one wrapped, uncommitted transaction), so instead force the exact
+failure mode Note.save() must handle: make its own first INSERT attempt
+collide with the unique_primary_note_per_model constraint, as a genuine
+second concurrent request's already-committed row would, and confirm it
+retries as a non-primary note instead of letting the IntegrityError
+surface as a raw 500.
+-->
+	</testcase>
+	<testcase classname="common.test_api.NoteAPITests" name="test_primary_flag_isolated_per_model_instance" time="0.185" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1519">
+		<!--Primary flag changes on one model instance do not affect notes on another.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteAPITests" name="test_second_note_not_primary_by_default" time="0.111" timestamp="2026-10-31T18:16:07" file="common\test_api.py" line="1461">
+		<!--Notes created after the first are not primary by default.-->
+	</testcase>
+	<testcase classname="common.test_api.NoteAPITests" name="test_setting_primary_clears_others" time="0.180" timestamp="2026-10-31T18:16:08" file="common\test_api.py" line="1474">
+		<!--Marking a note as primary demotes all sibling notes.-->
+	</testcase>
+</testsuite>

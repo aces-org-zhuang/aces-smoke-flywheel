@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.MagicLoginTest-20261031181515" tests="2" file="InvenTree/tests.py" time="0.126" timestamp="2026-10-31T18:26:37" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.MagicLoginTest" name="test_duplicate_email" time="0.041" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="1787">
+		<!--Test that duplicate email addresses do not raise a server error.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.MagicLoginTest" name="test_generation" time="0.085" timestamp="2026-10-31T18:26:37" file="InvenTree\tests.py" line="1757">
+		<!--Test that magic login tokens are generated correctly.-->
+	</testcase>
+</testsuite>

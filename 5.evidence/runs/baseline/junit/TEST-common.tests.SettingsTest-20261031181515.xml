@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.SettingsTest-20261031181515" tests="12" file="common/tests.py" time="4.724" timestamp="2026-10-31T18:17:38" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.SettingsTest" name="test_allValues" time="0.012" timestamp="2026-10-31T18:17:33" file="common\tests.py" line="393">
+		<!--Make sure that the allValues functions returns correctly.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_all_settings" time="0.009" timestamp="2026-10-31T18:17:33" file="common\tests.py" line="408">
+		<!--Make sure that the all_settings function returns correctly.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_check_all_settings" time="0.024" timestamp="2026-10-31T18:17:33" file="common\tests.py" line="414">
+		<!--Make sure that the check_all_settings function returns correctly.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_defaults" time="4.533" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="551">
+		<!--Populate the settings with default values.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_global_setting_caching" time="0.033" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="583">
+		<!--Test caching operations for the global settings class.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_override" time="0.006" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="574">
+		<!--Test override of global settings.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_set_global_warning" time="0.017" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="632">
+		<!--Test set_global_warning function.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_setting_data" time="0.006" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="531">
+		<!--Test for settings data.
+
+- Ensure that every setting has a name, which is translated
+- Ensure that every setting has a description, which is translated
+-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_settings_functions" time="0.008" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="341">
+		<!--Test settings functions and properties.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_settings_objects" time="0.007" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="325">
+		<!--Test fixture loading and lookup for settings.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_settings_validator" time="0.012" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="441">
+		<!--Make sure that the validator function gets called on set setting.-->
+	</testcase>
+	<testcase classname="common.tests.SettingsTest" name="test_user_setting_caching" time="0.056" timestamp="2026-10-31T18:17:38" file="common\tests.py" line="604">
+		<!--Test caching operation for the user settings class.-->
+	</testcase>
+</testsuite>

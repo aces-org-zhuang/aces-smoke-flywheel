@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_audit.PartAuditTest-20261031181515" tests="7" file="part/test_audit.py" time="0.427" timestamp="2026-10-31T18:20:28" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_audit.PartAuditTest" name="test_bom_validation" time="0.044" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="80">
+		<!--Validating the BOM is recorded - without the (derived) checksum.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_category_delete" time="0.049" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="137">
+		<!--Deleting a category re-parents its parts and subcategories - and is recorded.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_category_edit" time="0.092" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="115">
+		<!--Category edits are recorded - without the (derived) pathstring.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_category_history" time="0.042" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="158">
+		<!--The category history is available via the API.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_part_create" time="0.008" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="53">
+		<!--Creating a part is recorded.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_part_edit" time="0.139" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="64">
+		<!--Part edits via the API are recorded against the user.-->
+	</testcase>
+	<testcase classname="part.test_audit.PartAuditTest" name="test_part_history_includes_parameters" time="0.054" timestamp="2026-10-31T18:20:28" file="part\test_audit.py" line="97">
+		<!--Parameters (already audited) are shown in the part history.-->
+	</testcase>
+</testsuite>

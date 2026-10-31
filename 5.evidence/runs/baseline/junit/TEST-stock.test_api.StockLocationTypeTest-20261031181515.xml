@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.test_api.StockLocationTypeTest-20261031181515" tests="4" file="stock/test_api.py" time="0.136" timestamp="2026-10-31T18:21:59" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.test_api.StockLocationTypeTest" name="test_create" time="0.036" timestamp="2026-10-31T18:21:59" file="stock\test_api.py" line="561">
+		<!--Test that we can create a location type via API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTypeTest" name="test_delete" time="0.024" timestamp="2026-10-31T18:21:59" file="stock\test_api.py" line="550">
+		<!--Test that we can delete a location type via API.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTypeTest" name="test_list" time="0.039" timestamp="2026-10-31T18:21:59" file="stock\test_api.py" line="528">
+		<!--Test that the list endpoint works as expected.-->
+	</testcase>
+	<testcase classname="stock.test_api.StockLocationTypeTest" name="test_update" time="0.037" timestamp="2026-10-31T18:21:59" file="stock\test_api.py" line="583">
+		<!--Test that we can update a location type via API.-->
+	</testcase>
+</testsuite>

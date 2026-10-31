@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="stock.tests.AdminTest-20261031181515" tests="1" file="stock/tests.py" time="0.168" timestamp="2026-10-31T18:22:24" failures="0" errors="0" skipped="0">
+	<testcase classname="stock.tests.AdminTest" name="test_admin" time="0.168" timestamp="2026-10-31T18:22:24" file="stock\tests.py" line="1937">
+		<!--Test the admin URL.-->
+	</testcase>
+</testsuite>

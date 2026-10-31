@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_sales_order.SalesOrderAutoAllocateTest-20261031181515" tests="14" file="order/test_sales_order.py" time="0.640" timestamp="2026-10-31T18:19:07" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_allocates_serialized_stock" time="0.049" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1136">
+		<!--Serialized stock items are included in auto-allocation.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_allocates_single_item" time="0.042" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1029">
+		<!--A single stock item that covers the full quantity is fully allocated.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_exclude_location_filter" time="0.049" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1092">
+		<!--Stock within the excluded location tree is not used.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_interchangeable_consumes_multiple_items" time="0.050" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1042">
+		<!--With interchangeable=True (default), multiple stock items are consumed.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_location_filter" time="0.050" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1079">
+		<!--Only stock within the specified location tree is considered.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_not_interchangeable_skips_split_stock" time="0.049" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1056">
+		<!--With interchangeable=False, allocation is skipped when stock is split.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_not_interchangeable_uses_single_sufficient_item" time="0.052" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1067">
+		<!--With interchangeable=False, a single item that covers the full qty is used.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_shipment_assigned" time="0.041" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1150">
+		<!--Allocations are assigned to the provided shipment.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_skips_fully_allocated_lines" time="0.039" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1108">
+		<!--Lines that are already fully allocated are not touched.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_skips_virtual_parts" time="0.021" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1121">
+		<!--Line items for virtual parts are skipped (virtual parts cannot hold stock).-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_sort_quantity_asc" time="0.051" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1162">
+		<!--quantity_asc sort consumes smallest lots first.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_sort_quantity_desc" time="0.049" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1175">
+		<!--quantity_desc sort consumes largest lots first.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_task_exclude_location_pk" time="0.052" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1206">
+		<!--auto_allocate_sales_order respects exclude_location_id parameter.-->
+	</testcase>
+	<testcase classname="order.test_sales_order.SalesOrderAutoAllocateTest" name="test_task_resolves_pk_params" time="0.045" timestamp="2026-10-31T18:19:07" file="order\test_sales_order.py" line="1189">
+		<!--auto_allocate_sales_order task resolves location/shipment pks to instances.-->
+	</testcase>
+</testsuite>

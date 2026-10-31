@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.test_audit.AuditedUpdateTest-20261031181515" tests="10" file="company/test_audit.py" time="0.123" timestamp="2026-10-31T18:17:45" failures="0" errors="0" skipped="0">
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_bulk_update" time="0.015" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="258">
+		<!--audited_bulk_update() records an entry for each modified row.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_bulk_update_disabled" time="0.008" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="306">
+		<!--No entries are recorded by audited_bulk_update() when auditing is disabled.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_bulk_update_expression" time="0.014" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="279">
+		<!--audited_bulk_update() records the value written by an F() expression.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_bulk_update_fields_only" time="0.011" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="293">
+		<!--Only the fields passed to bulk_update() are recorded.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_disabled" time="0.019" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="242">
+		<!--No entries are created when auditing is disabled.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_expression" time="0.012" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="235">
+		<!--F() expressions are supported (new values are re-read from the database).-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_filter_on_updated_field" time="0.011" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="227">
+		<!--Updating the field the queryset is filtered on still records each row.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_unaudited_model" time="0.008" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="319">
+		<!--Models which are not audited fall back to a plain update.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_unchanged_rows" time="0.010" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="220">
+		<!--Rows which are not actually modified do not produce entries.-->
+	</testcase>
+	<testcase classname="company.test_audit.AuditedUpdateTest" name="test_update" time="0.016" timestamp="2026-10-31T18:17:45" file="company\test_audit.py" line="199">
+		<!--Each updated row gets an entry - matching the signal-based format.-->
+	</testcase>
+</testsuite>

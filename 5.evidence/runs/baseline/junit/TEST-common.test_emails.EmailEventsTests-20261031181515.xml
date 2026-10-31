@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_emails.EmailEventsTests-20261031181515" tests="9" file="common/test_emails.py" time="0.457" timestamp="2026-10-31T18:16:30" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_bounced_event" time="0.007" timestamp="2026-10-31T18:16:29" file="common\test_emails.py" line="229">
+		<!--Test the bounced event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_clicked_event" time="0.004" timestamp="2026-10-31T18:16:29" file="common\test_emails.py" line="216">
+		<!--Test the clicked event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_delivered_event" time="0.004" timestamp="2026-10-31T18:16:29" file="common\test_emails.py" line="208">
+		<!--Test the delivered event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_inbound_event" time="0.423" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="237">
+		<!--Test the inbound event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_opened_event" time="0.004" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="212">
+		<!--Test the opened event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_queued_event" time="0.004" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="224">
+		<!--Test the queued event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_send_event" time="0.004" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="220">
+		<!--Test the send event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_unknown_event" time="0.005" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="203">
+		<!--Test the unknown event.-->
+	</testcase>
+	<testcase classname="common.test_emails.EmailEventsTests" name="test_unknown_mail" time="0.001" timestamp="2026-10-31T18:16:30" file="common\test_emails.py" line="191">
+		<!--Test that unknown mail is ignored.-->
+	</testcase>
+</testsuite>

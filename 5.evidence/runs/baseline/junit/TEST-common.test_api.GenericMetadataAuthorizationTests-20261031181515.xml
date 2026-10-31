@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_api.GenericMetadataAuthorizationTests-20261031181515" tests="4" file="common/test_api.py" time="0.693" timestamp="2026-10-31T18:16:06" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_api.GenericMetadataAuthorizationTests" name="test_attachment_metadata_requires_linked_permission" time="0.218" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="3421">
+		<!--Attachment metadata is scoped by 'view'/'change' on the linked Part.-->
+	</testcase>
+	<testcase classname="common.test_api.GenericMetadataAuthorizationTests" name="test_note_metadata_requires_linked_permission" time="0.204" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="3449">
+		<!--Note metadata is scoped by 'view'/'change' on the linked Part.-->
+	</testcase>
+	<testcase classname="common.test_api.GenericMetadataAuthorizationTests" name="test_parameter_metadata_requires_linked_permission" time="0.183" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="3435">
+		<!--Parameter metadata is scoped by 'view'/'change' on the linked Part.-->
+	</testcase>
+	<testcase classname="common.test_api.GenericMetadataAuthorizationTests" name="test_project_code_metadata_requires_staff_for_write" time="0.088" timestamp="2026-10-31T18:16:06" file="common\test_api.py" line="3463">
+		<!--ProjectCode metadata mirrors the staff-only write restriction of its own endpoint.-->
+	</testcase>
+</testsuite>

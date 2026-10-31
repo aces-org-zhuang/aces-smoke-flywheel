@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pricing.test_pricing.PartPricingTests-20261031181515" tests="19" file="pricing/test_pricing.py" time="7.882" timestamp="2026-10-31T18:20:59" failures="0" errors="0" skipped="0">
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_bom_pricing" time="0.391" timestamp="2026-10-31T18:20:51" file="pricing\test_pricing.py" line="289">
+		<!--Unit test for BOM pricing calculations.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_bom_pricing_piece_count" time="0.100" timestamp="2026-10-31T18:20:51" file="pricing\test_pricing.py" line="335">
+		<!--BOM pricing must account for the piece_count of each BOM item.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_check_missing_pricing" time="2.849" timestamp="2026-10-31T18:20:54" file="pricing\test_pricing.py" line="473">
+		<!--Tests for check_missing_pricing background task.
+
+Calling the check_missing_pricing task should:
+- Create PartPricing objects where there are none
+- Schedule pricing calculations for the newly created PartPricing objects
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField PartPricing.updated received a naive datetime (2026-10-01 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_check_missing_pricing_batches_scheduling" time="0.606" timestamp="2026-10-31T18:20:55" file="pricing\test_pricing.py" line="497">
+		<!--check_missing_pricing() must batch its scheduling calls, not scan the task queue per part.
+
+Regression test: without batching, each PartPricing.schedule_for_update() call triggers
+offload_task() -> check_existing_task(), which scans and unpickles every row in the task
+queue to look for a duplicate. Calling this once per part inside check_missing_pricing's
+loops made scheduling cost grow with the queue backlog, which is what caused a background
+worker timeout in production (Sentry: "Task exceeded maximum timeout value (90 seconds)"
+raised from check_existing_task).
+-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_delete_part_with_stock_items" time="0.358" timestamp="2026-10-31T18:20:55" file="pricing\test_pricing.py" line="529">
+		<!--Test deleting a part instance with stock items.
+
+This is to test a specific edge condition which was discovered that caused an IntegrityError.
+Ref: https://github.com/inventree/InvenTree/issues/4419
+
+Essentially a series of on_delete listeners caused a new PartPricing object to be created,
+but it pointed to a Part instance which was slated to be deleted inside an atomic transaction.
+-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_delete_with_pricing" time="0.513" timestamp="2026-10-31T18:20:55" file="pricing\test_pricing.py" line="432">
+		<!--Test for deleting a part which has pricing information.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_delete_without_pricing" time="0.061" timestamp="2026-10-31T18:20:56" file="pricing\test_pricing.py" line="457">
+		<!--Test that we can delete a part which does not have pricing information.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_get_part_deleted" time="0.049" timestamp="2026-10-31T18:20:56" file="pricing\test_pricing.py" line="565">
+		<!--Test that PartPricing.get_part() returns None if the linked Part has been deleted.
+
+Regression test for a bug where a PartPricing instance which still held an
+in-memory reference to its linked Part (e.g. as passed into the background
+pricing update task) would raise Part.DoesNotExist when that Part had since
+been deleted from the database, instead of failing gracefully.
+-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_internal_pricing" time="0.269" timestamp="2026-10-31T18:20:56" file="pricing\test_pricing.py" line="212">
+		<!--Tests for internal price breaks.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_invalid_rate" time="0.019" timestamp="2026-10-31T18:20:56" file="pricing\test_pricing.py" line="115">
+		<!--Ensure that conversion behaves properly with missing rates.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_max_pricing_depth" time="0.030" timestamp="2026-10-31T18:20:56" file="pricing\test_pricing.py" line="706">
+		<!--Exceeding the maximum pricing depth must skip the update cleanly.
+
+Regression test: the debug log message was previously passed with the
+arguments in the wrong order, raising a TypeError when debug logging was enabled.
+-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_multi_level_bom" time="0.941" timestamp="2026-10-31T18:20:57" file="pricing\test_pricing.py" line="627">
+		<!--Test that pricing for multi-level BOMs is calculated correctly.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_pricing_data" time="0.023" timestamp="2026-10-31T18:20:57" file="pricing\test_pricing.py" line="93">
+		<!--Test link between Part and PartPricing model.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_pricing_methods_with_deleted_part" time="0.067" timestamp="2026-10-31T18:20:57" file="pricing\test_pricing.py" line="592">
+		<!--Test that PartPricing update methods handle a deleted underlying Part gracefully.
+
+Regression test: none of these methods should raise Part.DoesNotExist
+(or otherwise error) if the linked Part no longer exists in the database.
+-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_purchase_pricing" time="0.475" timestamp="2026-10-31T18:20:57" file="pricing\test_pricing.py" line="362">
+		<!--Unit tests for historical purchase pricing.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_simple" time="0.043" timestamp="2026-10-31T18:20:57" file="pricing\test_pricing.py" line="118">
+		<!--Tests for hard-coded values.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_stock_item_pricing" time="0.264" timestamp="2026-10-31T18:20:58" file="pricing\test_pricing.py" line="246">
+		<!--Test for stock item pricing data.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_supplier_part_pack_quantity_update" time="0.193" timestamp="2026-10-31T18:20:58" file="pricing\test_pricing.py" line="179">
+		<!--Test that changing pack_quantity on a SupplierPart triggers pricing recalculation.-->
+	</testcase>
+	<testcase classname="pricing.test_pricing.PartPricingTests" name="test_supplier_part_pricing" time="0.631" timestamp="2026-10-31T18:20:59" file="pricing\test_pricing.py" line="150">
+		<!--Test for supplier part pricing.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.CommonTest-20261031181515" tests="4" file="common/tests.py" time="0.481" timestamp="2026-10-31T18:17:08" failures="1" errors="0" skipped="0">
+	<testcase classname="common.tests.CommonTest" name="test_config_api" time="0.029" timestamp="2026-10-31T18:17:08" file="common\tests.py" line="1617">
+		<!--Test config URLs.-->
+	</testcase>
+	<testcase classname="common.tests.CommonTest" name="test_flag_api" time="0.048" timestamp="2026-10-31T18:17:08" file="common\tests.py" line="1646">
+		<!--Test flag URLs.-->
+	</testcase>
+	<testcase classname="common.tests.CommonTest" name="test_restart_flag" time="0.382" timestamp="2026-10-31T18:17:08" file="common\tests.py" line="1604">
+		<!--Test that the restart flag is reset on start.-->
+	</testcase>
+	<testcase classname="common.tests.CommonTest" name="test_health_api" time="0.022" timestamp="2026-10-31T18:17:08" file="common\tests.py" line="1695">
+		<!--Test health check URL.-->
+		<failure type="AssertionError" message="200 != 503"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1707, in test_health_api
+    response_data = self.get(
+                    ~~~~~~~~^
+        reverse('api-system-health'), expected_code=503
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ).json()
+    ^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 582, in get
+    return self.query(url, self.client.get, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 200 != 503
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/system/health/': status_code = 200 (expected 503)
+content: b'{"status": "ok"}'
+]]></system-out>
+	</testcase>
+</testsuite>

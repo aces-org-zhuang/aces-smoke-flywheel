@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildTaskTests-20261031181515" tests="14" file="build/test_build.py" time="2.877" timestamp="2026-10-31T18:15:55" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.BuildTaskTests" name="test_allocate_stock_merges_quantities" time="0.050" timestamp="2026-10-31T18:15:52" file="build\test_build.py" line="1551">
+		<!--Repeated allocations against the same (line, stock item) accumulate.
+
+Regression test: allocate_stock() never added merged BuildItems to its
+'to_update' set, so allocating against an existing allocation silently
+discarded the requested quantity. Duplicate entries within a single
+request also overwrote (rather than summed) each other.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_cancel_task_consumes_allocations" time="0.070" timestamp="2026-10-31T18:15:52" file="build\test_build.py" line="1670">
+		<!--cancel_build with remove_allocated_stock=True: stock items are marked consumed.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_cancel_task_discards_allocations" time="0.049" timestamp="2026-10-31T18:15:53" file="build\test_build.py" line="1655">
+		<!--cancel_build with remove_allocated_stock=False: allocations deleted, stock not consumed.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_cancel_task_preserves_incomplete_outputs" time="0.053" timestamp="2026-10-31T18:15:53" file="build\test_build.py" line="1696">
+		<!--cancel_build with remove_incomplete_outputs=False: in-progress outputs are kept.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_cancel_task_removes_incomplete_outputs" time="0.084" timestamp="2026-10-31T18:15:53" file="build\test_build.py" line="1684">
+		<!--cancel_build with remove_incomplete_outputs=True: in-progress outputs are deleted.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_build_outputs_with_status_none" time="0.087" timestamp="2026-10-31T18:15:53" file="build\test_build.py" line="1850">
+		<!--complete_build_outputs with status=None falls back to StockStatus.OK in the model.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_build_task_is_idempotent" time="0.243" timestamp="2026-10-31T18:15:53" file="build\test_build.py" line="1523">
+		<!--A duplicated completion task run must be a no-op.
+
+Regression test: the completion task had no build lock and no status
+re-check, so a redelivered (or double-enqueued) task re-ran the
+completion side effects (duplicate COMPLETED event and notifications).
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_build_task_triggers_event" time="1.675" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1714">
+		<!--complete_build task fires the BuildEvents.COMPLETED event.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_build_task_trim_stock" time="0.230" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1737">
+		<!--complete_build with trim_allocated_stock=True removes over-allocations before consuming.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_output_twice_rejected" time="0.075" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1631">
+		<!--Completing or scrapping an already-completed output must be rejected.
+
+Regression test: neither complete_build_output() nor scrap_build_output()
+re-checked the 'is_building' state of the output.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_complete_outputs_task_is_idempotent" time="0.106" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1589">
+		<!--Duplicate execution of the output completion task must not double-count.
+
+Regression test: the task never re-checked 'is_building', so a duplicated
+(or redelivered) task run completed the same outputs twice - inflating the
+'completed' count for the build order and duplicating stock history.
+-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_delete_build_outputs_skips_missing_id" time="0.047" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1771">
+		<!--delete_build_outputs silently skips nonexistent output IDs and deletes valid ones.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_scrap_build_outputs_consume_allocations" time="0.063" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1819">
+		<!--scrap_build_outputs with discard_allocations=False (default) consumes/installs stock.-->
+	</testcase>
+	<testcase classname="build.test_build.BuildTaskTests" name="test_scrap_build_outputs_discard_allocations" time="0.045" timestamp="2026-10-31T18:15:55" file="build\test_build.py" line="1790">
+		<!--scrap_build_outputs with discard_allocations=True removes allocations without consuming stock.-->
+	</testcase>
+</testsuite>

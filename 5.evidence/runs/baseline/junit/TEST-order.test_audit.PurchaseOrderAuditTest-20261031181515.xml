@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_audit.PurchaseOrderAuditTest-20261031181515" tests="7" file="order/test_audit.py" time="0.791" timestamp="2026-10-31T18:19:02" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_extra_lines" time="0.164" timestamp="2026-10-31T18:19:01" file="order\test_audit.py" line="208">
+		<!--Extra line changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_line_items" time="0.291" timestamp="2026-10-31T18:19:01" file="order\test_audit.py" line="170">
+		<!--Line item changes are recorded against the order.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_order_currency" time="0.020" timestamp="2026-10-31T18:19:01" file="order\test_audit.py" line="115">
+		<!--Changes to the order currency (not a MoneyField currency) are recorded.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_order_edit" time="0.074" timestamp="2026-10-31T18:19:01" file="order\test_audit.py" line="97">
+		<!--Order edits are recorded - without the (derived) total price.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_receive" time="0.111" timestamp="2026-10-31T18:19:02" file="order\test_audit.py" line="232">
+		<!--Received quantities (updated in bulk) are recorded against the user.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_status_change" time="0.090" timestamp="2026-10-31T18:19:02" file="order\test_audit.py" line="155">
+		<!--Issuing an order (status change) is recorded.-->
+	</testcase>
+	<testcase classname="order.test_audit.PurchaseOrderAuditTest" name="test_total_price_not_recorded" time="0.042" timestamp="2026-10-31T18:19:02" file="order\test_audit.py" line="129">
+		<!--Saving an order (which recalculates the total price) records no entry.-->
+	</testcase>
+</testsuite>

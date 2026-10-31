@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests-20261031181515" tests="8" file="plugin/builtin/suppliers/test_supplier_barcodes.py" time="2.528" timestamp="2026-10-31T18:24:27" failures="0" errors="0" skipped="0">
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_digikey_2_barcode" time="0.254" timestamp="2026-10-31T18:24:24" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="91">
+		<!--Test digikey barcode which uses 30P instead of P.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_digikey_3_barcode" time="0.058" timestamp="2026-10-31T18:24:24" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="105">
+		<!--Test digikey barcode which is invalid.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_digikey_barcode" time="0.059" timestamp="2026-10-31T18:24:24" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="78">
+		<!--Test digikey barcode.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_lcsc_barcode" time="0.064" timestamp="2026-10-31T18:24:24" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="141">
+		<!--Test LCSC barcode.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_mouser_barcode" time="0.073" timestamp="2026-10-31T18:24:25" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="109">
+		<!--Test mouser barcode with custom order number.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_old_mouser_barcode" time="1.868" timestamp="2026-10-31T18:24:26" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="121">
+		<!--Test old mouser barcode with messed up header.-->
+		<system-err><![CDATA[D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\registry.py:336: UserWarning: A plugin registry reload was triggered for plugin mouserplugin
+  cfg.save()
+]]></system-err>
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_tme_barcode2d" time="0.073" timestamp="2026-10-31T18:24:26" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="168">
+		<!--Test TME DataMatrix-Code.-->
+	</testcase>
+	<testcase classname="plugin.builtin.suppliers.test_supplier_barcodes.SupplierBarcodeTests" name="test_tme_qrcode" time="0.079" timestamp="2026-10-31T18:24:27" file="plugin\builtin\suppliers\test_supplier_barcodes.py" line="155">
+		<!--Test TME QR-Code.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="importer.tests.ImportAPITest-20261031181515" tests="9" file="importer/tests.py" time="1.492" timestamp="2026-10-31T18:17:50" failures="0" errors="0" skipped="0">
+	<testcase classname="importer.tests.ImportAPITest" name="test_accept_fields_ownership" time="0.172" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="752">
+		<!--Test that accept_fields rejects requests for sessions owned by another user.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_accept_rows_ownership" time="0.060" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="843">
+		<!--Test that accept_rows rejects requests for sessions owned by another user.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_column_mapping_lookup_field" time="0.204" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="670">
+		<!--Test that the 'lookup_field' option can be specified via the column-mapping API.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_import" time="0.224" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="573">
+		<!--Test full import process via the API.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_model_type_immutable" time="0.085" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="777">
+		<!--Test that a session's model_type cannot be changed after creation.
+
+Regression test for a security report (dev/todo/import-retarget.md) where a
+user could create a session against a model they have permission for, then
+retarget it (via PATCH) to a different model they do not have permission for -
+bypassing the permission checks which are resolved against the model type at
+the time they run, rather than the model type the session was created against.
+-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_retarget_permission_bypass" time="0.150" timestamp="2026-10-31T18:17:49" file="importer\tests.py" line="807">
+		<!--Test that retargeting a session cannot be used to bypass model permissions.
+
+Regression test for a security report (dev/todo/import-retarget.md):
+a user with permission for one model (e.g. purchase orders) must not be able
+to accept the field mapping for that model, then retarget the session to a
+different model (e.g. part categories) for which they have no permission.
+-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_row_and_mapping_ownership" time="0.271" timestamp="2026-10-31T18:17:50" file="importer\tests.py" line="924">
+		<!--Test that DataImportRow and DataImportColumnMap endpoints filter by session ownership.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_session_cleanup_on_complete" time="0.174" timestamp="2026-10-31T18:17:50" file="importer\tests.py" line="866">
+		<!--Test that a completed import session deletes itself and all associated data.-->
+	</testcase>
+	<testcase classname="importer.tests.ImportAPITest" name="test_session_list" time="0.153" timestamp="2026-10-31T18:17:50" file="importer\tests.py" line="722">
+		<!--Test API endpoint which details the list of import sessions.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,3854 @@
+{
+  "run_id": "baseline",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "sut_dirty": false,
+  "baseline_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "head_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "diff_files": [],
+  "classified_at": "2026-10-31T10:50:03.371497+00:00",
+  "total_failures": 179,
+  "new_failures": 179,
+  "preexisting_debt": 0,
+  "debt_ledger": {},
+  "by_verdict": {
+    "product_defect": 0,
+    "flaky_candidate": 0,
+    "contract_violation": 0,
+    "environment_excluded": 40,
+    "case_stale": 0,
+    "unknown": 139
+  },
+  "unknown_ratio": 0.7765,
+  "new_failure_unknown_ratio": 0.7765,
+  "unknown_ratio_limit": 0.2,
+  "ratio_semantics": {
+    "unknown_ratio": "全量失败中的未知比例，仅用于披露存量债务质量",
+    "new_failure_unknown_ratio": "增量失败中的未知比例，can-i-deploy 的实际判据"
+  },
+  "rule_set": [
+    "S0-declared-environment-deviation",
+    "S1-rerun",
+    "S2-attribution-on-diff",
+    "S3-contract",
+    "S4-unknown"
+  ],
+  "env_rules": [
+    {
+      "rule": "S0-virtualized:weasyprint",
+      "declared_in": "3.env/target.yaml#runtime.virtualization",
+      "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+      "match_message": [
+        "weasyprint",
+        "weasyprint",
+        "Error rendering report",
+        "Error rendering label",
+        "Error generating report"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:windows-path-separator",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+      "match_message": [
+        "not in ['config/"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:translations-not-compiled",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）",
+      "match_message": [
+        "Elemento ricevuto"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:sample-plugins-not-installed",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+      "match_message": [
+        "plugin.samples"
+      ],
+      "match_test_prefix": [
+        "plugin.samples."
+      ]
+    },
+    {
+      "rule": "S0-env:network-egress-restricted",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "本机对公网的部分出站受限，用例中的真实远端请求不可达",
+      "match_message": [
+        "HTTPSConnectionPool",
+        "Connection error:"
+      ],
+      "match_test_prefix": []
+    },
+    {
+      "rule": "S0-env:windows-file-lock",
+      "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+      "reason": "Windows 对被打开文件加写锁，Linux 不锁",
+      "match_message": [
+        "WinError 32"
+      ],
+      "match_test_prefix": []
+    }
+  ],
+  "results": [
+    {
+      "test": "build.test_api.BuildTest.test_download_build_orders",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "common.test_api.AttachmentAPITests.test_attachments",
+      "status": "failed",
+      "message": "'test_file_0_AGOphxV.txt' != 'test_file_0.txt'\n- test_file_0_AGOphxV.txt\n?            --------\n+ test_file_0.txt",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "status": "error",
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-file-lock",
+          "matched_on": "message",
+          "token": "WinError 32",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "Windows 对被打开文件加写锁，Linux 不锁",
+          "probe": "失败文本携带 WinError 32（另一个程序正在使用此文件）",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 607
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 557
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/exceptions.py",
+          "line": 156
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/common/api.py",
+          "line": 994
+        }
+      ]
+    },
+    {
+      "test": "common.test_audit.AttachmentAuditTest.test_edit_and_rename",
+      "status": "error",
+      "message": "[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\\\wbeval\\\\it_media\\\\attachments\\\\company\\\\1\\\\original_QV6TnWW.txt'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-file-lock",
+          "matched_on": "message",
+          "token": "WinError 32",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "Windows 对被打开文件加写锁，Linux 不锁",
+          "probe": "失败文本携带 WinError 32（另一个程序正在使用此文件）",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_email_notifications_locale_translation",
+      "status": "failed",
+      "message": "'Elemento ricevuto' not found in '[InvenTree] Items Received'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:translations-not-compiled",
+          "matched_on": "message",
+          "token": "Elemento ricevuto",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）",
+          "probe": "find src/backend/InvenTree/locale -name \"*.mo\" | wc -l  →  0",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "common.test_notifications.NotificationLocaleTest.test_ui_notifications_locale_translation",
+      "status": "failed",
+      "message": "'Items Received' != 'Elemento ricevuto'\n- Items Received\n+ Elemento ricevuto",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:translations-not-compiled",
+          "matched_on": "message",
+          "token": "Elemento ricevuto",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未执行 compilemessages，仓内 0 个 .mo 文件（只有 .po）",
+          "probe": "find src/backend/InvenTree/locale -name \"*.mo\" | wc -l  →  0",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_connection_error",
+      "status": "failed",
+      "message": "no logs of level WARNING or higher triggered on inventree",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "common.test_tasks.NewsFeedTests.test_valid_url",
+      "status": "failed",
+      "message": "0 == 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "common.tests.CommonTest.test_health_api",
+      "status": "failed",
+      "message": "200 != 503",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 582
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_cast",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 607
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_valid_plugin_slug",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 582
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "common.tests.PluginSettingsApiTest.test_uninitialized_setting",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'pk'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_cast",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 607
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "common.tests.PluginUserSettingsApiTest.test_user_setting_list",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 582
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_return_order",
+      "status": "failed",
+      "message": "ValidationError not raised",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "generic.states.test_transition.TransitionTests.test_broken_transition_plugin",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'set_setting'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.test_api.GeneralApiTests.test_info_view",
+      "status": "error",
+      "message": "object of type 'bool' has no len()",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_backup_command_e2e",
+      "status": "failed",
+      "message": "'Writing metadata file to D:\\\\wbeval\\\\repos\\\\inventree\\\\src\\\\backend\\\\InvenTree\\\\_testfolder\\\\backup.zip' not found in \"['INFO:dbbackup.command:Backing Up Database: file:memorydb_default?mode=memory&cache=shared', 'INFO:dbbackup.command:Writing file to D:\\\\\\\\wbeval\\\\\\\\repos\\\\\\\\inventree\\\\\\\\src\\\\\\\\ba",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='USD,EUR,GBP')",
+      "status": "failed",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=USD,EUR,GBP\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", line 13, in main\n    from django.core.management import execute_from_command_line\nModuleNotFoundErro",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 13
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 26
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_makemigrations_currency_overrides_no_changes (currency_codes='JPY,CNY,KRW')",
+      "status": "failed",
+      "message": "makemigrations reported schema changes for INVENTREE_CURRENCY_CODES=JPY,CNY,KRW\nstdout:\n\nstderr:\nTraceback (most recent call last):\n  File \"D:\\wbeval\\repos\\inventree\\src\\backend\\InvenTree\\manage.py\", line 13, in main\n    from django.core.management import execute_from_command_line\nModuleNotFoundErro",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 13
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 26
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/manage.py",
+          "line": 15
+        }
+      ]
+    },
+    {
+      "test": "InvenTree.test_commands.CommandTestCase.test_restore_validation",
+      "status": "failed",
+      "message": "no logs of level INFO or higher triggered on root",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_delete_old_emails",
+      "status": "failed",
+      "message": "2 != 1",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.test_tasks.InvenTreeTaskTests.test_offload_timeout",
+      "status": "failed",
+      "message": "True is not false",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.testStaticUrl",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_logo_image_custom_static",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestHelpers.test_download_image",
+      "status": "error",
+      "message": "Connection error: HTTPSConnectionPool(host='github.com', port=443): Max retries exceeded with url: /inventree/InvenTree/raw/master/src/backend/InvenTree/InvenTree/static/img/paper_splash_large.jpg (Caused by ProxyError('Unable to connect to proxy', NameResolutionError(\"HTTPSConnection(host='127.0.0.",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:network-egress-restricted",
+          "matched_on": "message",
+          "token": "HTTPSConnectionPool",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "本机对公网的部分出站受限，用例中的真实远端请求不可达",
+          "probe": "失败文本携带 HTTPSConnectionPool / Connection error 与具体主机名",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/helpers_model.py",
+          "line": 122
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/helpers_model.py",
+          "line": 225
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/helpers_model.py",
+          "line": 261
+        }
+      ]
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_cfg_file",
+      "status": "failed",
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\config.yaml not in ['config/config.yaml', 'inventree/data/config.yaml']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-path-separator",
+          "matched_on": "message",
+          "token": "not in ['config/",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+          "probe": "用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))， 在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_get_oidc_private_key",
+      "status": "failed",
+      "message": "False is not true : Path D:\\wbeval\\repos\\inventree\\config\\oidc.pem not in ['config/oidc.pem', 'inventree/data/oidc.pem']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-path-separator",
+          "matched_on": "message",
+          "token": "not in ['config/",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+          "probe": "用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))， 在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_plugin_file",
+      "status": "failed",
+      "message": "False is not true : Path d:\\wbeval\\repos\\inventree\\config\\plugins.txt not in ['config/plugins.txt', 'inventree/data/plugins.txt']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-path-separator",
+          "matched_on": "message",
+          "token": "not in ['config/",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+          "probe": "用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))， 在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_helpers_secret_key",
+      "status": "failed",
+      "message": "False is not true : Path devkey-devkey-devkey-devkey-devkey not in ['config/secret_key.txt', 'inventree/data/secret_key.txt']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:windows-path-separator",
+          "matched_on": "message",
+          "token": "not in ['config/",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "上游 CI 在 Linux 上运行，本机为 Windows",
+          "probe": "用例里 assertTrue(any(opt in str(path).lower() for opt in ['config/config.yaml', ...]))， 在 Windows 下 str(path) 为反斜杠形式，正斜杠字面量永远不命中",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_initial_install",
+      "status": "failed",
+      "message": "0 not greater than 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "InvenTree.tests.TestSettings.test_set_user_to_few",
+      "status": "failed",
+      "message": "1 != 2",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_detail_settings",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 582
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_driver_list",
+      "status": "failed",
+      "message": "0 != 1",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_list",
+      "status": "failed",
+      "message": "{'pk'[145 chars]ed': False, 'active': True, 'status': 101, 'st[188 chars]: []} != {'pk'[145 chars]ed': True, 'active': True, 'status': 101, 'sta[186 chars]: []}\n  {'active': True,\n   'driver': 'test-label-printer-api',\n-  'initialized': False,\n?                 ^^^^\n\n+  'initialized': True,\n?       ",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_restart",
+      "status": "failed",
+      "message": "'' != 'Restarting...'\n+ Restarting...",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_settings_list",
+      "status": "failed",
+      "message": "1 != 2",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_status",
+      "status": "failed",
+      "message": "Error message matching pattern '\\'<class \\'.*\\.TestingLabelPrinterDriverNotImplemented\\'>\\' did not override the required attributes: one of print_label or print_labels' not found in machine registry errors:",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.test_api.MachineAPITest.test_machine_type_list",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestDriverMachineInterface.test_machine_lifecycle",
+      "status": "failed",
+      "message": "0 != 1",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_call_function",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_location_invalid_pk",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_print_label",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_printing_options_serializer",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "machine.tests.TestLabelPrinterMachineType.test_registration",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.PurchaseOrderDownloadTest.test_download_line_items",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.ReturnOrderTests.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.SalesOrderAllocationDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.SalesOrderDownloadTest.test_download_xlsx",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.SalesOrderTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_csv",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.TransferOrderDownloadTest.test_download_xlsx",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "order.test_api.TransferOrderTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_bom_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.BomItemTest.test_piece_count_bom_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.PartAPITest.test_part_download",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_existing_image",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.PartDetailTests.test_update_existing_image",
+      "status": "failed",
+      "message": "400 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 607
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "part.test_api.PartOptionsAPITest.test_part_label_translation",
+      "status": "failed",
+      "message": "'IPN' != 'IPN (Interne Produktnummer)'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.integration.test_mixins.AppMixinTest.test_function",
+      "status": "failed",
+      "message": "'plugin.samples.integration' not found in ['django.contrib.admin', 'django.contrib.admindocs', 'build.apps.BuildConfig', 'common.apps.CommonConfig', 'plugin.apps.PluginAppConfig', 'company.apps.CompanyConfig', 'order.apps.OrderConfig', 'part.apps.PartConfig', 'report.apps.ReportConfig', 'scim.apps.S",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "message",
+          "token": "plugin.samples",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_api",
+      "status": "failed",
+      "message": "1 != 2",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_installed",
+      "status": "failed",
+      "message": "3 != 4",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_endpoints",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_options",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_printing_process",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.label.test_label_mixin.LabelMixinTests.test_machine_driver_options_validate_before_print_task",
+      "status": "error",
+      "message": "None does not have the attribute 'get_printing_options_serializer'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_installed",
+      "status": "failed",
+      "message": "0 not greater than 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_fail",
+      "status": "failed",
+      "message": "\"Must supply either 'item' or 'location' parameter\" not found in '{\\'detail\\': ErrorDetail(string=\"Plugin \\'samplelocate\\' is not installed, or does not support the location mixin\", code=\\'parse_error\\')}'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_item",
+      "status": "failed",
+      "message": "400 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_location",
+      "status": "failed",
+      "message": "400 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.base.locate.test_locate.LocatePluginTests.test_locate_permissions",
+      "status": "failed",
+      "message": "400 != 403",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_dashboard_items",
+      "status": "failed",
+      "message": "0 != 4",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_navigation_items",
+      "status": "failed",
+      "message": "1 != 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_primary_actions",
+      "status": "failed",
+      "message": "1 != 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_routes",
+      "status": "failed",
+      "message": "2 != 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_template_editors",
+      "status": "failed",
+      "message": "1 != 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_installed",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'is_active'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.base.ui.tests.UserInterfaceMixinTests.test_ui_panels",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'set_setting'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_csv_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.FormulaInjectionExportTest.test_xlsx_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "plugin.builtin.exporter.test_exporter.StocktakeExporterTest.test_stocktake_exporter",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_well_known_urls",
+      "status": "failed",
+      "message": "'passkey-endpoints' not found in {}",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.builtin.integration.test_core_wellknown.InvenTreeWellKnownTest.test_passkey_view",
+      "status": "error",
+      "message": "'plugin' is not a registered namespace",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.event.test_event_sample.EventPluginSampleTests.test_run_event",
+      "status": "failed",
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:27.662409Z\\\\\\', \\\\\\'logger\\\\\\': \\\\\\'inventree\\\\\\', \\\\\\'level\\\\\\': \\\\\\'debug\\\\\\'}\\', \\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Regis",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.event.test_filtered_event_sample.FilteredEventPluginSampleTests.test_run_event",
+      "status": "failed",
+      "message": "'Event `test.event` triggered in sample plugin' not found in '[\\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Event triggered: \\\\\\'test.event\\\\\\'\", \\\\\\'timestamp\\\\\\': \\\\\\'2026-10-31T10:24:29.132855Z\\\\\\', \\\\\\'logger\\\\\\': \\\\\\'inventree\\\\\\', \\\\\\'level\\\\\\': \\\\\\'debug\\\\\\'}\\', \\'DEBUG:inventree:{\\\\\\'event\\\\\\': \"Regis",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.icons.test_icon_sample.SampleIconPackPluginTests.test_get_icons_api",
+      "status": "failed",
+      "message": "1 != 2",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_allocate_sample.SampleAllocatePluginTest.test_build_auto_allocate",
+      "status": "failed",
+      "message": "Decimal('0') != 5",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_api_caller.SampleApiCallerPluginTests.test_return",
+      "status": "failed",
+      "message": "'sample-api-caller' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B83BA10>, 'autocreatebuilds': <events.auto_create_builds.AutoCreateBuildsPlugin object at 0x0000020769D0B380>, 'autoiissueorders': <events.auto_issue_orders.AutoIssue",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_settings_validator",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_sample.SampleIntegrationPluginTests.test_view",
+      "status": "failed",
+      "message": "302 != 200",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_function",
+      "status": "failed",
+      "message": "'schedule' not found in {'inventreebarcode': <barcodes.inventree_barcode.InvenTreeInternalBarcodePlugin object at 0x000002076B169E50>, 'autocreatebuilds': <events.auto_create_builds.AutoCreateBuildsPlugin object at 0x000002076B168F50>, 'autoiissueorders': <events.auto_issue_orders.AutoIssueOrdersPlu",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_scheduled_task.ExampleScheduledTaskPluginTests.test_calling",
+      "status": "error",
+      "message": "Plugin 'schedule' not found",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/registry.py",
+          "line": 1349
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/registry.py",
+          "line": 73
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/registry.py",
+          "line": 356
+        }
+      ]
+    },
+    {
+      "test": "plugin.samples.integration.test_simpleactionplugin.SimpleActionPluginTests.test_function",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_api_batch",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_generate_batch_code",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_ipn",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_model_instance",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.integration.test_validation_sample.SampleValidatorPluginTest.test_validate_part_name",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.locate.test_locate_sample.SampleLocatePluginTests.test_run_locator",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_in",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.mail.test_mail_sample.MailPluginSampleTests.test_run_event_out",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_import_part",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_list",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.samples.supplier.test_supplier_sample.SampleSupplierTest.test_search",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'plugin_config'",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-env:sample-plugins-not-installed",
+          "matched_on": "test_prefix",
+          "token": "plugin.samples.",
+          "declared_in": "3.env/target.yaml#runtime.environment_deviations",
+          "reason": "未安装上游的 sample plugins（上游 CI 会 collect 一批 plugin.samples）",
+          "probe": "registry.reload_plugins() 后 registry.plugins 为 11 个内置插件： bom-exporter / inventree-* / inventreebarcode / inventreelabel / parameter-exporter， 其中 0 个来自 plugin.samples",
+          "prefix_reason": "这些用例本身就是 sample plugin 的符合性套件，脱离 sample plugins 不存在 可检验的对象；前缀匹配等价于\"该套件的前置依赖缺失\"。",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filter_by_mixin",
+      "status": "failed",
+      "message": "0 != 1",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_filters",
+      "status": "failed",
+      "message": "0 not greater than 0",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_install",
+      "status": "failed",
+      "message": "'ERROR: Could not find a version that satisfies the requirement' not found in \"{'non_field_errors': [ErrorDetail(string='Plugin installation is disabled', code='invalid')]}\"",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_metadata",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_settings",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_uninstall",
+      "status": "failed",
+      "message": "404 != 400",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 607
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_settings",
+      "status": "failed",
+      "message": "404 != 200",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 582
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.test_api.PluginDetailAPITest.test_plugin_activate",
+      "status": "error",
+      "message": "PluginConfig matching query does not exist.",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginFullAPITest.test_full_process",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_numeric_setting_patch_ignored",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_get",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_model_save_enforced",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_patch_ignored",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_read_only_flag",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_locked_setting_returns_override_value",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_no_overrides_settings_are_editable",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_can_be_changed",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_api.PluginLockedSettingsTest.test_unlocked_setting_not_read_only",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.InstallerTests.test_plugin_install_errors",
+      "status": "failed",
+      "message": "'No package name or URL provided for installation' not found in \"['Plugin installation is disabled']\"",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_action_name",
+      "status": "failed",
+      "message": "False != True",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.InvenTreePluginTests.test_version",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_broken_samples",
+      "status": "failed",
+      "message": "0 != 3",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_builtin_mandatory_plugins",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_config_attributes",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_custom_loading",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_mandatory_plugins",
+      "status": "failed",
+      "message": "15 != 13",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_registry_reload",
+      "status": "failed",
+      "message": "'c060f5c0c8b7b63e67f1c5193969e245' == 'c060f5c0c8b7b63e67f1c5193969e245'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_with_mixin",
+      "status": "failed",
+      "message": "0 != 2",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_folder_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_package_update_reload",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'version'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "plugin.test_plugin.RegistryTests.test_subfolder_loading",
+      "status": "error",
+      "message": "'NoneType' object has no attribute 'slug'",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix",
+      "status": "failed",
+      "message": "'data[76 chars]AAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZY[186 chars]gg==' != 'data[76 chars]AAAAlElEQVR4nJ1TQQ7AIAgri///cncw6wroEseBgEFbCg[182 chars]gg=='\n- data:image/png;charset=utf-8;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAIAAADZrBkAAAAAl0lEQVR4nJ1TWw6AIAxbjfe/co0Yyl6YaD/IeIx2ZYCkfcdhZgA+jTf",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_qrcode",
+      "status": "failed",
+      "message": "968 != 700",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.test_tags.BarcodeTagTest.test_datamatrix_svg_pdf",
+      "status": "error",
+      "message": "weasyprint is virtualised in this environment: PDF rendering is unavailable",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "report.test_tags.ReportTagTest.test_logo_image",
+      "status": "failed",
+      "message": "False is not true",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_disabled_template",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.LabelPrintPermissionTest.test_label_print_model_permission",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.LabelTest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.LabelTest.test_generated_file_filename",
+      "status": "error",
+      "message": "['Error rendering label to PDF']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/base/label/mixins.py",
+          "line": 53
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/base/label/mixins.py",
+          "line": 59
+        }
+      ]
+    },
+    {
+      "test": "report.tests.LabelTest.test_print",
+      "status": "error",
+      "message": "['Error rendering label to PDF']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/plugin/base/label/mixins.py",
+          "line": 53
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 941
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 933
+        }
+      ]
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_partial_batch",
+      "status": "failed",
+      "message": "Expected 'print_label' to have been called once. Called 0 times.",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.LabelValidationTest.test_worker_validation",
+      "status": "failed",
+      "message": "Lists differ: ['Error rendering label to PDF'] != ['Serial number is required for this label']\n\nFirst differing element 0:\n'Error rendering label to PDF'\n'Serial number is required for this label'\n\n- ['Error rendering label to PDF']\n+ ['Serial number is required for this label']",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "Error rendering label",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": []
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_disabled_template",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.ReportPrintPermissionTest.test_report_print_model_permission",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.ReportTest.test_print",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 712
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 728
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 753
+        }
+      ]
+    },
+    {
+      "test": "report.tests.ReportTest.test_print_build_order",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 712
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 728
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 753
+        }
+      ]
+    },
+    {
+      "test": "report.tests.TestReportTest.test_create_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_detail_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_internal_company_context",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_list_endpoint",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_build",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_returnorder",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_mdl_salesorder",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_metadata",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_build_order",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_custom_template",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_print_stock_location",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.TestReportTest.test_report_template_permissions",
+      "status": "failed",
+      "message": "unexpectedly None",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_fetch_urls_disabled_blocks_http",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_file_url_blocked_in_render",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_custom_template",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_ssrf_url_blocked_in_render",
+      "status": "failed",
+      "message": "400 != 201",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 593
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 562
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 525
+        }
+      ]
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 712
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 728
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 753
+        }
+      ]
+    },
+    {
+      "test": "report.tests.URLFetcherE2ETest.test_print_build_order",
+      "status": "error",
+      "message": "{'error': ['Error generating report'], 'detail': [\"['Error rendering report: weasyprint is virtualised in this environment: PDF rendering is unavailable']\"]}",
+      "verdict": "environment_excluded",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S0-virtualized:weasyprint",
+          "matched_on": "message",
+          "token": "weasyprint",
+          "declared_in": "3.env/target.yaml#runtime.virtualization",
+          "reason": "本机无 GTK3（libgobject-2.0-0），而上游 report/models.py 在 import 期 捕获 OSError 后直接 sys.exit(1)，不替换则整套 Django 无法启动。",
+          "probe": "",
+          "prefix_reason": "",
+          "detail": "失败信息直接命中已声明并验证过的环境偏差，属环境性排除项"
+        }
+      ],
+      "owner": "team-sut",
+      "quarantine_due": null,
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 712
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 370
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 728
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/report/models.py",
+          "line": 753
+        }
+      ]
+    },
+    {
+      "test": "scim.tests.ScimProtocolTests.test_suite",
+      "status": "failed",
+      "message": "SCIM conformance suite reported failures:\nERROR: query_all_schemas - Request was throttled. Expected available in 40 seconds.\nERROR: access_invalid_schema - /Schemas/ee3f5efa-d63c-4ddf-825a-0b8a69708673 invalid URL did return an Error object, but the status code is 429\nERROR: schemas_endpoint_method",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "stock.test_api.StockItemListTest.test_large_export",
+      "status": "error",
+      "message": "Response is not a StreamingHttpResponse object as expected",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": [
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 737
+        },
+        {
+          "file": "D:/wbeval/repos/inventree/src/backend/InvenTree/InvenTree/unit_test.py",
+          "line": 639
+        }
+      ]
+    },
+    {
+      "test": "stock.tests.TestResultTest.test_duplicate_item_tests",
+      "status": "failed",
+      "message": "ValidationError not raised",
+      "verdict": "unknown",
+      "preexisting_debt": false,
+      "evidence": [
+        {
+          "rule": "S4-unknown",
+          "detail": "四条判据均未命中，进隔离区"
+        }
+      ],
+      "owner": "team-quarantine",
+      "quarantine_due": "2026-11-07",
+      "source_files": []
+    }
+  ]
+}

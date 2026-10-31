@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.samples.locate.test_locate_sample.SampleLocatePluginTests-20261031181515" tests="2" file="plugin/samples/locate/test_locate_sample.py" time="0.022" timestamp="2026-10-31T18:24:35" failures="0" errors="1" skipped="0">
+	<testcase classname="plugin.samples.locate.test_locate_sample.SampleLocatePluginTests" name="test_mixin" time="0.012" timestamp="2026-10-31T18:24:35" file="plugin\samples\locate\test_locate_sample.py" line="54">
+		<!--Test that MixinNotImplementedError is raised.-->
+	</testcase>
+	<testcase classname="plugin.samples.locate.test_locate_sample.SampleLocatePluginTests" name="test_run_locator" time="0.010" timestamp="2026-10-31T18:24:35" file="plugin\samples\locate\test_locate_sample.py" line="16">
+		<!--Check if the event is issued.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'plugin_config'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\samples\locate\test_locate_sample.py", line 19, in test_run_locator
+    config = registry.get_plugin('samplelocate', active=None).plugin_config()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'plugin_config'
+]]></error>
+	</testcase>
+</testsuite>

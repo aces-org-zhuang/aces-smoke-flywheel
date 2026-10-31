@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="machine.test_api.MachineAPITest-20261031181515" tests="8" file="machine/test_api.py" time="1.239" timestamp="2026-10-31T18:17:53" failures="7" errors="0" skipped="0">
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_detail" time="0.237" timestamp="2026-10-31T18:17:52" file="machine\test_api.py" line="148">
+		<!--Test machine detail API endpoint.-->
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_detail_settings" time="0.189" timestamp="2026-10-31T18:17:52" file="machine\test_api.py" line="200">
+		<!--Test machine detail settings API endpoint.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 231, in test_machine_detail_settings
+    response = self.get(driver_setting_url)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 582, in get
+    return self.query(url, self.client.get, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/machine/771771b2-4995-411c-b67e-f5c7afa07c07/settings/D/TEST_SETTING/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Machine 'Test Machine with settings' has no DRIVER setting matching 'TEST_SETTING'", code='not_found')}
+content: b'{"detail":"Machine \'Test Machine with settings\' has no DRIVER setting matching \'TEST_SETTING\'"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_driver_list" time="0.104" timestamp="2026-10-31T18:17:52" file="machine\test_api.py" line="54">
+		<!--Test machine driver list API endpoint.-->
+		<failure type="AssertionError" message="0 != 1"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 60, in test_machine_driver_list
+    self.assertEqual(len(driver), 1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+AssertionError: 0 != 1
+]]></failure>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_list" time="0.150" timestamp="2026-10-31T18:17:52" file="machine\test_api.py" line="118">
+		<!--Test machine list API endpoint.-->
+		<failure type="AssertionError" message="{'pk'[145 chars]ed': False, 'active': True, 'status': 101, 'st[188 chars]: []} != {'pk'[145 chars]ed': True, 'active': True, 'status': 101, 'sta[186 chars]: []}&#10;  {'active': True,&#10;   'driver': 'test-label-printer-api',&#10;-  'initialized': False,&#10;?                 ^^^^&#10;&#10;+  'initialized': True,&#10;?                 ^^^&#10;&#10;-  'is_driver_available': False,&#10;?                         ^^^^&#10;&#10;+  'is_driver_available': True,&#10;?                         ^^^&#10;&#10;   'machine_errors': [&quot;Driver 'test-label-printer-api' not found&quot;],&#10;   'machine_type': 'label-printer',&#10;   'name': 'Test Machine',&#10;   'pk': '0b534d0a-7e83-455f-9685-2809b82182cd',&#10;   'properties': [],&#10;   'restart_required': False,&#10;   'status': 101,&#10;   'status_model': 'LabelPrinterStatus',&#10;   'status_text': ''}"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 132, in test_machine_list
+    self.assertEqual(
+    ~~~~~~~~~~~~~~~~^
+        response.data[0],
+        ^^^^^^^^^^^^^^^^^
+    ...<11 lines>...
+        },
+        ^^
+    )
+    ^
+AssertionError: {'pk'[145 chars]ed': False, 'active': True, 'status': 101, 'st[188 chars]: []} != {'pk'[145 chars]ed': True, 'active': True, 'status': 101, 'sta[186 chars]: []}
+  {'active': True,
+   'driver': 'test-label-printer-api',
+-  'initialized': False,
+?                 ^^^^
+
++  'initialized': True,
+?                 ^^^
+
+-  'is_driver_available': False,
+?                         ^^^^
+
++  'is_driver_available': True,
+?                         ^^^
+
+   'machine_errors': ["Driver 'test-label-printer-api' not found"],
+   'machine_type': 'label-printer',
+   'name': 'Test Machine',
+   'pk': '0b534d0a-7e83-455f-9685-2809b82182cd',
+   'properties': [],
+   'restart_required': False,
+   'status': 101,
+   'status_model': 'LabelPrinterStatus',
+   'status_text': ''}
+]]></failure>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_restart" time="0.185" timestamp="2026-10-31T18:17:52" file="machine\test_api.py" line="290">
+		<!--Test machine restart API endpoint.-->
+		<failure type="AssertionError" message="'' != 'Restarting...'&#10;+ Restarting...&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 319, in test_machine_restart
+    self.assertEqual(response.data['status_text'], 'Restarting...')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: '' != 'Restarting...'
++ Restarting...
+
+]]></failure>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_settings_list" time="0.150" timestamp="2026-10-31T18:17:53" file="machine\test_api.py" line="263">
+		<!--Test machine settings list API endpoint.-->
+		<failure type="AssertionError" message="1 != 2"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 275, in test_machine_settings_list
+    self.assertEqual(len(response.data), 2)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 2
+]]></failure>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_status" time="0.117" timestamp="2026-10-31T18:17:53" file="machine\test_api.py" line="94">
+		<!--Test machine status API endpoint.-->
+		<failure type="AssertionError" message="Error message matching pattern '\'&lt;class \'.*\.TestingLabelPrinterDriverNotImplemented\'&gt;\' did not override the required attributes: one of print_label or print_labels' not found in machine registry errors:&#10;"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 114, in test_machine_status
+    self.fail(
+    ~~~~~~~~~^
+        f"""Error message matching pattern '{pattern}' not found in machine registry errors:\n{errors_str}"""
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+AssertionError: Error message matching pattern '\'<class \'.*\.TestingLabelPrinterDriverNotImplemented\'>\' did not override the required attributes: one of print_label or print_labels' not found in machine registry errors:
+
+]]></failure>
+	</testcase>
+	<testcase classname="machine.test_api.MachineAPITest" name="test_machine_type_list" time="0.107" timestamp="2026-10-31T18:17:53" file="machine\test_api.py" line="31">
+		<!--Test machine types list API endpoint.-->
+		<failure type="AssertionError" message="False is not true"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\machine\test_api.py", line 48, in test_machine_type_list
+    self.assertTrue(
+    ~~~~~~~~~~~~~~~^
+        machine_type['provider_file'].endswith(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'machine/machine_types/label_printer.py'
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+    )
+    ^
+AssertionError: False is not true
+]]></failure>
+	</testcase>
+</testsuite>

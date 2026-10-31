@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.CurrencyAPITests-20261031181515" tests="2" file="common/tests.py" time="11.338" timestamp="2026-10-31T18:17:20" failures="0" errors="0" skipped="0">
+	<testcase classname="common.tests.CurrencyAPITests" name="test_exchange_endpoint" time="0.027" timestamp="2026-10-31T18:17:09" file="common\tests.py" line="1728">
+		<!--Test that the currency exchange endpoint works as expected.-->
+	</testcase>
+	<testcase classname="common.tests.CurrencyAPITests" name="test_refresh_endpoint" time="11.311" timestamp="2026-10-31T18:17:20" file="common\tests.py" line="1735">
+		<!--Call the 'refresh currencies' endpoint.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.test_api.OAuth2ApplicationAPITests-20261031181515" tests="3" file="InvenTree/test_api.py" time="1.244" timestamp="2026-10-31T18:25:59" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.test_api.OAuth2ApplicationAPITests" name="test_builtin_client_metadata_and_delete_block" time="0.099" timestamp="2026-10-31T18:25:57" file="InvenTree\test_api.py" line="112">
+		<!--The built-in default OIDC client should be flagged and protected from deletion.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.OAuth2ApplicationAPITests" name="test_create_application" time="0.089" timestamp="2026-10-31T18:25:57" file="InvenTree\test_api.py" line="146">
+		<!--An admin should be able to create a custom OAuth2 application.-->
+	</testcase>
+	<testcase classname="InvenTree.test_api.OAuth2ApplicationAPITests" name="test_oauth2_application_token_can_access_profile" time="1.057" timestamp="2026-10-31T18:25:59" file="InvenTree\test_api.py" line="186">
+		<!--A custom OAuth2 client should be able to use a valid token to read the current profile.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.SalesOrderTest-20261031184213" tests="1" file="order/test_api.py" time="0.089" timestamp="2026-10-31T18:42:19" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.SalesOrderTest" name="test_so_create" time="0.089" timestamp="2026-10-31T18:42:19" file="order\test_api.py" line="2667">
+		<!--Test that we can create a new SalesOrder via the API.-->
+	</testcase>
+</testsuite>

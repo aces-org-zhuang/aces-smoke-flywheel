@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_audit.BuildAuditTest-20261031181515" tests="6" file="build/test_audit.py" time="0.225" timestamp="2026-10-31T18:15:47" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_complete_output" time="0.055" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="51">
+		<!--The 'completed' quantity (updated via an F() expression) is recorded as a number.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_create" time="0.008" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="29">
+		<!--Creating a build order is recorded.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_delete_reparents_children" time="0.078" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="106">
+		<!--Deleting a build re-parents its child builds - and the change is recorded.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_expression_update" time="0.038" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="69">
+		<!--Saving any field as an F() expression records the resolved value.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_failed_save_not_recorded" time="0.025" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="88">
+		<!--A deferred (expression) entry from a failed save is not attached to a later save.-->
+	</testcase>
+	<testcase classname="build.test_audit.BuildAuditTest" name="test_status_change" time="0.021" timestamp="2026-10-31T18:15:47" file="build\test_audit.py" line="40">
+		<!--Status transitions (e.g. issuing the build) are recorded.-->
+	</testcase>
+</testsuite>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.tests.PluginUserSettingsApiTest-20261031181515" tests="2" file="common/tests.py" time="1.334" timestamp="2026-10-31T18:17:32" failures="2" errors="0" skipped="0">
+	<testcase classname="common.tests.PluginUserSettingsApiTest" name="test_cast" time="0.773" timestamp="2026-10-31T18:17:31" file="common\tests.py" line="1151">
+		<!--Test the plugin values are cast appropriately.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1161, in test_cast
+    response = self.patch(url, {'value': str(value)})
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 607, in patch
+    return self.query(url, self.client.patch, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/user-settings/USER_SETTING_2/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'sample' not installed", code='not_found')}
+content: b'{"detail":"Plugin \'sample\' not installed"}'
+]]></system-out>
+	</testcase>
+	<testcase classname="common.tests.PluginUserSettingsApiTest" name="test_user_setting_list" time="0.561" timestamp="2026-10-31T18:17:32" file="common\tests.py" line="1144">
+		<!--Test the plugin user setting list API.-->
+		<failure type="AssertionError" message="404 != 200"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\tests.py", line 1148, in test_user_setting_list
+    response = self.get(url, expected_code=200)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 582, in get
+    return self.query(url, self.client.get, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 562, in query
+    self.check_response(url, response, expected_code=expected_code, msg=msg)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 525, in check_response
+    self.assertEqual(response.status_code, expected_code, msg)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 404 != 200
+]]></failure>
+		<system-out><![CDATA[Unexpected response at '/api/plugins/sample/user-settings/': status_code = 404 (expected 200)
+data: {'detail': ErrorDetail(string="Plugin 'sample' not installed", code='not_found')}
+content: b'{"detail":"Plugin \'sample\' not installed"}'
+]]></system-out>
+	</testcase>
+</testsuite>

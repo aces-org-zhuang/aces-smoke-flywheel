@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_bom_item.BomItemTest-20261031181515" tests="35" file="part/test_bom_item.py" time="2.712" timestamp="2026-10-31T18:20:31" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_attrition" time="0.005" timestamp="2026-10-31T18:20:28" file="part\test_bom_item.py" line="86">
+		<!--Test that BOM line attrition values are calculated correctly.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_bom_hash_legacy_compatibility" time="0.234" timestamp="2026-10-31T18:20:28" file="part\test_bom_item.py" line="671">
+		<!--Regression test for BOM checksum drift caused by unrelated Part edits.
+
+get_bom_hash() / get_item_hash() used to include the string representation
+of the linked 'part' and 'sub_part' objects (which embeds the part's name
+and description). This meant that editing a component's name or
+description - with no change to the BOM itself - would silently
+invalidate every assembly which referenced it.
+
+The fix excludes part names from the *default* hash calculation, but must
+still recognize checksums calculated by the *old* algorithm (via the
+'include_part_names' fallback), so that BOMs validated before this change
+are not all instantly marked invalid.
+-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_bom_hash_order_consistency" time="0.146" timestamp="2026-10-31T18:20:29" file="part\test_bom_item.py" line="538">
+		<!--Regression test for BOM checksum instability due to non-deterministic item ordering.
+
+See: https://github.com/inventree/InvenTree/issues/12445
+
+get_bom_hash() must apply an explicit, stable ordering when iterating the BOM
+items - otherwise the resulting hash can differ purely because the underlying
+query returned rows in a different order (e.g. Postgres provides no ordering
+guarantee unless an ORDER BY clause is specified).
+-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_bom_unrelated_root_parts" time="0.040" timestamp="2026-10-31T18:20:29" file="part\test_bom_item.py" line="400">
+		<!--Unrelated top-level parts created in succession can be added to each other's BOM.
+
+Regression test: ordered (by name) insertion of a new root Part shifted the tree_id
+of following trees in the database, leaving instances held in memory with a stale
+tree_id - which could match the new part's tree_id, falsely flagging the BOM as recursive.
+-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_bom_validated" time="0.780" timestamp="2026-10-31T18:20:29" file="part\test_bom_item.py" line="591">
+		<!--Test for caching of 'bom_validated' property.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_check_add_to_bom_stale_tree_id" time="0.047" timestamp="2026-10-31T18:20:29" file="part\test_bom_item.py" line="434">
+		<!--check_add_to_bom() uses database tree_id values, not stale in-memory values.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_consumable" time="0.215" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="244">
+		<!--Tests for the 'consumable' BomItem field.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_consumable_filter" time="0.074" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="299">
+		<!--Tests for the BomItem.consumable_filter() helper method.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_has_bom" time="0.005" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="46">
+		<!--Test the has_bom attribute.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_in_bom" time="0.012" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="53">
+		<!--Test BOM aggregation.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_integer_quantity" time="0.071" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="73">
+		<!--Test integer validation for BomItem.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_invalid_bom" time="0.087" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="349">
+		<!--Test that ValidationError is correctly raised for an invalid BOM item.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_item_hash" time="0.015" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="179">
+		<!--Test BOM item hash encoding.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_item_hash_piece_count_default" time="0.023" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="915">
+		<!--Regression test: a default 'piece_count' must not affect the checksum.
+
+The 'piece_count' field is ignored by get_item_hash() when it holds its
+default value (1), so that checksums calculated before this field was
+added remain valid. Simulate a "legacy" checksum (calculated without
+'piece_count' in the hashed fields) and confirm it still matches the
+checksum calculated by the current code for a default piece_count.
+-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_item_hash_piece_count_non_default" time="0.032" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="943">
+		<!--A non-default 'piece_count' value must change the checksum hash.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_locked_assembly" time="0.095" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="453">
+		<!--Test that BomItem objects work correctly for a 'locked' assembly.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_locked_assembly_locking_disabled" time="0.091" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="500">
+		<!--Test that a locked assembly is not enforced when PART_ENABLE_LOCKING is disabled.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_metadata" time="0.066" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="332">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_can_build" time="0.121" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="820">
+		<!--Test that the 'can_build' annotation accounts for piece_count.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_can_build_quantity" time="0.009" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="803">
+		<!--Test that BomItem.can_build_quantity accounts for piece_count.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_default" time="0.020" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="745">
+		<!--Test that piece_count defaults to 1 and does not change existing behavior.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_multiplier" time="0.020" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="762">
+		<!--Test that piece_count correctly multiplies the required quantity.
+
+Example: Cutting wire into 200mm lengths, need 10 pieces per assembly.
+quantity=200 (mm per piece), piece_count=10, build_quantity=5
+Total = 200 * 10 * 5 = 10000 mm
+-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_unit_quantity" time="0.007" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="787">
+		<!--Test that unit_quantity accounts for piece_count.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_validation" time="0.021" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="893">
+		<!--Test that piece_count rejects invalid values (0, negative).-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_with_attrition" time="0.020" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="848">
+		<!--Test piece_count combined with attrition percentage.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_with_rounding" time="0.022" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="878">
+		<!--Test piece_count combined with rounding_multiple.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_piece_count_with_setup_quantity" time="0.021" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="863">
+		<!--Test piece_count combined with setup_quantity.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_required_quantity_input_types" time="0.004" timestamp="2026-10-31T18:20:30" file="part\test_bom_item.py" line="117">
+		<!--Test that get_required_quantity accepts int, float and Decimal inputs.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_root_part_create_preserves_tree_ids" time="0.018" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="422">
+		<!--Creating a new top-level part does not modify the tree_id of any other part.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_round_up" time="0.052" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="131">
+		<!--Test the 'rounding_multiple' attribute.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_self_reference" time="0.006" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="66">
+		<!--Test that we get an appropriate error when we create a BomItem which points to itself.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_setup_quantity" time="0.019" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="101">
+		<!--Test the 'setup_quantity' attribute.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_str" time="0.005" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="41">
+		<!--Test the string representation of a BOMItem.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_substitutes" time="0.298" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="194">
+		<!--Tests for BOM item substitutes.-->
+	</testcase>
+	<testcase classname="part.test_bom_item.BomItemTest" name="test_used_in" time="0.009" timestamp="2026-10-31T18:20:31" file="part\test_bom_item.py" line="61">
+		<!--Test that the 'used_in_count' attribute is calculated correctly.-->
+	</testcase>
+</testsuite>

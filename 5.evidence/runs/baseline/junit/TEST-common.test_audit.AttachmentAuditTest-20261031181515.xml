@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_audit.AttachmentAuditTest-20261031181515" tests="7" file="common/test_audit.py" time="0.723" timestamp="2026-10-31T18:16:26" failures="0" errors="2" skipped="0">
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_delete" time="0.081" timestamp="2026-10-31T18:16:25" file="common\test_audit.py" line="155">
+		<!--Deleted attachments remain in the history of the linked object.-->
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_lazy_string_value" time="0.015" timestamp="2026-10-31T18:16:25" file="common\test_audit.py" line="112">
+		<!--Lazy translation strings (e.g. a generated report comment) are recorded as plain strings.-->
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_parent_deleted" time="0.051" timestamp="2026-10-31T18:16:25" file="common\test_audit.py" line="173">
+		<!--Attachments deleted along with their object retain the parent reference.-->
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_parent_permission" time="0.363" timestamp="2026-10-31T18:16:25" file="common\test_audit.py" line="186">
+		<!--Attachment entries require permission to view the linked object.-->
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_upload" time="0.069" timestamp="2026-10-31T18:16:26" file="common\test_audit.py" line="80">
+		<!--Uploading an attachment records the filename only, against the linked object.-->
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_edit_and_rename" time="0.000" timestamp="0001-01-01T00:00:00" file="common\test_audit.py" line="125">
+		<!--Comment edits and file renames are recorded (filename only).-->
+		<error type="PermissionError" message="[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\wbeval\\it_media\\attachments\\company\\1\\original_QV6TnWW.txt'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\test_audit.py", line 136, in test_edit_and_rename
+    self.patch(url, {'filename': new_name})
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 607, in patch
+    return self.query(url, self.client.patch, expected_code=expected_code, **kwargs)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\unit_test.py", line 557, in query
+    response = method(url, data, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 318, in patch
+    response = super().patch(
+        path, data=data, format=format, content_type=content_type, **extra)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 224, in patch
+    return self.generic('PATCH', path, data, content_type, **extra)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 240, in generic
+    return super().generic(
+           ~~~~~~~~~~~~~~~^
+        method, path, data, content_type, secure, **extra)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 671, in generic
+    return self.request(**r)
+           ~~~~~~~~~~~~^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 292, in request
+    return super().request(**kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\test.py", line 244, in request
+    request = super().request(**kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 1090, in request
+    self.check_exception(response)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\test\client.py", line 805, in check_exception
+    raise exc_value
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\views\generic\base.py", line 105, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\views.py", line 526, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\views.py", line 471, in handle_exception
+    response = exception_handler(exc, context)
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\exceptions.py", line 156, in exception_handler
+    raise exc
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\views.py", line 523, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\generics.py", line 292, in patch
+    return self.partial_update(request, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\rest_framework\mixins.py", line 82, in partial_update
+    return self.update(request, *args, **kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\api.py", line 994, in update
+    attachment.rename(filename)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\models.py", line 2208, in rename
+    default_storage.delete(old_path)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\files\storage\filesystem.py", line 184, in delete
+    os.remove(name)
+    ~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\wbeval\\it_media\\attachments\\company\\1\\original_QV6TnWW.txt'
+]]></error>
+	</testcase>
+	<testcase classname="common.test_audit.AttachmentAuditTest" name="test_edit_and_rename" time="0.143" timestamp="2026-10-31T18:16:25" file="common\test_audit.py" line="125">
+		<!--Comment edits and file renames are recorded (filename only).-->
+		<error type="PermissionError" message="[WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\wbeval\\it_media\\attachments\\company\\1\\original_QV6TnWW.txt'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\common\test_audit.py", line 55, in <lambda>
+    attachment.attachment.storage.delete(attachment.attachment.name)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\core\files\storage\filesystem.py", line 184, in delete
+    os.remove(name)
+    ~~~~~~~~~^^^^^^
+PermissionError: [WinError 32] 另一个程序正在使用此文件，进程无法访问。: 'D:\\wbeval\\it_media\\attachments\\company\\1\\original_QV6TnWW.txt'
+]]></error>
+	</testcase>
+</testsuite>

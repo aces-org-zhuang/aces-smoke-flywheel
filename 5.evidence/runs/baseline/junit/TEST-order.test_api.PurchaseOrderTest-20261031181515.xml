@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.PurchaseOrderTest-20261031181515" tests="32" file="order/test_api.py" time="6.757" timestamp="2026-10-31T18:18:21" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_options" time="0.149" timestamp="2026-10-31T18:18:14" file="order\test_api.py" line="99">
+		<!--Test the PurchaseOrder OPTIONS endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_output_options" time="0.096" timestamp="2026-10-31T18:18:14" file="order\test_api.py" line="432">
+		<!--Test the various output options for the PurchaseOrder detail endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_overdue" time="0.186" timestamp="2026-10-31T18:18:14" file="order\test_api.py" line="259">
+		<!--Test "overdue" status.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_attachments" time="0.024" timestamp="2026-10-31T18:18:14" file="order\test_api.py" line="424">
+		<!--Test the list endpoint for the PurchaseOrderAttachment model.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar" time="0.849" timestamp="2026-10-31T18:18:15" file="order\test_api.py" line="891">
+		<!--Test the calendar export endpoint.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar_auth" time="0.029" timestamp="2026-10-31T18:18:15" file="order\test_api.py" line="996">
+		<!--Test accessing calendar with header authorization.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar_auth_malformed" time="0.029" timestamp="2026-10-31T18:18:15" file="order\test_api.py" line="1026">
+		<!--Test that malformed basic authorization headers return 401, not 500.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar_auth_password_colon" time="0.037" timestamp="2026-10-31T18:18:15" file="order\test_api.py" line="1009">
+		<!--Test header authorization with a password containing a colon.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar_no_permission" time="0.267" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="1042">
+		<!--Test that an authenticated user without purchase_order view permission is denied.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_calendar_noauth" time="0.021" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="981">
+		<!--Test accessing calendar without authorization.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_cancel" time="0.244" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="759">
+		<!--Test the PurchaseOrderCancel API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_complete" time="0.165" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="784">
+		<!--Test the PurchaseOrderComplete API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_complete_stale_instance_is_noop" time="0.025" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="816">
+		<!--A second completion attempt with a stale order instance must be a no-op.
+
+Regression test: _action_complete() checked 'status' on the caller's
+(potentially stale) instance, so two concurrent completion requests could
+both run the completion side effects (duplicate COMPLETED events and
+duplicate pricing-update scheduling). The status is now re-read (under
+lock) from the database before the check.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_create" time="0.177" timestamp="2026-10-31T18:18:16" file="order\test_api.py" line="519">
+		<!--Test that we can create a new PurchaseOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_create_default_destination" time="0.320" timestamp="2026-10-31T18:18:17" file="order\test_api.py" line="555">
+		<!--Test that the PURCHASEORDER_DEFAULT_RECEIVE_LOCATION setting is applied on creation.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_creation_date" time="0.135" timestamp="2026-10-31T18:18:17" file="order\test_api.py" line="602">
+		<!--Test that we can create set the creation_date field of PurchaseOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_custom_status_query_count" time="0.451" timestamp="2026-10-31T18:18:17" file="order\test_api.py" line="1057">
+		<!--Test that listing PurchaseOrders with custom statuses does not cause N+1 queries.
+
+Ensures that resolving the 'status_text' field for custom status values
+is O(1) in database queries, not O(N) relative to the number of results.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_detail" time="0.049" timestamp="2026-10-31T18:18:17" file="order\test_api.py" line="271">
+		<!--Test the PurchaseOrder detail API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_duplicate" time="0.272" timestamp="2026-10-31T18:18:18" file="order\test_api.py" line="635">
+		<!--Test that we can duplicate a PurchaseOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_duplicate_copies_notes" time="0.203" timestamp="2026-10-31T18:18:18" file="order\test_api.py" line="707">
+		<!--Test that notes are copied when duplicating a PurchaseOrder via the API.
+
+PurchaseOrderSerializer declares its 'duplicate' options with
+copy_notes=True, so notes should be copied by default (i.e. without
+explicitly requesting it).
+-->
+		<system-out><![CDATA[Warning: 101 queries executed at /api/order/po/
+]]></system-out>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_hold" time="0.112" timestamp="2026-10-31T18:18:18" file="order\test_api.py" line="849">
+		<!--Test the PurchaseOrderHold API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_issue" time="0.474" timestamp="2026-10-31T18:18:18" file="order\test_api.py" line="861">
+		<!--Test the PurchaseOrderIssue API endpoint.-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+]]></system-err>
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_list" time="0.796" timestamp="2026-10-31T18:18:19" file="order\test_api.py" line="161">
+		<!--Test the PurchaseOrder list API endpoint.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_operations" time="0.354" timestamp="2026-10-31T18:18:19" file="order\test_api.py" line="438">
+		<!--Test that we can create / edit and delete a PurchaseOrder via the API.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_reference" time="0.078" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="355">
+		<!--Test that a reference with a too big / small reference is handled correctly.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_reference_wildcard_default" time="0.374" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="381">
+		<!--Test that a reference with a wildcard default.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_status_custom_key_options" time="0.135" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="284">
+		<!--Test that status_custom_key is exposed as writable in options.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_status_custom_key_patch_invalid" time="0.071" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="320">
+		<!--Test patching an invalid custom status key for a PO.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_status_custom_key_patch_valid" time="0.096" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="295">
+		<!--Test patching a valid custom status key for the current PO status.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_po_status_custom_key_patch_wrong_logical_status" time="0.072" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="331">
+		<!--Test patching a custom key mapped to a different logical status.-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_status_codes_endpoint" time="0.019" timestamp="2026-10-31T18:18:20" file="order\test_api.py" line="1120">
+		<!--The 'po/status/' endpoint must resolve to the status-codes view.
+
+Regression test: PurchaseOrder is served by a ViewSet router, whose
+generated detail route ('po/<pk>/') uses DRF's default, permissive pk
+lookup regex. That regex is happy to match the literal segment 'status'
+as a pk, so if the router is registered ahead of the 'po/status/' path in
+the urlconf, this endpoint gets swallowed by
+PurchaseOrderViewSet.retrieve(pk='status') instead of reaching StatusView -
+returning a 404 (no such PurchaseOrder) rather than the status code data.
+-->
+	</testcase>
+	<testcase classname="order.test_api.PurchaseOrderTest" name="test_total_price" time="0.448" timestamp="2026-10-31T18:18:21" file="order\test_api.py" line="202">
+		<!--Unit tests for the 'total_price' field.-->
+	</testcase>
+</testsuite>

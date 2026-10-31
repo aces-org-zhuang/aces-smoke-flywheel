@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="part.test_param.ParameterTests-20261031181515" tests="4" file="part/test_param.py" time="0.117" timestamp="2026-10-31T18:20:41" failures="0" errors="0" skipped="0">
+	<testcase classname="part.test_param.ParameterTests" name="test_choice_validation" time="0.016" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="211">
+		<!--Test that parameter choices are correctly validated.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTests" name="test_param_unit_conversion" time="0.006" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="306">
+		<!--Test that parameters are correctly converted to template units.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTests" name="test_param_unit_validation" time="0.070" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="260">
+		<!--Test that parameters are correctly validated against template units.-->
+	</testcase>
+	<testcase classname="part.test_param.ParameterTests" name="test_unit_validation" time="0.026" timestamp="2026-10-31T18:20:41" file="part\test_param.py" line="233">
+		<!--Test validation of 'units' field for ParameterTemplate.-->
+	</testcase>
+</testsuite>

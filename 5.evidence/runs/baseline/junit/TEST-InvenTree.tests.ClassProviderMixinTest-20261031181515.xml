@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.ClassProviderMixinTest-20261031181515" tests="3" file="InvenTree/tests.py" time="0.002" timestamp="2026-10-31T18:26:36" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.ClassProviderMixinTest" name="test_get_is_builtin" time="0.000" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1932">
+		<!--Test the get_is_builtin function.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ClassProviderMixinTest" name="test_get_provider_file" time="0.000" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1924">
+		<!--Test the get_provider_file function.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.ClassProviderMixinTest" name="test_provider_plugin" time="0.001" timestamp="2026-10-31T18:26:36" file="InvenTree\tests.py" line="1928">
+		<!--Test the provider_plugin function.-->
+	</testcase>
+</testsuite>

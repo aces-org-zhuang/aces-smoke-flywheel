@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="plugin.base.ui.tests.UserInterfaceMixinTests-20261031181515" tests="8" file="plugin/base/ui/tests.py" time="0.373" timestamp="2026-10-31T18:22:57" failures="5" errors="2" skipped="0">
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_feature_list_app_registry_not_ready" time="0.020" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="92">
+		<!--A mid-reload AppRegistryNotReady should surface as a 503, not a 500.
+
+Regression test: the plugin registry can force-reload Django's app registry
+(e.g. when ENABLE_PLUGINS_INTERFACE is toggled - see
+common.setting.system.reload_plugin_registry) while other requests are still
+being served, so this endpoint's own settings lookup can race that reload.
+-->
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_dashboard_items" time="0.217" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="39">
+		<!--Test that the sample UI plugin provides custom dashboard items.-->
+		<failure type="AssertionError" message="0 != 4"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 48, in test_ui_dashboard_items
+    self.assertEqual(len(response.data), 4)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 4
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_navigation_items" time="0.022" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="248">
+		<!--Test that the sample UI plugin provides custom navigation items.-->
+		<failure type="AssertionError" message="1 != 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 253, in test_ui_navigation_items
+    self.assertEqual(1, len(response.data))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_primary_actions" time="0.024" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="258">
+		<!--Test that the sample UI plugin provides custom primary actions.-->
+		<failure type="AssertionError" message="1 != 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 263, in test_ui_primary_actions
+    self.assertEqual(1, len(response.data))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_routes" time="0.023" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="268">
+		<!--Test that the sample UI plugin provides custom routes.-->
+		<failure type="AssertionError" message="2 != 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 274, in test_ui_routes
+    self.assertEqual(2, len(response.data))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_template_editors" time="0.024" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="186">
+		<!--Test that the sample UI plugin provides template editor features.-->
+		<failure type="AssertionError" message="1 != 0"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 203, in test_ui_template_editors
+    self.assertEqual(1, len(response.data))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0
+]]></failure>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_installed" time="0.009" timestamp="2026-10-31T18:22:56" file="plugin\base\ui\tests.py" line="31">
+		<!--Test that the sample UI plugin is installed and active.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'is_active'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 34, in test_installed
+    self.assertTrue(plugin.is_active())
+                    ^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'is_active'
+]]></error>
+	</testcase>
+	<testcase classname="plugin.base.ui.tests.UserInterfaceMixinTests" name="test_ui_panels" time="0.035" timestamp="2026-10-31T18:22:57" file="plugin\base\ui\tests.py" line="110">
+		<!--Test that the sample UI plugin provides custom panels.-->
+		<error type="AttributeError" message="'NoneType' object has no attribute 'set_setting'"><![CDATA[Traceback (most recent call last):
+  File "D:\wbeval\repos\inventree\src\backend\InvenTree\plugin\base\ui\tests.py", line 127, in test_ui_panels
+    plugin.set_setting('ENABLE_PART_PANELS', True)
+    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'set_setting'
+]]></error>
+	</testcase>
+</testsuite>

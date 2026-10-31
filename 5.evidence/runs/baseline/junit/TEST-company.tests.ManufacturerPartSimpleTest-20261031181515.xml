@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="company.tests.ManufacturerPartSimpleTest-20261031181515" tests="3" file="company/tests.py" time="0.210" timestamp="2026-10-31T18:17:48" failures="0" errors="0" skipped="0">
+	<testcase classname="company.tests.ManufacturerPartSimpleTest" name="test_delete" time="0.096" timestamp="2026-10-31T18:17:48" file="company\tests.py" line="319">
+		<!--Test deletion of a ManufacturerPart.-->
+	</testcase>
+	<testcase classname="company.tests.ManufacturerPartSimpleTest" name="test_exists" time="0.021" timestamp="2026-10-31T18:17:48" file="company\tests.py" line="311">
+		<!--That that a ManufacturerPart has been created.-->
+	</testcase>
+	<testcase classname="company.tests.ManufacturerPartSimpleTest" name="test_metadata" time="0.093" timestamp="2026-10-31T18:17:48" file="company\tests.py" line="329">
+		<!--Unit tests for the metadata field.-->
+	</testcase>
+</testsuite>

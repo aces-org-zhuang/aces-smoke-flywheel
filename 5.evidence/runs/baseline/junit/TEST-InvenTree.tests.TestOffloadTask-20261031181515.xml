@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="InvenTree.tests.TestOffloadTask-20261031181515" tests="2" file="InvenTree/tests.py" time="0.134" timestamp="2026-10-31T18:26:39" failures="0" errors="0" skipped="0">
+	<testcase classname="InvenTree.tests.TestOffloadTask" name="test_daily_holdoff" time="0.077" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1627">
+		<!--Tests for daily task holdoff helper functions.-->
+	</testcase>
+	<testcase classname="InvenTree.tests.TestOffloadTask" name="test_offload_tasks" time="0.057" timestamp="2026-10-31T18:26:39" file="InvenTree\tests.py" line="1581">
+		<!--Test that we can offload various tasks to the background worker thread.
+
+This set of tests also ensures that various types of objects
+can be encoded by the django-q serialization layer!
+
+Note that as the background worker is not actually running for the tests,
+the call to 'offload_task' won't really *do* anything!
+
+However, it serves as a validation that object serialization works!
+
+Ref: https://github.com/inventree/InvenTree/pull/3273
+-->
+		<system-err><![CDATA[C:\Users\Administrator\.workbuddy\binaries\python\envs\inventree\Lib\site-packages\django\db\models\fields\__init__.py:1612: RuntimeWarning: DateTimeField NotificationEntry.updated received a naive datetime (2026-10-30 00:00:00) while time zone support is active.
+  warnings.warn(
+D:\wbeval\repos\inventree\src\backend\InvenTree\InvenTree\tasks.py:505: UserWarning: WARNING: 'dummy_task.numbers' not started - No module named 'dummy_task'
+  raise_warning(
+]]></system-err>
+	</testcase>
+</testsuite>

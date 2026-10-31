@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="order.test_api.OrderActionMissingPkTest-20261031181515" tests="5" file="order/test_api.py" time="0.329" timestamp="2026-10-31T18:17:56" failures="0" errors="0" skipped="0">
+	<testcase classname="order.test_api.OrderActionMissingPkTest" name="test_purchase_order_actions_404" time="0.125" timestamp="2026-10-31T18:17:56" file="order\test_api.py" line="6505">
+		<!--Each PurchaseOrderViewSet action should 404, not 500, for a bad pk.
+
+Note: PurchaseOrderViewSet.get_order() is a deliberate raw lookup rather
+than self.get_object() - the latter routes through
+ParameterListMixin.filter_queryset(), which assumes
+self.serializer_class.Meta.model exists. That's true for the default
+PurchaseOrderSerializer, but not for the plain-Serializer action classes
+used here, so self.get_object() would raise an unrelated AttributeError.
+-->
+	</testcase>
+	<testcase classname="order.test_api.OrderActionMissingPkTest" name="test_return_order_actions_404" time="0.056" timestamp="2026-10-31T18:17:56" file="order\test_api.py" line="6543">
+		<!--Each ReturnOrderContextMixin-based action should 404, not 500, for a bad pk.-->
+	</testcase>
+	<testcase classname="order.test_api.OrderActionMissingPkTest" name="test_sales_order_actions_404" time="0.066" timestamp="2026-10-31T18:17:56" file="order\test_api.py" line="6525">
+		<!--Each SalesOrderContextMixin-based action should 404, not 500, for a bad pk.-->
+	</testcase>
+	<testcase classname="order.test_api.OrderActionMissingPkTest" name="test_sales_order_auto_allocate_already_safe" time="0.019" timestamp="2026-10-31T18:17:56" file="order\test_api.py" line="6538">
+		<!--SalesOrderAutoAllocate overrides post() and already calls get_object() itself.-->
+	</testcase>
+	<testcase classname="order.test_api.OrderActionMissingPkTest" name="test_transfer_order_actions_404" time="0.064" timestamp="2026-10-31T18:17:56" file="order\test_api.py" line="6555">
+		<!--Each TransferOrderContextMixin-based action should 404, not 500, for a bad pk.-->
+	</testcase>
+</testsuite>

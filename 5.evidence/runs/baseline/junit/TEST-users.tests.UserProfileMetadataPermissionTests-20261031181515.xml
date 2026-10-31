@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="users.tests.UserProfileMetadataPermissionTests-20261031181515" tests="2" file="users/tests.py" time="0.064" timestamp="2026-10-31T18:22:42" failures="0" errors="0" skipped="0">
+	<testcase classname="users.tests.UserProfileMetadataPermissionTests" name="test_other_users_profile_metadata_is_denied" time="0.033" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="675">
+		<!--A user cannot read/write another user's profile metadata via the generic endpoint.-->
+	</testcase>
+	<testcase classname="users.tests.UserProfileMetadataPermissionTests" name="test_own_profile_metadata_is_accessible" time="0.031" timestamp="2026-10-31T18:22:42" file="users\tests.py" line="669">
+		<!--A user can read/write their own profile metadata via the generic endpoint.-->
+	</testcase>
+</testsuite>

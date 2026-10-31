@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="common.test_audit.GlobalSettingAuditTest-20261031181515" tests="7" file="common/test_audit.py" time="0.558" timestamp="2026-10-31T18:16:28" failures="0" errors="0" skipped="0">
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_default_value_not_recorded" time="0.011" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="807">
+		<!--Settings created automatically (with their default value) are not recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_disable_audit_log" time="0.066" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="764">
+		<!--Disabling (and re-enabling) the audit log is always recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_protected_value" time="0.023" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="747">
+		<!--The values of protected settings are never recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_setting_change" time="0.023" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="692">
+		<!--Changes to a global setting are recorded (key and value only).-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_staff_only" time="0.370" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="791">
+		<!--Setting history is only visible to staff users.-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_system_settings_not_recorded" time="0.031" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="713">
+		<!--Settings which are written automatically by the system are not recorded.-->
+	</testcase>
+	<testcase classname="common.test_audit.GlobalSettingAuditTest" name="test_unchanged_value" time="0.034" timestamp="2026-10-31T18:16:28" file="common\test_audit.py" line="704">
+		<!--Saving a setting with an unchanged value is not recorded.-->
+	</testcase>
+</testsuite>

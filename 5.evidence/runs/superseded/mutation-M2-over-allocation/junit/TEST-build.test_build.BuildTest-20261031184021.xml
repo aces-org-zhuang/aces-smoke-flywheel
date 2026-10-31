@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="build.test_build.BuildTest-20261031184021" tests="1" file="build/test_build.py" time="0.212" timestamp="2026-10-31T18:40:27" failures="0" errors="0" skipped="0">
+	<testcase classname="build.test_build.BuildTest" name="test_complete" time="0.212" timestamp="2026-10-31T18:40:27" file="build\test_build.py" line="668">
+		<!--Test completion of a build output.-->
+	</testcase>
+</testsuite>
