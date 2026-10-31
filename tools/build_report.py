@@ -431,9 +431,11 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 <tr><td>覆盖方式</td><td>17 个 app 全量：build common company importer machine order part pricing report stock users plugin InvenTree generic web scim</td></tr>
 <tr><td>JUnit 产物</td><td>{base_xml_count} 个 XML（<code>5.evidence/runs/baseline/junit/</code>）</td></tr>
 <tr><td>通过 / 失败 / 跳过</td><td>{fmt(base_run.get('passed') if base_run else None)} / {fmt(base_run.get('failed') if base_run else None)} / {fmt(base_run.get('skipped') if base_run else None)}</td></tr>
-<tr><td>总耗时</td><td>{fmt(base_run.get('duration_s') if base_run else None, ' 秒')}</td></tr>
+<tr><td>用例耗时合计</td><td>{fmt(base_run.get('duration_s') if base_run else None, ' 秒')}（逐条相加；终端墙钟另计）</td></tr>
 <tr><td>债务台账</td><td><code>5.evidence/verdicts/baseline-debt.json</code>（{debt.get('count', '未产出')} 条，每条带 owner 与到期日）</td></tr>
 </table>
+<p class="small">口径说明：Django 终端汇总行报 <code>Ran 2018 tests</code>，JUnit 落盘 {fmt(base_run.get('collected') if base_run else None)} 条用例记录，
+两者统计口径不同。本报告一律以 JUnit 为准——因为 JUnit 可以逐条点开核对，终端汇总行不能。</p>
 <p class="small">首次全量运行曾丢失全部结构化证据：InvenTree 的 settings.py 显式写死了 TEST_RUNNER，
 环境变量被静默忽略，XML 散落到工作目录还污染了 git 工作区。改为 settings 覆盖层（<code>3.env/flywheel_junit_settings.py</code>）后重跑，
 这段弯路保留在提交记录里，因为它正是“证据链不能靠约定”的例证。</p>
