@@ -1,7 +1,7 @@
 # 资产全景页点击验证记录
 # 生成：node 4.gates/check-atlas/check_atlas.mjs
-# 时间：2026-11-01T02:19:27Z
-# 页面：docs/ssot-atlas.html (2878482 字节)
+# 时间：2026-11-01T02:21:05Z
+# 页面：docs/ssot-atlas.html (2878452 字节)
 
 PASS 页面脚本执行无异常
 PASS body 已标记 js（标签页生效）

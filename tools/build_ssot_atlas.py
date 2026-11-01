@@ -403,7 +403,7 @@ def render_version(v: dict, spec: dict, sources: dict, sites: dict) -> str:
         for n in nodes
     )
 
-    repo_url = "https://github.com/aces-org-zhuang/aces-smoke-flywheel/blob/master"
+    repo_url = "https://github.com/aces-org-zhuang/aces-smoke-flywheel/blob/main"
     file_rows = "".join(
         f'<tr><td><a href="{repo_url}/{v["dir"]}/{k}"><code>{esc(k)}</code></a></td>'
         f'<td class="num">{val["bytes"]:,} B</td>'
