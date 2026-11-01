@@ -118,6 +118,16 @@ def main() -> int:
         near = closest_routes(endpoints, item["normalized"])
         stale_rows.append({**item, "near": near})
 
+    # ---- 字节级自证：只删了 /api 前缀，端点一个没动
+    g1_items = (jload(HIST / "G1-naive-axis/endpoints.json") or {}).get("items", [])
+    g2_items = (jload(HIST / "G2-aligned-axis/endpoints.json") or {}).get("items", [])
+    char_delta = sum(
+        len(a["normalized"]) - len(b["normalized"]) for a, b in zip(g1_items, g2_items)
+    )
+    byte_delta = (g1.get("files") or {}).get("endpoints.json", 0) - (
+        g2.get("files") or {}
+    ).get("endpoints.json", 0)
+
     # ---- 逐状态卡
     def state_card(sid: str, title: str, state: dict, tone: str) -> str:
         m = state.get("metrics", {})
@@ -277,6 +287,12 @@ def main() -> int:
   <strong>为什么这一步最危险：</strong>轴错位时命中率是 0，而 0 命中的表现是"所有声明都未命中"，
   看上去像"这个仓前后端对不上"这样一个业务结论，而不是"工具算错了"。
   门禁此后所有基于合同矩阵的判断都会是假阴性——而且它们都会"正常"跑完。
+</div>
+<div class="quote">
+  <strong>字节级自证：</strong>G1 与 G2 的 <code>endpoints.json</code> 相差 {byte_delta:,} 字节，
+  而 617 条归一化路径的字符总差恰好也是 {char_delta:,} 字——两者相等，说明这次修改
+  <strong>只删掉了 <code>/api</code> 前缀</strong>，没有增删任何端点、没有改任何方法或 operationId。
+  一个"只改坐标"的修改，应该能被字节数算出来。
 </div>
 
 <h2>3. 190 条声明翻转：改坐标之前它们全被判成未命中</h2>

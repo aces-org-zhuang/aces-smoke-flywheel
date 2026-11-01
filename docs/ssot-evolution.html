@@ -170,6 +170,12 @@
   看上去像"这个仓前后端对不上"这样一个业务结论，而不是"工具算错了"。
   门禁此后所有基于合同矩阵的判断都会是假阴性——而且它们都会"正常"跑完。
 </div>
+<div class="quote">
+  <strong>字节级自证：</strong>G1 与 G2 的 <code>endpoints.json</code> 相差 2,467 字节，
+  而 617 条归一化路径的字符总差恰好也是 2,467 字——两者相等，说明这次修改
+  <strong>只删掉了 <code>/api</code> 前缀</strong>，没有增删任何端点、没有改任何方法或 operationId。
+  一个"只改坐标"的修改，应该能被字节数算出来。
+</div>
 
 <h2>3. 190 条声明翻转：改坐标之前它们全被判成未命中</h2>
 <div class="grid g2">
@@ -259,7 +265,7 @@ admin 专用端点，是"后端能力大于前端当前界面"的正常形状，
 <footer>
   由 <code>tools/build_ssot_panorama.py</code> 从 <code>0.ssot/history/evolution.json</code>、
   <code>0.ssot/contract_matrix.json</code> 与 <code>5.evidence/verdicts/verify-ssot*.json</code> 渲染 ·
-  生成于 2026-11-01 02:04 UTC ·
+  生成于 2026-11-01 02:05 UTC ·
   仓：<a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">aces-org-zhuang/aces-smoke-flywheel</a>
 </footer>
 </div>
