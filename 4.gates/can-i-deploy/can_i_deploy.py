@@ -21,11 +21,16 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
+
+ROOT_DIR = Path(__file__).resolve().parents[2]
 
 POLICY = {
     "mutation_kill_rate_min": 0.8,
@@ -65,6 +70,11 @@ def main() -> int:
     ap.add_argument("--debt-ledger", default="5.evidence/verdicts/baseline-debt.json")
     ap.add_argument("--mutation", default="5.evidence/verdicts/mutation.json")
     ap.add_argument("--out", default="5.evidence/verdicts/can-i-deploy.json")
+    ap.add_argument(
+        "--sut-root",
+        default="",
+        help="被测仓本地路径；提供则当场重跑 verify-ssot，否则只读已有判决文件",
+    )
     args = ap.parse_args()
 
     ev = Path(args.evidence)
@@ -80,6 +90,47 @@ def main() -> int:
     ledger = read_json(Path(args.debt_ledger))
 
     checks = []
+
+    # 0. SSOT 冻结：后面所有判据都建立在"0.ssot 就是候选集那个 commit 的投影"之上。
+    #    这一条不过，其余四道照样能跑出漂亮的结论，但判的是错的事实源。
+    ssot_verdict_path = verdicts / "verify-ssot.json"
+    if args.sut_root:
+        subprocess.run(
+            [
+                sys.executable,
+                str(ROOT_DIR / "4.gates/verify-ssot/verify.py"),
+                "--sut-root",
+                args.sut_root,
+                "--out",
+                str(ssot_verdict_path),
+            ],
+            cwd=str(ROOT_DIR),
+            capture_output=True,
+            text=True,
+            env={k: v for k, v in os.environ.items() if k not in {"PYTHONHOME", "PYTHONPATH"}},
+        )
+    ssot = read_json(ssot_verdict_path)
+    if ssot is None:
+        checks.append(
+            {
+                "gate": "verify-ssot",
+                "state": "UNKNOWN",
+                "detail": "缺少 SSOT 冻结判决，补跑：4.gates/verify-ssot/verify.py --sut-root <被测仓>",
+            }
+        )
+    else:
+        failed = ssot.get("failed") or []
+        checks.append(
+            {
+                "gate": "verify-ssot",
+                "state": "PASS" if ssot.get("verdict") == "PASS" else "BLOCK",
+                "detail": f"{len(ssot.get('checks', [])) - len(failed)}/"
+                f"{len(ssot.get('checks', []))} 项通过"
+                + (f"，未过：{failed}" if failed else "")
+                + "（SSOT 是否为候选 commit 的投影）",
+                "evidence": "5.evidence/verdicts/verify-ssot.json",
+            }
+        )
 
     # 1. 边界契约
     if lint is None:

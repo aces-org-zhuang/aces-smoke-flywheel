@@ -1,0 +1,71 @@
+{
+  "gate": "can-i-deploy",
+  "decided_at": "2026-11-01T02:01:35.270611+00:00",
+  "candidate": "l1-run-01",
+  "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "policy": {
+    "mutation_kill_rate_min": 0.8,
+    "new_failure_unknown_ratio_max": 0.2,
+    "require_l1_all_green": true,
+    "allow_product_defect": false,
+    "debt_is_reported_not_blocking": true
+  },
+  "checks": [
+    {
+      "gate": "verify-ssot",
+      "state": "BLOCK",
+      "detail": "6/7 项通过，未过：['V3a']（SSOT 是否为候选 commit 的投影）",
+      "evidence": "5.evidence/verdicts/verify-ssot.json"
+    },
+    {
+      "gate": "lint-boundary",
+      "state": "PASS",
+      "detail": "9 份契约 / 0 处违规",
+      "evidence": "5.evidence/verdicts/lint-boundary.json"
+    },
+    {
+      "gate": "l1",
+      "state": "PASS",
+      "detail": "candidate=l1-run-01 passed=16 failed=0 missing=0",
+      "evidence": "5.evidence/runs/l1-run-01/run.json"
+    },
+    {
+      "gate": "classify-failure",
+      "state": "PASS",
+      "detail": "new_failures=0 新增缺陷=0 new_unknown_ratio=0.0",
+      "evidence": "5.evidence/verdicts/classification.json"
+    },
+    {
+      "gate": "mutation-diff",
+      "state": "PASS",
+      "detail": "kill_rate=1.0 (阈值 0.8)，killed=3/3，restored=True",
+      "evidence": "5.evidence/verdicts/mutation.json"
+    },
+    {
+      "gate": "contract-matrix",
+      "state": "PASS",
+      "detail": "黄金路径使用 22 条路由，命中漂移 0",
+      "evidence": "0.ssot/contract_matrix.json"
+    }
+  ],
+  "decision": "BLOCK",
+  "blockers": [
+    "verify-ssot"
+  ],
+  "missing_evidence": [],
+  "preexisting_debt": {
+    "ledger": "5.evidence/verdicts/baseline-debt.json",
+    "baseline_run": "baseline",
+    "baseline_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+    "count": 179,
+    "by_verdict": {
+      "product_defect": 0,
+      "flaky_candidate": 0,
+      "contract_violation": 0,
+      "environment_excluded": 40,
+      "case_stale": 0,
+      "unknown": 139
+    },
+    "policy": "存量债务披露但不阻断；每条带 owner 与到期日，不允许静默消失"
+  }
+}

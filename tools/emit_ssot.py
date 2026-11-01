@@ -172,6 +172,18 @@ def main() -> int:
     openapi_path = (Path.cwd() / args.openapi).resolve()
     if not openapi_path.exists():
         sys.exit(f"缺少 {openapi_path}，先执行 manage.py spectacular 导出规范")
+    # 空规范必须当场拒跑。历史上踩过一次：spectacular 因 INVE-W8（未迁移）以退出码 0
+    # 写出 0 字节文件，这里只在 yaml.safe_load 得到 None 之后崩在 spec.get 上，
+    # 崩在写了一半的目录里，看上去像"生成器有 bug"而不是"事实源是空的"。
+    size = openapi_path.stat().st_size
+    if size == 0:
+        sys.exit(
+            f"{openapi_path} 是 0 字节：spectacular 导出失败（典型原因 INVE-W8 未迁移）。"
+            "拒绝基于空规范生成 SSOT。"
+        )
+    spec_head = yaml.safe_load(openapi_path.read_text(encoding="utf-8"))
+    if not isinstance(spec_head, dict) or not spec_head.get("paths"):
+        sys.exit(f"{openapi_path} 不是有效 OpenAPI（{size} 字节，无 paths）：拒绝生成 SSOT")
 
     commit = git(repo, "rev-parse", "HEAD")
     commit_date = git(repo, "log", "-1", "--format=%cI")

@@ -1,0 +1,6793 @@
+{
+  "source": "openapi.yaml",
+  "openapi_version": "3.0.3",
+  "commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "count": 617,
+  "items": [
+    {
+      "path": "/api/",
+      "normalized": "/",
+      "method": "GET",
+      "operation_id": "root_retrieve",
+      "tags": [],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/action/",
+      "normalized": "/action",
+      "method": "POST",
+      "operation_id": "action_create",
+      "tags": [
+        "action"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/config/",
+      "normalized": "/admin/config",
+      "method": "GET",
+      "operation_id": "admin_config_list",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/config/{key}/",
+      "normalized": "/admin/config/{}",
+      "method": "GET",
+      "operation_id": "admin_config_retrieve",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/email/",
+      "normalized": "/admin/email",
+      "method": "DELETE",
+      "operation_id": "admin_email_bulk_destroy",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/email/",
+      "normalized": "/admin/email",
+      "method": "GET",
+      "operation_id": "admin_email_list",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/email/test/",
+      "normalized": "/admin/email/test",
+      "method": "POST",
+      "operation_id": "admin_email_test_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/email/{global_id}/",
+      "normalized": "/admin/email/{}",
+      "method": "DELETE",
+      "operation_id": "admin_email_destroy",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/email/{global_id}/",
+      "normalized": "/admin/email/{}",
+      "method": "GET",
+      "operation_id": "admin_email_retrieve",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/",
+      "normalized": "/admin/oauth2",
+      "method": "GET",
+      "operation_id": "admin_oauth2_list",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/",
+      "normalized": "/admin/oauth2",
+      "method": "POST",
+      "operation_id": "admin_oauth2_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "normalized": "/admin/oauth2/{}",
+      "method": "DELETE",
+      "operation_id": "admin_oauth2_destroy",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "normalized": "/admin/oauth2/{}",
+      "method": "GET",
+      "operation_id": "admin_oauth2_retrieve",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "normalized": "/admin/oauth2/{}",
+      "method": "PATCH",
+      "operation_id": "admin_oauth2_partial_update",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "normalized": "/admin/oauth2/{}",
+      "method": "PUT",
+      "operation_id": "admin_oauth2_update",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/regenerate/",
+      "normalized": "/admin/oauth2/{}/regenerate",
+      "method": "POST",
+      "operation_id": "admin_oauth2_regenerate_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/scim/",
+      "normalized": "/admin/scim",
+      "method": "GET",
+      "operation_id": "admin_scim_list",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/scim/disable/",
+      "normalized": "/admin/scim/disable",
+      "method": "POST",
+      "operation_id": "admin_scim_disable_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/scim/generate/",
+      "normalized": "/admin/scim/generate",
+      "method": "POST",
+      "operation_id": "admin_scim_generate_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/",
+      "normalized": "/admin/sso",
+      "method": "GET",
+      "operation_id": "admin_sso_list",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/",
+      "normalized": "/admin/sso",
+      "method": "POST",
+      "operation_id": "admin_sso_create",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "normalized": "/admin/sso/{}",
+      "method": "DELETE",
+      "operation_id": "admin_sso_destroy",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "normalized": "/admin/sso/{}",
+      "method": "GET",
+      "operation_id": "admin_sso_retrieve",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "normalized": "/admin/sso/{}",
+      "method": "PATCH",
+      "operation_id": "admin_sso_partial_update",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "normalized": "/admin/sso/{}",
+      "method": "PUT",
+      "operation_id": "admin_sso_update",
+      "tags": [
+        "admin"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/",
+      "normalized": "/attachment",
+      "method": "DELETE",
+      "operation_id": "attachment_bulk_destroy",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/",
+      "normalized": "/attachment",
+      "method": "GET",
+      "operation_id": "attachment_list",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/",
+      "normalized": "/attachment",
+      "method": "POST",
+      "operation_id": "attachment_create",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "normalized": "/attachment/{}",
+      "method": "DELETE",
+      "operation_id": "attachment_destroy",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "normalized": "/attachment/{}",
+      "method": "GET",
+      "operation_id": "attachment_retrieve",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "normalized": "/attachment/{}",
+      "method": "PATCH",
+      "operation_id": "attachment_partial_update",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "normalized": "/attachment/{}",
+      "method": "PUT",
+      "operation_id": "attachment_update",
+      "tags": [
+        "attachment"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/audit/",
+      "normalized": "/audit",
+      "method": "GET",
+      "operation_id": "audit_list",
+      "tags": [
+        "audit"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/audit/{id}/",
+      "normalized": "/audit/{}",
+      "method": "GET",
+      "operation_id": "audit_retrieve",
+      "tags": [
+        "audit"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/",
+      "normalized": "/background-task",
+      "method": "GET",
+      "operation_id": "background_task_overview",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/failed/",
+      "normalized": "/background-task/failed",
+      "method": "DELETE",
+      "operation_id": "background_task_failed_bulk_destroy",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/failed/",
+      "normalized": "/background-task/failed",
+      "method": "GET",
+      "operation_id": "background_task_failed_list",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/pending/",
+      "normalized": "/background-task/pending",
+      "method": "DELETE",
+      "operation_id": "background_task_pending_bulk_destroy",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/pending/",
+      "normalized": "/background-task/pending",
+      "method": "GET",
+      "operation_id": "background_task_pending_list",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/scheduled/",
+      "normalized": "/background-task/scheduled",
+      "method": "GET",
+      "operation_id": "background_task_scheduled_list",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/background-task/{task_id}/",
+      "normalized": "/background-task/{}",
+      "method": "GET",
+      "operation_id": "background_task_retrieve",
+      "tags": [
+        "background-task"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/",
+      "normalized": "/barcode",
+      "method": "POST",
+      "operation_id": "barcode_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/generate/",
+      "normalized": "/barcode/generate",
+      "method": "POST",
+      "operation_id": "barcode_generate_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/history/",
+      "normalized": "/barcode/history",
+      "method": "DELETE",
+      "operation_id": "barcode_history_bulk_destroy",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/history/",
+      "normalized": "/barcode/history",
+      "method": "GET",
+      "operation_id": "barcode_history_list",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/history/{id}/",
+      "normalized": "/barcode/history/{}",
+      "method": "DELETE",
+      "operation_id": "barcode_history_destroy",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/history/{id}/",
+      "normalized": "/barcode/history/{}",
+      "method": "GET",
+      "operation_id": "barcode_history_retrieve",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/link/",
+      "normalized": "/barcode/link",
+      "method": "POST",
+      "operation_id": "barcode_link_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/po-allocate/",
+      "normalized": "/barcode/po-allocate",
+      "method": "POST",
+      "operation_id": "barcode_po_allocate_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/po-receive/",
+      "normalized": "/barcode/po-receive",
+      "method": "POST",
+      "operation_id": "barcode_po_receive_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/so-allocate/",
+      "normalized": "/barcode/so-allocate",
+      "method": "POST",
+      "operation_id": "barcode_so_allocate_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/barcode/unlink/",
+      "normalized": "/barcode/unlink",
+      "method": "POST",
+      "operation_id": "barcode_unlink_create",
+      "tags": [
+        "barcode"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/",
+      "normalized": "/bom",
+      "method": "DELETE",
+      "operation_id": "bom_bulk_destroy",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/",
+      "normalized": "/bom",
+      "method": "GET",
+      "operation_id": "bom_list",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/",
+      "normalized": "/bom",
+      "method": "PATCH",
+      "operation_id": "bom_bulk_partial_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/",
+      "normalized": "/bom",
+      "method": "POST",
+      "operation_id": "bom_create",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/",
+      "normalized": "/bom",
+      "method": "PUT",
+      "operation_id": "bom_bulk_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/",
+      "normalized": "/bom/substitute",
+      "method": "GET",
+      "operation_id": "bom_substitute_list",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/",
+      "normalized": "/bom/substitute",
+      "method": "POST",
+      "operation_id": "bom_substitute_create",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "normalized": "/bom/substitute/{}",
+      "method": "DELETE",
+      "operation_id": "bom_substitute_destroy",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "normalized": "/bom/substitute/{}",
+      "method": "GET",
+      "operation_id": "bom_substitute_retrieve",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "normalized": "/bom/substitute/{}",
+      "method": "PATCH",
+      "operation_id": "bom_substitute_partial_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "normalized": "/bom/substitute/{}",
+      "method": "PUT",
+      "operation_id": "bom_substitute_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "normalized": "/bom/{}",
+      "method": "DELETE",
+      "operation_id": "bom_destroy",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "normalized": "/bom/{}",
+      "method": "GET",
+      "operation_id": "bom_retrieve",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "normalized": "/bom/{}",
+      "method": "PATCH",
+      "operation_id": "bom_partial_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "normalized": "/bom/{}",
+      "method": "PUT",
+      "operation_id": "bom_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/validate/",
+      "normalized": "/bom/{}/validate",
+      "method": "PATCH",
+      "operation_id": "bom_validate_partial_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/bom/{id}/validate/",
+      "normalized": "/bom/{}/validate",
+      "method": "PUT",
+      "operation_id": "bom_validate_update",
+      "tags": [
+        "bom"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/",
+      "normalized": "/build",
+      "method": "GET",
+      "operation_id": "build_list",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/",
+      "normalized": "/build",
+      "method": "POST",
+      "operation_id": "build_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/",
+      "normalized": "/build/item",
+      "method": "DELETE",
+      "operation_id": "build_item_bulk_destroy",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/",
+      "normalized": "/build/item",
+      "method": "GET",
+      "operation_id": "build_item_list",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/",
+      "normalized": "/build/item",
+      "method": "POST",
+      "operation_id": "build_item_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "normalized": "/build/item/{}",
+      "method": "DELETE",
+      "operation_id": "build_item_destroy",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "normalized": "/build/item/{}",
+      "method": "GET",
+      "operation_id": "build_item_retrieve",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "normalized": "/build/item/{}",
+      "method": "PATCH",
+      "operation_id": "build_item_partial_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "normalized": "/build/item/{}",
+      "method": "PUT",
+      "operation_id": "build_item_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/",
+      "normalized": "/build/line",
+      "method": "GET",
+      "operation_id": "build_line_list",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/",
+      "normalized": "/build/line",
+      "method": "POST",
+      "operation_id": "build_line_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "normalized": "/build/line/{}",
+      "method": "DELETE",
+      "operation_id": "build_line_destroy",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "normalized": "/build/line/{}",
+      "method": "GET",
+      "operation_id": "build_line_retrieve",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "normalized": "/build/line/{}",
+      "method": "PATCH",
+      "operation_id": "build_line_partial_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "normalized": "/build/line/{}",
+      "method": "PUT",
+      "operation_id": "build_line_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/status/",
+      "normalized": "/build/status",
+      "method": "GET",
+      "operation_id": "build_status_retrieve",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/",
+      "normalized": "/build/{}",
+      "method": "DELETE",
+      "operation_id": "build_destroy",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/",
+      "normalized": "/build/{}",
+      "method": "GET",
+      "operation_id": "build_retrieve",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/",
+      "normalized": "/build/{}",
+      "method": "PATCH",
+      "operation_id": "build_partial_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/",
+      "normalized": "/build/{}",
+      "method": "PUT",
+      "operation_id": "build_update",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/allocate/",
+      "normalized": "/build/{}/allocate",
+      "method": "POST",
+      "operation_id": "build_allocate_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/auto-allocate/",
+      "normalized": "/build/{}/auto-allocate",
+      "method": "POST",
+      "operation_id": "build_auto_allocate_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/cancel/",
+      "normalized": "/build/{}/cancel",
+      "method": "POST",
+      "operation_id": "build_cancel_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/complete/",
+      "normalized": "/build/{}/complete",
+      "method": "POST",
+      "operation_id": "build_complete_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/consume/",
+      "normalized": "/build/{}/consume",
+      "method": "POST",
+      "operation_id": "build_consume_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/create-output/",
+      "normalized": "/build/{}/create-output",
+      "method": "POST",
+      "operation_id": "build_create_output_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/delete-outputs/",
+      "normalized": "/build/{}/delete-outputs",
+      "method": "POST",
+      "operation_id": "build_delete_outputs_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/finish/",
+      "normalized": "/build/{}/finish",
+      "method": "POST",
+      "operation_id": "build_finish_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/hold/",
+      "normalized": "/build/{}/hold",
+      "method": "POST",
+      "operation_id": "build_hold_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/issue/",
+      "normalized": "/build/{}/issue",
+      "method": "POST",
+      "operation_id": "build_issue_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/scrap-outputs/",
+      "normalized": "/build/{}/scrap-outputs",
+      "method": "POST",
+      "operation_id": "build_scrap_outputs_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/build/{id}/unallocate/",
+      "normalized": "/build/{}/unallocate",
+      "method": "POST",
+      "operation_id": "build_unallocate_create",
+      "tags": [
+        "build"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/",
+      "normalized": "/company",
+      "method": "GET",
+      "operation_id": "company_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/",
+      "normalized": "/company",
+      "method": "POST",
+      "operation_id": "company_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/",
+      "normalized": "/company/address",
+      "method": "DELETE",
+      "operation_id": "company_address_bulk_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/",
+      "normalized": "/company/address",
+      "method": "GET",
+      "operation_id": "company_address_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/",
+      "normalized": "/company/address",
+      "method": "POST",
+      "operation_id": "company_address_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/{id}/",
+      "normalized": "/company/address/{}",
+      "method": "DELETE",
+      "operation_id": "company_address_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/{id}/",
+      "normalized": "/company/address/{}",
+      "method": "GET",
+      "operation_id": "company_address_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/{id}/",
+      "normalized": "/company/address/{}",
+      "method": "PATCH",
+      "operation_id": "company_address_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/address/{id}/",
+      "normalized": "/company/address/{}",
+      "method": "PUT",
+      "operation_id": "company_address_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/",
+      "normalized": "/company/contact",
+      "method": "DELETE",
+      "operation_id": "company_contact_bulk_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/",
+      "normalized": "/company/contact",
+      "method": "GET",
+      "operation_id": "company_contact_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/",
+      "normalized": "/company/contact",
+      "method": "POST",
+      "operation_id": "company_contact_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/{id}/",
+      "normalized": "/company/contact/{}",
+      "method": "DELETE",
+      "operation_id": "company_contact_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/{id}/",
+      "normalized": "/company/contact/{}",
+      "method": "GET",
+      "operation_id": "company_contact_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/{id}/",
+      "normalized": "/company/contact/{}",
+      "method": "PATCH",
+      "operation_id": "company_contact_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/contact/{id}/",
+      "normalized": "/company/contact/{}",
+      "method": "PUT",
+      "operation_id": "company_contact_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/",
+      "normalized": "/company/part",
+      "method": "DELETE",
+      "operation_id": "company_part_bulk_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/",
+      "normalized": "/company/part",
+      "method": "GET",
+      "operation_id": "company_part_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/",
+      "normalized": "/company/part",
+      "method": "POST",
+      "operation_id": "company_part_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/",
+      "normalized": "/company/part/manufacturer",
+      "method": "DELETE",
+      "operation_id": "company_part_manufacturer_bulk_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/",
+      "normalized": "/company/part/manufacturer",
+      "method": "GET",
+      "operation_id": "company_part_manufacturer_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/",
+      "normalized": "/company/part/manufacturer",
+      "method": "POST",
+      "operation_id": "company_part_manufacturer_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/{id}/",
+      "normalized": "/company/part/manufacturer/{}",
+      "method": "DELETE",
+      "operation_id": "company_part_manufacturer_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/{id}/",
+      "normalized": "/company/part/manufacturer/{}",
+      "method": "GET",
+      "operation_id": "company_part_manufacturer_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/{id}/",
+      "normalized": "/company/part/manufacturer/{}",
+      "method": "PATCH",
+      "operation_id": "company_part_manufacturer_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/manufacturer/{id}/",
+      "normalized": "/company/part/manufacturer/{}",
+      "method": "PUT",
+      "operation_id": "company_part_manufacturer_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/{id}/",
+      "normalized": "/company/part/{}",
+      "method": "DELETE",
+      "operation_id": "company_part_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/{id}/",
+      "normalized": "/company/part/{}",
+      "method": "GET",
+      "operation_id": "company_part_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/{id}/",
+      "normalized": "/company/part/{}",
+      "method": "PATCH",
+      "operation_id": "company_part_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/part/{id}/",
+      "normalized": "/company/part/{}",
+      "method": "PUT",
+      "operation_id": "company_part_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/",
+      "normalized": "/company/price-break",
+      "method": "GET",
+      "operation_id": "company_price_break_list",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/",
+      "normalized": "/company/price-break",
+      "method": "POST",
+      "operation_id": "company_price_break_create",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/{id}/",
+      "normalized": "/company/price-break/{}",
+      "method": "DELETE",
+      "operation_id": "company_price_break_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/{id}/",
+      "normalized": "/company/price-break/{}",
+      "method": "GET",
+      "operation_id": "company_price_break_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/{id}/",
+      "normalized": "/company/price-break/{}",
+      "method": "PATCH",
+      "operation_id": "company_price_break_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/price-break/{id}/",
+      "normalized": "/company/price-break/{}",
+      "method": "PUT",
+      "operation_id": "company_price_break_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/{id}/",
+      "normalized": "/company/{}",
+      "method": "DELETE",
+      "operation_id": "company_destroy",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/{id}/",
+      "normalized": "/company/{}",
+      "method": "GET",
+      "operation_id": "company_retrieve",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/{id}/",
+      "normalized": "/company/{}",
+      "method": "PATCH",
+      "operation_id": "company_partial_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/company/{id}/",
+      "normalized": "/company/{}",
+      "method": "PUT",
+      "operation_id": "company_update",
+      "tags": [
+        "company"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/contenttype/",
+      "normalized": "/contenttype",
+      "method": "GET",
+      "operation_id": "contenttype_list",
+      "tags": [
+        "contenttype"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/contenttype/model/{model}/",
+      "normalized": "/contenttype/model/{}",
+      "method": "GET",
+      "operation_id": "contenttype_retrieve_model",
+      "tags": [
+        "contenttype"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/contenttype/{id}/",
+      "normalized": "/contenttype/{}",
+      "method": "GET",
+      "operation_id": "contenttype_retrieve",
+      "tags": [
+        "contenttype"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/currency/exchange/",
+      "normalized": "/currency/exchange",
+      "method": "GET",
+      "operation_id": "currency_exchange_retrieve",
+      "tags": [
+        "currency"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/currency/refresh/",
+      "normalized": "/currency/refresh",
+      "method": "POST",
+      "operation_id": "currency_refresh_create",
+      "tags": [
+        "currency"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/data-output/",
+      "normalized": "/data-output",
+      "method": "DELETE",
+      "operation_id": "data_output_bulk_destroy",
+      "tags": [
+        "data-output"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/data-output/",
+      "normalized": "/data-output",
+      "method": "GET",
+      "operation_id": "data_output_list",
+      "tags": [
+        "data-output"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/data-output/{id}/",
+      "normalized": "/data-output/{}",
+      "method": "DELETE",
+      "operation_id": "data_output_destroy",
+      "tags": [
+        "data-output"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/data-output/{id}/",
+      "normalized": "/data-output/{}",
+      "method": "GET",
+      "operation_id": "data_output_retrieve",
+      "tags": [
+        "data-output"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/email/generate/",
+      "normalized": "/email/generate",
+      "method": "POST",
+      "operation_id": "email_generate_create",
+      "tags": [
+        "email"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/",
+      "normalized": "/error-report",
+      "method": "DELETE",
+      "operation_id": "error_report_bulk_destroy",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/",
+      "normalized": "/error-report",
+      "method": "GET",
+      "operation_id": "error_report_list",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/{id}/",
+      "normalized": "/error-report/{}",
+      "method": "DELETE",
+      "operation_id": "error_report_destroy",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/{id}/",
+      "normalized": "/error-report/{}",
+      "method": "GET",
+      "operation_id": "error_report_retrieve",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/{id}/",
+      "normalized": "/error-report/{}",
+      "method": "PATCH",
+      "operation_id": "error_report_partial_update",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/error-report/{id}/",
+      "normalized": "/error-report/{}",
+      "method": "PUT",
+      "operation_id": "error_report_update",
+      "tags": [
+        "error-report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/flags/",
+      "normalized": "/flags",
+      "method": "GET",
+      "operation_id": "flags_list",
+      "tags": [
+        "flags"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/flags/{key}/",
+      "normalized": "/flags/{}",
+      "method": "GET",
+      "operation_id": "flags_retrieve",
+      "tags": [
+        "flags"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generate/batch-code/",
+      "normalized": "/generate/batch-code",
+      "method": "POST",
+      "operation_id": "generate_batch_code_create",
+      "tags": [
+        "generate"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generate/serial-number/",
+      "normalized": "/generate/serial-number",
+      "method": "POST",
+      "operation_id": "generate_serial_number_create",
+      "tags": [
+        "generate"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/",
+      "normalized": "/generic/status",
+      "method": "GET",
+      "operation_id": "generic_status_retrieve_all",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/",
+      "normalized": "/generic/status/custom",
+      "method": "GET",
+      "operation_id": "generic_status_custom_list",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/",
+      "normalized": "/generic/status/custom",
+      "method": "POST",
+      "operation_id": "generic_status_custom_create",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/{id}/",
+      "normalized": "/generic/status/custom/{}",
+      "method": "DELETE",
+      "operation_id": "generic_status_custom_destroy",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/{id}/",
+      "normalized": "/generic/status/custom/{}",
+      "method": "GET",
+      "operation_id": "generic_status_custom_retrieve",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/{id}/",
+      "normalized": "/generic/status/custom/{}",
+      "method": "PATCH",
+      "operation_id": "generic_status_custom_partial_update",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/custom/{id}/",
+      "normalized": "/generic/status/custom/{}",
+      "method": "PUT",
+      "operation_id": "generic_status_custom_update",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/generic/status/{statusmodel}/",
+      "normalized": "/generic/status/{}",
+      "method": "GET",
+      "operation_id": "generic_status_retrieve",
+      "tags": [
+        "generic"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/icons/",
+      "normalized": "/icons",
+      "method": "GET",
+      "operation_id": "icons_list",
+      "tags": [
+        "icons"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/column-mapping/",
+      "normalized": "/importer/column-mapping",
+      "method": "GET",
+      "operation_id": "importer_column_mapping_list",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/column-mapping/{id}/",
+      "normalized": "/importer/column-mapping/{}",
+      "method": "GET",
+      "operation_id": "importer_column_mapping_retrieve",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/column-mapping/{id}/",
+      "normalized": "/importer/column-mapping/{}",
+      "method": "PATCH",
+      "operation_id": "importer_column_mapping_partial_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/column-mapping/{id}/",
+      "normalized": "/importer/column-mapping/{}",
+      "method": "PUT",
+      "operation_id": "importer_column_mapping_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/models/",
+      "normalized": "/importer/models",
+      "method": "GET",
+      "operation_id": "importer_models_list",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/",
+      "normalized": "/importer/row",
+      "method": "DELETE",
+      "operation_id": "importer_row_bulk_destroy",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/",
+      "normalized": "/importer/row",
+      "method": "GET",
+      "operation_id": "importer_row_list",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/{id}/",
+      "normalized": "/importer/row/{}",
+      "method": "DELETE",
+      "operation_id": "importer_row_destroy",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/{id}/",
+      "normalized": "/importer/row/{}",
+      "method": "GET",
+      "operation_id": "importer_row_retrieve",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/{id}/",
+      "normalized": "/importer/row/{}",
+      "method": "PATCH",
+      "operation_id": "importer_row_partial_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/row/{id}/",
+      "normalized": "/importer/row/{}",
+      "method": "PUT",
+      "operation_id": "importer_row_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/",
+      "normalized": "/importer/session",
+      "method": "DELETE",
+      "operation_id": "importer_session_bulk_destroy",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/",
+      "normalized": "/importer/session",
+      "method": "GET",
+      "operation_id": "importer_session_list",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/",
+      "normalized": "/importer/session",
+      "method": "POST",
+      "operation_id": "importer_session_create",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/",
+      "normalized": "/importer/session/{}",
+      "method": "DELETE",
+      "operation_id": "importer_session_destroy",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/",
+      "normalized": "/importer/session/{}",
+      "method": "GET",
+      "operation_id": "importer_session_retrieve",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/",
+      "normalized": "/importer/session/{}",
+      "method": "PATCH",
+      "operation_id": "importer_session_partial_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/",
+      "normalized": "/importer/session/{}",
+      "method": "PUT",
+      "operation_id": "importer_session_update",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/accept_fields/",
+      "normalized": "/importer/session/{}/accept_fields",
+      "method": "POST",
+      "operation_id": "importer_session_accept_fields_create",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/importer/session/{id}/accept_rows/",
+      "normalized": "/importer/session/{}/accept_rows",
+      "method": "POST",
+      "operation_id": "importer_session_accept_rows_create",
+      "tags": [
+        "importer"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/instance-info/",
+      "normalized": "/instance-info",
+      "method": "GET",
+      "operation_id": "instance_info_retrieve",
+      "tags": [
+        "instance-info"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/print/",
+      "normalized": "/label/print",
+      "method": "POST",
+      "operation_id": "label_print_create",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/",
+      "normalized": "/label/template",
+      "method": "GET",
+      "operation_id": "label_template_list",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/",
+      "normalized": "/label/template",
+      "method": "POST",
+      "operation_id": "label_template_create",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/{id}/",
+      "normalized": "/label/template/{}",
+      "method": "DELETE",
+      "operation_id": "label_template_destroy",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/{id}/",
+      "normalized": "/label/template/{}",
+      "method": "GET",
+      "operation_id": "label_template_retrieve",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/{id}/",
+      "normalized": "/label/template/{}",
+      "method": "PATCH",
+      "operation_id": "label_template_partial_update",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/label/template/{id}/",
+      "normalized": "/label/template/{}",
+      "method": "PUT",
+      "operation_id": "label_template_update",
+      "tags": [
+        "label"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/license/",
+      "normalized": "/license",
+      "method": "GET",
+      "operation_id": "license_retrieve",
+      "tags": [
+        "license"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/locate/",
+      "normalized": "/locate",
+      "method": "POST",
+      "operation_id": "locate_create",
+      "tags": [
+        "locate"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/",
+      "normalized": "/machine",
+      "method": "GET",
+      "operation_id": "machine_list",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/",
+      "normalized": "/machine",
+      "method": "POST",
+      "operation_id": "machine_create",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/drivers/",
+      "normalized": "/machine/drivers",
+      "method": "GET",
+      "operation_id": "machine_drivers_list",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/status/",
+      "normalized": "/machine/status",
+      "method": "GET",
+      "operation_id": "machine_status_retrieve",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/types/",
+      "normalized": "/machine/types",
+      "method": "GET",
+      "operation_id": "machine_types_list",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/",
+      "normalized": "/machine/{}",
+      "method": "DELETE",
+      "operation_id": "machine_destroy",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/",
+      "normalized": "/machine/{}",
+      "method": "GET",
+      "operation_id": "machine_retrieve",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/",
+      "normalized": "/machine/{}",
+      "method": "PATCH",
+      "operation_id": "machine_partial_update",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/",
+      "normalized": "/machine/{}",
+      "method": "PUT",
+      "operation_id": "machine_update",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/restart/",
+      "normalized": "/machine/{}/restart",
+      "method": "POST",
+      "operation_id": "machine_restart_create",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/settings/",
+      "normalized": "/machine/{}/settings",
+      "method": "GET",
+      "operation_id": "machine_settings_list",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/settings/{config_type}/{key}/",
+      "normalized": "/machine/{}/settings/{}/{}",
+      "method": "GET",
+      "operation_id": "machine_settings_retrieve",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/settings/{config_type}/{key}/",
+      "normalized": "/machine/{}/settings/{}/{}",
+      "method": "PATCH",
+      "operation_id": "machine_settings_partial_update",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/machine/{id}/settings/{config_type}/{key}/",
+      "normalized": "/machine/{}/settings/{}/{}",
+      "method": "PUT",
+      "operation_id": "machine_settings_update",
+      "tags": [
+        "machine"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{id}/",
+      "normalized": "/metadata/{}/{}",
+      "method": "GET",
+      "operation_id": "metadata_pk_retrieve",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{id}/",
+      "normalized": "/metadata/{}/{}",
+      "method": "PATCH",
+      "operation_id": "metadata_pk_partial_update",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{id}/",
+      "normalized": "/metadata/{}/{}",
+      "method": "PUT",
+      "operation_id": "metadata_pk_update",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{lookup_field}/{lookup_value}/",
+      "normalized": "/metadata/{}/{}/{}",
+      "method": "GET",
+      "operation_id": "metadata_retrieve",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{lookup_field}/{lookup_value}/",
+      "normalized": "/metadata/{}/{}/{}",
+      "method": "PATCH",
+      "operation_id": "metadata_partial_update",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/metadata/{model}/{lookup_field}/{lookup_value}/",
+      "normalized": "/metadata/{}/{}/{}",
+      "method": "PUT",
+      "operation_id": "metadata_update",
+      "tags": [
+        "metadata"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/",
+      "normalized": "/news",
+      "method": "DELETE",
+      "operation_id": "news_bulk_destroy",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/",
+      "normalized": "/news",
+      "method": "GET",
+      "operation_id": "news_list",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/{id}/",
+      "normalized": "/news/{}",
+      "method": "DELETE",
+      "operation_id": "news_destroy",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/{id}/",
+      "normalized": "/news/{}",
+      "method": "GET",
+      "operation_id": "news_retrieve",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/{id}/",
+      "normalized": "/news/{}",
+      "method": "PATCH",
+      "operation_id": "news_partial_update",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/news/{id}/",
+      "normalized": "/news/{}",
+      "method": "PUT",
+      "operation_id": "news_update",
+      "tags": [
+        "news"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/",
+      "normalized": "/note",
+      "method": "GET",
+      "operation_id": "note_list",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/",
+      "normalized": "/note",
+      "method": "POST",
+      "operation_id": "note_create",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/image/",
+      "normalized": "/note/image",
+      "method": "GET",
+      "operation_id": "note_image_list",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/image/",
+      "normalized": "/note/image",
+      "method": "POST",
+      "operation_id": "note_image_create",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/{id}/",
+      "normalized": "/note/{}",
+      "method": "DELETE",
+      "operation_id": "note_destroy",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/{id}/",
+      "normalized": "/note/{}",
+      "method": "GET",
+      "operation_id": "note_retrieve",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/{id}/",
+      "normalized": "/note/{}",
+      "method": "PATCH",
+      "operation_id": "note_partial_update",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/note/{id}/",
+      "normalized": "/note/{}",
+      "method": "PUT",
+      "operation_id": "note_update",
+      "tags": [
+        "note"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/",
+      "normalized": "/notifications",
+      "method": "DELETE",
+      "operation_id": "notifications_bulk_destroy",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/",
+      "normalized": "/notifications",
+      "method": "GET",
+      "operation_id": "notifications_list",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/readall/",
+      "normalized": "/notifications/readall",
+      "method": "POST",
+      "operation_id": "notifications_readall_create",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/{id}/",
+      "normalized": "/notifications/{}",
+      "method": "DELETE",
+      "operation_id": "notifications_destroy",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/{id}/",
+      "normalized": "/notifications/{}",
+      "method": "GET",
+      "operation_id": "notifications_retrieve",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/{id}/",
+      "normalized": "/notifications/{}",
+      "method": "PATCH",
+      "operation_id": "notifications_partial_update",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/notifications/{id}/",
+      "normalized": "/notifications/{}",
+      "method": "PUT",
+      "operation_id": "notifications_update",
+      "tags": [
+        "notifications"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/",
+      "normalized": "/order/po",
+      "method": "GET",
+      "operation_id": "order_po_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/",
+      "normalized": "/order/po",
+      "method": "POST",
+      "operation_id": "order_po_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/",
+      "normalized": "/order/po-extra-line",
+      "method": "DELETE",
+      "operation_id": "order_po_extra_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/",
+      "normalized": "/order/po-extra-line",
+      "method": "GET",
+      "operation_id": "order_po_extra_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/",
+      "normalized": "/order/po-extra-line",
+      "method": "POST",
+      "operation_id": "order_po_extra_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/{id}/",
+      "normalized": "/order/po-extra-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_po_extra_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/{id}/",
+      "normalized": "/order/po-extra-line/{}",
+      "method": "GET",
+      "operation_id": "order_po_extra_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/{id}/",
+      "normalized": "/order/po-extra-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_po_extra_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-extra-line/{id}/",
+      "normalized": "/order/po-extra-line/{}",
+      "method": "PUT",
+      "operation_id": "order_po_extra_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/",
+      "normalized": "/order/po-line",
+      "method": "DELETE",
+      "operation_id": "order_po_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/",
+      "normalized": "/order/po-line",
+      "method": "GET",
+      "operation_id": "order_po_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/",
+      "normalized": "/order/po-line",
+      "method": "POST",
+      "operation_id": "order_po_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/{id}/",
+      "normalized": "/order/po-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_po_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/{id}/",
+      "normalized": "/order/po-line/{}",
+      "method": "GET",
+      "operation_id": "order_po_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/{id}/",
+      "normalized": "/order/po-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_po_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po-line/{id}/",
+      "normalized": "/order/po-line/{}",
+      "method": "PUT",
+      "operation_id": "order_po_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/status/",
+      "normalized": "/order/po/status",
+      "method": "GET",
+      "operation_id": "order_po_status_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/",
+      "normalized": "/order/po/{}",
+      "method": "DELETE",
+      "operation_id": "order_po_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/",
+      "normalized": "/order/po/{}",
+      "method": "GET",
+      "operation_id": "order_po_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/",
+      "normalized": "/order/po/{}",
+      "method": "PATCH",
+      "operation_id": "order_po_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/",
+      "normalized": "/order/po/{}",
+      "method": "PUT",
+      "operation_id": "order_po_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/_transitions/",
+      "normalized": "/order/po/{}/_transitions",
+      "method": "GET",
+      "operation_id": "order_po__transitions_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/cancel/",
+      "normalized": "/order/po/{}/cancel",
+      "method": "POST",
+      "operation_id": "order_po_cancel_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/complete/",
+      "normalized": "/order/po/{}/complete",
+      "method": "POST",
+      "operation_id": "order_po_complete_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/hold/",
+      "normalized": "/order/po/{}/hold",
+      "method": "POST",
+      "operation_id": "order_po_hold_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/issue/",
+      "normalized": "/order/po/{}/issue",
+      "method": "POST",
+      "operation_id": "order_po_issue_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/po/{id}/receive/",
+      "normalized": "/order/po/{}/receive",
+      "method": "POST",
+      "operation_id": "order_po_receive_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/",
+      "normalized": "/order/ro",
+      "method": "GET",
+      "operation_id": "order_ro_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/",
+      "normalized": "/order/ro",
+      "method": "POST",
+      "operation_id": "order_ro_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/",
+      "normalized": "/order/ro-extra-line",
+      "method": "DELETE",
+      "operation_id": "order_ro_extra_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/",
+      "normalized": "/order/ro-extra-line",
+      "method": "GET",
+      "operation_id": "order_ro_extra_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/",
+      "normalized": "/order/ro-extra-line",
+      "method": "POST",
+      "operation_id": "order_ro_extra_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/{id}/",
+      "normalized": "/order/ro-extra-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_ro_extra_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/{id}/",
+      "normalized": "/order/ro-extra-line/{}",
+      "method": "GET",
+      "operation_id": "order_ro_extra_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/{id}/",
+      "normalized": "/order/ro-extra-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_ro_extra_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-extra-line/{id}/",
+      "normalized": "/order/ro-extra-line/{}",
+      "method": "PUT",
+      "operation_id": "order_ro_extra_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/",
+      "normalized": "/order/ro-line",
+      "method": "DELETE",
+      "operation_id": "order_ro_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/",
+      "normalized": "/order/ro-line",
+      "method": "GET",
+      "operation_id": "order_ro_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/",
+      "normalized": "/order/ro-line",
+      "method": "PATCH",
+      "operation_id": "order_ro_line_bulk_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/",
+      "normalized": "/order/ro-line",
+      "method": "POST",
+      "operation_id": "order_ro_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/",
+      "normalized": "/order/ro-line",
+      "method": "PUT",
+      "operation_id": "order_ro_line_bulk_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/status/",
+      "normalized": "/order/ro-line/status",
+      "method": "GET",
+      "operation_id": "order_ro_line_status_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/{id}/",
+      "normalized": "/order/ro-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_ro_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/{id}/",
+      "normalized": "/order/ro-line/{}",
+      "method": "GET",
+      "operation_id": "order_ro_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/{id}/",
+      "normalized": "/order/ro-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_ro_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro-line/{id}/",
+      "normalized": "/order/ro-line/{}",
+      "method": "PUT",
+      "operation_id": "order_ro_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/status/",
+      "normalized": "/order/ro/status",
+      "method": "GET",
+      "operation_id": "order_ro_status_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/",
+      "normalized": "/order/ro/{}",
+      "method": "DELETE",
+      "operation_id": "order_ro_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/",
+      "normalized": "/order/ro/{}",
+      "method": "GET",
+      "operation_id": "order_ro_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/",
+      "normalized": "/order/ro/{}",
+      "method": "PATCH",
+      "operation_id": "order_ro_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/",
+      "normalized": "/order/ro/{}",
+      "method": "PUT",
+      "operation_id": "order_ro_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/cancel/",
+      "normalized": "/order/ro/{}/cancel",
+      "method": "POST",
+      "operation_id": "order_ro_cancel_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/complete/",
+      "normalized": "/order/ro/{}/complete",
+      "method": "POST",
+      "operation_id": "order_ro_complete_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/hold/",
+      "normalized": "/order/ro/{}/hold",
+      "method": "POST",
+      "operation_id": "order_ro_hold_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/issue/",
+      "normalized": "/order/ro/{}/issue",
+      "method": "POST",
+      "operation_id": "order_ro_issue_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/ro/{id}/receive/",
+      "normalized": "/order/ro/{}/receive",
+      "method": "POST",
+      "operation_id": "order_ro_receive_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/",
+      "normalized": "/order/so",
+      "method": "GET",
+      "operation_id": "order_so_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/",
+      "normalized": "/order/so",
+      "method": "POST",
+      "operation_id": "order_so_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/",
+      "normalized": "/order/so-allocation",
+      "method": "DELETE",
+      "operation_id": "order_so_allocation_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/",
+      "normalized": "/order/so-allocation",
+      "method": "GET",
+      "operation_id": "order_so_allocation_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/",
+      "normalized": "/order/so-allocation",
+      "method": "PATCH",
+      "operation_id": "order_so_allocation_bulk_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/",
+      "normalized": "/order/so-allocation",
+      "method": "PUT",
+      "operation_id": "order_so_allocation_bulk_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/{id}/",
+      "normalized": "/order/so-allocation/{}",
+      "method": "DELETE",
+      "operation_id": "order_so_allocation_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/{id}/",
+      "normalized": "/order/so-allocation/{}",
+      "method": "GET",
+      "operation_id": "order_so_allocation_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/{id}/",
+      "normalized": "/order/so-allocation/{}",
+      "method": "PATCH",
+      "operation_id": "order_so_allocation_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-allocation/{id}/",
+      "normalized": "/order/so-allocation/{}",
+      "method": "PUT",
+      "operation_id": "order_so_allocation_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/",
+      "normalized": "/order/so-extra-line",
+      "method": "DELETE",
+      "operation_id": "order_so_extra_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/",
+      "normalized": "/order/so-extra-line",
+      "method": "GET",
+      "operation_id": "order_so_extra_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/",
+      "normalized": "/order/so-extra-line",
+      "method": "POST",
+      "operation_id": "order_so_extra_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/{id}/",
+      "normalized": "/order/so-extra-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_so_extra_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/{id}/",
+      "normalized": "/order/so-extra-line/{}",
+      "method": "GET",
+      "operation_id": "order_so_extra_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/{id}/",
+      "normalized": "/order/so-extra-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_so_extra_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-extra-line/{id}/",
+      "normalized": "/order/so-extra-line/{}",
+      "method": "PUT",
+      "operation_id": "order_so_extra_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/",
+      "normalized": "/order/so-line",
+      "method": "DELETE",
+      "operation_id": "order_so_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/",
+      "normalized": "/order/so-line",
+      "method": "GET",
+      "operation_id": "order_so_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/",
+      "normalized": "/order/so-line",
+      "method": "POST",
+      "operation_id": "order_so_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/{id}/",
+      "normalized": "/order/so-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_so_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/{id}/",
+      "normalized": "/order/so-line/{}",
+      "method": "GET",
+      "operation_id": "order_so_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/{id}/",
+      "normalized": "/order/so-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_so_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so-line/{id}/",
+      "normalized": "/order/so-line/{}",
+      "method": "PUT",
+      "operation_id": "order_so_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/",
+      "normalized": "/order/so/shipment",
+      "method": "GET",
+      "operation_id": "order_so_shipment_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/",
+      "normalized": "/order/so/shipment",
+      "method": "POST",
+      "operation_id": "order_so_shipment_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/{id}/",
+      "normalized": "/order/so/shipment/{}",
+      "method": "DELETE",
+      "operation_id": "order_so_shipment_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/{id}/",
+      "normalized": "/order/so/shipment/{}",
+      "method": "GET",
+      "operation_id": "order_so_shipment_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/{id}/",
+      "normalized": "/order/so/shipment/{}",
+      "method": "PATCH",
+      "operation_id": "order_so_shipment_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/{id}/",
+      "normalized": "/order/so/shipment/{}",
+      "method": "PUT",
+      "operation_id": "order_so_shipment_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/shipment/{id}/ship/",
+      "normalized": "/order/so/shipment/{}/ship",
+      "method": "POST",
+      "operation_id": "order_so_shipment_ship_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/status/",
+      "normalized": "/order/so/status",
+      "method": "GET",
+      "operation_id": "order_so_status_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/",
+      "normalized": "/order/so/{}",
+      "method": "DELETE",
+      "operation_id": "order_so_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/",
+      "normalized": "/order/so/{}",
+      "method": "GET",
+      "operation_id": "order_so_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/",
+      "normalized": "/order/so/{}",
+      "method": "PATCH",
+      "operation_id": "order_so_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/",
+      "normalized": "/order/so/{}",
+      "method": "PUT",
+      "operation_id": "order_so_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/allocate/",
+      "normalized": "/order/so/{}/allocate",
+      "method": "POST",
+      "operation_id": "order_so_allocate_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/allocate-serials/",
+      "normalized": "/order/so/{}/allocate-serials",
+      "method": "POST",
+      "operation_id": "order_so_allocate_serials_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/auto-allocate/",
+      "normalized": "/order/so/{}/auto-allocate",
+      "method": "POST",
+      "operation_id": "order_so_auto_allocate_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/cancel/",
+      "normalized": "/order/so/{}/cancel",
+      "method": "POST",
+      "operation_id": "order_so_cancel_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/complete/",
+      "normalized": "/order/so/{}/complete",
+      "method": "POST",
+      "operation_id": "order_so_complete_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/hold/",
+      "normalized": "/order/so/{}/hold",
+      "method": "POST",
+      "operation_id": "order_so_hold_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/so/{id}/issue/",
+      "normalized": "/order/so/{}/issue",
+      "method": "POST",
+      "operation_id": "order_so_issue_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/",
+      "normalized": "/order/transfer-order",
+      "method": "GET",
+      "operation_id": "order_transfer_order_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/",
+      "normalized": "/order/transfer-order",
+      "method": "POST",
+      "operation_id": "order_transfer_order_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/",
+      "normalized": "/order/transfer-order-allocation",
+      "method": "GET",
+      "operation_id": "order_transfer_order_allocation_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/",
+      "normalized": "/order/transfer-order-allocation",
+      "method": "PATCH",
+      "operation_id": "order_transfer_order_allocation_bulk_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/",
+      "normalized": "/order/transfer-order-allocation",
+      "method": "PUT",
+      "operation_id": "order_transfer_order_allocation_bulk_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/{id}/",
+      "normalized": "/order/transfer-order-allocation/{}",
+      "method": "DELETE",
+      "operation_id": "order_transfer_order_allocation_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/{id}/",
+      "normalized": "/order/transfer-order-allocation/{}",
+      "method": "GET",
+      "operation_id": "order_transfer_order_allocation_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/{id}/",
+      "normalized": "/order/transfer-order-allocation/{}",
+      "method": "PATCH",
+      "operation_id": "order_transfer_order_allocation_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-allocation/{id}/",
+      "normalized": "/order/transfer-order-allocation/{}",
+      "method": "PUT",
+      "operation_id": "order_transfer_order_allocation_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/",
+      "normalized": "/order/transfer-order-line",
+      "method": "DELETE",
+      "operation_id": "order_transfer_order_line_bulk_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/",
+      "normalized": "/order/transfer-order-line",
+      "method": "GET",
+      "operation_id": "order_transfer_order_line_list",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/",
+      "normalized": "/order/transfer-order-line",
+      "method": "POST",
+      "operation_id": "order_transfer_order_line_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/{id}/",
+      "normalized": "/order/transfer-order-line/{}",
+      "method": "DELETE",
+      "operation_id": "order_transfer_order_line_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/{id}/",
+      "normalized": "/order/transfer-order-line/{}",
+      "method": "GET",
+      "operation_id": "order_transfer_order_line_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/{id}/",
+      "normalized": "/order/transfer-order-line/{}",
+      "method": "PATCH",
+      "operation_id": "order_transfer_order_line_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order-line/{id}/",
+      "normalized": "/order/transfer-order-line/{}",
+      "method": "PUT",
+      "operation_id": "order_transfer_order_line_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/",
+      "normalized": "/order/transfer-order/{}",
+      "method": "DELETE",
+      "operation_id": "order_transfer_order_destroy",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/",
+      "normalized": "/order/transfer-order/{}",
+      "method": "GET",
+      "operation_id": "order_transfer_order_retrieve",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/",
+      "normalized": "/order/transfer-order/{}",
+      "method": "PATCH",
+      "operation_id": "order_transfer_order_partial_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/",
+      "normalized": "/order/transfer-order/{}",
+      "method": "PUT",
+      "operation_id": "order_transfer_order_update",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/allocate/",
+      "normalized": "/order/transfer-order/{}/allocate",
+      "method": "POST",
+      "operation_id": "order_transfer_order_allocate_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/allocate-serials/",
+      "normalized": "/order/transfer-order/{}/allocate-serials",
+      "method": "POST",
+      "operation_id": "order_transfer_order_allocate_serials_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/cancel/",
+      "normalized": "/order/transfer-order/{}/cancel",
+      "method": "POST",
+      "operation_id": "order_transfer_order_cancel_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/complete/",
+      "normalized": "/order/transfer-order/{}/complete",
+      "method": "POST",
+      "operation_id": "order_transfer_order_complete_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/hold/",
+      "normalized": "/order/transfer-order/{}/hold",
+      "method": "POST",
+      "operation_id": "order_transfer_order_hold_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/order/transfer-order/{id}/issue/",
+      "normalized": "/order/transfer-order/{}/issue",
+      "method": "POST",
+      "operation_id": "order_transfer_order_issue_create",
+      "tags": [
+        "order"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/",
+      "normalized": "/parameter",
+      "method": "DELETE",
+      "operation_id": "parameter_bulk_destroy",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/",
+      "normalized": "/parameter",
+      "method": "GET",
+      "operation_id": "parameter_list",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/",
+      "normalized": "/parameter",
+      "method": "POST",
+      "operation_id": "parameter_create",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/",
+      "normalized": "/parameter/template",
+      "method": "GET",
+      "operation_id": "parameter_template_list",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/",
+      "normalized": "/parameter/template",
+      "method": "POST",
+      "operation_id": "parameter_template_create",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/{id}/",
+      "normalized": "/parameter/template/{}",
+      "method": "DELETE",
+      "operation_id": "parameter_template_destroy",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/{id}/",
+      "normalized": "/parameter/template/{}",
+      "method": "GET",
+      "operation_id": "parameter_template_retrieve",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/{id}/",
+      "normalized": "/parameter/template/{}",
+      "method": "PATCH",
+      "operation_id": "parameter_template_partial_update",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/template/{id}/",
+      "normalized": "/parameter/template/{}",
+      "method": "PUT",
+      "operation_id": "parameter_template_update",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/{id}/",
+      "normalized": "/parameter/{}",
+      "method": "DELETE",
+      "operation_id": "parameter_destroy",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/{id}/",
+      "normalized": "/parameter/{}",
+      "method": "GET",
+      "operation_id": "parameter_retrieve",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/{id}/",
+      "normalized": "/parameter/{}",
+      "method": "PATCH",
+      "operation_id": "parameter_partial_update",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/parameter/{id}/",
+      "normalized": "/parameter/{}",
+      "method": "PUT",
+      "operation_id": "parameter_update",
+      "tags": [
+        "parameter"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/",
+      "normalized": "/part",
+      "method": "GET",
+      "operation_id": "part_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/",
+      "normalized": "/part",
+      "method": "PATCH",
+      "operation_id": "part_bulk_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/",
+      "normalized": "/part",
+      "method": "POST",
+      "operation_id": "part_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/",
+      "normalized": "/part",
+      "method": "PUT",
+      "operation_id": "part_bulk_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/",
+      "normalized": "/part/category",
+      "method": "GET",
+      "operation_id": "part_category_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/",
+      "normalized": "/part/category",
+      "method": "PATCH",
+      "operation_id": "part_category_bulk_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/",
+      "normalized": "/part/category",
+      "method": "POST",
+      "operation_id": "part_category_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/",
+      "normalized": "/part/category",
+      "method": "PUT",
+      "operation_id": "part_category_bulk_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/",
+      "normalized": "/part/category/parameters",
+      "method": "GET",
+      "operation_id": "part_category_parameters_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/",
+      "normalized": "/part/category/parameters",
+      "method": "POST",
+      "operation_id": "part_category_parameters_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/{id}/",
+      "normalized": "/part/category/parameters/{}",
+      "method": "DELETE",
+      "operation_id": "part_category_parameters_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/{id}/",
+      "normalized": "/part/category/parameters/{}",
+      "method": "GET",
+      "operation_id": "part_category_parameters_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/{id}/",
+      "normalized": "/part/category/parameters/{}",
+      "method": "PATCH",
+      "operation_id": "part_category_parameters_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/parameters/{id}/",
+      "normalized": "/part/category/parameters/{}",
+      "method": "PUT",
+      "operation_id": "part_category_parameters_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/tree/",
+      "normalized": "/part/category/tree",
+      "method": "GET",
+      "operation_id": "part_category_tree_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/{id}/",
+      "normalized": "/part/category/{}",
+      "method": "DELETE",
+      "operation_id": "part_category_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/{id}/",
+      "normalized": "/part/category/{}",
+      "method": "GET",
+      "operation_id": "part_category_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/{id}/",
+      "normalized": "/part/category/{}",
+      "method": "PATCH",
+      "operation_id": "part_category_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/category/{id}/",
+      "normalized": "/part/category/{}",
+      "method": "PUT",
+      "operation_id": "part_category_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/",
+      "normalized": "/part/related",
+      "method": "GET",
+      "operation_id": "part_related_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/",
+      "normalized": "/part/related",
+      "method": "POST",
+      "operation_id": "part_related_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/{id}/",
+      "normalized": "/part/related/{}",
+      "method": "DELETE",
+      "operation_id": "part_related_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/{id}/",
+      "normalized": "/part/related/{}",
+      "method": "GET",
+      "operation_id": "part_related_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/{id}/",
+      "normalized": "/part/related/{}",
+      "method": "PATCH",
+      "operation_id": "part_related_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/related/{id}/",
+      "normalized": "/part/related/{}",
+      "method": "PUT",
+      "operation_id": "part_related_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/",
+      "normalized": "/part/stocktake",
+      "method": "DELETE",
+      "operation_id": "part_stocktake_bulk_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/",
+      "normalized": "/part/stocktake",
+      "method": "GET",
+      "operation_id": "part_stocktake_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/",
+      "normalized": "/part/stocktake",
+      "method": "POST",
+      "operation_id": "part_stocktake_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/generate/",
+      "normalized": "/part/stocktake/generate",
+      "method": "POST",
+      "operation_id": "part_stocktake_generate_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/{id}/",
+      "normalized": "/part/stocktake/{}",
+      "method": "DELETE",
+      "operation_id": "part_stocktake_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/{id}/",
+      "normalized": "/part/stocktake/{}",
+      "method": "GET",
+      "operation_id": "part_stocktake_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/{id}/",
+      "normalized": "/part/stocktake/{}",
+      "method": "PATCH",
+      "operation_id": "part_stocktake_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/stocktake/{id}/",
+      "normalized": "/part/stocktake/{}",
+      "method": "PUT",
+      "operation_id": "part_stocktake_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/",
+      "normalized": "/part/test-template",
+      "method": "GET",
+      "operation_id": "part_test_template_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/",
+      "normalized": "/part/test-template",
+      "method": "POST",
+      "operation_id": "part_test_template_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/{id}/",
+      "normalized": "/part/test-template/{}",
+      "method": "DELETE",
+      "operation_id": "part_test_template_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/{id}/",
+      "normalized": "/part/test-template/{}",
+      "method": "GET",
+      "operation_id": "part_test_template_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/{id}/",
+      "normalized": "/part/test-template/{}",
+      "method": "PATCH",
+      "operation_id": "part_test_template_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/test-template/{id}/",
+      "normalized": "/part/test-template/{}",
+      "method": "PUT",
+      "operation_id": "part_test_template_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/thumbs/",
+      "normalized": "/part/thumbs",
+      "method": "GET",
+      "operation_id": "part_thumbs_list",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/thumbs/{id}/",
+      "normalized": "/part/thumbs/{}",
+      "method": "GET",
+      "operation_id": "part_thumbs_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/thumbs/{id}/",
+      "normalized": "/part/thumbs/{}",
+      "method": "PATCH",
+      "operation_id": "part_thumbs_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/thumbs/{id}/",
+      "normalized": "/part/thumbs/{}",
+      "method": "PUT",
+      "operation_id": "part_thumbs_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/",
+      "normalized": "/part/{}",
+      "method": "DELETE",
+      "operation_id": "part_destroy",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/",
+      "normalized": "/part/{}",
+      "method": "GET",
+      "operation_id": "part_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/",
+      "normalized": "/part/{}",
+      "method": "PATCH",
+      "operation_id": "part_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/",
+      "normalized": "/part/{}",
+      "method": "PUT",
+      "operation_id": "part_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/bom-copy/",
+      "normalized": "/part/{}/bom-copy",
+      "method": "POST",
+      "operation_id": "part_bom_copy_create",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/bom-validate/",
+      "normalized": "/part/{}/bom-validate",
+      "method": "GET",
+      "operation_id": "part_bom_validate_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/bom-validate/",
+      "normalized": "/part/{}/bom-validate",
+      "method": "PATCH",
+      "operation_id": "part_bom_validate_partial_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/bom-validate/",
+      "normalized": "/part/{}/bom-validate",
+      "method": "PUT",
+      "operation_id": "part_bom_validate_update",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/requirements/",
+      "normalized": "/part/{}/requirements",
+      "method": "GET",
+      "operation_id": "part_requirements_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/part/{id}/serial-numbers/",
+      "normalized": "/part/{}/serial-numbers",
+      "method": "GET",
+      "operation_id": "part_serial_numbers_retrieve",
+      "tags": [
+        "part"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/",
+      "normalized": "/plugins",
+      "method": "GET",
+      "operation_id": "plugins_list",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/install/",
+      "normalized": "/plugins/install",
+      "method": "POST",
+      "operation_id": "plugins_install_create",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/reload/",
+      "normalized": "/plugins/reload",
+      "method": "POST",
+      "operation_id": "plugins_reload_create",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/settings/",
+      "normalized": "/plugins/settings",
+      "method": "GET",
+      "operation_id": "plugins_settings_list_all",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/status/",
+      "normalized": "/plugins/status",
+      "method": "GET",
+      "operation_id": "plugins_status_retrieve",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/ui/features/{feature}/",
+      "normalized": "/plugins/ui/features/{}",
+      "method": "GET",
+      "operation_id": "plugins_ui_features_list",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/",
+      "normalized": "/plugins/{}",
+      "method": "DELETE",
+      "operation_id": "plugins_destroy",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/",
+      "normalized": "/plugins/{}",
+      "method": "GET",
+      "operation_id": "plugins_retrieve",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/activate/",
+      "normalized": "/plugins/{}/activate",
+      "method": "PATCH",
+      "operation_id": "plugins_activate_partial_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/activate/",
+      "normalized": "/plugins/{}/activate",
+      "method": "PUT",
+      "operation_id": "plugins_activate_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/admin/",
+      "normalized": "/plugins/{}/admin",
+      "method": "GET",
+      "operation_id": "plugins_admin_retrieve",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/settings/",
+      "normalized": "/plugins/{}/settings",
+      "method": "GET",
+      "operation_id": "plugins_settings_list",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/settings/{key}/",
+      "normalized": "/plugins/{}/settings/{}",
+      "method": "GET",
+      "operation_id": "plugins_settings_retrieve",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/settings/{key}/",
+      "normalized": "/plugins/{}/settings/{}",
+      "method": "PATCH",
+      "operation_id": "plugins_settings_partial_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/settings/{key}/",
+      "normalized": "/plugins/{}/settings/{}",
+      "method": "PUT",
+      "operation_id": "plugins_settings_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/uninstall/",
+      "normalized": "/plugins/{}/uninstall",
+      "method": "PATCH",
+      "operation_id": "plugins_uninstall_partial_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/uninstall/",
+      "normalized": "/plugins/{}/uninstall",
+      "method": "PUT",
+      "operation_id": "plugins_uninstall_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/user-settings/",
+      "normalized": "/plugins/{}/user-settings",
+      "method": "GET",
+      "operation_id": "plugins_user_settings_list",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/user-settings/{key}/",
+      "normalized": "/plugins/{}/user-settings/{}",
+      "method": "GET",
+      "operation_id": "plugins_user_settings_retrieve",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/user-settings/{key}/",
+      "normalized": "/plugins/{}/user-settings/{}",
+      "method": "PATCH",
+      "operation_id": "plugins_user_settings_partial_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/plugins/{plugin}/user-settings/{key}/",
+      "normalized": "/plugins/{}/user-settings/{}",
+      "method": "PUT",
+      "operation_id": "plugins_user_settings_update",
+      "tags": [
+        "plugins"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/",
+      "normalized": "/pricing/internal-price",
+      "method": "GET",
+      "operation_id": "pricing_internal_price_list",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/",
+      "normalized": "/pricing/internal-price",
+      "method": "POST",
+      "operation_id": "pricing_internal_price_create",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/{id}/",
+      "normalized": "/pricing/internal-price/{}",
+      "method": "DELETE",
+      "operation_id": "pricing_internal_price_destroy",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/{id}/",
+      "normalized": "/pricing/internal-price/{}",
+      "method": "GET",
+      "operation_id": "pricing_internal_price_retrieve",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/{id}/",
+      "normalized": "/pricing/internal-price/{}",
+      "method": "PATCH",
+      "operation_id": "pricing_internal_price_partial_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/internal-price/{id}/",
+      "normalized": "/pricing/internal-price/{}",
+      "method": "PUT",
+      "operation_id": "pricing_internal_price_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/part/{id}/",
+      "normalized": "/pricing/part/{}",
+      "method": "GET",
+      "operation_id": "pricing_part_retrieve",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/part/{id}/",
+      "normalized": "/pricing/part/{}",
+      "method": "PATCH",
+      "operation_id": "pricing_part_partial_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/part/{id}/",
+      "normalized": "/pricing/part/{}",
+      "method": "PUT",
+      "operation_id": "pricing_part_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/",
+      "normalized": "/pricing/sale-price",
+      "method": "GET",
+      "operation_id": "pricing_sale_price_list",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/",
+      "normalized": "/pricing/sale-price",
+      "method": "POST",
+      "operation_id": "pricing_sale_price_create",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/{id}/",
+      "normalized": "/pricing/sale-price/{}",
+      "method": "DELETE",
+      "operation_id": "pricing_sale_price_destroy",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/{id}/",
+      "normalized": "/pricing/sale-price/{}",
+      "method": "GET",
+      "operation_id": "pricing_sale_price_retrieve",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/{id}/",
+      "normalized": "/pricing/sale-price/{}",
+      "method": "PATCH",
+      "operation_id": "pricing_sale_price_partial_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/pricing/sale-price/{id}/",
+      "normalized": "/pricing/sale-price/{}",
+      "method": "PUT",
+      "operation_id": "pricing_sale_price_update",
+      "tags": [
+        "pricing"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/",
+      "normalized": "/project-code",
+      "method": "GET",
+      "operation_id": "project_code_list",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/",
+      "normalized": "/project-code",
+      "method": "POST",
+      "operation_id": "project_code_create",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/{id}/",
+      "normalized": "/project-code/{}",
+      "method": "DELETE",
+      "operation_id": "project_code_destroy",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/{id}/",
+      "normalized": "/project-code/{}",
+      "method": "GET",
+      "operation_id": "project_code_retrieve",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/{id}/",
+      "normalized": "/project-code/{}",
+      "method": "PATCH",
+      "operation_id": "project_code_partial_update",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/project-code/{id}/",
+      "normalized": "/project-code/{}",
+      "method": "PUT",
+      "operation_id": "project_code_update",
+      "tags": [
+        "project-code"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/",
+      "normalized": "/report/asset",
+      "method": "GET",
+      "operation_id": "report_asset_list",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/",
+      "normalized": "/report/asset",
+      "method": "POST",
+      "operation_id": "report_asset_create",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/{id}/",
+      "normalized": "/report/asset/{}",
+      "method": "DELETE",
+      "operation_id": "report_asset_destroy",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/{id}/",
+      "normalized": "/report/asset/{}",
+      "method": "GET",
+      "operation_id": "report_asset_retrieve",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/{id}/",
+      "normalized": "/report/asset/{}",
+      "method": "PATCH",
+      "operation_id": "report_asset_partial_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/asset/{id}/",
+      "normalized": "/report/asset/{}",
+      "method": "PUT",
+      "operation_id": "report_asset_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/print/",
+      "normalized": "/report/print",
+      "method": "POST",
+      "operation_id": "report_print_create",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/",
+      "normalized": "/report/snippet",
+      "method": "GET",
+      "operation_id": "report_snippet_list",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/",
+      "normalized": "/report/snippet",
+      "method": "POST",
+      "operation_id": "report_snippet_create",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/{id}/",
+      "normalized": "/report/snippet/{}",
+      "method": "DELETE",
+      "operation_id": "report_snippet_destroy",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/{id}/",
+      "normalized": "/report/snippet/{}",
+      "method": "GET",
+      "operation_id": "report_snippet_retrieve",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/{id}/",
+      "normalized": "/report/snippet/{}",
+      "method": "PATCH",
+      "operation_id": "report_snippet_partial_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/snippet/{id}/",
+      "normalized": "/report/snippet/{}",
+      "method": "PUT",
+      "operation_id": "report_snippet_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/",
+      "normalized": "/report/template",
+      "method": "GET",
+      "operation_id": "report_template_list",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/",
+      "normalized": "/report/template",
+      "method": "POST",
+      "operation_id": "report_template_create",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/{id}/",
+      "normalized": "/report/template/{}",
+      "method": "DELETE",
+      "operation_id": "report_template_destroy",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/{id}/",
+      "normalized": "/report/template/{}",
+      "method": "GET",
+      "operation_id": "report_template_retrieve",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/{id}/",
+      "normalized": "/report/template/{}",
+      "method": "PATCH",
+      "operation_id": "report_template_partial_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/report/template/{id}/",
+      "normalized": "/report/template/{}",
+      "method": "PUT",
+      "operation_id": "report_template_update",
+      "tags": [
+        "report"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/search/",
+      "normalized": "/search",
+      "method": "POST",
+      "operation_id": "search_create",
+      "tags": [
+        "search"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/",
+      "normalized": "/selection",
+      "method": "GET",
+      "operation_id": "selection_list",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/",
+      "normalized": "/selection",
+      "method": "POST",
+      "operation_id": "selection_create",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/",
+      "normalized": "/selection/{}",
+      "method": "DELETE",
+      "operation_id": "selection_destroy",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/",
+      "normalized": "/selection/{}",
+      "method": "GET",
+      "operation_id": "selection_retrieve",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/",
+      "normalized": "/selection/{}",
+      "method": "PATCH",
+      "operation_id": "selection_partial_update",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/",
+      "normalized": "/selection/{}",
+      "method": "PUT",
+      "operation_id": "selection_update",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/",
+      "normalized": "/selection/{}/entry",
+      "method": "GET",
+      "operation_id": "selection_entry_list",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/",
+      "normalized": "/selection/{}/entry",
+      "method": "POST",
+      "operation_id": "selection_entry_create",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/{entrypk}/",
+      "normalized": "/selection/{}/entry/{}",
+      "method": "DELETE",
+      "operation_id": "selection_entry_destroy",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/{entrypk}/",
+      "normalized": "/selection/{}/entry/{}",
+      "method": "GET",
+      "operation_id": "selection_entry_retrieve",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/{entrypk}/",
+      "normalized": "/selection/{}/entry/{}",
+      "method": "PATCH",
+      "operation_id": "selection_entry_partial_update",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/selection/{id}/entry/{entrypk}/",
+      "normalized": "/selection/{}/entry/{}",
+      "method": "PUT",
+      "operation_id": "selection_entry_update",
+      "tags": [
+        "selection"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/global/",
+      "normalized": "/settings/global",
+      "method": "GET",
+      "operation_id": "settings_global_list",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/global/{key}/",
+      "normalized": "/settings/global/{}",
+      "method": "GET",
+      "operation_id": "settings_global_retrieve",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/global/{key}/",
+      "normalized": "/settings/global/{}",
+      "method": "PATCH",
+      "operation_id": "settings_global_partial_update",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/global/{key}/",
+      "normalized": "/settings/global/{}",
+      "method": "PUT",
+      "operation_id": "settings_global_update",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/user/",
+      "normalized": "/settings/user",
+      "method": "GET",
+      "operation_id": "settings_user_list",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/user/{key}/",
+      "normalized": "/settings/user/{}",
+      "method": "GET",
+      "operation_id": "settings_user_retrieve",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/user/{key}/",
+      "normalized": "/settings/user/{}",
+      "method": "PATCH",
+      "operation_id": "settings_user_partial_update",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/settings/user/{key}/",
+      "normalized": "/settings/user/{}",
+      "method": "PUT",
+      "operation_id": "settings_user_update",
+      "tags": [
+        "settings"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/",
+      "normalized": "/stock",
+      "method": "DELETE",
+      "operation_id": "stock_bulk_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/",
+      "normalized": "/stock",
+      "method": "GET",
+      "operation_id": "stock_list",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/",
+      "normalized": "/stock",
+      "method": "PATCH",
+      "operation_id": "stock_bulk_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/",
+      "normalized": "/stock",
+      "method": "POST",
+      "operation_id": "stock_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/",
+      "normalized": "/stock",
+      "method": "PUT",
+      "operation_id": "stock_bulk_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/add/",
+      "normalized": "/stock/add",
+      "method": "POST",
+      "operation_id": "stock_add_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/assign/",
+      "normalized": "/stock/assign",
+      "method": "POST",
+      "operation_id": "stock_assign_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/change_status/",
+      "normalized": "/stock/change_status",
+      "method": "POST",
+      "operation_id": "stock_change_status_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/count/",
+      "normalized": "/stock/count",
+      "method": "POST",
+      "operation_id": "stock_count_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/",
+      "normalized": "/stock/location",
+      "method": "GET",
+      "operation_id": "stock_location_list",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/",
+      "normalized": "/stock/location",
+      "method": "PATCH",
+      "operation_id": "stock_location_bulk_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/",
+      "normalized": "/stock/location",
+      "method": "POST",
+      "operation_id": "stock_location_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/",
+      "normalized": "/stock/location",
+      "method": "PUT",
+      "operation_id": "stock_location_bulk_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/",
+      "normalized": "/stock/location-type",
+      "method": "GET",
+      "operation_id": "stock_location_type_list",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/",
+      "normalized": "/stock/location-type",
+      "method": "POST",
+      "operation_id": "stock_location_type_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/{id}/",
+      "normalized": "/stock/location-type/{}",
+      "method": "DELETE",
+      "operation_id": "stock_location_type_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/{id}/",
+      "normalized": "/stock/location-type/{}",
+      "method": "GET",
+      "operation_id": "stock_location_type_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/{id}/",
+      "normalized": "/stock/location-type/{}",
+      "method": "PATCH",
+      "operation_id": "stock_location_type_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location-type/{id}/",
+      "normalized": "/stock/location-type/{}",
+      "method": "PUT",
+      "operation_id": "stock_location_type_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/tree/",
+      "normalized": "/stock/location/tree",
+      "method": "GET",
+      "operation_id": "stock_location_tree_list",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/{id}/",
+      "normalized": "/stock/location/{}",
+      "method": "DELETE",
+      "operation_id": "stock_location_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/{id}/",
+      "normalized": "/stock/location/{}",
+      "method": "GET",
+      "operation_id": "stock_location_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/{id}/",
+      "normalized": "/stock/location/{}",
+      "method": "PATCH",
+      "operation_id": "stock_location_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/location/{id}/",
+      "normalized": "/stock/location/{}",
+      "method": "PUT",
+      "operation_id": "stock_location_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/merge/",
+      "normalized": "/stock/merge",
+      "method": "POST",
+      "operation_id": "stock_merge_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/remove/",
+      "normalized": "/stock/remove",
+      "method": "POST",
+      "operation_id": "stock_remove_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/return/",
+      "normalized": "/stock/return",
+      "method": "POST",
+      "operation_id": "stock_return_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/status/",
+      "normalized": "/stock/status",
+      "method": "GET",
+      "operation_id": "stock_status_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/",
+      "normalized": "/stock/test",
+      "method": "DELETE",
+      "operation_id": "stock_test_bulk_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/",
+      "normalized": "/stock/test",
+      "method": "GET",
+      "operation_id": "stock_test_list",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/",
+      "normalized": "/stock/test",
+      "method": "POST",
+      "operation_id": "stock_test_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/{id}/",
+      "normalized": "/stock/test/{}",
+      "method": "DELETE",
+      "operation_id": "stock_test_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/{id}/",
+      "normalized": "/stock/test/{}",
+      "method": "GET",
+      "operation_id": "stock_test_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/{id}/",
+      "normalized": "/stock/test/{}",
+      "method": "PATCH",
+      "operation_id": "stock_test_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/test/{id}/",
+      "normalized": "/stock/test/{}",
+      "method": "PUT",
+      "operation_id": "stock_test_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/transfer/",
+      "normalized": "/stock/transfer",
+      "method": "POST",
+      "operation_id": "stock_transfer_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/",
+      "normalized": "/stock/{}",
+      "method": "DELETE",
+      "operation_id": "stock_destroy",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/",
+      "normalized": "/stock/{}",
+      "method": "GET",
+      "operation_id": "stock_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/",
+      "normalized": "/stock/{}",
+      "method": "PATCH",
+      "operation_id": "stock_partial_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/",
+      "normalized": "/stock/{}",
+      "method": "PUT",
+      "operation_id": "stock_update",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/convert/",
+      "normalized": "/stock/{}/convert",
+      "method": "POST",
+      "operation_id": "stock_convert_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/disassemble/",
+      "normalized": "/stock/{}/disassemble",
+      "method": "POST",
+      "operation_id": "stock_disassemble_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/install/",
+      "normalized": "/stock/{}/install",
+      "method": "POST",
+      "operation_id": "stock_install_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/serial-numbers/",
+      "normalized": "/stock/{}/serial-numbers",
+      "method": "GET",
+      "operation_id": "stock_serial_numbers_retrieve",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/serialize/",
+      "normalized": "/stock/{}/serialize",
+      "method": "POST",
+      "operation_id": "stock_serialize_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/stock/{id}/uninstall/",
+      "normalized": "/stock/{}/uninstall",
+      "method": "POST",
+      "operation_id": "stock_uninstall_create",
+      "tags": [
+        "stock"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/supplier/import/",
+      "normalized": "/supplier/import",
+      "method": "POST",
+      "operation_id": "supplier_import_create",
+      "tags": [
+        "supplier"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/supplier/list/",
+      "normalized": "/supplier/list",
+      "method": "GET",
+      "operation_id": "supplier_list_list",
+      "tags": [
+        "supplier"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/supplier/search/",
+      "normalized": "/supplier/search",
+      "method": "GET",
+      "operation_id": "supplier_search_list",
+      "tags": [
+        "supplier"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/system-internal/observability/end",
+      "normalized": "/system-internal/observability/end",
+      "method": "POST",
+      "operation_id": "system_internal_observability_end_create",
+      "tags": [
+        "system-internal"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/system/health/",
+      "normalized": "/system/health",
+      "method": "GET",
+      "operation_id": "system_health_retrieve",
+      "tags": [
+        "system"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/",
+      "normalized": "/tag",
+      "method": "GET",
+      "operation_id": "tag_list",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/",
+      "normalized": "/tag",
+      "method": "POST",
+      "operation_id": "tag_create",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/{id}/",
+      "normalized": "/tag/{}",
+      "method": "DELETE",
+      "operation_id": "tag_destroy",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/{id}/",
+      "normalized": "/tag/{}",
+      "method": "GET",
+      "operation_id": "tag_retrieve",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/{id}/",
+      "normalized": "/tag/{}",
+      "method": "PATCH",
+      "operation_id": "tag_partial_update",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/tag/{id}/",
+      "normalized": "/tag/{}",
+      "method": "PUT",
+      "operation_id": "tag_update",
+      "tags": [
+        "tag"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/",
+      "normalized": "/units",
+      "method": "GET",
+      "operation_id": "units_list",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/",
+      "normalized": "/units",
+      "method": "POST",
+      "operation_id": "units_create",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/all/",
+      "normalized": "/units/all",
+      "method": "GET",
+      "operation_id": "units_all_retrieve",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/{id}/",
+      "normalized": "/units/{}",
+      "method": "DELETE",
+      "operation_id": "units_destroy",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/{id}/",
+      "normalized": "/units/{}",
+      "method": "GET",
+      "operation_id": "units_retrieve",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/{id}/",
+      "normalized": "/units/{}",
+      "method": "PATCH",
+      "operation_id": "units_partial_update",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/units/{id}/",
+      "normalized": "/units/{}",
+      "method": "PUT",
+      "operation_id": "units_update",
+      "tags": [
+        "units"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/",
+      "normalized": "/user",
+      "method": "GET",
+      "operation_id": "user_list",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/",
+      "normalized": "/user",
+      "method": "POST",
+      "operation_id": "user_create",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/",
+      "normalized": "/user/group",
+      "method": "GET",
+      "operation_id": "user_group_list",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/",
+      "normalized": "/user/group",
+      "method": "POST",
+      "operation_id": "user_group_create",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/{id}/",
+      "normalized": "/user/group/{}",
+      "method": "DELETE",
+      "operation_id": "user_group_destroy",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/{id}/",
+      "normalized": "/user/group/{}",
+      "method": "GET",
+      "operation_id": "user_group_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/{id}/",
+      "normalized": "/user/group/{}",
+      "method": "PATCH",
+      "operation_id": "user_group_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/group/{id}/",
+      "normalized": "/user/group/{}",
+      "method": "PUT",
+      "operation_id": "user_group_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/",
+      "normalized": "/user/me",
+      "method": "GET",
+      "operation_id": "user_me_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/",
+      "normalized": "/user/me",
+      "method": "PATCH",
+      "operation_id": "user_me_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/",
+      "normalized": "/user/me",
+      "method": "PUT",
+      "operation_id": "user_me_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/profile/",
+      "normalized": "/user/me/profile",
+      "method": "GET",
+      "operation_id": "user_me_profile_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/profile/",
+      "normalized": "/user/me/profile",
+      "method": "PATCH",
+      "operation_id": "user_me_profile_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/profile/",
+      "normalized": "/user/me/profile",
+      "method": "PUT",
+      "operation_id": "user_me_profile_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/roles/",
+      "normalized": "/user/me/roles",
+      "method": "GET",
+      "operation_id": "user_me_roles_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/tips/{id}/",
+      "normalized": "/user/me/tips/{}",
+      "method": "GET",
+      "operation_id": "user_me_tips_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/tips/{id}/",
+      "normalized": "/user/me/tips/{}",
+      "method": "PATCH",
+      "operation_id": "user_me_tips_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/tips/{id}/",
+      "normalized": "/user/me/tips/{}",
+      "method": "PUT",
+      "operation_id": "user_me_tips_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/me/token/",
+      "normalized": "/user/me/token",
+      "method": "GET",
+      "operation_id": "user_me_token_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/owner/",
+      "normalized": "/user/owner",
+      "method": "GET",
+      "operation_id": "user_owner_list",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/owner/{id}/",
+      "normalized": "/user/owner/{}",
+      "method": "GET",
+      "operation_id": "user_owner_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/ruleset/",
+      "normalized": "/user/ruleset",
+      "method": "GET",
+      "operation_id": "user_ruleset_list",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/ruleset/{id}/",
+      "normalized": "/user/ruleset/{}",
+      "method": "DELETE",
+      "operation_id": "user_ruleset_destroy",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/ruleset/{id}/",
+      "normalized": "/user/ruleset/{}",
+      "method": "GET",
+      "operation_id": "user_ruleset_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/ruleset/{id}/",
+      "normalized": "/user/ruleset/{}",
+      "method": "PATCH",
+      "operation_id": "user_ruleset_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/ruleset/{id}/",
+      "normalized": "/user/ruleset/{}",
+      "method": "PUT",
+      "operation_id": "user_ruleset_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/tokens/",
+      "normalized": "/user/tokens",
+      "method": "GET",
+      "operation_id": "user_tokens_list",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/tokens/",
+      "normalized": "/user/tokens",
+      "method": "POST",
+      "operation_id": "user_tokens_create",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/tokens/{id}/",
+      "normalized": "/user/tokens/{}",
+      "method": "DELETE",
+      "operation_id": "user_tokens_destroy",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/tokens/{id}/",
+      "normalized": "/user/tokens/{}",
+      "method": "GET",
+      "operation_id": "user_tokens_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/",
+      "normalized": "/user/{}",
+      "method": "DELETE",
+      "operation_id": "user_destroy",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/",
+      "normalized": "/user/{}",
+      "method": "GET",
+      "operation_id": "user_retrieve",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/",
+      "normalized": "/user/{}",
+      "method": "PATCH",
+      "operation_id": "user_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/",
+      "normalized": "/user/{}",
+      "method": "PUT",
+      "operation_id": "user_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/set-password/",
+      "normalized": "/user/{}/set-password",
+      "method": "PATCH",
+      "operation_id": "user_set_password_partial_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/user/{id}/set-password/",
+      "normalized": "/user/{}/set-password",
+      "method": "PUT",
+      "operation_id": "user_set_password_update",
+      "tags": [
+        "user"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/version/",
+      "normalized": "/version",
+      "method": "GET",
+      "operation_id": "version_retrieve",
+      "tags": [
+        "version"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/version-text",
+      "normalized": "/version-text",
+      "method": "GET",
+      "operation_id": "version_text_list",
+      "tags": [
+        "version-text"
+      ],
+      "secured": true,
+      "deprecated": false
+    },
+    {
+      "path": "/api/webhook/{endpoint}/",
+      "normalized": "/webhook/{}",
+      "method": "POST",
+      "operation_id": "webhook_create",
+      "tags": [
+        "webhook"
+      ],
+      "secured": false,
+      "deprecated": false
+    }
+  ]
+}

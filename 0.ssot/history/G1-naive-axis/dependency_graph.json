@@ -1,0 +1,540 @@
+{
+  "nodes": [
+    "audit",
+    "build",
+    "common",
+    "company",
+    "importer",
+    "InvenTree",
+    "machine",
+    "order",
+    "part",
+    "plugin",
+    "pricing",
+    "report",
+    "scim",
+    "stock",
+    "users"
+  ],
+  "edges": [
+    {
+      "from": "InvenTree",
+      "to": "audit"
+    },
+    {
+      "from": "InvenTree",
+      "to": "build"
+    },
+    {
+      "from": "InvenTree",
+      "to": "common"
+    },
+    {
+      "from": "InvenTree",
+      "to": "company"
+    },
+    {
+      "from": "InvenTree",
+      "to": "importer"
+    },
+    {
+      "from": "InvenTree",
+      "to": "machine"
+    },
+    {
+      "from": "InvenTree",
+      "to": "order"
+    },
+    {
+      "from": "InvenTree",
+      "to": "part"
+    },
+    {
+      "from": "InvenTree",
+      "to": "plugin"
+    },
+    {
+      "from": "InvenTree",
+      "to": "pricing"
+    },
+    {
+      "from": "InvenTree",
+      "to": "report"
+    },
+    {
+      "from": "InvenTree",
+      "to": "scim"
+    },
+    {
+      "from": "InvenTree",
+      "to": "stock"
+    },
+    {
+      "from": "InvenTree",
+      "to": "users"
+    },
+    {
+      "from": "audit",
+      "to": "InvenTree"
+    },
+    {
+      "from": "audit",
+      "to": "build"
+    },
+    {
+      "from": "audit",
+      "to": "common"
+    },
+    {
+      "from": "audit",
+      "to": "company"
+    },
+    {
+      "from": "audit",
+      "to": "order"
+    },
+    {
+      "from": "audit",
+      "to": "part"
+    },
+    {
+      "from": "audit",
+      "to": "users"
+    },
+    {
+      "from": "build",
+      "to": "InvenTree"
+    },
+    {
+      "from": "build",
+      "to": "audit"
+    },
+    {
+      "from": "build",
+      "to": "common"
+    },
+    {
+      "from": "build",
+      "to": "company"
+    },
+    {
+      "from": "build",
+      "to": "order"
+    },
+    {
+      "from": "build",
+      "to": "part"
+    },
+    {
+      "from": "build",
+      "to": "plugin"
+    },
+    {
+      "from": "build",
+      "to": "report"
+    },
+    {
+      "from": "build",
+      "to": "stock"
+    },
+    {
+      "from": "build",
+      "to": "users"
+    },
+    {
+      "from": "common",
+      "to": "InvenTree"
+    },
+    {
+      "from": "common",
+      "to": "audit"
+    },
+    {
+      "from": "common",
+      "to": "build"
+    },
+    {
+      "from": "common",
+      "to": "company"
+    },
+    {
+      "from": "common",
+      "to": "importer"
+    },
+    {
+      "from": "common",
+      "to": "order"
+    },
+    {
+      "from": "common",
+      "to": "part"
+    },
+    {
+      "from": "common",
+      "to": "plugin"
+    },
+    {
+      "from": "common",
+      "to": "report"
+    },
+    {
+      "from": "common",
+      "to": "scim"
+    },
+    {
+      "from": "common",
+      "to": "stock"
+    },
+    {
+      "from": "common",
+      "to": "users"
+    },
+    {
+      "from": "company",
+      "to": "InvenTree"
+    },
+    {
+      "from": "company",
+      "to": "audit"
+    },
+    {
+      "from": "company",
+      "to": "common"
+    },
+    {
+      "from": "company",
+      "to": "importer"
+    },
+    {
+      "from": "company",
+      "to": "order"
+    },
+    {
+      "from": "company",
+      "to": "part"
+    },
+    {
+      "from": "company",
+      "to": "report"
+    },
+    {
+      "from": "company",
+      "to": "stock"
+    },
+    {
+      "from": "company",
+      "to": "users"
+    },
+    {
+      "from": "importer",
+      "to": "InvenTree"
+    },
+    {
+      "from": "importer",
+      "to": "audit"
+    },
+    {
+      "from": "importer",
+      "to": "common"
+    },
+    {
+      "from": "importer",
+      "to": "company"
+    },
+    {
+      "from": "importer",
+      "to": "part"
+    },
+    {
+      "from": "importer",
+      "to": "stock"
+    },
+    {
+      "from": "importer",
+      "to": "users"
+    },
+    {
+      "from": "machine",
+      "to": "InvenTree"
+    },
+    {
+      "from": "machine",
+      "to": "common"
+    },
+    {
+      "from": "machine",
+      "to": "part"
+    },
+    {
+      "from": "machine",
+      "to": "plugin"
+    },
+    {
+      "from": "machine",
+      "to": "report"
+    },
+    {
+      "from": "machine",
+      "to": "stock"
+    },
+    {
+      "from": "order",
+      "to": "InvenTree"
+    },
+    {
+      "from": "order",
+      "to": "audit"
+    },
+    {
+      "from": "order",
+      "to": "build"
+    },
+    {
+      "from": "order",
+      "to": "common"
+    },
+    {
+      "from": "order",
+      "to": "company"
+    },
+    {
+      "from": "order",
+      "to": "importer"
+    },
+    {
+      "from": "order",
+      "to": "part"
+    },
+    {
+      "from": "order",
+      "to": "plugin"
+    },
+    {
+      "from": "order",
+      "to": "report"
+    },
+    {
+      "from": "order",
+      "to": "stock"
+    },
+    {
+      "from": "order",
+      "to": "users"
+    },
+    {
+      "from": "part",
+      "to": "InvenTree"
+    },
+    {
+      "from": "part",
+      "to": "audit"
+    },
+    {
+      "from": "part",
+      "to": "build"
+    },
+    {
+      "from": "part",
+      "to": "common"
+    },
+    {
+      "from": "part",
+      "to": "company"
+    },
+    {
+      "from": "part",
+      "to": "importer"
+    },
+    {
+      "from": "part",
+      "to": "order"
+    },
+    {
+      "from": "part",
+      "to": "plugin"
+    },
+    {
+      "from": "part",
+      "to": "pricing"
+    },
+    {
+      "from": "part",
+      "to": "report"
+    },
+    {
+      "from": "part",
+      "to": "stock"
+    },
+    {
+      "from": "part",
+      "to": "users"
+    },
+    {
+      "from": "plugin",
+      "to": "InvenTree"
+    },
+    {
+      "from": "plugin",
+      "to": "build"
+    },
+    {
+      "from": "plugin",
+      "to": "common"
+    },
+    {
+      "from": "plugin",
+      "to": "company"
+    },
+    {
+      "from": "plugin",
+      "to": "machine"
+    },
+    {
+      "from": "plugin",
+      "to": "order"
+    },
+    {
+      "from": "plugin",
+      "to": "part"
+    },
+    {
+      "from": "plugin",
+      "to": "report"
+    },
+    {
+      "from": "plugin",
+      "to": "stock"
+    },
+    {
+      "from": "plugin",
+      "to": "users"
+    },
+    {
+      "from": "pricing",
+      "to": "InvenTree"
+    },
+    {
+      "from": "pricing",
+      "to": "audit"
+    },
+    {
+      "from": "pricing",
+      "to": "common"
+    },
+    {
+      "from": "pricing",
+      "to": "company"
+    },
+    {
+      "from": "pricing",
+      "to": "importer"
+    },
+    {
+      "from": "pricing",
+      "to": "order"
+    },
+    {
+      "from": "pricing",
+      "to": "part"
+    },
+    {
+      "from": "pricing",
+      "to": "stock"
+    },
+    {
+      "from": "report",
+      "to": "InvenTree"
+    },
+    {
+      "from": "report",
+      "to": "build"
+    },
+    {
+      "from": "report",
+      "to": "common"
+    },
+    {
+      "from": "report",
+      "to": "company"
+    },
+    {
+      "from": "report",
+      "to": "order"
+    },
+    {
+      "from": "report",
+      "to": "part"
+    },
+    {
+      "from": "report",
+      "to": "plugin"
+    },
+    {
+      "from": "report",
+      "to": "stock"
+    },
+    {
+      "from": "report",
+      "to": "users"
+    },
+    {
+      "from": "scim",
+      "to": "InvenTree"
+    },
+    {
+      "from": "stock",
+      "to": "InvenTree"
+    },
+    {
+      "from": "stock",
+      "to": "audit"
+    },
+    {
+      "from": "stock",
+      "to": "build"
+    },
+    {
+      "from": "stock",
+      "to": "common"
+    },
+    {
+      "from": "stock",
+      "to": "company"
+    },
+    {
+      "from": "stock",
+      "to": "importer"
+    },
+    {
+      "from": "stock",
+      "to": "order"
+    },
+    {
+      "from": "stock",
+      "to": "part"
+    },
+    {
+      "from": "stock",
+      "to": "plugin"
+    },
+    {
+      "from": "stock",
+      "to": "report"
+    },
+    {
+      "from": "stock",
+      "to": "users"
+    },
+    {
+      "from": "users",
+      "to": "InvenTree"
+    },
+    {
+      "from": "users",
+      "to": "common"
+    }
+  ],
+  "node_count": 15,
+  "edge_count": 129,
+  "commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1"
+}

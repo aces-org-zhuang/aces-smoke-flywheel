@@ -1,0 +1,99 @@
+{
+  "gate": "verify-ssot",
+  "generated_at": "2026-11-01T02:00:43.676486+00:00",
+  "sut_root": "D:\\wbeval\\repos\\inventree",
+  "verdict": "BLOCK",
+  "checks": [
+    {
+      "id": "V1",
+      "name": "产物齐全且非空",
+      "ok": true,
+      "detail": "六个产物齐备",
+      "evidence": {
+        "required": [
+          "openapi.yaml",
+          "endpoints.json",
+          "consumers.json",
+          "contract_matrix.json",
+          "dependency_graph.json",
+          "schema_version.json"
+        ]
+      }
+    },
+    {
+      "id": "V2",
+      "name": "openapi.yaml 与记录指纹一致",
+      "ok": true,
+      "detail": "磁盘 46c2752002ae403a… / 记录 46c2752002ae403a…",
+      "evidence": {
+        "actual": "46c2752002ae403adf45999822986098819e5dc2824a02ada8321a4972a41eec",
+        "recorded": "46c2752002ae403adf45999822986098819e5dc2824a02ada8321a4972a41eec"
+      }
+    },
+    {
+      "id": "V3a",
+      "name": "SSOT 绑定的 commit == 被测仓 HEAD",
+      "ok": false,
+      "detail": "SSOT d96174cddbc2 / SUT 9dae74da13a6",
+      "evidence": {
+        "ssot_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+        "sut_head": "9dae74da13a616307e2c139107a0510a61751e4a"
+      }
+    },
+    {
+      "id": "V3b",
+      "name": "被测仓工作区干净（SSOT 只对 commit 负责）",
+      "ok": true,
+      "detail": "clean",
+      "evidence": {
+        "dirty_files": []
+      }
+    },
+    {
+      "id": "V4",
+      "name": "四份产物计数互相自洽",
+      "ok": true,
+      "detail": "声明值 = 数组长度 = 矩阵总计",
+      "evidence": {
+        "declared_vs_recomputed": {
+          "endpoints": [
+            617,
+            617
+          ],
+          "consumers": [
+            216,
+            216
+          ],
+          "backend_apps": [
+            15,
+            15
+          ],
+          "dependency_edges": [
+            129,
+            129
+          ]
+        },
+        "file_counts": {
+          "endpoints.json.count": 617,
+          "consumers.json.count": 216,
+          "contract_matrix.totals.backend_operations": 617,
+          "contract_matrix.totals.consumer_declarations": 216,
+          "contract_matrix.totals.matched": 190
+        }
+      }
+    },
+    {
+      "id": "V5",
+      "name": "从 openapi.yaml 再投影得到的端点集 == endpoints.json",
+      "ok": true,
+      "detail": "规范 617 / 记录 617 / 只在规范 0 / 只在记录 0",
+      "evidence": {
+        "only_in_spec": [],
+        "only_in_json": []
+      }
+    }
+  ],
+  "failed": [
+    "V3a"
+  ]
+}

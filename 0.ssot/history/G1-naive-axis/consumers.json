@@ -1,0 +1,1087 @@
+{
+  "source": "src/frontend/lib/enums/ApiEndpoints.tsx",
+  "commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "count": 216,
+  "items": [
+    {
+      "enum": "address_list",
+      "template": "company/address/",
+      "normalized": "/company/address"
+    },
+    {
+      "enum": "admin_oauth",
+      "template": "admin/oauth2/",
+      "normalized": "/admin/oauth2"
+    },
+    {
+      "enum": "admin_oauth_regenerate",
+      "template": "admin/oauth2/:id/regenerate/",
+      "normalized": "/admin/oauth2/{}/regenerate"
+    },
+    {
+      "enum": "all_units",
+      "template": "units/all/",
+      "normalized": "/units/all"
+    },
+    {
+      "enum": "api_search",
+      "template": "search/",
+      "normalized": "/search"
+    },
+    {
+      "enum": "api_server_info",
+      "template": "",
+      "normalized": "/"
+    },
+    {
+      "enum": "attachment_list",
+      "template": "attachment/",
+      "normalized": "/attachment"
+    },
+    {
+      "enum": "audit_log_list",
+      "template": "audit/",
+      "normalized": "/audit"
+    },
+    {
+      "enum": "auth_authenticators",
+      "template": "auth/v1/account/authenticators",
+      "normalized": "/auth/v1/account/authenticators"
+    },
+    {
+      "enum": "auth_base",
+      "template": "/auth/",
+      "normalized": "/auth"
+    },
+    {
+      "enum": "auth_config",
+      "template": "auth/v1/config",
+      "normalized": "/auth/v1/config"
+    },
+    {
+      "enum": "auth_email",
+      "template": "auth/v1/account/email",
+      "normalized": "/auth/v1/account/email"
+    },
+    {
+      "enum": "auth_email_verify",
+      "template": "auth/v1/auth/email/verify",
+      "normalized": "/auth/v1/auth/email/verify"
+    },
+    {
+      "enum": "auth_login",
+      "template": "auth/v1/auth/login",
+      "normalized": "/auth/v1/auth/login"
+    },
+    {
+      "enum": "auth_login_2fa",
+      "template": "auth/v1/auth/2fa/authenticate",
+      "normalized": "/auth/v1/auth/2fa/authenticate"
+    },
+    {
+      "enum": "auth_mfa_reauthenticate",
+      "template": "auth/v1/auth/2fa/reauthenticate",
+      "normalized": "/auth/v1/auth/2fa/reauthenticate"
+    },
+    {
+      "enum": "auth_provider_redirect",
+      "template": "auth/v1/auth/provider/redirect",
+      "normalized": "/auth/v1/auth/provider/redirect"
+    },
+    {
+      "enum": "auth_provider_signup",
+      "template": "auth/v1/auth/provider/signup",
+      "normalized": "/auth/v1/auth/provider/signup"
+    },
+    {
+      "enum": "auth_providers",
+      "template": "auth/v1/account/providers",
+      "normalized": "/auth/v1/account/providers"
+    },
+    {
+      "enum": "auth_pwd_change",
+      "template": "auth/v1/account/password/change",
+      "normalized": "/auth/v1/account/password/change"
+    },
+    {
+      "enum": "auth_reauthenticate",
+      "template": "auth/v1/auth/reauthenticate",
+      "normalized": "/auth/v1/auth/reauthenticate"
+    },
+    {
+      "enum": "auth_recovery",
+      "template": "auth/v1/account/authenticators/recovery-codes",
+      "normalized": "/auth/v1/account/authenticators/recovery-codes"
+    },
+    {
+      "enum": "auth_session",
+      "template": "auth/v1/auth/session",
+      "normalized": "/auth/v1/auth/session"
+    },
+    {
+      "enum": "auth_signup",
+      "template": "auth/v1/auth/signup",
+      "normalized": "/auth/v1/auth/signup"
+    },
+    {
+      "enum": "auth_totp",
+      "template": "auth/v1/account/authenticators/totp",
+      "normalized": "/auth/v1/account/authenticators/totp"
+    },
+    {
+      "enum": "auth_trust",
+      "template": "auth/v1/auth/2fa/trust",
+      "normalized": "/auth/v1/auth/2fa/trust"
+    },
+    {
+      "enum": "auth_webauthn",
+      "template": "auth/v1/account/authenticators/webauthn",
+      "normalized": "/auth/v1/account/authenticators/webauthn"
+    },
+    {
+      "enum": "auth_webauthn_login",
+      "template": "auth/v1/auth/webauthn/authenticate",
+      "normalized": "/auth/v1/auth/webauthn/authenticate"
+    },
+    {
+      "enum": "barcode",
+      "template": "barcode/",
+      "normalized": "/barcode"
+    },
+    {
+      "enum": "barcode_generate",
+      "template": "barcode/generate/",
+      "normalized": "/barcode/generate"
+    },
+    {
+      "enum": "barcode_history",
+      "template": "barcode/history/",
+      "normalized": "/barcode/history"
+    },
+    {
+      "enum": "barcode_link",
+      "template": "barcode/link/",
+      "normalized": "/barcode/link"
+    },
+    {
+      "enum": "barcode_unlink",
+      "template": "barcode/unlink/",
+      "normalized": "/barcode/unlink"
+    },
+    {
+      "enum": "bom_item_validate",
+      "template": "bom/:id/validate/",
+      "normalized": "/bom/{}/validate"
+    },
+    {
+      "enum": "bom_list",
+      "template": "bom/",
+      "normalized": "/bom"
+    },
+    {
+      "enum": "bom_substitute_list",
+      "template": "bom/substitute/",
+      "normalized": "/bom/substitute"
+    },
+    {
+      "enum": "bom_validate",
+      "template": "part/:id/bom-validate/",
+      "normalized": "/part/{}/bom-validate"
+    },
+    {
+      "enum": "build_item_list",
+      "template": "build/item/",
+      "normalized": "/build/item"
+    },
+    {
+      "enum": "build_line_list",
+      "template": "build/line/",
+      "normalized": "/build/line"
+    },
+    {
+      "enum": "build_order_allocate",
+      "template": "build/:id/allocate/",
+      "normalized": "/build/{}/allocate"
+    },
+    {
+      "enum": "build_order_auto_allocate",
+      "template": "build/:id/auto-allocate/",
+      "normalized": "/build/{}/auto-allocate"
+    },
+    {
+      "enum": "build_order_cancel",
+      "template": "build/:id/cancel/",
+      "normalized": "/build/{}/cancel"
+    },
+    {
+      "enum": "build_order_complete",
+      "template": "build/:id/finish/",
+      "normalized": "/build/{}/finish"
+    },
+    {
+      "enum": "build_order_consume",
+      "template": "build/:id/consume/",
+      "normalized": "/build/{}/consume"
+    },
+    {
+      "enum": "build_order_deallocate",
+      "template": "build/:id/unallocate/",
+      "normalized": "/build/{}/unallocate"
+    },
+    {
+      "enum": "build_order_hold",
+      "template": "build/:id/hold/",
+      "normalized": "/build/{}/hold"
+    },
+    {
+      "enum": "build_order_issue",
+      "template": "build/:id/issue/",
+      "normalized": "/build/{}/issue"
+    },
+    {
+      "enum": "build_order_list",
+      "template": "build/",
+      "normalized": "/build"
+    },
+    {
+      "enum": "build_output_complete",
+      "template": "build/:id/complete/",
+      "normalized": "/build/{}/complete"
+    },
+    {
+      "enum": "build_output_create",
+      "template": "build/:id/create-output/",
+      "normalized": "/build/{}/create-output"
+    },
+    {
+      "enum": "build_output_delete",
+      "template": "build/:id/delete-outputs/",
+      "normalized": "/build/{}/delete-outputs"
+    },
+    {
+      "enum": "build_output_scrap",
+      "template": "build/:id/scrap-outputs/",
+      "normalized": "/build/{}/scrap-outputs"
+    },
+    {
+      "enum": "category_list",
+      "template": "part/category/",
+      "normalized": "/part/category"
+    },
+    {
+      "enum": "category_parameter_list",
+      "template": "part/category/parameters/",
+      "normalized": "/part/category/parameters"
+    },
+    {
+      "enum": "category_tree",
+      "template": "part/category/tree/",
+      "normalized": "/part/category/tree"
+    },
+    {
+      "enum": "company_list",
+      "template": "company/",
+      "normalized": "/company"
+    },
+    {
+      "enum": "config_list",
+      "template": "admin/config/",
+      "normalized": "/admin/config"
+    },
+    {
+      "enum": "contact_list",
+      "template": "company/contact/",
+      "normalized": "/company/contact"
+    },
+    {
+      "enum": "content_type_list",
+      "template": "contenttype/",
+      "normalized": "/contenttype"
+    },
+    {
+      "enum": "currency_list",
+      "template": "currency/exchange/",
+      "normalized": "/currency/exchange"
+    },
+    {
+      "enum": "currency_refresh",
+      "template": "currency/refresh/",
+      "normalized": "/currency/refresh"
+    },
+    {
+      "enum": "custom_state_list",
+      "template": "generic/status/custom/",
+      "normalized": "/generic/status/custom"
+    },
+    {
+      "enum": "custom_unit_list",
+      "template": "units/",
+      "normalized": "/units"
+    },
+    {
+      "enum": "data_output",
+      "template": "data-output/",
+      "normalized": "/data-output"
+    },
+    {
+      "enum": "email_list",
+      "template": "admin/email/",
+      "normalized": "/admin/email"
+    },
+    {
+      "enum": "email_test",
+      "template": "admin/email/test/",
+      "normalized": "/admin/email/test"
+    },
+    {
+      "enum": "error_report_list",
+      "template": "error-report/",
+      "normalized": "/error-report"
+    },
+    {
+      "enum": "generate_batch_code",
+      "template": "generate/batch-code/",
+      "normalized": "/generate/batch-code"
+    },
+    {
+      "enum": "generate_serial_number",
+      "template": "generate/serial-number/",
+      "normalized": "/generate/serial-number"
+    },
+    {
+      "enum": "global_status",
+      "template": "generic/status/",
+      "normalized": "/generic/status"
+    },
+    {
+      "enum": "group_list",
+      "template": "user/group/",
+      "normalized": "/user/group"
+    },
+    {
+      "enum": "icons",
+      "template": "icons/",
+      "normalized": "/icons"
+    },
+    {
+      "enum": "import_session_accept_fields",
+      "template": "importer/session/:id/accept_fields/",
+      "normalized": "/importer/session/{}/accept_fields"
+    },
+    {
+      "enum": "import_session_accept_rows",
+      "template": "importer/session/:id/accept_rows/",
+      "normalized": "/importer/session/{}/accept_rows"
+    },
+    {
+      "enum": "import_session_column_mapping_list",
+      "template": "importer/column-mapping/",
+      "normalized": "/importer/column-mapping"
+    },
+    {
+      "enum": "import_session_list",
+      "template": "importer/session/",
+      "normalized": "/importer/session"
+    },
+    {
+      "enum": "import_session_row_list",
+      "template": "importer/row/",
+      "normalized": "/importer/row"
+    },
+    {
+      "enum": "instance_info",
+      "template": "instance-info/",
+      "normalized": "/instance-info"
+    },
+    {
+      "enum": "label_list",
+      "template": "label/template/",
+      "normalized": "/label/template"
+    },
+    {
+      "enum": "label_print",
+      "template": "label/print/",
+      "normalized": "/label/print"
+    },
+    {
+      "enum": "license",
+      "template": "license/",
+      "normalized": "/license"
+    },
+    {
+      "enum": "machine_driver_list",
+      "template": "machine/drivers/",
+      "normalized": "/machine/drivers"
+    },
+    {
+      "enum": "machine_list",
+      "template": "machine/",
+      "normalized": "/machine"
+    },
+    {
+      "enum": "machine_registry_status",
+      "template": "machine/status/",
+      "normalized": "/machine/status"
+    },
+    {
+      "enum": "machine_restart",
+      "template": "machine/:machine/restart/",
+      "normalized": "/machine/{}/restart"
+    },
+    {
+      "enum": "machine_setting_detail",
+      "template": "machine/:machine/settings/:config_type/",
+      "normalized": "/machine/{}/settings/{}"
+    },
+    {
+      "enum": "machine_setting_list",
+      "template": "machine/:machine/settings/",
+      "normalized": "/machine/{}/settings"
+    },
+    {
+      "enum": "machine_types_list",
+      "template": "machine/types/",
+      "normalized": "/machine/types"
+    },
+    {
+      "enum": "manufacturer_part_list",
+      "template": "company/part/manufacturer/",
+      "normalized": "/company/part/manufacturer"
+    },
+    {
+      "enum": "news",
+      "template": "news/",
+      "normalized": "/news"
+    },
+    {
+      "enum": "note_list",
+      "template": "note/",
+      "normalized": "/note"
+    },
+    {
+      "enum": "notes_image_list",
+      "template": "note/image/",
+      "normalized": "/note/image"
+    },
+    {
+      "enum": "notifications_list",
+      "template": "notifications/",
+      "normalized": "/notifications"
+    },
+    {
+      "enum": "notifications_readall",
+      "template": "notifications/readall/",
+      "normalized": "/notifications/readall"
+    },
+    {
+      "enum": "owner_list",
+      "template": "user/owner/",
+      "normalized": "/user/owner"
+    },
+    {
+      "enum": "parameter_list",
+      "template": "parameter/",
+      "normalized": "/parameter"
+    },
+    {
+      "enum": "parameter_template_list",
+      "template": "parameter/template/",
+      "normalized": "/parameter/template"
+    },
+    {
+      "enum": "part_list",
+      "template": "part/",
+      "normalized": "/part"
+    },
+    {
+      "enum": "part_pricing",
+      "template": "pricing/part/:id/",
+      "normalized": "/pricing/part/{}"
+    },
+    {
+      "enum": "part_pricing_internal",
+      "template": "pricing/internal-price/",
+      "normalized": "/pricing/internal-price"
+    },
+    {
+      "enum": "part_pricing_sale",
+      "template": "pricing/sale-price/",
+      "normalized": "/pricing/sale-price"
+    },
+    {
+      "enum": "part_requirements",
+      "template": "part/:id/requirements/",
+      "normalized": "/part/{}/requirements"
+    },
+    {
+      "enum": "part_scheduling",
+      "template": "part/:id/scheduling/",
+      "normalized": "/part/{}/scheduling"
+    },
+    {
+      "enum": "part_serial_numbers",
+      "template": "part/:id/serial-numbers/",
+      "normalized": "/part/{}/serial-numbers"
+    },
+    {
+      "enum": "part_stocktake_generate",
+      "template": "part/stocktake/generate/",
+      "normalized": "/part/stocktake/generate"
+    },
+    {
+      "enum": "part_stocktake_list",
+      "template": "part/stocktake/",
+      "normalized": "/part/stocktake"
+    },
+    {
+      "enum": "part_test_template_list",
+      "template": "part/test-template/",
+      "normalized": "/part/test-template"
+    },
+    {
+      "enum": "part_thumbs_list",
+      "template": "part/thumbs/",
+      "normalized": "/part/thumbs"
+    },
+    {
+      "enum": "plugin_activate",
+      "template": "plugins/:key/activate/",
+      "normalized": "/plugins/{}/activate"
+    },
+    {
+      "enum": "plugin_admin",
+      "template": "plugins/:key/admin/",
+      "normalized": "/plugins/{}/admin"
+    },
+    {
+      "enum": "plugin_install",
+      "template": "plugins/install/",
+      "normalized": "/plugins/install"
+    },
+    {
+      "enum": "plugin_list",
+      "template": "plugins/",
+      "normalized": "/plugins"
+    },
+    {
+      "enum": "plugin_locate_item",
+      "template": "locate/",
+      "normalized": "/locate"
+    },
+    {
+      "enum": "plugin_registry_status",
+      "template": "plugins/status/",
+      "normalized": "/plugins/status"
+    },
+    {
+      "enum": "plugin_reload",
+      "template": "plugins/reload/",
+      "normalized": "/plugins/reload"
+    },
+    {
+      "enum": "plugin_setting_list",
+      "template": "plugins/:plugin/settings/",
+      "normalized": "/plugins/{}/settings"
+    },
+    {
+      "enum": "plugin_supplier_import",
+      "template": "supplier/import/",
+      "normalized": "/supplier/import"
+    },
+    {
+      "enum": "plugin_supplier_list",
+      "template": "supplier/list/",
+      "normalized": "/supplier/list"
+    },
+    {
+      "enum": "plugin_supplier_search",
+      "template": "supplier/search/",
+      "normalized": "/supplier/search"
+    },
+    {
+      "enum": "plugin_ui_features_list",
+      "template": "plugins/ui/features/:feature_type/",
+      "normalized": "/plugins/ui/features/{}"
+    },
+    {
+      "enum": "plugin_uninstall",
+      "template": "plugins/:key/uninstall/",
+      "normalized": "/plugins/{}/uninstall"
+    },
+    {
+      "enum": "plugin_user_setting_list",
+      "template": "plugins/:plugin/user-settings/",
+      "normalized": "/plugins/{}/user-settings"
+    },
+    {
+      "enum": "project_code_list",
+      "template": "project-code/",
+      "normalized": "/project-code"
+    },
+    {
+      "enum": "purchase_order_cancel",
+      "template": "order/po/:id/cancel/",
+      "normalized": "/order/po/{}/cancel"
+    },
+    {
+      "enum": "purchase_order_complete",
+      "template": "order/po/:id/complete/",
+      "normalized": "/order/po/{}/complete"
+    },
+    {
+      "enum": "purchase_order_extra_line_list",
+      "template": "order/po-extra-line/",
+      "normalized": "/order/po-extra-line"
+    },
+    {
+      "enum": "purchase_order_hold",
+      "template": "order/po/:id/hold/",
+      "normalized": "/order/po/{}/hold"
+    },
+    {
+      "enum": "purchase_order_issue",
+      "template": "order/po/:id/issue/",
+      "normalized": "/order/po/{}/issue"
+    },
+    {
+      "enum": "purchase_order_line_list",
+      "template": "order/po-line/",
+      "normalized": "/order/po-line"
+    },
+    {
+      "enum": "purchase_order_list",
+      "template": "order/po/",
+      "normalized": "/order/po"
+    },
+    {
+      "enum": "purchase_order_receive",
+      "template": "order/po/:id/receive/",
+      "normalized": "/order/po/{}/receive"
+    },
+    {
+      "enum": "related_part_list",
+      "template": "part/related/",
+      "normalized": "/part/related"
+    },
+    {
+      "enum": "report_asset",
+      "template": "report/asset/",
+      "normalized": "/report/asset"
+    },
+    {
+      "enum": "report_list",
+      "template": "report/template/",
+      "normalized": "/report/template"
+    },
+    {
+      "enum": "report_print",
+      "template": "report/print/",
+      "normalized": "/report/print"
+    },
+    {
+      "enum": "report_snippet",
+      "template": "report/snippet/",
+      "normalized": "/report/snippet"
+    },
+    {
+      "enum": "return_order_cancel",
+      "template": "order/ro/:id/cancel/",
+      "normalized": "/order/ro/{}/cancel"
+    },
+    {
+      "enum": "return_order_complete",
+      "template": "order/ro/:id/complete/",
+      "normalized": "/order/ro/{}/complete"
+    },
+    {
+      "enum": "return_order_extra_line_list",
+      "template": "order/ro-extra-line/",
+      "normalized": "/order/ro-extra-line"
+    },
+    {
+      "enum": "return_order_hold",
+      "template": "order/ro/:id/hold/",
+      "normalized": "/order/ro/{}/hold"
+    },
+    {
+      "enum": "return_order_issue",
+      "template": "order/ro/:id/issue/",
+      "normalized": "/order/ro/{}/issue"
+    },
+    {
+      "enum": "return_order_line_list",
+      "template": "order/ro-line/",
+      "normalized": "/order/ro-line"
+    },
+    {
+      "enum": "return_order_list",
+      "template": "order/ro/",
+      "normalized": "/order/ro"
+    },
+    {
+      "enum": "return_order_receive",
+      "template": "order/ro/:id/receive/",
+      "normalized": "/order/ro/{}/receive"
+    },
+    {
+      "enum": "ruleset_list",
+      "template": "user/ruleset/",
+      "normalized": "/user/ruleset"
+    },
+    {
+      "enum": "sales_order_allocate",
+      "template": "order/so/:id/allocate/",
+      "normalized": "/order/so/{}/allocate"
+    },
+    {
+      "enum": "sales_order_allocate_serials",
+      "template": "order/so/:id/allocate-serials/",
+      "normalized": "/order/so/{}/allocate-serials"
+    },
+    {
+      "enum": "sales_order_allocation_list",
+      "template": "order/so-allocation/",
+      "normalized": "/order/so-allocation"
+    },
+    {
+      "enum": "sales_order_auto_allocate",
+      "template": "order/so/:id/auto-allocate/",
+      "normalized": "/order/so/{}/auto-allocate"
+    },
+    {
+      "enum": "sales_order_cancel",
+      "template": "order/so/:id/cancel/",
+      "normalized": "/order/so/{}/cancel"
+    },
+    {
+      "enum": "sales_order_complete",
+      "template": "order/so/:id/complete/",
+      "normalized": "/order/so/{}/complete"
+    },
+    {
+      "enum": "sales_order_extra_line_list",
+      "template": "order/so-extra-line/",
+      "normalized": "/order/so-extra-line"
+    },
+    {
+      "enum": "sales_order_hold",
+      "template": "order/so/:id/hold/",
+      "normalized": "/order/so/{}/hold"
+    },
+    {
+      "enum": "sales_order_issue",
+      "template": "order/so/:id/issue/",
+      "normalized": "/order/so/{}/issue"
+    },
+    {
+      "enum": "sales_order_line_list",
+      "template": "order/so-line/",
+      "normalized": "/order/so-line"
+    },
+    {
+      "enum": "sales_order_list",
+      "template": "order/so/",
+      "normalized": "/order/so"
+    },
+    {
+      "enum": "sales_order_ship",
+      "template": "order/so/:id/ship/",
+      "normalized": "/order/so/{}/ship"
+    },
+    {
+      "enum": "sales_order_shipment_complete",
+      "template": "order/so/shipment/:id/ship/",
+      "normalized": "/order/so/shipment/{}/ship"
+    },
+    {
+      "enum": "sales_order_shipment_list",
+      "template": "order/so/shipment/",
+      "normalized": "/order/so/shipment"
+    },
+    {
+      "enum": "scim_config",
+      "template": "admin/scim/",
+      "normalized": "/admin/scim"
+    },
+    {
+      "enum": "scim_disable",
+      "template": "admin/scim/disable/",
+      "normalized": "/admin/scim/disable"
+    },
+    {
+      "enum": "scim_generate",
+      "template": "admin/scim/generate/",
+      "normalized": "/admin/scim/generate"
+    },
+    {
+      "enum": "selectionentry_list",
+      "template": "selection/:id/entry/",
+      "normalized": "/selection/{}/entry"
+    },
+    {
+      "enum": "selectionlist_list",
+      "template": "selection/",
+      "normalized": "/selection"
+    },
+    {
+      "enum": "settings_global_list",
+      "template": "settings/global/",
+      "normalized": "/settings/global"
+    },
+    {
+      "enum": "settings_user_list",
+      "template": "settings/user/",
+      "normalized": "/settings/user"
+    },
+    {
+      "enum": "sso_list",
+      "template": "admin/sso/",
+      "normalized": "/admin/sso"
+    },
+    {
+      "enum": "stock_add",
+      "template": "stock/add/",
+      "normalized": "/stock/add"
+    },
+    {
+      "enum": "stock_assign",
+      "template": "stock/assign/",
+      "normalized": "/stock/assign"
+    },
+    {
+      "enum": "stock_change_status",
+      "template": "stock/change_status/",
+      "normalized": "/stock/change_status"
+    },
+    {
+      "enum": "stock_convert",
+      "template": "stock/:id/convert/",
+      "normalized": "/stock/{}/convert"
+    },
+    {
+      "enum": "stock_count",
+      "template": "stock/count/",
+      "normalized": "/stock/count"
+    },
+    {
+      "enum": "stock_disassemble",
+      "template": "stock/:id/disassemble/",
+      "normalized": "/stock/{}/disassemble"
+    },
+    {
+      "enum": "stock_install",
+      "template": "stock/:id/install/",
+      "normalized": "/stock/{}/install"
+    },
+    {
+      "enum": "stock_item_list",
+      "template": "stock/",
+      "normalized": "/stock"
+    },
+    {
+      "enum": "stock_location_list",
+      "template": "stock/location/",
+      "normalized": "/stock/location"
+    },
+    {
+      "enum": "stock_location_tree",
+      "template": "stock/location/tree/",
+      "normalized": "/stock/location/tree"
+    },
+    {
+      "enum": "stock_location_type_list",
+      "template": "stock/location-type/",
+      "normalized": "/stock/location-type"
+    },
+    {
+      "enum": "stock_merge",
+      "template": "stock/merge/",
+      "normalized": "/stock/merge"
+    },
+    {
+      "enum": "stock_remove",
+      "template": "stock/remove/",
+      "normalized": "/stock/remove"
+    },
+    {
+      "enum": "stock_return",
+      "template": "stock/return/",
+      "normalized": "/stock/return"
+    },
+    {
+      "enum": "stock_serial_info",
+      "template": "stock/:id/serial-numbers/",
+      "normalized": "/stock/{}/serial-numbers"
+    },
+    {
+      "enum": "stock_serialize",
+      "template": "stock/:id/serialize/",
+      "normalized": "/stock/{}/serialize"
+    },
+    {
+      "enum": "stock_status",
+      "template": "stock/status/",
+      "normalized": "/stock/status"
+    },
+    {
+      "enum": "stock_test_result_list",
+      "template": "stock/test/",
+      "normalized": "/stock/test"
+    },
+    {
+      "enum": "stock_transfer",
+      "template": "stock/transfer/",
+      "normalized": "/stock/transfer"
+    },
+    {
+      "enum": "stock_uninstall",
+      "template": "stock/:id/uninstall/",
+      "normalized": "/stock/{}/uninstall"
+    },
+    {
+      "enum": "supplier_part_list",
+      "template": "company/part/",
+      "normalized": "/company/part"
+    },
+    {
+      "enum": "supplier_part_pricing_list",
+      "template": "company/price-break/",
+      "normalized": "/company/price-break"
+    },
+    {
+      "enum": "system_internal_trace_end",
+      "template": "system-internal/observability/end",
+      "normalized": "/system-internal/observability/end"
+    },
+    {
+      "enum": "tag_list",
+      "template": "tag/",
+      "normalized": "/tag"
+    },
+    {
+      "enum": "task_failed_list",
+      "template": "background-task/failed/",
+      "normalized": "/background-task/failed"
+    },
+    {
+      "enum": "task_overview",
+      "template": "background-task/",
+      "normalized": "/background-task"
+    },
+    {
+      "enum": "task_pending_list",
+      "template": "background-task/pending/",
+      "normalized": "/background-task/pending"
+    },
+    {
+      "enum": "task_scheduled_list",
+      "template": "background-task/scheduled/",
+      "normalized": "/background-task/scheduled"
+    },
+    {
+      "enum": "transfer_order_allocate",
+      "template": "order/transfer-order/:id/allocate/",
+      "normalized": "/order/transfer-order/{}/allocate"
+    },
+    {
+      "enum": "transfer_order_allocate_serials",
+      "template": "order/transfer-order/:id/allocate-serials/",
+      "normalized": "/order/transfer-order/{}/allocate-serials"
+    },
+    {
+      "enum": "transfer_order_allocation_list",
+      "template": "order/transfer-order-allocation/",
+      "normalized": "/order/transfer-order-allocation"
+    },
+    {
+      "enum": "transfer_order_cancel",
+      "template": "order/transfer-order/:id/cancel/",
+      "normalized": "/order/transfer-order/{}/cancel"
+    },
+    {
+      "enum": "transfer_order_complete",
+      "template": "order/transfer-order/:id/complete/",
+      "normalized": "/order/transfer-order/{}/complete"
+    },
+    {
+      "enum": "transfer_order_hold",
+      "template": "order/transfer-order/:id/hold/",
+      "normalized": "/order/transfer-order/{}/hold"
+    },
+    {
+      "enum": "transfer_order_issue",
+      "template": "order/transfer-order/:id/issue/",
+      "normalized": "/order/transfer-order/{}/issue"
+    },
+    {
+      "enum": "transfer_order_line_list",
+      "template": "order/transfer-order-line/",
+      "normalized": "/order/transfer-order-line"
+    },
+    {
+      "enum": "transfer_order_list",
+      "template": "order/transfer-order/",
+      "normalized": "/order/transfer-order"
+    },
+    {
+      "enum": "user_list",
+      "template": "user/",
+      "normalized": "/user"
+    },
+    {
+      "enum": "user_me",
+      "template": "user/me/",
+      "normalized": "/user/me"
+    },
+    {
+      "enum": "user_me_profile",
+      "template": "user/me/profile/",
+      "normalized": "/user/me/profile"
+    },
+    {
+      "enum": "user_me_roles",
+      "template": "user/me/roles/",
+      "normalized": "/user/me/roles"
+    },
+    {
+      "enum": "user_me_tips",
+      "template": "user/me/tips/",
+      "normalized": "/user/me/tips"
+    },
+    {
+      "enum": "user_me_token",
+      "template": "user/me/token/",
+      "normalized": "/user/me/token"
+    },
+    {
+      "enum": "user_reset",
+      "template": "auth/v1/auth/password/request",
+      "normalized": "/auth/v1/auth/password/request"
+    },
+    {
+      "enum": "user_reset_set",
+      "template": "auth/v1/auth/password/reset",
+      "normalized": "/auth/v1/auth/password/reset"
+    },
+    {
+      "enum": "user_set_password",
+      "template": "user/:id/set-password/",
+      "normalized": "/user/{}/set-password"
+    },
+    {
+      "enum": "user_simple_login",
+      "template": "email/generate/",
+      "normalized": "/email/generate"
+    },
+    {
+      "enum": "user_tokens",
+      "template": "user/tokens/",
+      "normalized": "/user/tokens"
+    },
+    {
+      "enum": "version",
+      "template": "version/",
+      "normalized": "/version"
+    }
+  ]
+}

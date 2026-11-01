@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>0.ssot 演进全景 · 每个修改的前后对照</title>
+<style>
+  :root {
+    --ink:#111418; --ink2:#3d4653; --mute:#6b7684; --line:#e3e7ee;
+    --bg:#f7f8fa; --card:#ffffff; --brand:#1a56db; --ok:#0f7b4f;
+    --bad:#b42318; --warn:#946200;
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    line-height:1.65; font-size:15px; }
+  .wrap { max-width:1100px; margin:0 auto; padding:48px 28px 96px; }
+  header.top { border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:36px; }
+  .kicker { font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--mute); }
+  h1 { font-size:33px; line-height:1.25; margin:10px 0 8px; letter-spacing:-.01em; }
+  h2 { font-size:21px; margin:52px 0 14px; padding-top:18px; border-top:1px solid var(--line); }
+  h3 { font-size:15.5px; margin:26px 0 8px; }
+  p { margin:10px 0; color:var(--ink2); }
+  .lead { font-size:17px; color:var(--ink); }
+  .grid { display:grid; gap:14px; }
+  .g2 { grid-template-columns:repeat(2,1fr); }
+  .g3 { grid-template-columns:repeat(3,1fr); }
+  .g4 { grid-template-columns:repeat(4,1fr); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:15px 17px; }
+  .kpi .n { font-size:26px; font-weight:650; letter-spacing:-.02em; }
+  .kpi .l { font-size:12.5px; color:var(--mute); margin-top:2px; }
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:13.4px; }
+  th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-weight:600; color:var(--ink); background:#f0f2f6; font-size:12.4px; letter-spacing:.02em; }
+  td code, p code, li code { background:#eef1f5; padding:1px 5px; border-radius:4px;
+    font-family:ui-monospace,Consolas,monospace; font-size:12.4px; }
+  .pill { display:inline-block; padding:1px 8px; border-radius:999px; font-size:11.5px;
+    font-weight:600; letter-spacing:.02em; }
+  .pill.ok { background:#e3f5ea; color:var(--ok); }
+  .pill.bad { background:#fdecea; color:var(--bad); }
+  .pill.warn { background:#fdf3e0; color:var(--warn); }
+  .pill.mute { background:#eef1f5; color:var(--mute); }
+  .quote { border-left:3px solid var(--brand); background:#f2f5fd; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  .caveat { border-left:3px solid var(--warn); background:#fffaf0; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  .badnote { border-left:3px solid var(--bad); background:#fdf3f2; padding:12px 16px;
+    border-radius:0 8px 8px 0; margin:16px 0; }
+  pre { background:#11161d; color:#e6edf3; padding:14px 16px; border-radius:8px;
+    overflow-x:auto; font-size:12.5px; line-height:1.55; }
+  a { color:var(--brand); text-decoration:none; border-bottom:1px solid #c7d7f7; }
+  ul, ol { margin:8px 0 8px 22px; color:var(--ink2); }
+  li { margin:5px 0; }
+  .small { font-size:12.5px; color:var(--mute); }
+  .step { display:flex; gap:14px; padding:12px 0; border-bottom:1px dashed var(--line); }
+  .step .no { flex:0 0 34px; height:34px; border-radius:50%; background:var(--ink);
+    color:#fff; font-size:13px; font-weight:600; display:flex; align-items:center;
+    justify-content:center; }
+  .step .body { flex:1; }
+  .step .body .t { font-weight:600; color:var(--ink); }
+  footer { margin-top:60px; padding-top:18px; border-top:1px solid var(--line);
+    font-size:12.5px; color:var(--mute); }
+  @media (max-width:820px) { .g2,.g3,.g4 { grid-template-columns:1fr 1fr; } h1 { font-size:25px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <div class="kicker">Smoke Flywheel · SSOT Evolution</div>
+  <h1>0.ssot 演进全景：四个状态，每一步的前后都留证</h1>
+  <p class="lead">SSOT 不是一次写成的。它从"没有事实源"开始，经历一次坐标系错误，才收敛到
+  617 个操作 / 216 条声明的可用投影。
+  本页把每个状态的全景、每个修改的前后差异、以及"改动是否真的生效"的校验逐个摊开。</p>
+  <p class="small">冻结输入：<code>0.ssot/openapi.yaml</code>（1,106,494 字节，
+  sha256 <code>46c2752002ae403adf459998…</code>）· 被测仓
+  <code>inventree/InvenTree</code> @ <code>d96174cddbc2</code></p>
+</header>
+
+<div class="quote">
+  <strong>口径先说清楚：</strong>交付仓里 <code>0.ssot</code> 只被写过一次（首个提交之后冻结），
+  生成链上的中间态没有进版本库，早期产物已被覆盖。<br>
+  因此 G1/G2 是<strong>用同一份冻结的 openapi.yaml 重放各版本投影逻辑</strong>得到的快照，
+  不是当时的原件；G2 重放结果与已提交的 <code>0.ssot</code> 逐字段相等（忽略时间戳），
+  所以中间态可信。G0 的证据是生成日志与当场复现的守卫行为，不是重建。
+</div>
+
+<h2>1. 四个状态：从"没有事实源"到"可复核的投影"</h2>
+<div class="grid g2" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <h3 style="margin:0">G0 · 导出失败</h3>
+        <span class="pill bad">probe+external-log</span>
+      </div>
+      <p class="small">spectacular 以退出码 0 写出 0 字节，没有事实源可投影。</p>
+      <table>
+        <tr><th>投影结果</th><th>值</th></tr>
+        <tr><td>后端操作</td><td><strong>0</strong></td></tr>
+        <tr><td>前端声明</td><td><strong>0</strong></td></tr>
+        <tr><td>合同矩阵命中</td><td><strong>0</strong></td></tr>
+        <tr><td>前端未命中</td><td><strong>0</strong></td></tr>
+        <tr><td>后端未被引用</td><td><strong>0</strong></td></tr>
+        <tr><td>应用 / 依赖边</td><td>0 / 0</td></tr>
+      </table>
+      
+      <div class="caveat"><strong>当场复现的守卫行为：</strong>D:\npm\tmp\ssot-empty-zbfldbxg\openapi.yaml 是 0 字节：spectacular 导出失败（典型原因 INVE-W8 未迁移）。拒绝基于空规范生成 SSOT。</div><div class="small">外部证据：<code>spec.log（被测仓导出日志，2026-10-31T09:44:51Z）</code> · <code>INVE-W8: Database Migrations required</code> · 退出码 0 · 落盘 0 字节</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <h3 style="margin:0">G1 · 轴错位（第一版归一化）</h3>
+        <span class="pill warn">replay</span>
+      </div>
+      <p class="small">normalize_path 不剥离后端 /api 前缀；前端模板相对 /api，两端不在同一坐标系</p>
+      <table>
+        <tr><th>投影结果</th><th>值</th></tr>
+        <tr><td>后端操作</td><td><strong>617</strong></td></tr>
+        <tr><td>前端声明</td><td><strong>216</strong></td></tr>
+        <tr><td>合同矩阵命中</td><td><strong>0</strong></td></tr>
+        <tr><td>前端未命中</td><td><strong>216</strong></td></tr>
+        <tr><td>后端未被引用</td><td><strong>617</strong></td></tr>
+        <tr><td>应用 / 依赖边</td><td>15 / 129</td></tr>
+      </table>
+      <table><tr><th>产物</th><th>字节</th></tr><tr><td><code>consumers.json</code></td><td>29,047 B</td></tr><tr><td><code>contract_matrix.json</code></td><td>34,385 B</td></tr><tr><td><code>dependency_graph.json</code></td><td>8,369 B</td></tr><tr><td><code>endpoints.json</code></td><td>168,691 B</td></tr><tr><td><code>schema_version.json</code></td><td>372 B</td></tr></table>
+      
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:baseline">
+        <h3 style="margin:0">G2 · 轴对齐（现行实现）</h3>
+        <span class="pill ok">replay</span>
+      </div>
+      <p class="small">normalize_path 对后端剥离 /api 前缀（consumer 侧不动），两端落到同一坐标系</p>
+      <table>
+        <tr><th>投影结果</th><th>值</th></tr>
+        <tr><td>后端操作</td><td><strong>617</strong></td></tr>
+        <tr><td>前端声明</td><td><strong>216</strong></td></tr>
+        <tr><td>合同矩阵命中</td><td><strong>190</strong></td></tr>
+        <tr><td>前端未命中</td><td><strong>26</strong></td></tr>
+        <tr><td>后端未被引用</td><td><strong>313</strong></td></tr>
+        <tr><td>应用 / 依赖边</td><td>15 / 129</td></tr>
+      </table>
+      <table><tr><th>产物</th><th>字节</th></tr><tr><td><code>consumers.json</code></td><td>29,047 B</td></tr><tr><td><code>contract_matrix.json</code></td><td>54,369 B</td></tr><tr><td><code>dependency_graph.json</code></td><td>8,369 B</td></tr><tr><td><code>endpoints.json</code></td><td>166,224 B</td></tr><tr><td><code>schema_version.json</code></td><td>372 B</td></tr></table>
+      
+    </div></div>
+
+<h2>2. 唯一真正的修改：把两端拉回同一坐标系</h2>
+<p>G1→G2 改的只有 <code>normalize_path</code> 里的一段：后端路径剥离 <code>/api</code> 前缀，
+前端模板保持相对 /api。事实源（规范、前端枚举）一个字没动——这从"后端操作数、前端声明数完全不变"
+可以直接证伪式的确认。改的不是数据，是坐标。</p>
+
+    <table>
+      <tr><th>指标</th><th>G1 轴错位</th><th>G2 轴对齐</th><th>差值</th><th>说明</th></tr>
+      <tr><td>后端操作</td><td>617</td><td>617</td>
+          <td>0（不变）</td>
+          <td>同一份 openapi.yaml，事实没变</td></tr>
+      <tr><td>前端声明</td><td>216</td><td>216</td>
+          <td>0（不变）</td>
+          <td>同一份 ApiEndpoints.tsx，事实没变</td></tr>
+      <tr><td>命中</td><td>0</td><td>190</td>
+          <td>+190</td>
+          <td>只改坐标系，命中从 0 恢复为真实值</td></tr>
+      <tr><td>前端未命中</td><td>216</td><td>26</td>
+          <td>-190</td>
+          <td>从"全部未命中"收敛到 26 条真问题</td></tr>
+      <tr><td>后端未被引用</td><td>617</td><td>313</td>
+          <td>-304</td>
+          <td>304 条不是"没被用"，是"没被认出来"</td></tr>
+    </table>
+<div class="caveat">
+  <strong>为什么这一步最危险：</strong>轴错位时命中率是 0，而 0 命中的表现是"所有声明都未命中"，
+  看上去像"这个仓前后端对不上"这样一个业务结论，而不是"工具算错了"。
+  门禁此后所有基于合同矩阵的判断都会是假阴性——而且它们都会"正常"跑完。
+</div>
+
+<h2>3. 190 条声明翻转：改坐标之前它们全被判成未命中</h2>
+<div class="grid g2">
+  <div class="card">
+    <div class="kpi"><div class="n">190</div>
+      <div class="l">G1 未命中 → G2 命中的声明数（逐条比对 enum）</div></div>
+  </div>
+  <div class="card">
+    <div class="kpi"><div class="n">190/216</div>
+      <div class="l">修正后命中率（26 条未命中是真问题）</div></div>
+  </div>
+</div>
+<h3>命中声明按前端资源前缀分布</h3>
+<table><tr><th>前缀</th><th>命中数</th></tr><tr><td><code>order</code></td><td>38</td></tr><tr><td><code>stock</code></td><td>20</td></tr><tr><td><code>build</code></td><td>15</td></tr><tr><td><code>part</code></td><td>12</td></tr><tr><td><code>user</code></td><td>10</td></tr><tr><td><code>plugins</code></td><td>10</td></tr><tr><td><code>admin</code></td><td>9</td></tr><tr><td><code>company</code></td><td>6</td></tr><tr><td><code>machine</code></td><td>6</td></tr><tr><td><code>barcode</code></td><td>5</td></tr><tr><td><code>importer</code></td><td>5</td></tr><tr><td><code>report</code></td><td>4</td></tr></table>
+<h3>翻转样例（前 12 条，完整 190 条见 evolution.json）</h3>
+<table><tr><th>声明</th><th>G1</th><th>G2</th></tr><tr><td><code>address_list</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>admin_oauth</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>admin_oauth_regenerate</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>all_units</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>api_search</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>api_server_info</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>attachment_list</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>audit_log_list</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>barcode</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>barcode_generate</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>barcode_history</code></td><td>unmatched</td><td>matched</td></tr><tr><td><code>barcode_link</code></td><td>unmatched</td><td>matched</td></tr></table>
+
+<h3>另一侧：313 条后端操作没有任何前端声明命中</h3>
+<p>这个数字同样被"轴"影响过：G1 时是 617 条。修正后仍有
+313 条，按首个 tag 分布如下——它们多为外部集成（barcode、机器、插件）与
+admin 专用端点，是"后端能力大于前端当前界面"的正常形状，不是一个待修的缺陷。</p>
+<table><tr><th>tag</th><th>未被引用的操作数</th></tr><tr><td><code>order</code></td><td>61</td></tr><tr><td><code>part</code></td><td>28</td></tr><tr><td><code>company</code></td><td>24</td></tr><tr><td><code>user</code></td><td>18</td></tr><tr><td><code>stock</code></td><td>16</td></tr><tr><td><code>build</code></td><td>13</td></tr><tr><td><code>importer</code></td><td>12</td></tr><tr><td><code>report</code></td><td>12</td></tr><tr><td><code>admin</code></td><td>11</td></tr><tr><td><code>plugins</code></td><td>9</td></tr></table>
+
+<h2>4. 26 条未命中的定性：22 条体外边界，4 条真陈旧</h2>
+<p>未命中不等于缺陷。判据两条，都可复算：① 路由是否由第三方包（allauth headless）挂载，
+不属于本仓 URLconf；② 前端枚举仍在被引用，而后端规范里已经没有任何对应路由。
+按此定性：<strong>体外 22 条 / 陈旧 4 条</strong>。</p>
+<table>
+  <tr><th>陈旧声明</th><th>前端写的模板</th><th>后端现在的相近路由</th><th>前端引用处</th></tr>
+  <tr>
+          <td><code>machine_setting_detail</code></td>
+          <td><code>machine/:machine/settings/:config_type/</code></td>
+          <td><code>/machine/{}/settings/{}/{}</code><br><code>/machine/{}/settings</code><br><code>/machine/{}</code></td>
+          <td>1</td>
+        </tr><tr>
+          <td><code>part_scheduling</code></td>
+          <td><code>part/:id/scheduling/</code></td>
+          <td><code>/part/{}</code><br><code>/part/{}/bom-copy</code><br><code>/part/{}/bom-validate</code></td>
+          <td>0</td>
+        </tr><tr>
+          <td><code>sales_order_ship</code></td>
+          <td><code>order/so/:id/ship/</code></td>
+          <td><code>/order/so/{}</code><br><code>/order/so/{}/allocate</code><br><code>/order/so/{}/allocate-serials</code></td>
+          <td>0</td>
+        </tr><tr>
+          <td><code>user_me_tips</code></td>
+          <td><code>user/me/tips/</code></td>
+          <td><code>/user/me/tips/{}</code><br><code>/user/me</code><br><code>/user/me/profile</code></td>
+          <td>1</td>
+        </tr>
+</table>
+<p class="small">这 4 条是真实的前后端契约漂移：路由被移除（part_scheduling）、被下移到子资源
+（ship → shipment/:id/ship）、集合路由消失只剩详情（user/me/tips/:id）、多了一层 key 段
+（machine settings/:config_type/:key）。它们不该被"未命中率"这一个数字吞掉。</p>
+
+<h2>5. SSOT 被冻结之后：7 项校验，以及一次故意制造的漂移</h2>
+<p>此前 <code>schema_version.json</code> 里写着 commit 与 sha256，README 也写着"不匹配即拒跑"，
+但没有任何门禁真的检查它——这属于"声明存在、执行缺失"。补上 <code>4.gates/verify-ssot</code> 后：</p>
+<table><tr><th>#</th><th>判据</th><th>结果</th><th>实测</th></tr><tr><td>V1</td><td>产物齐全且非空</td><td><span class="pill ok">PASS</span></td><td>六个产物齐备</td></tr><tr><td>V2</td><td>openapi.yaml 与记录指纹一致</td><td><span class="pill ok">PASS</span></td><td>磁盘 46c2752002ae403a… / 记录 46c2752002ae403a…</td></tr><tr><td>V3a</td><td>SSOT 绑定的 commit == 被测仓 HEAD</td><td><span class="pill ok">PASS</span></td><td>SSOT d96174cddbc2 / SUT d96174cddbc2</td></tr><tr><td>V3b</td><td>被测仓工作区干净（SSOT 只对 commit 负责）</td><td><span class="pill ok">PASS</span></td><td>clean</td></tr><tr><td>V3c</td><td>SSOT commit == target.yaml 声明 commit</td><td><span class="pill ok">PASS</span></td><td>target d96174cddbc2 / SSOT d96174cddbc2</td></tr><tr><td>V4</td><td>四份产物计数互相自洽</td><td><span class="pill ok">PASS</span></td><td>声明值 = 数组长度 = 矩阵总计</td></tr><tr><td>V5</td><td>从 openapi.yaml 再投影得到的端点集 == endpoints.json</td><td><span class="pill ok">PASS</span></td><td>规范 617 / 记录 617 / 只在规范 0 / 只在记录 0</td></tr></table>
+
+<h3>漂移实验：树不变，只把 commit 前推一格</h3>
+<p>在完全不改任何文件的前提下追加一个空提交，让 SUT 的 HEAD 离开 SSOT 绑定的 commit。
+如果闸门真的在校验绑定，它必须拦下；如果只是打印了 sha，它会照常放行。</p>
+<table><tr><th>#</th><th>判据</th><th>结果</th><th>实测</th></tr><tr><td>V1</td><td>产物齐全且非空</td><td><span class="pill ok">PASS</span></td><td>六个产物齐备</td></tr><tr><td>V2</td><td>openapi.yaml 与记录指纹一致</td><td><span class="pill ok">PASS</span></td><td>磁盘 46c2752002ae403a… / 记录 46c2752002ae403a…</td></tr><tr><td>V3a</td><td>SSOT 绑定的 commit == 被测仓 HEAD</td><td><span class="pill bad">FAIL</span></td><td>SSOT d96174cddbc2 / SUT 9dae74da13a6</td></tr><tr><td>V3b</td><td>被测仓工作区干净（SSOT 只对 commit 负责）</td><td><span class="pill ok">PASS</span></td><td>clean</td></tr><tr><td>V4</td><td>四份产物计数互相自洽</td><td><span class="pill ok">PASS</span></td><td>声明值 = 数组长度 = 矩阵总计</td></tr><tr><td>V5</td><td>从 openapi.yaml 再投影得到的端点集 == endpoints.json</td><td><span class="pill ok">PASS</span></td><td>规范 617 / 记录 617 / 只在规范 0 / 只在记录 0</td></tr></table>
+
+<div class="grid g2">
+  <div class="card">
+    <h3>同一套证据，SUT 与 SSOT 对齐时 → <span class="pill ok">ALLOW</span></h3>
+    <table><tr><th>闸门</th><th>状态</th><th>依据</th></tr><tr><td>verify-ssot</td><td><span class="pill ok">PASS</span></td><td>7/7 项通过（SSOT 是否为候选 commit 的投影）</td></tr><tr><td>lint-boundary</td><td><span class="pill ok">PASS</span></td><td>9 份契约 / 0 处违规</td></tr><tr><td>l1</td><td><span class="pill ok">PASS</span></td><td>candidate=l1-run-01 passed=16 failed=0 missing=0</td></tr><tr><td>classify-failure</td><td><span class="pill ok">PASS</span></td><td>new_failures=0 新增缺陷=0 new_unknown_ratio=0.0</td></tr><tr><td>mutation-diff</td><td><span class="pill ok">PASS</span></td><td>kill_rate=1.0 (阈值 0.8)，killed=3/3，restored=True</td></tr><tr><td>contract-matrix</td><td><span class="pill ok">PASS</span></td><td>黄金路径使用 22 条路由，命中漂移 0</td></tr></table></div>
+  <div class="card">
+    <h3>同一套证据，SUT 前推一个空提交后 → <span class="pill bad">BLOCK</span></h3>
+    <table><tr><th>闸门</th><th>状态</th><th>依据</th></tr><tr><td>verify-ssot</td><td><span class="pill bad">BLOCK</span></td><td>6/7 项通过，未过：['V3a']（SSOT 是否为候选 commit 的投影）</td></tr><tr><td>lint-boundary</td><td><span class="pill ok">PASS</span></td><td>9 份契约 / 0 处违规</td></tr><tr><td>l1</td><td><span class="pill ok">PASS</span></td><td>candidate=l1-run-01 passed=16 failed=0 missing=0</td></tr><tr><td>classify-failure</td><td><span class="pill ok">PASS</span></td><td>new_failures=0 新增缺陷=0 new_unknown_ratio=0.0</td></tr><tr><td>mutation-diff</td><td><span class="pill ok">PASS</span></td><td>kill_rate=1.0 (阈值 0.8)，killed=3/3，restored=True</td></tr><tr><td>contract-matrix</td><td><span class="pill ok">PASS</span></td><td>黄金路径使用 22 条路由，命中漂移 0</td></tr></table></div>
+</div>
+<p class="small">两次判决唯一的差别是 V3a：<code>SSOT d96174cddbc2 / SUT d96174cddbc2</code> 对 <code>SSOT d96174cddbc2 / SUT 9dae74da13a6</code>。
+其余判据全绿、四道旧门禁全绿——这正是"事实源过期但没人发现"的形状。</p>
+
+<h2>6. 局限</h2>
+<ul>
+  <li><code>verify-ssot</code> 证明的是"当前 HEAD 与 SSOT 一致"，不能回溯证明某个历史提交期间的契约；
+      变异候选是临时提交，跑完即回滚，回滚后校验自然恢复绿。</li>
+  <li>G1/G2 是重放，不是原件。能保证的是"同一输入 + 同一投影逻辑 ⇒ 同一输出"，
+      这由 G2 与已提交产物逐字段相等来支撑。</li>
+  <li>26 条未命中里"体外边界"的判定依赖前端枚举命名与模板前缀（<code>auth/v1</code>），
+      是结构判据，不是人工豁免；新增边界必须改判据，不能改名单。</li>
+</ul>
+
+<footer>
+  由 <code>tools/build_ssot_panorama.py</code> 从 <code>0.ssot/history/evolution.json</code>、
+  <code>0.ssot/contract_matrix.json</code> 与 <code>5.evidence/verdicts/verify-ssot*.json</code> 渲染 ·
+  生成于 2026-11-01 02:04 UTC ·
+  仓：<a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">aces-org-zhuang/aces-smoke-flywheel</a>
+</footer>
+</div>
+</body>
+</html>

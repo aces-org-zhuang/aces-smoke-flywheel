@@ -1,0 +1,2557 @@
+{
+  "generated_at": "2026-11-01T01:59:27.689125+00:00",
+  "commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
+  "provider": "InvenTree backend (Django REST Framework)",
+  "consumer": "InvenTree frontend (React/TypeScript ApiEndpoints enum)",
+  "totals": {
+    "backend_operations": 617,
+    "consumer_declarations": 216,
+    "matched": 190,
+    "unmatched_consumer": 26,
+    "backend_unclaimed": 313
+  },
+  "matched": [
+    {
+      "enum": "address_list",
+      "template": "company/address/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_address_bulk_destroy",
+        "company_address_list",
+        "company_address_create"
+      ]
+    },
+    {
+      "enum": "admin_oauth",
+      "template": "admin/oauth2/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_oauth2_list",
+        "admin_oauth2_create"
+      ]
+    },
+    {
+      "enum": "admin_oauth_regenerate",
+      "template": "admin/oauth2/:id/regenerate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_oauth2_regenerate_create"
+      ]
+    },
+    {
+      "enum": "all_units",
+      "template": "units/all/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "units_all_retrieve"
+      ]
+    },
+    {
+      "enum": "api_search",
+      "template": "search/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "search_create"
+      ]
+    },
+    {
+      "enum": "api_server_info",
+      "template": "",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "root_retrieve"
+      ]
+    },
+    {
+      "enum": "attachment_list",
+      "template": "attachment/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "attachment_bulk_destroy",
+        "attachment_list",
+        "attachment_create"
+      ]
+    },
+    {
+      "enum": "audit_log_list",
+      "template": "audit/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "audit_list"
+      ]
+    },
+    {
+      "enum": "barcode",
+      "template": "barcode/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "barcode_create"
+      ]
+    },
+    {
+      "enum": "barcode_generate",
+      "template": "barcode/generate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "barcode_generate_create"
+      ]
+    },
+    {
+      "enum": "barcode_history",
+      "template": "barcode/history/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "barcode_history_bulk_destroy",
+        "barcode_history_list"
+      ]
+    },
+    {
+      "enum": "barcode_link",
+      "template": "barcode/link/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "barcode_link_create"
+      ]
+    },
+    {
+      "enum": "barcode_unlink",
+      "template": "barcode/unlink/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "barcode_unlink_create"
+      ]
+    },
+    {
+      "enum": "bom_item_validate",
+      "template": "bom/:id/validate/",
+      "methods": [
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "bom_validate_partial_update",
+        "bom_validate_update"
+      ]
+    },
+    {
+      "enum": "bom_list",
+      "template": "bom/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "bom_bulk_destroy",
+        "bom_list",
+        "bom_bulk_partial_update",
+        "bom_create",
+        "bom_bulk_update"
+      ]
+    },
+    {
+      "enum": "bom_substitute_list",
+      "template": "bom/substitute/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "bom_substitute_list",
+        "bom_substitute_create"
+      ]
+    },
+    {
+      "enum": "bom_validate",
+      "template": "part/:id/bom-validate/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "part_bom_validate_retrieve",
+        "part_bom_validate_partial_update",
+        "part_bom_validate_update"
+      ]
+    },
+    {
+      "enum": "build_item_list",
+      "template": "build/item/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "build_item_bulk_destroy",
+        "build_item_list",
+        "build_item_create"
+      ]
+    },
+    {
+      "enum": "build_line_list",
+      "template": "build/line/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "build_line_list",
+        "build_line_create"
+      ]
+    },
+    {
+      "enum": "build_order_allocate",
+      "template": "build/:id/allocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_allocate_create"
+      ]
+    },
+    {
+      "enum": "build_order_auto_allocate",
+      "template": "build/:id/auto-allocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_auto_allocate_create"
+      ]
+    },
+    {
+      "enum": "build_order_cancel",
+      "template": "build/:id/cancel/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_cancel_create"
+      ]
+    },
+    {
+      "enum": "build_order_complete",
+      "template": "build/:id/finish/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_finish_create"
+      ]
+    },
+    {
+      "enum": "build_order_consume",
+      "template": "build/:id/consume/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_consume_create"
+      ]
+    },
+    {
+      "enum": "build_order_deallocate",
+      "template": "build/:id/unallocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_unallocate_create"
+      ]
+    },
+    {
+      "enum": "build_order_hold",
+      "template": "build/:id/hold/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_hold_create"
+      ]
+    },
+    {
+      "enum": "build_order_issue",
+      "template": "build/:id/issue/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_issue_create"
+      ]
+    },
+    {
+      "enum": "build_order_list",
+      "template": "build/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "build_list",
+        "build_create"
+      ]
+    },
+    {
+      "enum": "build_output_complete",
+      "template": "build/:id/complete/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_complete_create"
+      ]
+    },
+    {
+      "enum": "build_output_create",
+      "template": "build/:id/create-output/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_create_output_create"
+      ]
+    },
+    {
+      "enum": "build_output_delete",
+      "template": "build/:id/delete-outputs/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_delete_outputs_create"
+      ]
+    },
+    {
+      "enum": "build_output_scrap",
+      "template": "build/:id/scrap-outputs/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "build_scrap_outputs_create"
+      ]
+    },
+    {
+      "enum": "category_list",
+      "template": "part/category/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "part_category_list",
+        "part_category_bulk_partial_update",
+        "part_category_create",
+        "part_category_bulk_update"
+      ]
+    },
+    {
+      "enum": "category_parameter_list",
+      "template": "part/category/parameters/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "part_category_parameters_list",
+        "part_category_parameters_create"
+      ]
+    },
+    {
+      "enum": "category_tree",
+      "template": "part/category/tree/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "part_category_tree_list"
+      ]
+    },
+    {
+      "enum": "company_list",
+      "template": "company/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_list",
+        "company_create"
+      ]
+    },
+    {
+      "enum": "config_list",
+      "template": "admin/config/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "admin_config_list"
+      ]
+    },
+    {
+      "enum": "contact_list",
+      "template": "company/contact/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_contact_bulk_destroy",
+        "company_contact_list",
+        "company_contact_create"
+      ]
+    },
+    {
+      "enum": "content_type_list",
+      "template": "contenttype/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "contenttype_list"
+      ]
+    },
+    {
+      "enum": "currency_list",
+      "template": "currency/exchange/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "currency_exchange_retrieve"
+      ]
+    },
+    {
+      "enum": "currency_refresh",
+      "template": "currency/refresh/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "currency_refresh_create"
+      ]
+    },
+    {
+      "enum": "custom_state_list",
+      "template": "generic/status/custom/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "generic_status_custom_list",
+        "generic_status_custom_create"
+      ]
+    },
+    {
+      "enum": "custom_unit_list",
+      "template": "units/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "units_list",
+        "units_create"
+      ]
+    },
+    {
+      "enum": "data_output",
+      "template": "data-output/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "data_output_bulk_destroy",
+        "data_output_list"
+      ]
+    },
+    {
+      "enum": "email_list",
+      "template": "admin/email/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "admin_email_bulk_destroy",
+        "admin_email_list"
+      ]
+    },
+    {
+      "enum": "email_test",
+      "template": "admin/email/test/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_email_test_create"
+      ]
+    },
+    {
+      "enum": "error_report_list",
+      "template": "error-report/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "error_report_bulk_destroy",
+        "error_report_list"
+      ]
+    },
+    {
+      "enum": "generate_batch_code",
+      "template": "generate/batch-code/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "generate_batch_code_create"
+      ]
+    },
+    {
+      "enum": "generate_serial_number",
+      "template": "generate/serial-number/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "generate_serial_number_create"
+      ]
+    },
+    {
+      "enum": "global_status",
+      "template": "generic/status/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "generic_status_retrieve_all"
+      ]
+    },
+    {
+      "enum": "group_list",
+      "template": "user/group/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "user_group_list",
+        "user_group_create"
+      ]
+    },
+    {
+      "enum": "icons",
+      "template": "icons/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "icons_list"
+      ]
+    },
+    {
+      "enum": "import_session_accept_fields",
+      "template": "importer/session/:id/accept_fields/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "importer_session_accept_fields_create"
+      ]
+    },
+    {
+      "enum": "import_session_accept_rows",
+      "template": "importer/session/:id/accept_rows/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "importer_session_accept_rows_create"
+      ]
+    },
+    {
+      "enum": "import_session_column_mapping_list",
+      "template": "importer/column-mapping/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "importer_column_mapping_list"
+      ]
+    },
+    {
+      "enum": "import_session_list",
+      "template": "importer/session/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "importer_session_bulk_destroy",
+        "importer_session_list",
+        "importer_session_create"
+      ]
+    },
+    {
+      "enum": "import_session_row_list",
+      "template": "importer/row/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "importer_row_bulk_destroy",
+        "importer_row_list"
+      ]
+    },
+    {
+      "enum": "instance_info",
+      "template": "instance-info/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "instance_info_retrieve"
+      ]
+    },
+    {
+      "enum": "label_list",
+      "template": "label/template/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "label_template_list",
+        "label_template_create"
+      ]
+    },
+    {
+      "enum": "label_print",
+      "template": "label/print/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "label_print_create"
+      ]
+    },
+    {
+      "enum": "license",
+      "template": "license/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "license_retrieve"
+      ]
+    },
+    {
+      "enum": "machine_driver_list",
+      "template": "machine/drivers/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "machine_drivers_list"
+      ]
+    },
+    {
+      "enum": "machine_list",
+      "template": "machine/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "machine_list",
+        "machine_create"
+      ]
+    },
+    {
+      "enum": "machine_registry_status",
+      "template": "machine/status/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "machine_status_retrieve"
+      ]
+    },
+    {
+      "enum": "machine_restart",
+      "template": "machine/:machine/restart/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "machine_restart_create"
+      ]
+    },
+    {
+      "enum": "machine_setting_list",
+      "template": "machine/:machine/settings/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "machine_settings_list"
+      ]
+    },
+    {
+      "enum": "machine_types_list",
+      "template": "machine/types/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "machine_types_list"
+      ]
+    },
+    {
+      "enum": "manufacturer_part_list",
+      "template": "company/part/manufacturer/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_part_manufacturer_bulk_destroy",
+        "company_part_manufacturer_list",
+        "company_part_manufacturer_create"
+      ]
+    },
+    {
+      "enum": "news",
+      "template": "news/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "news_bulk_destroy",
+        "news_list"
+      ]
+    },
+    {
+      "enum": "note_list",
+      "template": "note/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "note_list",
+        "note_create"
+      ]
+    },
+    {
+      "enum": "notes_image_list",
+      "template": "note/image/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "note_image_list",
+        "note_image_create"
+      ]
+    },
+    {
+      "enum": "notifications_list",
+      "template": "notifications/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "notifications_bulk_destroy",
+        "notifications_list"
+      ]
+    },
+    {
+      "enum": "notifications_readall",
+      "template": "notifications/readall/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "notifications_readall_create"
+      ]
+    },
+    {
+      "enum": "owner_list",
+      "template": "user/owner/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "user_owner_list"
+      ]
+    },
+    {
+      "enum": "parameter_list",
+      "template": "parameter/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "parameter_bulk_destroy",
+        "parameter_list",
+        "parameter_create"
+      ]
+    },
+    {
+      "enum": "parameter_template_list",
+      "template": "parameter/template/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "parameter_template_list",
+        "parameter_template_create"
+      ]
+    },
+    {
+      "enum": "part_list",
+      "template": "part/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "part_list",
+        "part_bulk_partial_update",
+        "part_create",
+        "part_bulk_update"
+      ]
+    },
+    {
+      "enum": "part_pricing",
+      "template": "pricing/part/:id/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "pricing_part_retrieve",
+        "pricing_part_partial_update",
+        "pricing_part_update"
+      ]
+    },
+    {
+      "enum": "part_pricing_internal",
+      "template": "pricing/internal-price/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "pricing_internal_price_list",
+        "pricing_internal_price_create"
+      ]
+    },
+    {
+      "enum": "part_pricing_sale",
+      "template": "pricing/sale-price/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "pricing_sale_price_list",
+        "pricing_sale_price_create"
+      ]
+    },
+    {
+      "enum": "part_requirements",
+      "template": "part/:id/requirements/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "part_requirements_retrieve"
+      ]
+    },
+    {
+      "enum": "part_serial_numbers",
+      "template": "part/:id/serial-numbers/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "part_serial_numbers_retrieve"
+      ]
+    },
+    {
+      "enum": "part_stocktake_generate",
+      "template": "part/stocktake/generate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "part_stocktake_generate_create"
+      ]
+    },
+    {
+      "enum": "part_stocktake_list",
+      "template": "part/stocktake/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "part_stocktake_bulk_destroy",
+        "part_stocktake_list",
+        "part_stocktake_create"
+      ]
+    },
+    {
+      "enum": "part_test_template_list",
+      "template": "part/test-template/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "part_test_template_list",
+        "part_test_template_create"
+      ]
+    },
+    {
+      "enum": "part_thumbs_list",
+      "template": "part/thumbs/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "part_thumbs_list"
+      ]
+    },
+    {
+      "enum": "plugin_activate",
+      "template": "plugins/:key/activate/",
+      "methods": [
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "plugins_activate_partial_update",
+        "plugins_activate_update"
+      ]
+    },
+    {
+      "enum": "plugin_admin",
+      "template": "plugins/:key/admin/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_admin_retrieve"
+      ]
+    },
+    {
+      "enum": "plugin_install",
+      "template": "plugins/install/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "plugins_install_create"
+      ]
+    },
+    {
+      "enum": "plugin_list",
+      "template": "plugins/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_list"
+      ]
+    },
+    {
+      "enum": "plugin_locate_item",
+      "template": "locate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "locate_create"
+      ]
+    },
+    {
+      "enum": "plugin_registry_status",
+      "template": "plugins/status/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_status_retrieve"
+      ]
+    },
+    {
+      "enum": "plugin_reload",
+      "template": "plugins/reload/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "plugins_reload_create"
+      ]
+    },
+    {
+      "enum": "plugin_setting_list",
+      "template": "plugins/:plugin/settings/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_settings_list"
+      ]
+    },
+    {
+      "enum": "plugin_supplier_import",
+      "template": "supplier/import/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "supplier_import_create"
+      ]
+    },
+    {
+      "enum": "plugin_supplier_list",
+      "template": "supplier/list/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "supplier_list_list"
+      ]
+    },
+    {
+      "enum": "plugin_supplier_search",
+      "template": "supplier/search/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "supplier_search_list"
+      ]
+    },
+    {
+      "enum": "plugin_ui_features_list",
+      "template": "plugins/ui/features/:feature_type/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_ui_features_list"
+      ]
+    },
+    {
+      "enum": "plugin_uninstall",
+      "template": "plugins/:key/uninstall/",
+      "methods": [
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "plugins_uninstall_partial_update",
+        "plugins_uninstall_update"
+      ]
+    },
+    {
+      "enum": "plugin_user_setting_list",
+      "template": "plugins/:plugin/user-settings/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "plugins_user_settings_list"
+      ]
+    },
+    {
+      "enum": "project_code_list",
+      "template": "project-code/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "project_code_list",
+        "project_code_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_cancel",
+      "template": "order/po/:id/cancel/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_cancel_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_complete",
+      "template": "order/po/:id/complete/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_complete_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_extra_line_list",
+      "template": "order/po-extra-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_extra_line_bulk_destroy",
+        "order_po_extra_line_list",
+        "order_po_extra_line_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_hold",
+      "template": "order/po/:id/hold/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_hold_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_issue",
+      "template": "order/po/:id/issue/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_issue_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_line_list",
+      "template": "order/po-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_line_bulk_destroy",
+        "order_po_line_list",
+        "order_po_line_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_list",
+      "template": "order/po/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_list",
+        "order_po_create"
+      ]
+    },
+    {
+      "enum": "purchase_order_receive",
+      "template": "order/po/:id/receive/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_po_receive_create"
+      ]
+    },
+    {
+      "enum": "related_part_list",
+      "template": "part/related/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "part_related_list",
+        "part_related_create"
+      ]
+    },
+    {
+      "enum": "report_asset",
+      "template": "report/asset/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "report_asset_list",
+        "report_asset_create"
+      ]
+    },
+    {
+      "enum": "report_list",
+      "template": "report/template/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "report_template_list",
+        "report_template_create"
+      ]
+    },
+    {
+      "enum": "report_print",
+      "template": "report/print/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "report_print_create"
+      ]
+    },
+    {
+      "enum": "report_snippet",
+      "template": "report/snippet/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "report_snippet_list",
+        "report_snippet_create"
+      ]
+    },
+    {
+      "enum": "return_order_cancel",
+      "template": "order/ro/:id/cancel/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_cancel_create"
+      ]
+    },
+    {
+      "enum": "return_order_complete",
+      "template": "order/ro/:id/complete/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_complete_create"
+      ]
+    },
+    {
+      "enum": "return_order_extra_line_list",
+      "template": "order/ro-extra-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_extra_line_bulk_destroy",
+        "order_ro_extra_line_list",
+        "order_ro_extra_line_create"
+      ]
+    },
+    {
+      "enum": "return_order_hold",
+      "template": "order/ro/:id/hold/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_hold_create"
+      ]
+    },
+    {
+      "enum": "return_order_issue",
+      "template": "order/ro/:id/issue/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_issue_create"
+      ]
+    },
+    {
+      "enum": "return_order_line_list",
+      "template": "order/ro-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "order_ro_line_bulk_destroy",
+        "order_ro_line_list",
+        "order_ro_line_bulk_partial_update",
+        "order_ro_line_create",
+        "order_ro_line_bulk_update"
+      ]
+    },
+    {
+      "enum": "return_order_list",
+      "template": "order/ro/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_list",
+        "order_ro_create"
+      ]
+    },
+    {
+      "enum": "return_order_receive",
+      "template": "order/ro/:id/receive/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_ro_receive_create"
+      ]
+    },
+    {
+      "enum": "ruleset_list",
+      "template": "user/ruleset/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "user_ruleset_list"
+      ]
+    },
+    {
+      "enum": "sales_order_allocate",
+      "template": "order/so/:id/allocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_allocate_create"
+      ]
+    },
+    {
+      "enum": "sales_order_allocate_serials",
+      "template": "order/so/:id/allocate-serials/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_allocate_serials_create"
+      ]
+    },
+    {
+      "enum": "sales_order_allocation_list",
+      "template": "order/so-allocation/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "order_so_allocation_bulk_destroy",
+        "order_so_allocation_list",
+        "order_so_allocation_bulk_partial_update",
+        "order_so_allocation_bulk_update"
+      ]
+    },
+    {
+      "enum": "sales_order_auto_allocate",
+      "template": "order/so/:id/auto-allocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_auto_allocate_create"
+      ]
+    },
+    {
+      "enum": "sales_order_cancel",
+      "template": "order/so/:id/cancel/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_cancel_create"
+      ]
+    },
+    {
+      "enum": "sales_order_complete",
+      "template": "order/so/:id/complete/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_complete_create"
+      ]
+    },
+    {
+      "enum": "sales_order_extra_line_list",
+      "template": "order/so-extra-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_extra_line_bulk_destroy",
+        "order_so_extra_line_list",
+        "order_so_extra_line_create"
+      ]
+    },
+    {
+      "enum": "sales_order_hold",
+      "template": "order/so/:id/hold/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_hold_create"
+      ]
+    },
+    {
+      "enum": "sales_order_issue",
+      "template": "order/so/:id/issue/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_issue_create"
+      ]
+    },
+    {
+      "enum": "sales_order_line_list",
+      "template": "order/so-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_line_bulk_destroy",
+        "order_so_line_list",
+        "order_so_line_create"
+      ]
+    },
+    {
+      "enum": "sales_order_list",
+      "template": "order/so/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_list",
+        "order_so_create"
+      ]
+    },
+    {
+      "enum": "sales_order_shipment_complete",
+      "template": "order/so/shipment/:id/ship/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_shipment_ship_create"
+      ]
+    },
+    {
+      "enum": "sales_order_shipment_list",
+      "template": "order/so/shipment/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_so_shipment_list",
+        "order_so_shipment_create"
+      ]
+    },
+    {
+      "enum": "scim_config",
+      "template": "admin/scim/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "admin_scim_list"
+      ]
+    },
+    {
+      "enum": "scim_disable",
+      "template": "admin/scim/disable/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_scim_disable_create"
+      ]
+    },
+    {
+      "enum": "scim_generate",
+      "template": "admin/scim/generate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_scim_generate_create"
+      ]
+    },
+    {
+      "enum": "selectionentry_list",
+      "template": "selection/:id/entry/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "selection_entry_list",
+        "selection_entry_create"
+      ]
+    },
+    {
+      "enum": "selectionlist_list",
+      "template": "selection/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "selection_list",
+        "selection_create"
+      ]
+    },
+    {
+      "enum": "settings_global_list",
+      "template": "settings/global/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "settings_global_list"
+      ]
+    },
+    {
+      "enum": "settings_user_list",
+      "template": "settings/user/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "settings_user_list"
+      ]
+    },
+    {
+      "enum": "sso_list",
+      "template": "admin/sso/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "admin_sso_list",
+        "admin_sso_create"
+      ]
+    },
+    {
+      "enum": "stock_add",
+      "template": "stock/add/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_add_create"
+      ]
+    },
+    {
+      "enum": "stock_assign",
+      "template": "stock/assign/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_assign_create"
+      ]
+    },
+    {
+      "enum": "stock_change_status",
+      "template": "stock/change_status/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_change_status_create"
+      ]
+    },
+    {
+      "enum": "stock_convert",
+      "template": "stock/:id/convert/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_convert_create"
+      ]
+    },
+    {
+      "enum": "stock_count",
+      "template": "stock/count/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_count_create"
+      ]
+    },
+    {
+      "enum": "stock_disassemble",
+      "template": "stock/:id/disassemble/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_disassemble_create"
+      ]
+    },
+    {
+      "enum": "stock_install",
+      "template": "stock/:id/install/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_install_create"
+      ]
+    },
+    {
+      "enum": "stock_item_list",
+      "template": "stock/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "stock_bulk_destroy",
+        "stock_list",
+        "stock_bulk_partial_update",
+        "stock_create",
+        "stock_bulk_update"
+      ]
+    },
+    {
+      "enum": "stock_location_list",
+      "template": "stock/location/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "POST",
+        "PUT"
+      ],
+      "operation_ids": [
+        "stock_location_list",
+        "stock_location_bulk_partial_update",
+        "stock_location_create",
+        "stock_location_bulk_update"
+      ]
+    },
+    {
+      "enum": "stock_location_tree",
+      "template": "stock/location/tree/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "stock_location_tree_list"
+      ]
+    },
+    {
+      "enum": "stock_location_type_list",
+      "template": "stock/location-type/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_location_type_list",
+        "stock_location_type_create"
+      ]
+    },
+    {
+      "enum": "stock_merge",
+      "template": "stock/merge/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_merge_create"
+      ]
+    },
+    {
+      "enum": "stock_remove",
+      "template": "stock/remove/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_remove_create"
+      ]
+    },
+    {
+      "enum": "stock_return",
+      "template": "stock/return/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_return_create"
+      ]
+    },
+    {
+      "enum": "stock_serial_info",
+      "template": "stock/:id/serial-numbers/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "stock_serial_numbers_retrieve"
+      ]
+    },
+    {
+      "enum": "stock_serialize",
+      "template": "stock/:id/serialize/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_serialize_create"
+      ]
+    },
+    {
+      "enum": "stock_status",
+      "template": "stock/status/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "stock_status_retrieve"
+      ]
+    },
+    {
+      "enum": "stock_test_result_list",
+      "template": "stock/test/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_test_bulk_destroy",
+        "stock_test_list",
+        "stock_test_create"
+      ]
+    },
+    {
+      "enum": "stock_transfer",
+      "template": "stock/transfer/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_transfer_create"
+      ]
+    },
+    {
+      "enum": "stock_uninstall",
+      "template": "stock/:id/uninstall/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "stock_uninstall_create"
+      ]
+    },
+    {
+      "enum": "supplier_part_list",
+      "template": "company/part/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_part_bulk_destroy",
+        "company_part_list",
+        "company_part_create"
+      ]
+    },
+    {
+      "enum": "supplier_part_pricing_list",
+      "template": "company/price-break/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "company_price_break_list",
+        "company_price_break_create"
+      ]
+    },
+    {
+      "enum": "system_internal_trace_end",
+      "template": "system-internal/observability/end",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "system_internal_observability_end_create"
+      ]
+    },
+    {
+      "enum": "tag_list",
+      "template": "tag/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "tag_list",
+        "tag_create"
+      ]
+    },
+    {
+      "enum": "task_failed_list",
+      "template": "background-task/failed/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "background_task_failed_bulk_destroy",
+        "background_task_failed_list"
+      ]
+    },
+    {
+      "enum": "task_overview",
+      "template": "background-task/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "background_task_overview"
+      ]
+    },
+    {
+      "enum": "task_pending_list",
+      "template": "background-task/pending/",
+      "methods": [
+        "DELETE",
+        "GET"
+      ],
+      "operation_ids": [
+        "background_task_pending_bulk_destroy",
+        "background_task_pending_list"
+      ]
+    },
+    {
+      "enum": "task_scheduled_list",
+      "template": "background-task/scheduled/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "background_task_scheduled_list"
+      ]
+    },
+    {
+      "enum": "transfer_order_allocate",
+      "template": "order/transfer-order/:id/allocate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_allocate_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_allocate_serials",
+      "template": "order/transfer-order/:id/allocate-serials/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_allocate_serials_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_allocation_list",
+      "template": "order/transfer-order-allocation/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "order_transfer_order_allocation_list",
+        "order_transfer_order_allocation_bulk_partial_update",
+        "order_transfer_order_allocation_bulk_update"
+      ]
+    },
+    {
+      "enum": "transfer_order_cancel",
+      "template": "order/transfer-order/:id/cancel/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_cancel_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_complete",
+      "template": "order/transfer-order/:id/complete/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_complete_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_hold",
+      "template": "order/transfer-order/:id/hold/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_hold_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_issue",
+      "template": "order/transfer-order/:id/issue/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_issue_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_line_list",
+      "template": "order/transfer-order-line/",
+      "methods": [
+        "DELETE",
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_line_bulk_destroy",
+        "order_transfer_order_line_list",
+        "order_transfer_order_line_create"
+      ]
+    },
+    {
+      "enum": "transfer_order_list",
+      "template": "order/transfer-order/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "order_transfer_order_list",
+        "order_transfer_order_create"
+      ]
+    },
+    {
+      "enum": "user_list",
+      "template": "user/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "user_list",
+        "user_create"
+      ]
+    },
+    {
+      "enum": "user_me",
+      "template": "user/me/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "user_me_retrieve",
+        "user_me_partial_update",
+        "user_me_update"
+      ]
+    },
+    {
+      "enum": "user_me_profile",
+      "template": "user/me/profile/",
+      "methods": [
+        "GET",
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "user_me_profile_retrieve",
+        "user_me_profile_partial_update",
+        "user_me_profile_update"
+      ]
+    },
+    {
+      "enum": "user_me_roles",
+      "template": "user/me/roles/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "user_me_roles_retrieve"
+      ]
+    },
+    {
+      "enum": "user_me_token",
+      "template": "user/me/token/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "user_me_token_retrieve"
+      ]
+    },
+    {
+      "enum": "user_set_password",
+      "template": "user/:id/set-password/",
+      "methods": [
+        "PATCH",
+        "PUT"
+      ],
+      "operation_ids": [
+        "user_set_password_partial_update",
+        "user_set_password_update"
+      ]
+    },
+    {
+      "enum": "user_simple_login",
+      "template": "email/generate/",
+      "methods": [
+        "POST"
+      ],
+      "operation_ids": [
+        "email_generate_create"
+      ]
+    },
+    {
+      "enum": "user_tokens",
+      "template": "user/tokens/",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "operation_ids": [
+        "user_tokens_list",
+        "user_tokens_create"
+      ]
+    },
+    {
+      "enum": "version",
+      "template": "version/",
+      "methods": [
+        "GET"
+      ],
+      "operation_ids": [
+        "version_retrieve"
+      ]
+    }
+  ],
+  "unmatched_consumer": [
+    {
+      "enum": "auth_authenticators",
+      "template": "auth/v1/account/authenticators",
+      "normalized": "/auth/v1/account/authenticators"
+    },
+    {
+      "enum": "auth_base",
+      "template": "/auth/",
+      "normalized": "/auth"
+    },
+    {
+      "enum": "auth_config",
+      "template": "auth/v1/config",
+      "normalized": "/auth/v1/config"
+    },
+    {
+      "enum": "auth_email",
+      "template": "auth/v1/account/email",
+      "normalized": "/auth/v1/account/email"
+    },
+    {
+      "enum": "auth_email_verify",
+      "template": "auth/v1/auth/email/verify",
+      "normalized": "/auth/v1/auth/email/verify"
+    },
+    {
+      "enum": "auth_login",
+      "template": "auth/v1/auth/login",
+      "normalized": "/auth/v1/auth/login"
+    },
+    {
+      "enum": "auth_login_2fa",
+      "template": "auth/v1/auth/2fa/authenticate",
+      "normalized": "/auth/v1/auth/2fa/authenticate"
+    },
+    {
+      "enum": "auth_mfa_reauthenticate",
+      "template": "auth/v1/auth/2fa/reauthenticate",
+      "normalized": "/auth/v1/auth/2fa/reauthenticate"
+    },
+    {
+      "enum": "auth_provider_redirect",
+      "template": "auth/v1/auth/provider/redirect",
+      "normalized": "/auth/v1/auth/provider/redirect"
+    },
+    {
+      "enum": "auth_provider_signup",
+      "template": "auth/v1/auth/provider/signup",
+      "normalized": "/auth/v1/auth/provider/signup"
+    },
+    {
+      "enum": "auth_providers",
+      "template": "auth/v1/account/providers",
+      "normalized": "/auth/v1/account/providers"
+    },
+    {
+      "enum": "auth_pwd_change",
+      "template": "auth/v1/account/password/change",
+      "normalized": "/auth/v1/account/password/change"
+    },
+    {
+      "enum": "auth_reauthenticate",
+      "template": "auth/v1/auth/reauthenticate",
+      "normalized": "/auth/v1/auth/reauthenticate"
+    },
+    {
+      "enum": "auth_recovery",
+      "template": "auth/v1/account/authenticators/recovery-codes",
+      "normalized": "/auth/v1/account/authenticators/recovery-codes"
+    },
+    {
+      "enum": "auth_session",
+      "template": "auth/v1/auth/session",
+      "normalized": "/auth/v1/auth/session"
+    },
+    {
+      "enum": "auth_signup",
+      "template": "auth/v1/auth/signup",
+      "normalized": "/auth/v1/auth/signup"
+    },
+    {
+      "enum": "auth_totp",
+      "template": "auth/v1/account/authenticators/totp",
+      "normalized": "/auth/v1/account/authenticators/totp"
+    },
+    {
+      "enum": "auth_trust",
+      "template": "auth/v1/auth/2fa/trust",
+      "normalized": "/auth/v1/auth/2fa/trust"
+    },
+    {
+      "enum": "auth_webauthn",
+      "template": "auth/v1/account/authenticators/webauthn",
+      "normalized": "/auth/v1/account/authenticators/webauthn"
+    },
+    {
+      "enum": "auth_webauthn_login",
+      "template": "auth/v1/auth/webauthn/authenticate",
+      "normalized": "/auth/v1/auth/webauthn/authenticate"
+    },
+    {
+      "enum": "machine_setting_detail",
+      "template": "machine/:machine/settings/:config_type/",
+      "normalized": "/machine/{}/settings/{}"
+    },
+    {
+      "enum": "part_scheduling",
+      "template": "part/:id/scheduling/",
+      "normalized": "/part/{}/scheduling"
+    },
+    {
+      "enum": "sales_order_ship",
+      "template": "order/so/:id/ship/",
+      "normalized": "/order/so/{}/ship"
+    },
+    {
+      "enum": "user_me_tips",
+      "template": "user/me/tips/",
+      "normalized": "/user/me/tips"
+    },
+    {
+      "enum": "user_reset",
+      "template": "auth/v1/auth/password/request",
+      "normalized": "/auth/v1/auth/password/request"
+    },
+    {
+      "enum": "user_reset_set",
+      "template": "auth/v1/auth/password/reset",
+      "normalized": "/auth/v1/auth/password/reset"
+    }
+  ],
+  "backend_unclaimed_sample": [
+    {
+      "path": "/api/action/",
+      "method": "POST",
+      "tags": [
+        "action"
+      ]
+    },
+    {
+      "path": "/api/admin/config/{key}/",
+      "method": "GET",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/email/{global_id}/",
+      "method": "DELETE",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/email/{global_id}/",
+      "method": "GET",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "method": "GET",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/oauth2/{id}/",
+      "method": "PUT",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "method": "GET",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/admin/sso/{id}/",
+      "method": "PUT",
+      "tags": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "attachment"
+      ]
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "method": "GET",
+      "tags": [
+        "attachment"
+      ]
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "attachment"
+      ]
+    },
+    {
+      "path": "/api/attachment/{id}/",
+      "method": "PUT",
+      "tags": [
+        "attachment"
+      ]
+    },
+    {
+      "path": "/api/audit/{id}/",
+      "method": "GET",
+      "tags": [
+        "audit"
+      ]
+    },
+    {
+      "path": "/api/background-task/{task_id}/",
+      "method": "GET",
+      "tags": [
+        "background-task"
+      ]
+    },
+    {
+      "path": "/api/barcode/history/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "barcode"
+      ]
+    },
+    {
+      "path": "/api/barcode/history/{id}/",
+      "method": "GET",
+      "tags": [
+        "barcode"
+      ]
+    },
+    {
+      "path": "/api/barcode/po-allocate/",
+      "method": "POST",
+      "tags": [
+        "barcode"
+      ]
+    },
+    {
+      "path": "/api/barcode/po-receive/",
+      "method": "POST",
+      "tags": [
+        "barcode"
+      ]
+    },
+    {
+      "path": "/api/barcode/so-allocate/",
+      "method": "POST",
+      "tags": [
+        "barcode"
+      ]
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "method": "GET",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/substitute/{id}/",
+      "method": "PUT",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "method": "GET",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/bom/{id}/",
+      "method": "PUT",
+      "tags": [
+        "bom"
+      ]
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "method": "GET",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/item/{id}/",
+      "method": "PUT",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "method": "DELETE",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "method": "GET",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "method": "PATCH",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/line/{id}/",
+      "method": "PUT",
+      "tags": [
+        "build"
+      ]
+    },
+    {
+      "path": "/api/build/status/",
+      "method": "GET",
+      "tags": [
+        "build"
+      ]
+    }
+  ]
+}

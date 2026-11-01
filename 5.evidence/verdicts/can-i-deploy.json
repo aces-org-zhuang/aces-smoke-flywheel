@@ -1,6 +1,6 @@
 {
   "gate": "can-i-deploy",
-  "decided_at": "2026-10-31T11:02:49.369559+00:00",
+  "decided_at": "2026-11-01T02:01:45.625897+00:00",
   "candidate": "l1-run-01",
   "sut_commit": "d96174cddbc2566fea53b3fe39b5d4aa5d30fbf1",
   "policy": {
@@ -11,6 +11,12 @@
     "debt_is_reported_not_blocking": true
   },
   "checks": [
+    {
+      "gate": "verify-ssot",
+      "state": "PASS",
+      "detail": "7/7 项通过（SSOT 是否为候选 commit 的投影）",
+      "evidence": "5.evidence/verdicts/verify-ssot.json"
+    },
     {
       "gate": "lint-boundary",
       "state": "PASS",

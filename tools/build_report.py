@@ -154,6 +154,9 @@ def main() -> int:
     l1 = jload(ev / "runs" / args.l1_run / "run.json")
     l3 = jload(ev / "runs/l3-golden/run.json")
     base_run = jload(ev / "runs/baseline/run.json")
+    evo = jload(ROOT / "0.ssot/history/evolution.json") or {}
+    vs = jload(ev / "verdicts/verify-ssot.json") or {}
+    evo_states = {s["id"]: s.get("metrics", {}) for s in evo.get("states", [])}
 
     base_junit = ev / "runs/baseline/junit"
     base_xml_count = len(list(base_junit.glob("*.xml"))) if base_junit.exists() else 0
@@ -341,7 +344,7 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 {''.join(f'<tr><td><code>{c["sha"]}</code></td><td>{c["date"]}</td><td>{esc(c["subject"])}</td></tr>' for c in commits)}
 </table>
 
-<h2>3. 一次完整转动：七步，每一步都留证据</h2>
+<h2>3. 一次完整转动：八步，每一步都留证据</h2>
 <p>飞轮的每一步都必须产出可复算的 JSON，缺证据就判 <code>UNKNOWN</code>，不允许“跑过了”这类口头结论。</p>
 
 {step(1, "L0 · 把事实从源码抽出来",
@@ -350,41 +353,47 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
       f'<code>0.ssot/openapi.yaml</code>（{ssv.get("counts", {}).get("endpoints", "?")} 个操作）；'
       f'消费方期望来自前端 <code>lib/enums/ApiEndpoints.tsx</code> 的枚举声明。两边归一化后求交。</p>')}
 
-{step(2, "lint-boundary · 边界契约自检",
+{step(2, "verify-ssot · 事实源是不是这个提交的投影",
+      f'<p><code>python 4.gates/verify-ssot/verify.py --sut-root &lt;inventree 克隆&gt;</code> → '
+      f'{len(vs.get("checks", []))} 条判据 / 未过 {len(vs.get("failed") or [])} → {pill(vs.get("verdict", "UNKNOWN"))}</p>'
+      f'<p class="small">比对 <code>SSOT commit == 被测仓 HEAD == target.yaml 声明</code>，重算 openapi 的 sha256，'
+      f'再用规范重新投影一遍端点集与 <code>endpoints.json</code> 对齐。缺这一道，后面所有结论都可能建立在过期事实源上。</p>')}
+
+{step(3, "lint-boundary · 边界契约自检",
       f'<p><code>python 4.gates/lint-boundary/lint.py</code> → '
       f'检查 {lint.get("checked_boundaries", "?")} 份契约 / 索引 {lint.get("indexed_tests", "?")} 个上游用例 ID / '
       f'违规 {len(lint.get("violations") or [])} → {pill(lint.get("result", "UNKNOWN"))}</p>'
       f'<p class="small">四类规则：schema 完整性、依赖必须显式声明且路径存在、用例 ID 必须在被测仓真实存在、禁令与时限。'
       f'第三条是关键——上游一改名，这里会直接红，而不是让用例静默消失。</p>')}
 
-{step(3, "L1 · 9 条不变量指向 16 个成品用例",
+{step(4, "L1 · 9 条不变量指向 16 个成品用例",
       f'<p>实跑：<strong>{fmt(l1.get("collected") if l1 else None)} 个 test case，通过 {fmt(l1.get("passed") if l1 else None)}，'
       f'失败 {fmt(l1.get("failed") if l1 else None)}，失效 ID {len(l1.get("missing_test_ids") or []) if l1 else "未产出"}，'
       f'耗时 {fmt(l1.get("duration_s") if l1 else None, "s")}</strong> '
       f'{pill("PASS" if (l1 or {}).get("failed") == 0 else "FAIL")}</p>'
       f'<p class="small">不新写玩具用例。每条不变量直接指向 InvenTree 里已存在、已被上游 CI 长期运行的用例。</p>')}
 
-{step(4, "L3 · 一条不可失败的业务主线",
+{step(5, "L3 · 一条不可失败的业务主线",
       f'<p>起真实 <code>runserver</code>，用 API Token 走完 {len((l3 or {}).get("steps", []))} 个 HTTP 步骤，'
       f'{len((l3 or {}).get("checks", []))} 条断言：{pill((l3 or {}).get("result", "UNKNOWN"))}</p>'
       f'<p class="small">建库位 → 建零件 → 供应商物料 → 采购订单 → 收货入库 → BOM(1:2) → 工单(5 台) → 分配库存 → 产出 → 结单。'
       f'断言口径是 response + 库存账实，不是“返回 200 就算过”。</p>')}
 
-{step(5, "全量基线 + 建账",
+{step(6, "全量基线 + 建账",
       f'<p>口径按你的选择：全量 + 注入缺陷。{fmt(base_run.get("collected") if base_run else None)} 个用例 / '
       f'{base_xml_count} 个 JUnit XML / 失败 {fmt(base_run.get("failed") if base_run else None)}。</p>'
       f'<p>这 179 条失败连同定责结论与到期日写入债务台账 <code>5.evidence/verdicts/baseline-debt.json</code>'
       f'（{debt.get("count", "未产出")} 条）。<strong>台账的作用不是让红灯变绿，而是让债务可见且不得静默消失。</strong></p>')}
 
-{step(6, "mutation-diff · 用例到底抓不抓得住",
+{step(7, "mutation-diff · 用例到底抓不抓得住",
       f'<p>三个真实缺陷，各自绑定“应该杀死它”的用例：'
       f'<strong>{fmt(mut.get("killed"))}/{fmt(mut.get("valid"))} 被杀灭，杀灭率 {fmt(mut.get("kill_rate"))}</strong>，'
       f'工作区还原：{"是" if mut.get("worktree_restored") else "否"}。</p>')}
 
-{step(7, "can-i-deploy · 只看证据的闸门",
+{step(8, "can-i-deploy · 只看证据的闸门",
       f'<p>最终判决：{pill((cid or {}).get("decision", "UNKNOWN"))}'
       f'{"　阻断项：" + "、".join(cid.get("blockers", [])) if (cid or {}).get("blockers") else ""}</p>'
-      f'<p class="small">五道检查：边界契约、L1、失败定责（增量口径）、变异、契约矩阵。'
+      f'<p class="small">六道检查：SSOT 冻结（commit/sha 绑定）、边界契约、L1、失败定责（增量口径）、变异、契约矩阵。'
       f'另附存量债务披露（不阻断，但每条带 owner 与到期日）。</p>')}
 
 <h2>4. L0：事实与漂移</h2>
@@ -407,6 +416,31 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 </table>
 <p class="small">依赖图：{dep.get('node_count', '?')} 个后端 app、{dep.get('edge_count', '?')} 条 import 边，写入
 <code>0.ssot/dependency_graph.json</code>，作为“受影响面反查”的输入（触发源是端点/契约/依赖边，不是 .vue 文件）。</p>
+
+<h3>4.1 这份 SSOT 是怎么来的：三个状态，前后都能对照</h3>
+<p>上面的数字不是一次写成的。它先失败过一次（导出 0 字节事实源），又错过一次（前后端没落到同一坐标系，
+命中率 0/216），修正后才成为现在这份。每个状态的全景与逐条差异在
+<a href="ssot-evolution.html">0.ssot 演进全景</a>里，这里只放关键差值：</p>
+<table>
+<tr><th>状态</th><th>后端操作</th><th>前端声明</th><th>命中</th><th>前端未命中</th><th>后端未被引用</th></tr>
+<tr><td>G0 导出失败</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+<tr><td>G1 轴错位</td><td>{evo_states.get('G1-naive-axis', {}).get('endpoints', '?')}</td>
+    <td>{evo_states.get('G1-naive-axis', {}).get('consumers', '?')}</td>
+    <td><strong>{evo_states.get('G1-naive-axis', {}).get('matched', '?')}</strong></td>
+    <td>{evo_states.get('G1-naive-axis', {}).get('unmatched_consumer', '?')}</td>
+    <td>{evo_states.get('G1-naive-axis', {}).get('backend_unclaimed', '?')}</td></tr>
+<tr><td>G2 轴对齐（现行）</td><td>{evo_states.get('G2-aligned-axis', {}).get('endpoints', '?')}</td>
+    <td>{evo_states.get('G2-aligned-axis', {}).get('consumers', '?')}</td>
+    <td><strong>{evo_states.get('G2-aligned-axis', {}).get('matched', '?')}</strong></td>
+    <td>{evo_states.get('G2-aligned-axis', {}).get('unmatched_consumer', '?')}</td>
+    <td>{evo_states.get('G2-aligned-axis', {}).get('backend_unclaimed', '?')}</td></tr>
+</table>
+<p class="small">G1→G2 只改了归一化函数的一段，端点数与声明数一个没变——<strong>事实没变，变的是坐标</strong>。
+这也是最容易误判的一类修改：轴错位时命中 0，看上去像"这个仓前后端对不上"的业务结论。</p>
+<p class="small">SSOT 冻结后新增 <code>4.gates/verify-ssot</code> 做绑定校验：七个判据
+{pill(vs.get('verdict', 'UNKNOWN')) if vs else '未产出'}，其中 V3a 比对
+<code>SSOT commit == 被测仓 HEAD == target.yaml 声明</code>。用"树不变、只追加一个空提交"制造漂移后，
+can-i-deploy 由 ALLOW 翻成 BLOCK——证明这条校验真的在跑，而不是只打印了个 sha。</p>
 
 <h2>5. L1 与 L3 的实跑数字</h2>
 <div class="grid g2">

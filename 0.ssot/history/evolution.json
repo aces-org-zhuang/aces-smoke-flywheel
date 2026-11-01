@@ -1,0 +1,415 @@
+{
+  "frozen_input": {
+    "openapi": "0.ssot/openapi.yaml",
+    "openapi_bytes": 1106494,
+    "sut": "D:\\wbeval\\repos\\inventree"
+  },
+  "states": [
+    {
+      "id": "G0-export-failed",
+      "kind": "probe+external-log",
+      "metrics": {
+        "endpoints": 0,
+        "consumers": 0,
+        "matched": 0,
+        "unmatched_consumer": 0,
+        "backend_unclaimed": 0,
+        "apps": 0,
+        "edges": 0
+      },
+      "observed": {
+        "probe": "empty-openapi",
+        "guard_triggered": true,
+        "message": "D:\\npm\\tmp\\ssot-empty-zbfldbxg\\openapi.yaml 是 0 字节：spectacular 导出失败（典型原因 INVE-W8 未迁移）。拒绝基于空规范生成 SSOT。",
+        "files_written": []
+      },
+      "external_evidence": {
+        "file": "spec.log（被测仓导出日志，2026-10-31T09:44:51Z）",
+        "line": "INVE-W8: Database Migrations required",
+        "exit_code": 0,
+        "bytes_written": 0
+      }
+    },
+    {
+      "id": "G1-naive-axis",
+      "kind": "replay",
+      "definition": "normalize_path 不剥离后端 /api 前缀；前端模板相对 /api，两端不在同一坐标系",
+      "metrics": {
+        "endpoints": 617,
+        "consumers": 216,
+        "matched": 0,
+        "unmatched_consumer": 216,
+        "backend_unclaimed": 617,
+        "apps": 15,
+        "edges": 129,
+        "openapi_sha256": "46c2752002ae403adf45999822986098819e5dc2824a02ada8321a4972a41eec",
+        "files": {
+          "consumers.json": 29047,
+          "contract_matrix.json": 34385,
+          "dependency_graph.json": 8369,
+          "endpoints.json": 168691,
+          "replay.json": 250,
+          "schema_version.json": 372
+        }
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout_tail": [
+          "}",
+          "",
+          "L0 合同矩阵: 后端 617 个操作 / 前端 216 条声明 / 命中 0 / 前端未命中 216 / 后端未被引用 617"
+        ]
+      }
+    },
+    {
+      "id": "G2-aligned-axis",
+      "kind": "replay",
+      "definition": "normalize_path 对后端剥离 /api 前缀（consumer 侧不动），两端落到同一坐标系",
+      "metrics": {
+        "endpoints": 617,
+        "consumers": 216,
+        "matched": 190,
+        "unmatched_consumer": 26,
+        "backend_unclaimed": 313,
+        "apps": 15,
+        "edges": 129,
+        "openapi_sha256": "46c2752002ae403adf45999822986098819e5dc2824a02ada8321a4972a41eec",
+        "files": {
+          "consumers.json": 29047,
+          "contract_matrix.json": 54369,
+          "dependency_graph.json": 8369,
+          "endpoints.json": 166224,
+          "replay.json": 253,
+          "schema_version.json": 372
+        }
+      },
+      "run": {
+        "exit_code": 0,
+        "stdout_tail": [
+          "}",
+          "",
+          "L0 合同矩阵: 后端 617 个操作 / 前端 216 条声明 / 命中 190 / 前端未命中 26 / 后端未被引用 313"
+        ]
+      }
+    }
+  ],
+  "delta": {
+    "matched": 190,
+    "unmatched_consumer": -190,
+    "backend_unclaimed": -304,
+    "endpoints_unchanged": true,
+    "consumers_unchanged": true,
+    "flipped_declarations": 190,
+    "flip_sample": [
+      {
+        "enum": "address_list",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "admin_oauth",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "admin_oauth_regenerate",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "all_units",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "api_search",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "api_server_info",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "attachment_list",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "audit_log_list",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "barcode",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "barcode_generate",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "barcode_history",
+        "G1": "unmatched",
+        "G2": "matched"
+      },
+      {
+        "enum": "barcode_link",
+        "G1": "unmatched",
+        "G2": "matched"
+      }
+    ]
+  },
+  "unmatched_classification": {
+    "total": 26,
+    "outside_boundary": 22,
+    "stale": 4,
+    "stale_items": [
+      {
+        "enum": "machine_setting_detail",
+        "template": "machine/:machine/settings/:config_type/",
+        "normalized": "/machine/{}/settings/{}",
+        "verdict": "stale-consumer",
+        "frontend_references": 1,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "part_scheduling",
+        "template": "part/:id/scheduling/",
+        "normalized": "/part/{}/scheduling",
+        "verdict": "stale-consumer",
+        "frontend_references": 0,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "sales_order_ship",
+        "template": "order/so/:id/ship/",
+        "normalized": "/order/so/{}/ship",
+        "verdict": "stale-consumer",
+        "frontend_references": 0,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "user_me_tips",
+        "template": "user/me/tips/",
+        "normalized": "/user/me/tips",
+        "verdict": "stale-consumer",
+        "frontend_references": 1,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      }
+    ],
+    "items": [
+      {
+        "enum": "auth_authenticators",
+        "template": "auth/v1/account/authenticators",
+        "normalized": "/auth/v1/account/authenticators",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_base",
+        "template": "/auth/",
+        "normalized": "/auth",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_config",
+        "template": "auth/v1/config",
+        "normalized": "/auth/v1/config",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 24,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_email",
+        "template": "auth/v1/account/email",
+        "normalized": "/auth/v1/account/email",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 2,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_email_verify",
+        "template": "auth/v1/auth/email/verify",
+        "normalized": "/auth/v1/auth/email/verify",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_login",
+        "template": "auth/v1/auth/login",
+        "normalized": "/auth/v1/auth/login",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_login_2fa",
+        "template": "auth/v1/auth/2fa/authenticate",
+        "normalized": "/auth/v1/auth/2fa/authenticate",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_mfa_reauthenticate",
+        "template": "auth/v1/auth/2fa/reauthenticate",
+        "normalized": "/auth/v1/auth/2fa/reauthenticate",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_provider_redirect",
+        "template": "auth/v1/auth/provider/redirect",
+        "normalized": "/auth/v1/auth/provider/redirect",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_provider_signup",
+        "template": "auth/v1/auth/provider/signup",
+        "normalized": "/auth/v1/auth/provider/signup",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 2,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_providers",
+        "template": "auth/v1/account/providers",
+        "normalized": "/auth/v1/account/providers",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 2,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_pwd_change",
+        "template": "auth/v1/account/password/change",
+        "normalized": "/auth/v1/account/password/change",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_reauthenticate",
+        "template": "auth/v1/auth/reauthenticate",
+        "normalized": "/auth/v1/auth/reauthenticate",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_recovery",
+        "template": "auth/v1/account/authenticators/recovery-codes",
+        "normalized": "/auth/v1/account/authenticators/recovery-codes",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_session",
+        "template": "auth/v1/auth/session",
+        "normalized": "/auth/v1/auth/session",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 4,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_signup",
+        "template": "auth/v1/auth/signup",
+        "normalized": "/auth/v1/auth/signup",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_totp",
+        "template": "auth/v1/account/authenticators/totp",
+        "normalized": "/auth/v1/account/authenticators/totp",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 5,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_trust",
+        "template": "auth/v1/auth/2fa/trust",
+        "normalized": "/auth/v1/auth/2fa/trust",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 2,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_webauthn",
+        "template": "auth/v1/account/authenticators/webauthn",
+        "normalized": "/auth/v1/account/authenticators/webauthn",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 3,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "auth_webauthn_login",
+        "template": "auth/v1/auth/webauthn/authenticate",
+        "normalized": "/auth/v1/auth/webauthn/authenticate",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 2,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "machine_setting_detail",
+        "template": "machine/:machine/settings/:config_type/",
+        "normalized": "/machine/{}/settings/{}",
+        "verdict": "stale-consumer",
+        "frontend_references": 1,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "part_scheduling",
+        "template": "part/:id/scheduling/",
+        "normalized": "/part/{}/scheduling",
+        "verdict": "stale-consumer",
+        "frontend_references": 0,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "sales_order_ship",
+        "template": "order/so/:id/ship/",
+        "normalized": "/order/so/{}/ship",
+        "verdict": "stale-consumer",
+        "frontend_references": 0,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "user_me_tips",
+        "template": "user/me/tips/",
+        "normalized": "/user/me/tips",
+        "verdict": "stale-consumer",
+        "frontend_references": 1,
+        "reason": "后端规范中无该路由，前端仍保留声明且仍有引用"
+      },
+      {
+        "enum": "user_reset",
+        "template": "auth/v1/auth/password/request",
+        "normalized": "/auth/v1/auth/password/request",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      },
+      {
+        "enum": "user_reset_set",
+        "template": "auth/v1/auth/password/reset",
+        "normalized": "/auth/v1/auth/password/reset",
+        "verdict": "outside-boundary:allauth",
+        "frontend_references": 1,
+        "reason": "allauth headless 路由由第三方包挂载，不在本仓 URLconf，属声明体外边界"
+      }
+    ]
+  }
+}

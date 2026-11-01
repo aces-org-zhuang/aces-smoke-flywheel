@@ -24,42 +24,47 @@
 ```
 0.ssot/          唯一事实源：openapi.yaml / endpoints.json / contract_matrix.json
                  / dependency_graph.json / schema_version.json（与 commit 绑定）
+                 history/ 演进快照：G1 轴错位 / G2 轴对齐，逐状态可重放对照
 1.spec/          人写的规格：invariants.yaml（9 条不变量）、boundaries/*.boundary.yaml
 2.tests/         可执行用例：L3 黄金路径（真实 HTTP），L1 直接复用上游成品用例
 3.env/           运行底座：target.yaml（被测对象 + 环境偏差声明）、virtual/、states/
-4.gates/         门禁即代码：lint-boundary / classify-failure / mutation-diff / can-i-deploy
+4.gates/         门禁即代码：verify-ssot / lint-boundary / classify-failure
+                 / mutation-diff / can-i-deploy
 5.evidence/      证据仓：runs/（每次运行的 junit+stdout）、verdicts/、ledger/
 docs/            方法对照（method.md）、域对照、变异等价性说明、报告页
 ```
 
-## 一次完整转动的七步
+## 一次完整转动的八步
 
 ```bash
 # 0) 生成 SSOT（必须与 commit 绑定）
 python tools/emit_ssot.py --repo <SUT> --out 0.ssot
 
-# 1) 边界契约 lint（四类违规直接拒绝）
+# 1) SSOT 冻结校验（七条判据；绑定不成立则后面全部作废）
+python 4.gates/verify-ssot/verify.py --sut-root <SUT>
+
+# 2) 边界契约 lint（四类违规直接拒绝）
 python 4.gates/lint-boundary/lint.py
 
-# 2) L1：跑 9 条不变量指向的上游用例
+# 3) L1：跑 9 条不变量指向的上游用例
 python tools/run_l1.py --run-id l1-run-01
 
-# 3) 基线全量 + 建账（存量债务台账，每条带 owner 与到期日）
+# 4) 基线全量 + 建账（存量债务台账，每条带 owner 与到期日）
 python 4.gates/classify-failure/classify.py \
        --run-dir 5.evidence/runs/baseline \
        --out 5.evidence/verdicts/classification-baseline.json \
        --write-ledger 5.evidence/verdicts/baseline-debt.json
 
-# 4) 候选定责（增量口径：只看新增失败）
+# 5) 候选定责（增量口径：只看新增失败）
 python 4.gates/classify-failure/classify.py \
        --run-dir 5.evidence/runs/l1-run-01 \
        --out 5.evidence/verdicts/classification.json \
        --debt-ledger 5.evidence/verdicts/baseline-debt.json
 
-# 5) 变异：注入真实缺陷，看用例能不能抓
+# 6) 变异：注入真实缺陷，看用例能不能抓
 python 4.gates/mutation-diff/run_mutation.py
 
-# 6) 部署闸门：只看证据，候选集必须显式指定
+# 7) 部署闸门：只看证据，候选集必须显式指定
 python 4.gates/can-i-deploy/can_i_deploy.py --candidate l1-run-01
 ```
 
@@ -88,8 +93,10 @@ python 4.gates/can-i-deploy/can_i_deploy.py --candidate l1-run-01
 
 ## 三条纪律（写进代码，不靠自觉）
 
-1. **SSOT 与 commit 绑定**：`0.ssot/schema_version.json` 里的 commit 与 SUT 当前 HEAD 不一致时，
-   gate 拒绝出结论——防止"用旧模型测新代码"。
+1. **SSOT 与 commit 绑定**：`4.gates/verify-ssot/verify.py` 会比对
+   `schema_version.commit == SUT HEAD == target.yaml 声明`，并重算 openapi 的 sha256、
+   用规范重新投影一遍端点集与 `endpoints.json` 对齐。任一不符即 BLOCK。
+   （这条以前只写在文档里、没有代码执行，属于"声明存在、执行缺失"，已补。）
 2. **AI 只提案，不定责**：失败先由 `classify-failure` 判据定责；
    只有"用例陈旧"才允许生成修复提案，且必须过 G1 断言不弱化 / G2 不删用例 / G3 杀死变异体。
 3. **证据只追加**：`5.evidence/` 不覆写。任何结论都必须能从原始 junit + 源码 commit 复算出来。
