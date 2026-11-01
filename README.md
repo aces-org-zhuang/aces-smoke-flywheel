@@ -31,7 +31,8 @@
 4.gates/         门禁即代码：verify-ssot / lint-boundary / classify-failure
                  / mutation-diff / can-i-deploy
 5.evidence/      证据仓：runs/（每次运行的 junit+stdout）、verdicts/、ledger/
-docs/            方法对照（method.md）、域对照、变异等价性说明、报告页
+docs/            方法对照（method.md）、域对照、变异等价性说明、
+                 报告页（report.html）、版本资产全景（ssot-atlas.html）、演进全景（ssot-evolution.html）
 ```
 
 ## 一次完整转动的八步

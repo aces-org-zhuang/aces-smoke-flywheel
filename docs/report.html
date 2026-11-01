@@ -119,7 +119,7 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 <p>所有资产都在 <a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">https://github.com/aces-org-zhuang/aces-smoke-flywheel</a>，下面直接取自 <code>git log</code>。</p>
 <table>
 <tr><th style="width:14%">提交</th><th style="width:14%">日期</th><th>说明</th></tr>
-<tr><td><code>247a416</code></td><td>2026-11-01</td><td>feat(ssot): 演进全景 + 冻结校验门（补上一个"声明有、执行无"的缺口）</td></tr><tr><td><code>77a5151</code></td><td>2026-10-31</td><td>docs(report): 钉住基线用例数口径（JUnit 2020 vs 终端汇总 2018），耗时标注为逐条相加</td></tr><tr><td><code>8e50a7a</code></td><td>2026-10-31</td><td>docs(report): 提交记录表刷新至 a57fe2b（报告页每次提交后由 build_report.py 重渲染）</td></tr><tr><td><code>a57fe2b</code></td><td>2026-10-31</td><td>evidence: 基线 2018 例 / 债务台账 179 条 / 变异 3-3 / 两次闸门判决 + 报告页与证据包</td></tr><tr><td><code>a2c09ad</code></td><td>2026-10-31</td><td>fix(gates): 归因判据修正 + 存量债务台账 + 闸门候选语义</td></tr><tr><td><code>b501826</code></td><td>2026-10-31</td><td>feat(L3): 黄金路径 26 步跑通 + 证据链修正</td></tr><tr><td><code>39bc332</code></td><td>2026-10-31</td><td>feat: 六层骨架 + SSOT(617 端点/216 消费方声明) + 9 条不变量 + 4 道门禁</td></tr>
+<tr><td><code>586dd07</code></td><td>2026-11-01</td><td>docs(ssot): 全景补字节级自证（endpoints.json 差 2467 字节 == 617 条路径字符总差，证明只删了 /api 前缀）</td></tr><tr><td><code>69dc839</code></td><td>2026-11-01</td><td>docs(report): 提交记录表刷新至 247a416；证据包重打（487 文件 / 3.7MB 原始 / 690KB 压缩）</td></tr><tr><td><code>247a416</code></td><td>2026-11-01</td><td>feat(ssot): 演进全景 + 冻结校验门（补上一个"声明有、执行无"的缺口）</td></tr><tr><td><code>77a5151</code></td><td>2026-10-31</td><td>docs(report): 钉住基线用例数口径（JUnit 2020 vs 终端汇总 2018），耗时标注为逐条相加</td></tr><tr><td><code>8e50a7a</code></td><td>2026-10-31</td><td>docs(report): 提交记录表刷新至 a57fe2b（报告页每次提交后由 build_report.py 重渲染）</td></tr><tr><td><code>a57fe2b</code></td><td>2026-10-31</td><td>evidence: 基线 2018 例 / 债务台账 179 条 / 变异 3-3 / 两次闸门判决 + 报告页与证据包</td></tr><tr><td><code>a2c09ad</code></td><td>2026-10-31</td><td>fix(gates): 归因判据修正 + 存量债务台账 + 闸门候选语义</td></tr><tr><td><code>b501826</code></td><td>2026-10-31</td><td>feat(L3): 黄金路径 26 步跑通 + 证据链修正</td></tr><tr><td><code>39bc332</code></td><td>2026-10-31</td><td>feat: 六层骨架 + SSOT(617 端点/216 消费方声明) + 9 条不变量 + 4 道门禁</td></tr>
 </table>
 
 <h2>3. 一次完整转动：八步，每一步都留证据</h2>
@@ -164,8 +164,9 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 
 <h3>4.1 这份 SSOT 是怎么来的：三个状态，前后都能对照</h3>
 <p>上面的数字不是一次写成的。它先失败过一次（导出 0 字节事实源），又错过一次（前后端没落到同一坐标系，
-命中率 0/216），修正后才成为现在这份。每个状态的全景与逐条差异在
-<a href="ssot-evolution.html">0.ssot 演进全景</a>里，这里只放关键差值：</p>
+命中率 0/216），修正后才成为现在这份。每个版本<strong>自身的资产全景</strong>（端点全量清单、声明全量清单、
+契约矩阵三段、依赖图邻接表）在 <a href="ssot-atlas.html">SSOT 版本资产全景</a> 里，一章一版、互不比较；
+若要看这一步的坐标系前后对照，另有 <a href="ssot-evolution.html">演进全景</a>。这里只放关键差值：</p>
 <table>
 <tr><th>状态</th><th>后端操作</th><th>前端声明</th><th>命中</th><th>前端未命中</th><th>后端未被引用</th></tr>
 <tr><td>G0 导出失败</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
@@ -322,7 +323,7 @@ python 4.gates/can-i-deploy/can_i_deploy.py --candidate l1-run-01</pre>
 <footer>
 被测仓 <a href="https://github.com/inventree/InvenTree">inventree/InvenTree</a> @ <code>d96174c</code> ·
 交付仓 <a href="https://github.com/aces-org-zhuang/aces-smoke-flywheel">aces-org-zhuang/aces-smoke-flywheel</a> ·
-报告生成于 2026-11-01 10:04 ·
+报告生成于 2026-11-01 10:09 ·
 页面所有数字来自 <code>5.evidence/</code> 与 <code>0.ssot/</code>，可逐条复算
 </footer>
 

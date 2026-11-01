@@ -1,0 +1,13 @@
+{
+  "version": "V0",
+  "kind": "失败态（无产物）",
+  "observed_at": "2026-10-31T09:44:51Z",
+  "command": "manage.py spectacular --file 0.ssot/openapi.yaml",
+  "exit_code": 0,
+  "bytes_written": 0,
+  "log_line": "INVE-W8: Database Migrations required",
+  "log_source": "spec.log（被测仓导出日志）",
+  "remediation": "先执行 manage.py migrate --noinput（实测 2 分 07 秒），再重新导出得到 1,106,494 字节规范",
+  "guard_added": "tools/emit_ssot.py 现在对 0 字节/无 paths 的规范当场拒跑，不再崩在 yaml 解析之后",
+  "summary": "规范写盘 0 字节：spectacular 因 INVE-W8（未迁移）以退出码 0 结束。此版本没有任何 SSOT 资产。"
+}
