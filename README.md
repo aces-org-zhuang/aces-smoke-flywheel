@@ -30,9 +30,18 @@
 3.env/           运行底座：target.yaml（被测对象 + 环境偏差声明）、virtual/、states/
 4.gates/         门禁即代码：verify-ssot / lint-boundary / classify-failure
                  / mutation-diff / can-i-deploy
+                 check-atlas：资产全景页的点击验证（每条资产点开是不是原文）
 5.evidence/      证据仓：runs/（每次运行的 junit+stdout）、verdicts/、ledger/
 docs/            方法对照（method.md）、域对照、变异等价性说明、
                  报告页（report.html）、版本资产全景（ssot-atlas.html）、演进全景（ssot-evolution.html）
+
+资产全景（ssot-atlas.html）是"能点开的"版本：一章一个 SSOT 版本，章内每一条资产都能展开看原文——
+  端点 617 条 → 该操作的完整 OpenAPI 定义（参数 / 请求体 / 响应 / 鉴权 / 原始 JSON）
+  数据模型 423 条 → 逐字段类型与必填，$ref 可继续下钻
+  前端声明 216 条 → ApiEndpoints.tsx 的具体行与上下文
+  依赖边 129 条 → 后端那条真实的 import 语句
+  契约矩阵 529 条 → 命中的全部 method 与 operationId，可跳回端点
+页面内嵌完整规范副本，离线可查；点开是否真出原文由 4.gates/check-atlas 断言（40 条断言）。
 ```
 
 ## 一次完整转动的八步

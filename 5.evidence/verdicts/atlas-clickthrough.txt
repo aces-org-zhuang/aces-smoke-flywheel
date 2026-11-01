@@ -1,0 +1,48 @@
+# 资产全景页点击验证记录
+# 生成：node 4.gates/check-atlas/check_atlas.mjs
+# 时间：2026-11-01T02:19:27Z
+# 页面：docs/ssot-atlas.html (2878482 字节)
+
+PASS 页面脚本执行无异常
+PASS body 已标记 js（标签页生效）
+PASS 默认停在 V3 已提交原件  V3
+PASS 内嵌规范可用  paths=292
+PASS 内嵌 schema 可用  schemas=423
+PASS 声明源码可用  sources=216
+PASS 端点行全部能落到规范 path  rows=3094 bad=0
+PASS schema 行全部能在规范中找到  rows=1269 bad=0
+PASS 端点行存在
+PASS 端点行点开出现详情
+PASS 端点详情含 operationId
+PASS 端点详情含参数表与真实参数名
+PASS 端点详情含响应段
+PASS 端点详情含原始 JSON
+PASS 端点详情默认不带折叠外的空壳  len=9585
+PASS 再次点击收起详情
+PASS POST 端点展开含请求体  POST/api/part/part_create标签：part本版归一化：/partAPI endpoint for accessing a list of 
+PASS schema 行存在
+PASS schema 详情含字段表
+PASS schema 详情含真实字段名  Parttype: objectSerializer for complete detail information of a part. Used when displaying all details of a single compo
+PASS schema 详情含规格原文
+PASS 声明行存在
+PASS 声明详情含源码文件与行号  user_listsrc/frontend/lib/enums/ApiEndpoints.tsx : 13源码原文10 api_server_info = '', 11 12 //
+PASS 声明详情含真实源码行  user_listsrc/frontend/lib/enums/ApiEndpoints.tsx : 13源码原文10 api_server_info = '', 11 12 // User API endpoints 13 user_list = 'user/', 14 user_set_password = 'us
+PASS 命中行存在
+PASS 命中详情列出 operationId  address_list本版：V3模板company/address/命中的操作（3）operationId操作company_address_bulk_destroyDELETE /api/company/address/company_
+PASS 依赖行存在
+PASS 依赖详情含 import 语句与文件  order11 个下游 app→ InvenTree文件行语句src/backend/InvenTree/order/api.py36from InvenTree.api import (src/backend/InvenTree/order/api.py45from Inven
+PASS 鉴权方案行存在
+PASS 鉴权详情含方案定义  tokenAuthAPIKEYToken-based authentication with required prefix "Token"{ "type": "apiKey", "in": "header", "name": "Autho
+PASS 存在带 schema 引用的端点详情  DELETE /api/order/po-extra-line/
+PASS 点击引用后弹层打开  BulkRequest
+PASS 弹层内容是目标 schema  BulkRequest
+PASS 弹层可关闭
+PASS 切到 V1 生效
+PASS V1 命中数为 0（该版本确实全未命中）  hit_rows=0
+PASS 切回 V3 生效
+PASS 筛选有计数反馈  筛选 49 / 1804 条资产
+PASS 筛选确实隐藏了不匹配行  hidden=1755
+PASS 展开分组按钮生效  open_details=52
+
+---- 汇总 ----
+断言 40 条，失败 0 条

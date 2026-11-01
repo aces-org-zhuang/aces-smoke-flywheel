@@ -24,7 +24,8 @@ INCLUDE = [
 ]
 
 EXCLUDE_SUFFIX = {".pyc"}
-EXCLUDE_PARTS = {"__pycache__", ".git"}
+# node_modules 是 check-atlas 的验证依赖（jsdom），不是证据；打进去会把包从数百 KB 撑到数十 MB
+EXCLUDE_PARTS = {"__pycache__", ".git", "node_modules"}
 
 
 def main() -> int:

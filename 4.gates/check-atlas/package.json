@@ -1,0 +1,13 @@
+{
+  "name": "aces-smoke-flywheel-check-atlas",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "资产全景页的点击验证：用 jsdom 跑页面脚本并模拟点击，断言每条资产展开后是原文",
+  "scripts": {
+    "check": "node check_atlas.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^27.0.0"
+  }
+}

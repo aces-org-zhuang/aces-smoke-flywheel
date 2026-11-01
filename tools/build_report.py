@@ -419,8 +419,11 @@ L2 契约层与 can-i-deploy 无处落脚。所以本轮选 InvenTree 做主仓�
 
 <h3>4.1 这份 SSOT 是怎么来的：三个状态，前后都能对照</h3>
 <p>上面的数字不是一次写成的。它先失败过一次（导出 0 字节事实源），又错过一次（前后端没落到同一坐标系，
-命中率 0/216），修正后才成为现在这份。每个版本<strong>自身的资产全景</strong>（端点全量清单、声明全量清单、
-契约矩阵三段、依赖图邻接表）在 <a href="ssot-atlas.html">SSOT 版本资产全景</a> 里，一章一版、互不比较；
+命中率 0/216），修正后才成为现在这份。每个版本<strong>自身的资产全景</strong>在
+<a href="ssot-atlas.html">SSOT 版本资产全景</a> 里，一章一版、互不比较——而且<strong>每一条资产都能点开看原文</strong>：
+端点 617 条展开是该操作的完整 OpenAPI 定义，数据模型 423 条展开是逐字段类型与必填（<code>$ref</code> 可继续下钻），
+前端声明 216 条展开是 <code>ApiEndpoints.tsx</code> 的具体行，依赖边 129 条展开是后端那条真实的 <code>import</code> 语句。
+点开是否真出原文由 <code>4.gates/check-atlas</code> 断言，不是靠肉眼。
 若要看这一步的坐标系前后对照，另有 <a href="ssot-evolution.html">演进全景</a>。这里只放关键差值：</p>
 <table>
 <tr><th>状态</th><th>后端操作</th><th>前端声明</th><th>命中</th><th>前端未命中</th><th>后端未被引用</th></tr>
